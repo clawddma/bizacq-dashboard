@@ -1,0 +1,122 @@
+acquisition:
+  target_states: ["TX", "FL"]
+  max_deal_size_usd: 5_000_000
+  min_sde_usd: 75_000
+  min_years_operation: 2
+  max_price_sde_multiple: 4.5
+  min_dscr: 1.25
+
+scoring_weights:
+  financial_score: 0.35
+  self_financing_score: 0.25
+  ai_upside_score: 0.20
+  strategic_score: 0.20
+
+priority_thresholds:
+  alta: 80
+  media: 60
+  baja: 40
+
+# If filter_score exceeds this, FinancialAgent runs automatically (consumes Haiku tokens)
+auto_analyze_filter_score_threshold: 70
+
+# StrategyAgent (Sonnet) only runs if financial_score exceeds this
+strategy_activation_threshold: 55
+
+# Hard ceiling on weekly LLM spend; agents refuse to call when exceeded
+weekly_token_budget_usd: 50.0
+
+scraping:
+  default_user_agents:
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15"
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5; rv:131.0) Gecko/20100101 Firefox/131.0"
+
+  sources:
+    - name: bizbuysell
+      enabled: true
+      interval_hours: 24
+      rate_limit_seconds: 3
+      requires_auth: false
+      curated: false           # generic marketplace, large volume + noise
+
+    - name: bizquest
+      enabled: true
+      interval_hours: 24
+      rate_limit_seconds: 3
+      requires_auth: false
+      curated: false
+
+    - name: flippa
+      enabled: true
+      interval_hours: 48
+      rate_limit_seconds: 5
+      requires_auth: false
+      curated: false
+
+    - name: empire_flippers
+      enabled: true
+      interval_hours: 48
+      rate_limit_seconds: 5
+      requires_auth: false
+      curated: true            # vetted digital businesses
+
+    - name: bizscout
+      enabled: true
+      interval_hours: 24
+      rate_limit_seconds: 4
+      requires_auth: true      # browse requires login; use BIZSCOUT_* env vars
+      curated: true            # 100+ vetted brokers, pre-due-diligence value
+      notes: "Listings pre-vetted; bonus in filter_score. Respect TOS — slow rate."
+
+    - name: loopnet
+      enabled: false           # only enable for operation + real estate combos
+      interval_hours: 72
+      rate_limit_seconds: 5
+      requires_auth: false
+      curated: false
+
+blacklist_categories:
+  - "MLM"
+  - "Multi-Level Marketing"
+  - "Vending Machine Routes"
+  - "ATM Business"
+  - "Cryptocurrency Mining"
+  - "Adult Entertainment"
+
+ai_upside_high_potential_industries:
+  - "HVAC"
+  - "Plumbing"
+  - "Electrical"
+  - "Landscaping"
+  - "Cleaning Services"
+  - "E-commerce"
+  - "SaaS"
+  - "Digital Marketing Agency"
+  - "Insurance Agency"
+  - "Accounting"
+  - "Med Spa"
+  - "Dental Practice"
+  - "Auto Repair"
+  - "Pest Control"
+  - "Pool Service"
+  - "Property Management"
+  - "Home Services"
+
+llm:
+  haiku_model: "claude-haiku-4-5"
+  sonnet_model: "claude-sonnet-4-6"
+  max_input_tokens_haiku: 400
+  max_input_tokens_sonnet: 600
+  max_output_tokens_haiku: 600
+  max_output_tokens_sonnet: 800
+  # Anthropic per-million-token pricing (USD). Update when prices change.
+  pricing:
+    "claude-haiku-4-5":
+      input_per_mtok: 0.80
+      output_per_mtok: 4.00
+    "claude-sonnet-4-6":
+      input_per_mtok: 3.00
+      output_per_mtok: 15.00

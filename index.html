@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>BizAcq Intelligence · Pipeline TX & FL</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+  .scrollbar-thin::-webkit-scrollbar { height: 8px; width: 8px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .card-shadow { box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04); }
+  .card-shadow:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+  [x-cloak] { display: none !important; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen" x-data="dashboard()" x-init="init()">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold text-slate-900">BizAcq <span class="text-slate-400 font-normal">Intelligence</span></h1>
+        <p class="text-xs text-slate-500 mt-0.5">Texas &amp; Florida · Negocios con caja desde el día 1, financiables solos, con upside de IA</p>
+      </div>
+      <div class="flex items-center gap-3 text-xs text-slate-500">
+        <span>Última actualización: <strong class="text-slate-700" x-text="lastUpdate"></strong></span>
+        <span class="text-slate-300">·</span>
+        <span><strong class="text-slate-700" x-text="totalDeals"></strong> deals totales</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filters bar -->
+  <div class="bg-white border-b border-slate-200">
+    <div class="max-w-screen-2xl mx-auto px-6 py-3 flex items-center gap-4 flex-wrap">
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-500 font-medium">Estado:</span>
+        <template x-for="opt in ['Todos','TX','FL']" :key="opt">
+          <button @click="filters.state = opt"
+            :class="filters.state === opt ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="px-3 py-1 text-xs font-medium rounded-md transition"
+            x-text="opt"></button>
+        </template>
+      </div>
+      <div class="h-5 w-px bg-slate-200"></div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-500 font-medium">Prioridad:</span>
+        <template x-for="opt in ['Todas','ALTA','MEDIA','BAJA']" :key="opt">
+          <button @click="filters.priority = opt"
+            :class="filters.priority === opt ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="px-3 py-1 text-xs font-medium rounded-md transition"
+            x-text="opt"></button>
+        </template>
+      </div>
+      <div class="h-5 w-px bg-slate-200"></div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-500 font-medium">Financiamiento:</span>
+        <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer">
+          <input type="checkbox" x-model="filters.sellerFinancing" class="rounded border-slate-300">
+          Seller financing
+        </label>
+        <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer">
+          <input type="checkbox" x-model="filters.sbaEligible" class="rounded border-slate-300">
+          SBA elegible
+        </label>
+      </div>
+      <div class="h-5 w-px bg-slate-200"></div>
+      <div class="flex items-center gap-2 ml-auto">
+        <span class="text-xs text-slate-500" x-text="`Mostrando ${filteredCount} de ${totalDeals}`"></span>
+        <button @click="resetFilters()" class="text-xs text-slate-400 hover:text-slate-700 underline">limpiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kanban -->
+  <main class="max-w-screen-2xl mx-auto px-6 py-6">
+    <div class="grid grid-cols-6 gap-3 min-h-[calc(100vh-180px)]" x-cloak>
+      <template x-for="col in columns" :key="col.key">
+        <div class="bg-white rounded-lg border border-slate-200 flex flex-col">
+          <!-- Column header -->
+          <div class="px-3 py-2.5 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white rounded-t-lg z-10">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full" :class="col.dot"></span>
+              <h2 class="text-xs font-semibold text-slate-700 uppercase tracking-wide" x-text="col.label"></h2>
+            </div>
+            <span class="text-xs text-slate-400 font-medium" x-text="dealsByStatus(col.key).length"></span>
+          </div>
+          <!-- Cards -->
+          <div class="flex-1 overflow-y-auto scrollbar-thin p-2 space-y-2">
+            <template x-for="deal in dealsByStatus(col.key)" :key="deal.id">
+              <div @click="openDeal(deal)"
+                class="bg-white border border-slate-200 rounded-md p-3 cursor-pointer card-shadow transition group">
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
+                  <span class="shrink-0 text-xs font-bold px-1.5 py-0.5 rounded"
+                    :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
+                    x-text="deal.state"></span>
+                </div>
+                <p class="text-xs text-slate-500 mb-2.5" x-text="`${deal.business_type} · ${deal.city}`"></p>
+                <div class="flex items-baseline gap-3 mb-2.5">
+                  <div>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
+                    <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
+                  </div>
+                  <div x-show="deal.reported_sde">
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">SDE</p>
+                    <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde)"></p>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
+                  <div class="flex items-center gap-1">
+                    <span x-show="deal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
+                      :class="priorityClass(deal.priority)"
+                      x-text="priorityLabel(deal.priority)"></span>
+                    <span x-show="deal.seller_financing" title="Seller financing"
+                      class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">SF</span>
+                    <span x-show="deal.sba_prequalified" title="SBA elegible"
+                      class="text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium">SBA</span>
+                    <span x-show="deal.curated_source" title="Listado pre-validado"
+                      class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
+                  </div>
+                  <div x-show="deal.overall_score" class="text-right">
+                    <span class="text-base font-bold" :class="scoreColor(deal.overall_score)" x-text="Math.round(deal.overall_score)"></span>
+                  </div>
+                </div>
+                <div x-show="deal.alert" class="mt-2 text-[10px] text-red-700 bg-red-50 px-2 py-1 rounded font-medium"
+                  x-text="deal.alert"></div>
+              </div>
+            </template>
+            <p x-show="dealsByStatus(col.key).length === 0" class="text-center text-xs text-slate-300 py-8">vacío</p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </main>
+
+  <!-- Detail panel (slide-in) -->
+  <div x-show="selectedDeal" x-cloak
+    x-transition.opacity
+    class="fixed inset-0 bg-slate-900/40 z-40"
+    @click.self="closeDeal()">
+    <div x-show="selectedDeal"
+      x-transition:enter="transition transform ease-out duration-200"
+      x-transition:enter-start="translate-x-full"
+      x-transition:enter-end="translate-x-0"
+      x-transition:leave="transition transform ease-in duration-150"
+      x-transition:leave-start="translate-x-0"
+      x-transition:leave-end="translate-x-full"
+      class="fixed right-0 top-0 bottom-0 w-full max-w-2xl bg-white shadow-2xl overflow-y-auto scrollbar-thin">
+
+      <template x-if="selectedDeal">
+        <div>
+          <!-- Detail header -->
+          <div class="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-start justify-between z-10">
+            <div class="flex-1 pr-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-bold px-1.5 py-0.5 rounded"
+                  :class="selectedDeal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
+                  x-text="selectedDeal.state"></span>
+                <span class="text-xs text-slate-500" x-text="`${selectedDeal.business_type} · ${selectedDeal.city}`"></span>
+                <span x-show="selectedDeal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
+                  :class="priorityClass(selectedDeal.priority)"
+                  x-text="priorityLabel(selectedDeal.priority)"></span>
+              </div>
+              <h2 class="text-xl font-bold text-slate-900" x-text="selectedDeal.title"></h2>
+              <p class="text-xs text-slate-500 mt-1">
+                <a :href="selectedDeal.source_url" target="_blank" rel="noopener" class="hover:underline" x-text="`Listing original (${selectedDeal.source}) ↗`"></a>
+              </p>
+            </div>
+            <button @click="closeDeal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none">×</button>
+          </div>
+
+          <div class="px-6 py-5 space-y-6">
+
+            <!-- Quick numbers -->
+            <section class="grid grid-cols-3 gap-3">
+              <div class="bg-slate-50 rounded-lg p-3">
+                <p class="text-[11px] text-slate-500 uppercase tracking-wide">Precio</p>
+                <p class="text-2xl font-bold text-slate-900" x-text="fmtPrice(selectedDeal.asking_price)"></p>
+              </div>
+              <div class="bg-emerald-50 rounded-lg p-3">
+                <p class="text-[11px] text-emerald-700 uppercase tracking-wide">Genera al año</p>
+                <p class="text-2xl font-bold text-emerald-900" x-text="selectedDeal.reported_sde ? fmtPrice(selectedDeal.reported_sde) : '—'"></p>
+              </div>
+              <div class="bg-blue-50 rounded-lg p-3">
+                <p class="text-[11px] text-blue-700 uppercase tracking-wide">Score total</p>
+                <p class="text-2xl font-bold" :class="scoreColor(selectedDeal.overall_score)" x-text="selectedDeal.overall_score ? Math.round(selectedDeal.overall_score) : '—'"></p>
+              </div>
+            </section>
+
+            <!-- What is this business -->
+            <section>
+              <h3 class="text-sm font-bold text-slate-900 mb-2">¿Qué es este negocio?</h3>
+              <div class="text-sm text-slate-700 space-y-1">
+                <p><strong>Tipo:</strong> <span x-text="selectedDeal.business_type"></span></p>
+                <p><strong>Ubicación:</strong> <span x-text="`${selectedDeal.city}, ${selectedDeal.state}`"></span></p>
+                <p x-show="selectedDeal.years_operation"><strong>Años en operación:</strong> <span x-text="selectedDeal.years_operation"></span></p>
+                <p x-show="selectedDeal.raw_description" class="text-slate-600 mt-2" x-text="selectedDeal.raw_description"></p>
+              </div>
+            </section>
+
+            <!-- Financial analysis -->
+            <section x-show="selectedDeal.financial">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">Los números clave</h3>
+              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 mb-3 rounded-r">
+                <p class="text-sm text-slate-800 leading-relaxed" x-text="selectedDeal.financial?.plain_summary"></p>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-sm">
+                <div class="bg-slate-50 p-2 rounded">
+                  <p class="text-xs text-slate-500">Pagas <span x-text="(selectedDeal.asking_price / selectedDeal.reported_sde).toFixed(1)"></span> años de ganancias</p>
+                </div>
+                <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.dscr">
+                  <p class="text-xs text-slate-500">Por cada $1 de deuda, genera $<strong class="text-slate-900" x-text="selectedDeal.financial?.dscr.toFixed(2)"></strong></p>
+                </div>
+                <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.cash_on_cash_y1">
+                  <p class="text-xs text-slate-500">Recuperas <strong class="text-slate-900" x-text="`${(selectedDeal.financial?.cash_on_cash_y1 * 100).toFixed(0)}%`"></strong> año 1</p>
+                </div>
+                <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.payback_years">
+                  <p class="text-xs text-slate-500">Recuperas tu plata en ~<strong class="text-slate-900" x-text="`${selectedDeal.financial?.payback_years} años`"></strong></p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Financing structure -->
+            <section x-show="selectedDeal.financial?.suggested_structure">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">¿Cómo se compra sin poner todo el dinero?</h3>
+              <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r">
+                <div class="flex items-center gap-1 mb-2">
+                  <template x-for="part in structureParts(selectedDeal)" :key="part.label">
+                    <div class="text-xs px-2 py-1 rounded font-medium" :class="part.color" :style="`flex: ${part.pct}`">
+                      <strong x-text="`${part.pct}%`"></strong> <span x-text="part.label"></span>
+                    </div>
+                  </template>
+                </div>
+                <p class="text-xs text-slate-700">
+                  Pago mensual estimado: <strong x-text="fmtPrice(selectedDeal.financial?.suggested_structure?.estimated_monthly_debt_service)"></strong>
+                </p>
+                <div class="mt-2 flex gap-2 flex-wrap text-[11px]">
+                  <span x-show="selectedDeal.seller_financing" class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-medium">El vendedor te financia parte</span>
+                  <span x-show="selectedDeal.financial?.sba_eligible" class="px-2 py-0.5 bg-purple-100 text-purple-700 rounded font-medium">Califica crédito SBA</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- AI Upside -->
+            <section x-show="selectedDeal.strategy">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">Potencial con IA</h3>
+              <div class="bg-purple-50 border-l-4 border-purple-500 p-3 rounded-r mb-2">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs text-purple-700 font-semibold uppercase">Upside score</span>
+                  <span class="text-2xl font-bold text-purple-900" x-text="Math.round(selectedDeal.strategy?.ai_upside?.score)"></span>
+                </div>
+                <p class="text-sm text-slate-800 leading-relaxed" x-text="selectedDeal.strategy?.plain_summary"></p>
+                <p class="text-xs text-purple-700 mt-2">
+                  En 3 años podría valer entre
+                  <strong x-text="`${selectedDeal.strategy?.ai_upside?.value_multiplier_low}x`"></strong> y
+                  <strong x-text="`${selectedDeal.strategy?.ai_upside?.value_multiplier_high}x`"></strong>
+                  lo que pagas
+                </p>
+              </div>
+              <p class="text-xs font-semibold text-slate-700 mb-1">Oportunidades concretas:</p>
+              <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+                <template x-for="op in selectedDeal.strategy?.ai_upside?.opportunities" :key="op">
+                  <li x-text="op"></li>
+                </template>
+              </ul>
+            </section>
+
+            <!-- Buy thesis -->
+            <section x-show="selectedDeal.strategy?.buy_thesis">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">Por qué comprarlo</h3>
+              <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+                <template x-for="t in selectedDeal.strategy?.buy_thesis" :key="t">
+                  <li x-text="t"></li>
+                </template>
+              </ul>
+            </section>
+
+            <!-- Risks -->
+            <section x-show="selectedDeal.financial?.risk_flags?.length || selectedDeal.strategy?.red_flags?.length">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">Riesgos a tener en cuenta</h3>
+              <ul class="text-sm text-slate-700 space-y-1.5">
+                <template x-for="r in [...(selectedDeal.financial?.risk_flags || []), ...(selectedDeal.strategy?.red_flags || [])]" :key="r">
+                  <li class="flex gap-2 items-start">
+                    <span class="text-red-500 mt-0.5">▸</span>
+                    <span x-text="r"></span>
+                  </li>
+                </template>
+              </ul>
+            </section>
+
+            <!-- Notes -->
+            <section x-show="selectedDeal.notes?.length">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">Notas</h3>
+              <div class="space-y-2">
+                <template x-for="n in selectedDeal.notes" :key="n.created_at">
+                  <div class="bg-slate-50 p-2 rounded text-sm">
+                    <p class="text-xs text-slate-500 mb-1"><strong x-text="n.author"></strong> · <span x-text="n.created_at"></span></p>
+                    <p class="text-slate-800" x-text="n.text"></p>
+                  </div>
+                </template>
+              </div>
+            </section>
+
+            <!-- Timeline -->
+            <section x-show="selectedDeal.events?.length">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">Historial</h3>
+              <ul class="text-xs text-slate-600 space-y-1">
+                <template x-for="e in selectedDeal.events" :key="e.created_at">
+                  <li class="flex gap-2"><span class="text-slate-400" x-text="e.created_at"></span><span x-text="e.description"></span></li>
+                </template>
+              </ul>
+            </section>
+
+            <p class="text-[11px] text-slate-400 text-center pt-4 border-t border-slate-100">
+              Para mover este deal a otro estado, agregar una nota, o descartarlo, dile a Claude:<br>
+              <span class="italic">"mueve el deal <strong x-text="selectedDeal.id?.slice(0,8)"></strong> a PARA_CONTACTAR"</span> o <span class="italic">"agrega nota: ..."</span>
+            </p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <script>
+    function dashboard() {
+      return {
+        deals: [],
+        lastUpdate: '—',
+        selectedDeal: null,
+        filters: { state: 'Todos', priority: 'Todas', sellerFinancing: false, sbaEligible: false },
+        columns: [
+          { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
+          { key: 'EN_ANALISIS',     label: 'En análisis',    dot: 'bg-blue-400' },
+          { key: 'PARA_CONTACTAR',  label: 'Para contactar', dot: 'bg-amber-400' },
+          { key: 'EN_NEGOCIACION',  label: 'En negociación', dot: 'bg-emerald-400' },
+          { key: 'CIERRE',          label: 'Cierre',         dot: 'bg-purple-400' },
+          { key: 'DESCARTADO',      label: 'Descartado',     dot: 'bg-red-300' },
+        ],
+        async init() {
+          try {
+            const res = await fetch('data/deals.json?_=' + Date.now());
+            const data = await res.json();
+            this.deals = data.deals || [];
+            this.lastUpdate = data.last_update || '—';
+          } catch (e) {
+            console.error('Error loading deals.json', e);
+            this.deals = [];
+          }
+        },
+        get totalDeals() { return this.deals.length; },
+        get filteredCount() { return this.deals.filter(d => this.passesFilters(d)).length; },
+        passesFilters(d) {
+          if (this.filters.state !== 'Todos' && d.state !== this.filters.state) return false;
+          if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
+          if (this.filters.sellerFinancing && !d.seller_financing) return false;
+          if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
+          return true;
+        },
+        dealsByStatus(status) {
+          return this.deals
+            .filter(d => d.pipeline_status === status && this.passesFilters(d))
+            .sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
+        },
+        openDeal(deal) { this.selectedDeal = deal; document.body.style.overflow = 'hidden'; },
+        closeDeal() { this.selectedDeal = null; document.body.style.overflow = ''; },
+        resetFilters() { this.filters = { state: 'Todos', priority: 'Todas', sellerFinancing: false, sbaEligible: false }; },
+        fmtPrice(v) {
+          if (v == null) return '—';
+          if (v >= 1_000_000) return `$${(v/1_000_000).toFixed(1)}M`;
+          if (v >= 1_000) return `$${Math.round(v/1_000)}K`;
+          return `$${v}`;
+        },
+        priorityClass(p) {
+          return p === 'ALTA' ? 'bg-red-100 text-red-700'
+               : p === 'MEDIA' ? 'bg-amber-100 text-amber-700'
+               : 'bg-slate-100 text-slate-600';
+        },
+        priorityLabel(p) {
+          return p === 'ALTA' ? '🔥 alta' : p === 'MEDIA' ? '⚡ media' : '👀 baja';
+        },
+        scoreColor(s) {
+          if (!s) return 'text-slate-400';
+          if (s >= 80) return 'text-emerald-600';
+          if (s >= 60) return 'text-amber-600';
+          return 'text-slate-500';
+        },
+        structureParts(deal) {
+          const s = deal.financial?.suggested_structure;
+          if (!s) return [];
+          const parts = [];
+          if (s.equity_pct) parts.push({ label: 'tuyo', pct: s.equity_pct, color: 'bg-slate-200 text-slate-800' });
+          if (s.sba_loan_pct) parts.push({ label: 'SBA', pct: s.sba_loan_pct, color: 'bg-purple-200 text-purple-800' });
+          if (s.seller_note_pct) parts.push({ label: 'vendedor', pct: s.seller_note_pct, color: 'bg-blue-200 text-blue-800' });
+          if (s.bank_loan_pct) parts.push({ label: 'banco', pct: s.bank_loan_pct, color: 'bg-emerald-200 text-emerald-800' });
+          return parts;
+        },
+      };
+    }
+  </script>
+</body>
+</html>

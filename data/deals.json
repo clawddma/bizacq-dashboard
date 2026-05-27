@@ -1,0 +1,534 @@
+{
+  "last_update": "2026-05-27 12:30 COT",
+  "version": "0.1.0-seed",
+  "note": "Datos seed generados manualmente para validar UX. Próxima iteración: data real desde scrapers.",
+  "deals": [
+    {
+      "id": "a1b2c3d4-1111-4000-8000-000000000001",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/Business-Opportunity/example-hvac-houston/2401234/",
+      "title": "HVAC Services & Repair — Houston Metro",
+      "state": "TX",
+      "city": "Houston",
+      "business_type": "HVAC",
+      "years_operation": 12,
+      "asking_price": 1400000,
+      "reported_revenue": 2100000,
+      "reported_sde": 480000,
+      "seller_financing": true,
+      "sba_prequalified": true,
+      "curated_source": false,
+      "raw_description": "Empresa de HVAC con 12 años en operación, base de 1,800 clientes recurrentes con contratos de mantenimiento anual. 8 técnicos + 2 admin. Flota propia de 6 vehículos. Dueño se retira por edad — quiere transición de 6 meses.",
+      "pipeline_status": "EN_ANALISIS",
+      "filter_score": 60,
+      "overall_score": 84,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 480000,
+        "dscr": 1.68,
+        "cash_on_cash_y1": 0.31,
+        "cash_on_cash_y3": 0.42,
+        "payback_years": 3.2,
+        "equity_required": 140000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 10,
+          "sba_loan_pct": 80,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 14800
+        },
+        "self_financing_score": 88,
+        "financial_score": 82,
+        "risk_flags": [
+          "El dueño lleva las relaciones grandes — riesgo de transición si los clientes top sienten el cambio",
+          "60% de los contratos vencen en los próximos 18 meses y deben renovarse"
+        ],
+        "plain_summary": "Negocio fuerte: genera $480 mil al año limpio y se paga la deuda con holgura. Pagas 2.9 años de ganancias — buen precio. El riesgo es que el dueño lleva las relaciones grandes, hay que planear bien la transición."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "12 años de historia con flujo de caja predecible y márgenes estables (~23%)",
+          "Base de clientes recurrentes con contratos = ingreso defendible frente a competencia",
+          "Houston crece 2.5% anual — demanda de HVAC residencial y comercial al alza"
+        ],
+        "ai_upside": {
+          "score": 85,
+          "opportunities": [
+            "Sistema de mantenimiento predictivo con sensores IoT en equipos clientes — reducir llamadas de emergencia 30%",
+            "Automatizar agendamiento, recordatorios y facturación (ahorro estimado: 20h/semana del admin)",
+            "Pricing dinámico por zona y estacionalidad — Houston tiene picos de verano que se pueden capturar mejor"
+          ],
+          "value_multiplier_low": 2.5,
+          "value_multiplier_high": 3.5
+        },
+        "exit_profile": "Reventa a operador regional (consolidadores de HVAC tipo ARS o servicio de hogar) o PE de home services",
+        "red_flags": [
+          "3 técnicos clave con +8 años — necesitan retención post-cierre"
+        ],
+        "strategic_score": 80,
+        "plain_summary": "Excelente operación con potencial fuerte de automatización. Si modernizas el agendamiento y metes mantenimiento predictivo, vale entre 2.5 y 3.5 veces lo que pagas en 3 años. El equipo técnico es el activo crítico — retenerlo es prioridad uno."
+      },
+      "events": [
+        {"created_at": "2026-05-20", "description": "Encontrado en BizBuySell"},
+        {"created_at": "2026-05-20", "description": "Pasó filtros automáticos → RADAR"},
+        {"created_at": "2026-05-22", "description": "Análisis financiero completado (score 82)"},
+        {"created_at": "2026-05-22", "description": "Análisis estratégico completado (score 80)"},
+        {"created_at": "2026-05-23", "description": "Movido a EN_ANALISIS automáticamente (overall 84 ≥ 80)"}
+      ],
+      "notes": []
+    },
+    {
+      "id": "a1b2c3d4-2222-4000-8000-000000000002",
+      "source": "bizscout",
+      "source_url": "https://www.bizscout.com/listing/medspa-coral-gables-fl",
+      "title": "Med Spa Boutique — Coral Gables",
+      "state": "FL",
+      "city": "Coral Gables",
+      "business_type": "Med Spa",
+      "years_operation": 6,
+      "asking_price": 1100000,
+      "reported_revenue": 1450000,
+      "reported_sde": 320000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": true,
+      "raw_description": "Med spa con 6 años en zona premium de Coral Gables. 4 cabinas, equipo de láser nuevo (2024). Base de 950 clientes activos, 35% retornan trimestralmente. Médico director con contrato a 3 años. Dueña se muda fuera del estado.",
+      "pipeline_status": "PARA_CONTACTAR",
+      "filter_score": 65,
+      "overall_score": 81,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 320000,
+        "dscr": 1.45,
+        "cash_on_cash_y1": 0.24,
+        "cash_on_cash_y3": 0.31,
+        "payback_years": 4.0,
+        "equity_required": 165000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 75,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 11200
+        },
+        "self_financing_score": 78,
+        "financial_score": 75,
+        "risk_flags": [
+          "Dependencia del médico director — si no renueva, hay que recolocarlo (Florida regula esto estrictamente)",
+          "Competencia creciente en Coral Gables (3 nuevos med spas en 12 meses)"
+        ],
+        "plain_summary": "Buen negocio en zona premium. Genera $320 mil al año y se paga su deuda. Pagas 3.4 años de ganancias — razonable para un med spa establecido. El riesgo principal es que el médico director es indispensable: si no renueva su contrato, hay que buscar reemplazo en un mercado apretado."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "Marca consolidada en zona de alto ticket — clientela de Coral Gables paga premium",
+          "Equipo láser reciente (depreciación útil de 7 años) reduce capex inmediato",
+          "Vendedora motivada por mudanza personal, no por mala operación"
+        ],
+        "ai_upside": {
+          "score": 76,
+          "opportunities": [
+            "CRM con seguimiento automático post-tratamiento + recordatorios de re-tratamientos (mes 3-6)",
+            "Análisis de clientes top 20% — paquetes personalizados con IA según historial",
+            "Captura digital: Instagram orgánico actual es débil, hay espacio para crecer 40% sin pauta"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 2.8
+        },
+        "exit_profile": "Reventa a cadena de med spas (Skin Spirit, Ideal Image) o roll-up de wellness",
+        "red_flags": [
+          "Sector regulado FL — verificar licencias y compliance con FL Board of Medicine antes de LOI"
+        ],
+        "strategic_score": 72,
+        "plain_summary": "Buen activo en mercado premium con marca real. Si modernizas el CRM y aprovechas la marca en redes, vale entre 2 y 2.8 veces lo que pagas en 3 años. La transición del médico director es el tema crítico — esa conversación tiene que pasar antes de firmar."
+      },
+      "events": [
+        {"created_at": "2026-05-15", "description": "Encontrado en BizScout (curated)"},
+        {"created_at": "2026-05-15", "description": "Bonus +10 filter_score por fuente curada"},
+        {"created_at": "2026-05-16", "description": "Análisis completado (overall 81)"},
+        {"created_at": "2026-05-21", "description": "Daniel movió a PARA_CONTACTAR"}
+      ],
+      "notes": [
+        {"author": "Daniel", "created_at": "2026-05-21 10:30", "text": "Le escribí al broker. Espera respuesta esta semana."}
+      ]
+    },
+    {
+      "id": "a1b2c3d4-3333-4000-8000-000000000003",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/Business-Opportunity/pool-service-tampa/2398765/",
+      "title": "Pool Service Route — Tampa Bay",
+      "state": "FL",
+      "city": "Tampa",
+      "business_type": "Pool Service",
+      "years_operation": 8,
+      "asking_price": 580000,
+      "reported_revenue": 720000,
+      "reported_sde": 180000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Ruta de mantenimiento de piscinas con 320 clientes mensuales recurrentes en Tampa, Brandon y Riverview. 3 técnicos. Dueño operario quiere semi-retirarse.",
+      "pipeline_status": "RADAR",
+      "filter_score": 55,
+      "overall_score": 68,
+      "priority": "MEDIA",
+      "financial": {
+        "reconstructed_sde": 180000,
+        "dscr": 1.32,
+        "cash_on_cash_y1": 0.19,
+        "cash_on_cash_y3": 0.24,
+        "payback_years": 4.5,
+        "equity_required": 87000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 75,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 6100
+        },
+        "self_financing_score": 70,
+        "financial_score": 65,
+        "risk_flags": [
+          "Negocio estacional — Tampa tiene baja del 25% en invierno",
+          "Margen ajustado (~25%) — poco espacio si suben costos de químicos o gasolina"
+        ],
+        "plain_summary": "Negocio decente con clientes recurrentes. Genera $180 mil al año y se paga la deuda con margen ajustado. Pagas 3.2 años de ganancias — razonable. El riesgo es la estacionalidad de Florida y márgenes apretados."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "Base 100% recurrente — ingreso predecible mes a mes",
+          "Ruta densa (3 zonas contiguas) reduce costos de combustible y tiempo entre clientes",
+          "Sector defensivo — piscinas no se descontinúan con recesión"
+        ],
+        "ai_upside": {
+          "score": 65,
+          "opportunities": [
+            "App de cliente con foto/reporte automático post-visita — diferenciación vs competencia local",
+            "Optimización de ruta por IA — reducir 15% el tiempo de manejo",
+            "Cross-sell de reparaciones (bombas, filtros) detectadas en visitas regulares"
+          ],
+          "value_multiplier_low": 1.8,
+          "value_multiplier_high": 2.4
+        },
+        "exit_profile": "Reventa a operador regional o consolidador de servicios de hogar",
+        "red_flags": [
+          "Sin contratos firmados — clientes mes a mes, fácil cancelar"
+        ],
+        "strategic_score": 62,
+        "plain_summary": "Negocio sólido pero techo limitado. Modernizar la operación con app y ruteo inteligente lo puede llevar a 1.8-2.4 veces el precio en 3 años. No es el mejor deal pero es seguro y autopagable."
+      },
+      "events": [
+        {"created_at": "2026-05-23", "description": "Encontrado en BizBuySell"},
+        {"created_at": "2026-05-23", "description": "Pasó filtros → RADAR"},
+        {"created_at": "2026-05-24", "description": "Análisis completado automáticamente (filter_score 55, debajo del umbral 70)"}
+      ],
+      "notes": []
+    },
+    {
+      "id": "a1b2c3d4-4444-4000-8000-000000000004",
+      "source": "bizscout",
+      "source_url": "https://www.bizscout.com/listing/pest-control-austin-tx",
+      "title": "Pest Control Operations — Greater Austin",
+      "state": "TX",
+      "city": "Austin",
+      "business_type": "Pest Control",
+      "years_operation": 15,
+      "asking_price": 720000,
+      "reported_revenue": 980000,
+      "reported_sde": 240000,
+      "seller_financing": false,
+      "sba_prequalified": true,
+      "curated_source": true,
+      "raw_description": "Compañía de control de plagas con 15 años, licencia TPCL completa, 1,200 cuentas residenciales recurrentes (trimestral) + 80 comerciales mensuales. 4 técnicos certificados. Dueño cambia de industria.",
+      "pipeline_status": "RADAR",
+      "filter_score": 70,
+      "overall_score": 79,
+      "priority": "MEDIA",
+      "financial": {
+        "reconstructed_sde": 240000,
+        "dscr": 1.55,
+        "cash_on_cash_y1": 0.26,
+        "cash_on_cash_y3": 0.34,
+        "payback_years": 3.8,
+        "equity_required": 108000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 85,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 7400
+        },
+        "self_financing_score": 75,
+        "financial_score": 78,
+        "risk_flags": [
+          "Sin seller financing — el vendedor quiere salida limpia, menos confort post-cierre",
+          "Austin tiene competencia agresiva de Terminix y Orkin en residencial"
+        ],
+        "plain_summary": "Negocio muy estable: 15 años, base recurrente, márgenes sanos. Genera $240 mil al año y cubre la deuda con buena holgura. Pagas 3 años de ganancias — buen precio. La pega es que el vendedor no quiere financiarte nada, te toca todo SBA."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "Sector altamente defensivo — control de plagas no se pospone",
+          "Licencia TPCL (Texas Pest Control License) — barrera de entrada para nuevos",
+          "Base 92% recurrente con contratos anuales firmados — visibilidad de ingreso"
+        ],
+        "ai_upside": {
+          "score": 72,
+          "opportunities": [
+            "Sensores IoT en cuentas comerciales (trampas inteligentes) — premium pricing para clientes corporativos",
+            "Automatizar renovaciones de contratos con email + SMS + Stripe — reducir churn 8%",
+            "ML para predecir infestaciones por zona y clima — agendamiento proactivo en vez de reactivo"
+          ],
+          "value_multiplier_low": 2.2,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a Rentokil, Rollins, o Anticimex que están consolidando en Texas",
+        "red_flags": [
+          "Equipo de 4 técnicos — perder a 2 sería golpe duro a la capacidad"
+        ],
+        "strategic_score": 74,
+        "plain_summary": "Negocio defensivo con barrera regulatoria — difícil que nuevos entren rápido. Si metes tecnología en cuentas comerciales y reduces el churn con automatización, vale entre 2.2 y 3 veces lo que pagas en 3 años. El sector se está consolidando — exit a multinacional es probable."
+      },
+      "events": [
+        {"created_at": "2026-05-24", "description": "Encontrado en BizScout (curated)"},
+        {"created_at": "2026-05-24", "description": "Bonus +10 filter_score por fuente curada"},
+        {"created_at": "2026-05-25", "description": "Análisis completado automáticamente (filter_score 70 ≥ umbral)"}
+      ],
+      "notes": []
+    },
+    {
+      "id": "a1b2c3d4-5555-4000-8000-000000000005",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/Business-Opportunity/auto-repair-sa/2389123/",
+      "title": "Auto Repair & Diagnostics — San Antonio",
+      "state": "TX",
+      "city": "San Antonio",
+      "business_type": "Auto Repair",
+      "years_operation": 22,
+      "asking_price": 410000,
+      "reported_revenue": 680000,
+      "reported_sde": 145000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Taller mecánico con 22 años, 4 bahías, 3 mecánicos. Especializado en flotillas comerciales pequeñas y vehículos europeos. Dueño se jubila — abierto a transición larga.",
+      "pipeline_status": "RADAR",
+      "filter_score": 50,
+      "overall_score": 56,
+      "priority": "BAJA",
+      "financial": {
+        "reconstructed_sde": 145000,
+        "dscr": 1.22,
+        "cash_on_cash_y1": 0.15,
+        "cash_on_cash_y3": 0.19,
+        "payback_years": 5.5,
+        "equity_required": 82000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 20,
+          "sba_loan_pct": 70,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 4700
+        },
+        "self_financing_score": 65,
+        "financial_score": 55,
+        "risk_flags": [
+          "Cobertura de deuda apenas cubre — si baja 10% el ingreso, no se paga sola",
+          "Negocio depende del dueño-mecánico master — sus clientes vienen por él",
+          "Equipo viejo (lift de 2008, scanner OBD básico) — capex de modernización ~$45K"
+        ],
+        "plain_summary": "Negocio viejo y conocido localmente pero ajustado financieramente. Genera $145 mil al año, apenas cubre la deuda y te toma 4.5 años recuperar tu inversión. La transición del dueño es el tema más grande porque clientes vienen por él, no por el taller."
+      },
+      "strategy": null,
+      "events": [
+        {"created_at": "2026-05-22", "description": "Encontrado en BizBuySell"},
+        {"created_at": "2026-05-22", "description": "Pasó filtros → RADAR"},
+        {"created_at": "2026-05-23", "description": "Análisis financiero completado (score 55, debajo del umbral 55 para estrategia)"}
+      ],
+      "notes": []
+    },
+    {
+      "id": "a1b2c3d4-6666-4000-8000-000000000006",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/Business-Opportunity/dental-jax/2401888/",
+      "title": "Established Dental Practice — Jacksonville",
+      "state": "FL",
+      "city": "Jacksonville",
+      "business_type": "Dental Practice",
+      "years_operation": 9,
+      "asking_price": 1800000,
+      "reported_revenue": 2400000,
+      "reported_sde": 410000,
+      "seller_financing": true,
+      "sba_prequalified": true,
+      "curated_source": false,
+      "raw_description": "Consultorio dental general + cosmética. 9 años, 3 sillas, 2 higienistas, recepción. Dueño dentista que se va a docencia universitaria. Base de 2,800 pacientes activos, 70% retornan anualmente. Equipo CEREC.",
+      "pipeline_status": "EN_NEGOCIACION",
+      "filter_score": 65,
+      "overall_score": 87,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 410000,
+        "dscr": 1.62,
+        "cash_on_cash_y1": 0.28,
+        "cash_on_cash_y3": 0.38,
+        "payback_years": 3.5,
+        "equity_required": 180000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 10,
+          "sba_loan_pct": 80,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 18900
+        },
+        "self_financing_score": 86,
+        "financial_score": 84,
+        "risk_flags": [
+          "Vas a necesitar un dentista asociado o socio dentista — la práctica requiere licencia",
+          "Equipo CEREC tiene 5 años, vida útil restante 5-7 años — planear renovación"
+        ],
+        "plain_summary": "Excelente práctica dental con números muy sólidos. Genera $410 mil al año y se paga la deuda con holgura. Pagas 4.4 años de ganancias — premium pero justificado por la marca. Tienes que conseguir un dentista asociado antes de cerrar (Florida lo exige)."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "70% retención anual de pacientes — flujo predecible y defendible",
+          "Marca consolidada en zona residencial premium de Jax",
+          "Equipo CEREC permite cobrar más por restauraciones cerámicas vs labs externos"
+        ],
+        "ai_upside": {
+          "score": 80,
+          "opportunities": [
+            "Recordatorios de chequeo + limpieza automatizados (las prácticas dentales típicamente pierden 25% de pacientes por no contactarlos)",
+            "Análisis de pacientes con seguros vs cash-pay — pricing diferenciado para mejorar mix",
+            "Captura digital: programar cita en línea (la práctica solo recibe por teléfono actualmente)"
+          ],
+          "value_multiplier_low": 2.3,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a DSO (Dental Service Organization) tipo Heartland, Pacific Dental Services, o Aspen — están comprando agresivo en Florida",
+        "red_flags": [
+          "Higienistas con poco tiempo en la práctica (1-2 años) — fácil que se vayan"
+        ],
+        "strategic_score": 78,
+        "plain_summary": "Práctica dental sólida con potencial real de DSO acquisition. Si modernizas el agendamiento y mejoras la retención de pacientes con automatización, vale entre 2.3 y 3 veces lo que pagas en 3 años. El consolidador dental DSO típicamente paga premium por prácticas con sistemas y métricas claras — vale la pena prepararla para ese exit."
+      },
+      "events": [
+        {"created_at": "2026-05-10", "description": "Encontrado en BizBuySell"},
+        {"created_at": "2026-05-10", "description": "Análisis completado (overall 87 → prioridad ALTA, EN_ANALISIS automático)"},
+        {"created_at": "2026-05-13", "description": "Daniel movió a PARA_CONTACTAR"},
+        {"created_at": "2026-05-18", "description": "Daniel movió a EN_NEGOCIACION"}
+      ],
+      "notes": [
+        {"author": "Daniel", "created_at": "2026-05-18 14:00", "text": "Primera llamada con el dueño. Está abierto a SBA + 10% seller note. Pide tour la próxima semana."},
+        {"author": "Socio", "created_at": "2026-05-20 09:15", "text": "Ya hablé con dos dentistas asociados potenciales. Uno cobra 30% revenue share, el otro 25% + cap. Hay opciones."}
+      ]
+    },
+    {
+      "id": "a1b2c3d4-7777-4000-8000-000000000007",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/Business-Opportunity/restaurant-mia/2378891/",
+      "title": "Cuban Restaurant — Little Havana",
+      "state": "FL",
+      "city": "Miami",
+      "business_type": "Restaurant",
+      "years_operation": 4,
+      "asking_price": 580000,
+      "reported_revenue": 920000,
+      "reported_sde": 90000,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Restaurante cubano en Little Havana, 60 sillas + terraza, 4 años de operación. Dueño quiere vender por temas familiares.",
+      "pipeline_status": "DESCARTADO",
+      "filter_score": 0,
+      "overall_score": null,
+      "priority": null,
+      "discard_reason": "Múltiplo precio/SDE de 6.4x — supera el máximo de 4.5x. Negocio sobrevalorado.",
+      "financial": null,
+      "strategy": null,
+      "events": [
+        {"created_at": "2026-05-19", "description": "Encontrado en BizBuySell"},
+        {"created_at": "2026-05-19", "description": "Descartado por FilterAgent: múltiplo 6.4x > 4.5x máximo"}
+      ],
+      "notes": []
+    },
+    {
+      "id": "a1b2c3d4-8888-4000-8000-000000000008",
+      "source": "bizscout",
+      "source_url": "https://www.bizscout.com/listing/ecom-supplements-dallas-tx",
+      "title": "E-commerce Supplements Brand — Dallas (D2C)",
+      "state": "TX",
+      "city": "Dallas",
+      "business_type": "E-commerce",
+      "years_operation": 3,
+      "asking_price": 670000,
+      "reported_revenue": 1100000,
+      "reported_sde": 220000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": true,
+      "raw_description": "Marca D2C de suplementos deportivos. 3 años, 18K clientes únicos, 32% repeat rate. Amazon (60%) + Shopify directo (40%). 3 empleados remotos. Fundadora se va a maternidad larga.",
+      "pipeline_status": "CIERRE",
+      "filter_score": 60,
+      "overall_score": 82,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 220000,
+        "dscr": 1.51,
+        "cash_on_cash_y1": 0.28,
+        "cash_on_cash_y3": 0.36,
+        "payback_years": 3.6,
+        "equity_required": 100000,
+        "sba_eligible": false,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 0,
+          "seller_note_pct": 35,
+          "bank_loan_pct": 50,
+          "estimated_monthly_debt_service": 7800
+        },
+        "self_financing_score": 76,
+        "financial_score": 76,
+        "risk_flags": [
+          "60% del ingreso depende de Amazon — riesgo de cuenta suspendida",
+          "Suplementos D2C — espacio competitivo con CAC subiendo (Meta + Google ads)"
+        ],
+        "plain_summary": "Marca digital sólida con tracción real. Genera $220 mil al año limpio y se paga la deuda con margen. Pagas 3 años de ganancias — bueno para D2C. Dependes mucho de Amazon (60% del ingreso) — diversificar a Shopify es la prioridad uno después de cerrar."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "32% repeat rate — base de clientes leal en un sector con churn alto",
+          "Margen sano (~20% post-Amazon fees) — no es un negocio de centavos",
+          "Fundadora motivada por razones personales — venta limpia sin escondidos"
+        ],
+        "ai_upside": {
+          "score": 84,
+          "opportunities": [
+            "Email marketing automatizado con IA por segmento (compradores únicos vs recurrentes vs lapsed) — proyección +15% LTV",
+            "Generar contenido (TikTok, blog SEO) con IA para reducir CAC en 25%",
+            "Subscription model con personalización IA según historial de compra y goals"
+          ],
+          "value_multiplier_low": 2.8,
+          "value_multiplier_high": 4.0
+        },
+        "exit_profile": "Reventa a aggregator de marcas (Thrasio, Branded, Perch — aunque varios están débiles ahora), o estrategico de nutrición/wellness",
+        "red_flags": [
+          "Diversificación off-Amazon es urgente — sin eso, el deal de exit pierde 30% de valor"
+        ],
+        "strategic_score": 82,
+        "plain_summary": "Activo digital de alta calidad. Si rompes la dependencia de Amazon construyendo el canal directo y subscription, vale entre 2.8 y 4 veces lo que pagas en 3 años. Es el deal con mayor upside del pipeline — el ejemplo perfecto del modelo BizAcq."
+      },
+      "events": [
+        {"created_at": "2026-04-12", "description": "Encontrado en BizScout (curated)"},
+        {"created_at": "2026-04-13", "description": "Análisis completado (overall 82 → ALTA)"},
+        {"created_at": "2026-04-15", "description": "Movido a PARA_CONTACTAR"},
+        {"created_at": "2026-04-22", "description": "Movido a EN_NEGOCIACION"},
+        {"created_at": "2026-05-14", "description": "LOI firmada"},
+        {"created_at": "2026-05-26", "description": "Movido a CIERRE — closing programado para 2026-06-10"}
+      ],
+      "notes": [
+        {"author": "Daniel", "created_at": "2026-05-14 18:00", "text": "LOI firmada: $670K. 15% equity ($100K), 50% banco local, 35% seller note a 5 años al 6%. Closing 10 de junio. Due diligence en proceso."}
+      ]
+    }
+  ]
+}
