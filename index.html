@@ -1577,7 +1577,32 @@
           if (n <= 3) return this.filters.states.sort().join(', ');
           return `${n} estados seleccionados`;
         },
-        dealCountByState(code) { return this.deals.filter(d => d.state === code).length; },
+        dealCountByState(code) {
+          // Contar deals de ese estado que pasan TODOS los demás filtros (excepto el del propio estado)
+          return this.deals.filter(d => {
+            if (d.state !== code) return false;
+            if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
+            if (this.filters.sellerFinancing && !d.seller_financing) return false;
+            if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
+            const price = d.asking_price || 0;
+            if (this.filters.priceRange === '0-100' && price > 100_000) return false;
+            if (this.filters.priceRange === '100-500' && (price <= 100_000 || price > 500_000)) return false;
+            if (this.filters.priceRange === '500+' && price <= 500_000) return false;
+            if (this.filters.category !== 'Todas') {
+              if (this.filters.category.startsWith('super:')) {
+                const supName = this.filters.category.substring(6);
+                const subs = SUPER_CATEGORIES[supName] || [];
+                if (!subs.includes(d.business_type)) return false;
+              } else {
+                if (d.business_type !== this.filters.category) return false;
+              }
+            }
+            if (this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO') {
+              if (!d.overall_score || d.overall_score < this.filters.minScore) return false;
+            }
+            return true;
+          }).length;
+        },
         stateBadgeClass(state) {
           if (state === 'TX') return 'bg-red-50 text-red-700';
           if (state === 'FL') return 'bg-orange-50 text-orange-700';
