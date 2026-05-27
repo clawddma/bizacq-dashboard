@@ -134,27 +134,113 @@
       <button class="tab-btn" :class="{'active': view === 'pipeline'}" @click="view = 'pipeline'">Pipeline</button>
       <button class="tab-btn" :class="{'active': view === 'category'}" @click="view = 'category'">Por categoría</button>
       <button class="tab-btn" :class="{'active': view === 'glossary'}" @click="view = 'glossary'">Glosario</button>
-      <button @click="openAddModal()"
-        class="ml-auto bg-slate-900 hover:bg-slate-700 text-white text-xs font-semibold px-3 py-2 rounded-md flex items-center gap-1.5 my-2">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
-        Agregar negocio
-      </button>
+      <div class="ml-auto flex items-center gap-2 my-2">
+        <button @click="openTokenModal()"
+          class="text-xs px-2 py-1.5 rounded flex items-center gap-1 transition"
+          :class="hasAutoSync() ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'"
+          :title="hasAutoSync() ? 'Auto-sync con GitHub activo' : 'Auto-sync no configurado — click para activar'">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 6v6l4 2"/></svg>
+          <span x-text="hasAutoSync() ? 'Auto-sync ON' : 'Auto-sync OFF'"></span>
+        </button>
+        <button @click="openAddModal()"
+          class="bg-slate-900 hover:bg-slate-700 text-white text-xs font-semibold px-3 py-2 rounded-md flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+          Agregar negocio
+        </button>
+      </div>
     </div>
   </header>
 
-  <div x-show="overrideCount > 0 && view !== 'glossary'" x-cloak class="bg-amber-50 border-b border-amber-200">
+  <!-- Token Modal (GitHub auto-sync setup) -->
+  <div x-show="tokenModalOpen" x-cloak x-transition.opacity class="modal-overlay" @click.self="tokenModalOpen = false">
+    <div class="modal-box" x-show="tokenModalOpen" x-transition x-cloak>
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900">⚙ Auto-sync con GitHub</h2>
+          <p class="text-xs text-slate-500 mt-1">Tus drag-and-drop se commitean directo al server, sin pegar mensajes a Claude.</p>
+        </div>
+        <button @click="tokenModalOpen = false" class="text-slate-400 hover:text-slate-700 text-2xl leading-none">×</button>
+      </div>
+
+      <div class="bg-blue-50 border border-blue-200 rounded p-3 text-xs text-blue-900 mb-4">
+        <p class="font-semibold mb-2">Cómo obtener el token (60 segundos):</p>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" class="underline font-medium">github.com/settings/personal-access-tokens/new ↗</a></li>
+          <li>Token name: <code class="bg-blue-100 px-1 rounded">bizacq-dashboard</code></li>
+          <li>Expiration: <strong>1 año</strong> (o lo que quieras)</li>
+          <li>Repository access: <strong>"Only select repositories"</strong> → escoge <code class="bg-blue-100 px-1 rounded">bizacq-dashboard</code></li>
+          <li>Permissions → Repository → <strong>Contents: Read and write</strong></li>
+          <li>Click <strong>"Generate token"</strong>, copia el valor (empieza con <code>github_pat_...</code>)</li>
+        </ol>
+      </div>
+
+      <label>Tu Personal Access Token:</label>
+      <input type="password" x-model="tokenInput" placeholder="github_pat_11ABCDEFGHIJKL..." spellcheck="false">
+
+      <div class="mt-3 p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-900">
+        <strong>⚠ Privacidad:</strong> el token queda guardado en localStorage de TU navegador. Nunca se commitea al repo. Solo lo ves tú en este equipo. Si comparte la URL del dashboard, los demás NO tienen tu token.
+      </div>
+
+      <div x-show="hasAutoSync()" class="mt-3 p-3 bg-emerald-50 border border-emerald-200 rounded text-xs text-emerald-800">
+        ✓ Ya tienes un token guardado. Cambiar = pegar uno nuevo. Vaciar = deshabilitar auto-sync.
+      </div>
+
+      <div class="flex items-center justify-end gap-2 mt-5">
+        <button @click="tokenModalOpen = false" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">Cancelar</button>
+        <button x-show="hasAutoSync()" @click="tokenInput=''; saveToken()" class="px-4 py-2 text-sm text-red-600 hover:text-red-800">Deshabilitar</button>
+        <button @click="saveToken()"
+          class="bg-slate-900 hover:bg-slate-700 text-white text-sm font-semibold px-4 py-2 rounded-md">
+          Guardar y probar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Local changes banner: amber when no auto-sync, blue when syncing -->
+  <div x-show="overrideCount > 0 && view !== 'glossary'" x-cloak
+    class="border-b"
+    :class="hasAutoSync() ? 'bg-blue-50 border-blue-200' : 'bg-amber-50 border-amber-200'">
     <div class="max-w-screen-2xl mx-auto px-6 py-2 flex items-center justify-between flex-wrap gap-2">
-      <p class="text-xs text-amber-900">
-        Tienes <strong x-text="overrideCount"></strong>
-        <span x-text="overrideCount === 1 ? 'cambio local' : 'cambios locales'"></span>
-        no guardado<span x-text="overrideCount === 1 ? '' : 's'"></span> al servidor.
+      <p class="text-xs" :class="hasAutoSync() ? 'text-blue-900' : 'text-amber-900'">
+        <template x-if="!hasAutoSync()">
+          <span>
+            Tienes <strong x-text="overrideCount"></strong>
+            <span x-text="overrideCount === 1 ? 'cambio local' : 'cambios locales'"></span>
+            no guardado<span x-text="overrideCount === 1 ? '' : 's'"></span> al servidor.
+            <button @click="openTokenModal()" class="underline ml-2 font-medium">Activar auto-sync ↗</button>
+          </span>
+        </template>
+        <template x-if="hasAutoSync()">
+          <span>
+            <span x-show="syncStatus === 'syncing'">🔄 Sincronizando <strong x-text="overrideCount"></strong> cambios al servidor...</span>
+            <span x-show="syncStatus === 'idle'"><strong x-text="overrideCount"></strong> cambios pendientes de sync</span>
+            <span x-show="syncStatus === 'error'" class="text-red-700">⚠ Error sincronizando: <span x-text="syncError"></span>
+              <button @click="syncToServer()" class="underline ml-1">reintentar</button>
+            </span>
+          </span>
+        </template>
       </p>
       <div class="flex items-center gap-2">
-        <button @click="copyOverridesForClaude()" class="text-xs bg-amber-700 hover:bg-amber-800 text-white px-3 py-1 rounded font-medium">
-          Copiar para pegarle a Claude
-        </button>
-        <button @click="resetOverrides()" class="text-xs text-amber-800 hover:text-amber-950 underline">deshacer todo</button>
+        <template x-if="!hasAutoSync()">
+          <button @click="copyOverridesForClaude()" class="text-xs bg-amber-700 hover:bg-amber-800 text-white px-3 py-1 rounded font-medium">
+            Copiar para pegarle a Claude
+          </button>
+        </template>
+        <template x-if="hasAutoSync() && syncStatus !== 'syncing'">
+          <button @click="syncToServer()" class="text-xs bg-blue-700 hover:bg-blue-800 text-white px-3 py-1 rounded font-medium">
+            Sincronizar ahora
+          </button>
+        </template>
+        <button @click="resetOverrides()" class="text-xs hover:underline"
+          :class="hasAutoSync() ? 'text-blue-800' : 'text-amber-800'">deshacer</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Sync success indicator (only briefly after successful sync) -->
+  <div x-show="syncStatus === 'success' && overrideCount === 0" x-cloak x-transition class="bg-emerald-50 border-b border-emerald-200">
+    <div class="max-w-screen-2xl mx-auto px-6 py-1.5 text-xs text-emerald-800 text-center">
+      ✓ Sincronizado al servidor — los cambios están en el repo y se redeployan en ~60 segundos
     </div>
   </div>
 
@@ -1073,6 +1159,12 @@
         stateMenuOpen: false,
         addModalOpen: false,
         addForm: { listingUrl: '', websiteUrl: '', category: '', state: '', askingPrice: '', notes: '' },
+        tokenModalOpen: false,
+        tokenInput: localStorage.getItem('bizacq_gh_token_v1') || '',
+        githubToken: localStorage.getItem('bizacq_gh_token_v1') || '',
+        syncStatus: 'idle', syncError: null, _syncTimer: null,
+        GH_REPO: 'clawddma/bizacq-dashboard',
+        GH_FILE: 'data/deals.json',
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
         filters: { states: ['TX','FL'], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false },
@@ -1139,12 +1231,15 @@
           this.overrides = cleanedOverrides;
           localStorage.setItem('bizacq_overrides_v1', JSON.stringify(cleanedOverrides));
 
-          // Manual order: clean if server array matches localStorage array exactly
+          // Manual order: if server has ANY manual_order for this column, treat local as synced (server is source of truth)
           const cleanedManual = {};
           for (const [col, localIds] of Object.entries(this.manualOrder)) {
-            const serverIds = serverOrders[col] || [];
-            const matches = JSON.stringify(localIds) === JSON.stringify(serverIds);
-            if (!matches) cleanedManual[col] = localIds;
+            const serverIds = serverOrders[col];
+            if (serverIds && serverIds.length > 0) {
+              // Server already has a manual order — local is obsolete/synced
+              continue;
+            }
+            cleanedManual[col] = localIds;
           }
           this.manualOrder = cleanedManual;
           localStorage.setItem('bizacq_manual_v1', JSON.stringify(cleanedManual));
@@ -1463,6 +1558,8 @@
           if (!sameColumn) this.toast(`"${shortTitle}" → ${this.statusLabel(newColKey)}`);
           else this.toast(`"${shortTitle}" reordenado`);
           this.deals = [...this.deals];
+          // Auto-sync trigger (debounced 2.5s — agrupa múltiples drags en un commit)
+          this.triggerAutoSync();
         },
         applyOverrides() {
           for (const [dealId, ov] of Object.entries(this.overrides)) {
@@ -1572,6 +1669,124 @@
           if (score >= 75) return 'upside muy alto';
           if (score >= 50) return 'upside moderado';
           return 'upside bajo';
+        },
+
+        // ─── GitHub auto-sync ──────────────────────────
+        hasAutoSync() { return !!this.githubToken; },
+        openTokenModal() { this.tokenInput = this.githubToken; this.tokenModalOpen = true; },
+        saveToken() {
+          const t = this.tokenInput.trim();
+          if (t) {
+            this.githubToken = t;
+            localStorage.setItem('bizacq_gh_token_v1', t);
+            this.toast('✓ Token guardado — probando sync...');
+            this.tokenModalOpen = false;
+            this.syncToServer();
+          } else {
+            this.githubToken = '';
+            localStorage.removeItem('bizacq_gh_token_v1');
+            this.toast('Auto-sync deshabilitado — vuelves al flow manual');
+            this.tokenModalOpen = false;
+          }
+        },
+        triggerAutoSync() {
+          if (!this.hasAutoSync()) return;
+          clearTimeout(this._syncTimer);
+          this._syncTimer = setTimeout(() => this.syncToServer(), 2500);
+        },
+        async syncToServer() {
+          if (!this.githubToken) return;
+          if (Object.keys(this.overrides).length === 0 && Object.keys(this.manualOrder).length === 0) {
+            this.toast('Nada pendiente para sincronizar');
+            return;
+          }
+          this.syncStatus = 'syncing';
+          this.syncError = null;
+          try {
+            const headers = {
+              'Authorization': `Bearer ${this.githubToken}`,
+              'Accept': 'application/vnd.github+json',
+              'X-GitHub-Api-Version': '2022-11-28',
+            };
+            // 1. GET current file + SHA
+            const getRes = await fetch(`https://api.github.com/repos/${this.GH_REPO}/contents/${this.GH_FILE}?ref=main`, { headers });
+            if (!getRes.ok) {
+              if (getRes.status === 401 || getRes.status === 403) {
+                throw new Error('Token inválido o sin permisos Contents:write');
+              }
+              throw new Error(`GitHub GET ${getRes.status}`);
+            }
+            const current = await getRes.json();
+            // base64 → UTF-8 decode
+            const decoded = decodeURIComponent(escape(atob(current.content.replace(/\n/g, ''))));
+            const serverData = JSON.parse(decoded);
+
+            // 2. Apply local changes to serverData
+            let changes = [];
+            for (const [dealId, ov] of Object.entries(this.overrides)) {
+              const sd = serverData.deals.find(d => d.id === dealId);
+              if (!sd) continue;
+              if (sd.pipeline_status !== ov.pipeline_status) {
+                const old = sd.pipeline_status;
+                sd.pipeline_status = ov.pipeline_status;
+                if (ov.discard_reason) sd.discard_reason = ov.discard_reason;
+                sd.events = sd.events || [];
+                sd.events.push({
+                  created_at: new Date().toISOString().slice(0, 10),
+                  description: `Movido de ${old} → ${ov.pipeline_status} (auto-sync desde dashboard)`
+                    + (ov.discard_reason ? ` — razón: ${ov.discard_reason}` : ''),
+                });
+                changes.push(`${sd.title.slice(0,30)} → ${ov.pipeline_status}`);
+              }
+            }
+            serverData.manual_orders = serverData.manual_orders || {};
+            for (const [col, ids] of Object.entries(this.manualOrder)) {
+              if (!ids || ids.length === 0) continue;
+              if (JSON.stringify(serverData.manual_orders[col]) !== JSON.stringify(ids)) {
+                serverData.manual_orders[col] = ids;
+                changes.push(`Orden ${col}: ${ids.length} cards`);
+              }
+            }
+
+            if (changes.length === 0) {
+              this.syncStatus = 'success';
+              this.toast('Server ya tiene tus cambios — limpiando local');
+              this.overrides = {}; this.manualOrder = {};
+              localStorage.setItem('bizacq_overrides_v1', '{}');
+              localStorage.setItem('bizacq_manual_v1', '{}');
+              setTimeout(() => { this.syncStatus = 'idle'; }, 4000);
+              return;
+            }
+
+            serverData.last_update = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC (auto-sync)';
+
+            // 3. PUT back to GitHub
+            const newJson = JSON.stringify(serverData, null, 2);
+            const encoded = btoa(unescape(encodeURIComponent(newJson)));
+            const message = `chore: auto-sync from dashboard — ${changes.slice(0, 3).join(', ')}${changes.length > 3 ? ` (+${changes.length - 3} más)` : ''}`;
+            const putRes = await fetch(`https://api.github.com/repos/${this.GH_REPO}/contents/${this.GH_FILE}`, {
+              method: 'PUT',
+              headers: { ...headers, 'Content-Type': 'application/json' },
+              body: JSON.stringify({ message, content: encoded, sha: current.sha, branch: 'main' }),
+            });
+            if (!putRes.ok) {
+              const err = await putRes.text();
+              throw new Error(`PUT ${putRes.status}: ${err.slice(0, 100)}`);
+            }
+
+            // 4. Success — clear local
+            this.overrides = {}; this.manualOrder = {};
+            localStorage.setItem('bizacq_overrides_v1', '{}');
+            localStorage.setItem('bizacq_manual_v1', '{}');
+            this.syncStatus = 'success';
+            this.toast(`✓ ${changes.length} cambio${changes.length === 1 ? '' : 's'} sincronizado${changes.length === 1 ? '' : 's'} al server`);
+            setTimeout(() => { this.syncStatus = 'idle'; }, 4500);
+          } catch (e) {
+            console.error('Sync error', e);
+            this.syncStatus = 'error';
+            this.syncError = e.message;
+            this.toast('⚠ ' + e.message);
+          }
         },
 
         // ─── Add business modal ────────────────────────
