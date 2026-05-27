@@ -15,43 +15,19 @@
   .card-shadow:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); }
   [x-cloak] { display: none !important; }
 
-  /* Tooltips on acronyms */
-  .tt {
-    border-bottom: 1px dotted #94a3b8;
-    cursor: help;
-    font-weight: inherit;
-  }
-  .tt::after {
-    content: '?';
-    font-size: 9px;
-    vertical-align: super;
-    margin-left: 1px;
-    color: #94a3b8;
-    font-weight: 700;
-  }
-  /* JS-positioned popup — never gets cut off the viewport */
+  .tt { border-bottom: 1px dotted #94a3b8; cursor: help; font-weight: inherit; }
+  .tt::after { content: '?'; font-size: 9px; vertical-align: super; margin-left: 1px; color: #94a3b8; font-weight: 700; }
   #tt-popup {
-    position: fixed;
-    background: #1e293b;
-    color: white;
-    padding: 10px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-    width: max-content;
+    position: fixed; background: #1e293b; color: white;
+    padding: 10px 12px; border-radius: 6px; font-size: 12px;
+    font-weight: 400; line-height: 1.5; width: max-content;
     max-width: min(340px, calc(100vw - 24px));
-    word-break: break-word;
-    overflow-wrap: anywhere;
-    z-index: 9999;
-    pointer-events: none;
+    word-break: break-word; overflow-wrap: anywhere;
+    z-index: 9999; pointer-events: none;
     box-shadow: 0 6px 18px rgba(0,0,0,.28);
-    display: none;
-    opacity: 0;
-    transition: opacity .12s ease-out;
+    display: none; opacity: 0; transition: opacity .12s ease-out;
   }
 
-  /* Drag-and-drop visuals */
   .dragging { opacity: .35 !important; transform: scale(.97); cursor: grabbing !important; }
   .draggable { cursor: grab; }
   .draggable:active { cursor: grabbing; }
@@ -59,7 +35,6 @@
   .drop-before { border-top: 3px solid #3b82f6 !important; margin-top: -3px; }
   .drop-after  { border-bottom: 3px solid #3b82f6 !important; margin-bottom: -3px; }
 
-  /* Toast */
   .toast {
     position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
     background: #1e293b; color: white; padding: 10px 16px; border-radius: 8px;
@@ -67,44 +42,47 @@
     font-size: 13px; max-width: 90vw; text-align: center;
   }
 
-  /* Sort dropdown */
   .sort-menu {
     position: absolute; top: calc(100% + 4px); right: 0;
     background: white; border: 1px solid #e2e8f0; border-radius: 6px;
     box-shadow: 0 6px 16px rgba(0,0,0,.12); padding: 4px; min-width: 180px; z-index: 20;
   }
-  .sort-menu button {
-    width: 100%; text-align: left; padding: 6px 10px; border-radius: 4px;
-    font-size: 12px; color: #334155; cursor: pointer;
-  }
+  .sort-menu button { width: 100%; text-align: left; padding: 6px 10px; border-radius: 4px; font-size: 12px; color: #334155; cursor: pointer; }
   .sort-menu button:hover { background: #f1f5f9; }
   .sort-menu button.active { background: #1e293b; color: white; font-weight: 600; }
 
-  /* Tab nav */
-  .tab-btn {
-    padding: 10px 16px; font-size: 13px; font-weight: 600; color: #64748b;
-    border-bottom: 2px solid transparent; cursor: pointer; transition: all .15s;
-  }
+  .tab-btn { padding: 10px 16px; font-size: 13px; font-weight: 600; color: #64748b; border-bottom: 2px solid transparent; cursor: pointer; transition: all .15s; }
   .tab-btn:hover { color: #1e293b; }
   .tab-btn.active { color: #1e293b; border-bottom-color: #1e293b; }
 
-  /* Glossary cards */
   .gl-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; }
   .gl-term { font-size: 16px; font-weight: 700; color: #1e293b; }
   .gl-def { font-size: 13px; color: #475569; line-height: 1.55; margin-top: 4px; }
 
-  /* Mobile */
-  @media (hover: none) {
-    .draggable { -webkit-user-select: none; user-select: none; }
+  /* Multiple comparison badges */
+  .mb-ok    { background: #d1fae5; color: #065f46; }
+  .mb-edge  { background: #fef3c7; color: #92400e; }
+  .mb-over  { background: #fee2e2; color: #991b1b; }
+  .mb-under { background: #dbeafe; color: #1e40af; }
+
+  /* Categoría dropdown */
+  .cat-menu {
+    position: absolute; top: calc(100% + 4px); left: 0; max-height: 360px; overflow-y: auto;
+    background: white; border: 1px solid #e2e8f0; border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.12); padding: 4px; min-width: 240px; z-index: 30;
   }
+  .cat-menu .sup { font-weight: 700; font-size: 11px; text-transform: uppercase; color: #64748b; padding: 6px 10px 4px; }
+  .cat-menu button { width: 100%; text-align: left; padding: 5px 14px; border-radius: 4px; font-size: 12px; color: #334155; cursor: pointer; }
+  .cat-menu button:hover { background: #f1f5f9; }
+  .cat-menu button.active { background: #1e293b; color: white; font-weight: 600; }
+
+  @media (hover: none) { .draggable { -webkit-user-select: none; user-select: none; } }
 </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen" x-data="dashboard()" x-init="init()">
 
-  <!-- Toast -->
   <div x-show="toastMsg" x-transition class="toast" x-text="toastMsg" x-cloak></div>
 
-  <!-- Header -->
   <header class="bg-white border-b border-slate-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between flex-wrap gap-3">
       <div>
@@ -117,7 +95,6 @@
         <span><strong class="text-slate-700" x-text="totalDeals"></strong> deals totales</span>
       </div>
     </div>
-    <!-- Tab nav -->
     <div class="max-w-screen-2xl mx-auto px-6 flex items-center gap-1">
       <button class="tab-btn" :class="{'active': view === 'pipeline'}" @click="view = 'pipeline'">Pipeline</button>
       <button class="tab-btn" :class="{'active': view === 'category'}" @click="view = 'category'">Por categoría</button>
@@ -125,27 +102,23 @@
     </div>
   </header>
 
-  <!-- Local changes banner -->
   <div x-show="overrideCount > 0 && view !== 'glossary'" x-cloak class="bg-amber-50 border-b border-amber-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-2 flex items-center justify-between flex-wrap gap-2">
       <p class="text-xs text-amber-900">
         Tienes <strong x-text="overrideCount"></strong>
         <span x-text="overrideCount === 1 ? 'cambio local' : 'cambios locales'"></span>
         no guardado<span x-text="overrideCount === 1 ? '' : 's'"></span> al servidor.
-        Esto solo lo ves tú en este navegador.
       </p>
       <div class="flex items-center gap-2">
         <button @click="copyOverridesForClaude()" class="text-xs bg-amber-700 hover:bg-amber-800 text-white px-3 py-1 rounded font-medium">
           Copiar para pegarle a Claude
         </button>
-        <button @click="resetOverrides()" class="text-xs text-amber-800 hover:text-amber-950 underline">
-          deshacer todo
-        </button>
+        <button @click="resetOverrides()" class="text-xs text-amber-800 hover:text-amber-950 underline">deshacer todo</button>
       </div>
     </div>
   </div>
 
-  <!-- Filters bar (hidden in Glossary view) -->
+  <!-- Filters bar -->
   <div x-show="view !== 'glossary'" x-cloak class="bg-white border-b border-slate-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-3 flex items-center gap-4 flex-wrap">
       <div class="flex items-center gap-2">
@@ -171,20 +144,49 @@
         <template x-for="opt in priceRanges" :key="opt.key">
           <button @click="filters.priceRange = opt.key"
             :class="filters.priceRange === opt.key ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
-            class="px-3 py-1 text-xs font-medium rounded-md transition" x-text="opt.label"
-            :title="opt.tip"></button>
+            class="px-3 py-1 text-xs font-medium rounded-md transition" x-text="opt.label" :title="opt.tip"></button>
         </template>
+      </div>
+      <div class="h-5 w-px bg-slate-200"></div>
+      <!-- Category filter -->
+      <div class="flex items-center gap-2 relative" @click.outside="catMenuOpen = false">
+        <span class="text-xs text-slate-500 font-medium">Categoría:</span>
+        <button @click.stop="catMenuOpen = !catMenuOpen"
+          class="px-3 py-1 text-xs font-medium rounded-md transition bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center gap-1">
+          <span x-text="categoryFilterLabel()"></span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div x-show="catMenuOpen" x-cloak x-transition.opacity class="cat-menu">
+          <button @click="filters.category = 'Todas'; catMenuOpen = false" :class="{'active': filters.category === 'Todas'}">Todas las categorías</button>
+          <template x-for="(sub, sup) in SUPER_CATEGORIES" :key="sup">
+            <div>
+              <div class="sup">
+                <button @click="filters.category = 'super:' + sup; catMenuOpen = false"
+                  :class="{'active': filters.category === 'super:' + sup}"
+                  class="w-full text-left font-bold text-xs uppercase tracking-wide"
+                  :style="(filters.category === 'super:' + sup) ? '' : 'color: #64748b;'">
+                  <span x-text="superIcon(sup) + ' ' + sup"></span>
+                </button>
+              </div>
+              <template x-for="b in sub" :key="b">
+                <button @click="filters.category = b; catMenuOpen = false" :class="{'active': filters.category === b}" class="pl-7">
+                  <span x-text="categoryIcon(b) + ' ' + b"></span>
+                </button>
+              </template>
+            </div>
+          </template>
+        </div>
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
       <div class="flex items-center gap-2">
         <span class="text-xs text-slate-500 font-medium">Financiamiento:</span>
         <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer">
           <input type="checkbox" x-model="filters.sellerFinancing" class="rounded border-slate-300">
-          <span class="tt" data-tip="Seller Financing: el vendedor te financia parte del precio (cobra a plazos). Reduce el cash inicial que pones de tu bolsillo.">Seller financing</span>
+          <span class="tt" data-tip="Seller Financing: el vendedor te financia parte del precio (cobra a plazos).">Seller financing</span>
         </label>
         <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer">
           <input type="checkbox" x-model="filters.sbaEligible" class="rounded border-slate-300">
-          <span class="tt" data-tip="SBA (Small Business Administration): agencia del gobierno de EE.UU. que garantiza créditos para comprar negocios.">SBA elegible</span>
+          <span class="tt" data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios.">SBA elegible</span>
         </label>
       </div>
       <div class="flex items-center gap-2 ml-auto">
@@ -194,9 +196,7 @@
     </div>
   </div>
 
-  <!-- =========================================================== -->
-  <!-- VIEW: PIPELINE (Kanban)                                     -->
-  <!-- =========================================================== -->
+  <!-- VIEW: PIPELINE -->
   <main x-show="view === 'pipeline'" x-cloak class="max-w-screen-2xl mx-auto px-6 py-6">
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 min-h-[calc(100vh-280px)]">
       <template x-for="col in columns" :key="col.key">
@@ -205,7 +205,6 @@
           @dragover.prevent="allowDropEmpty(col.key, $event)"
           @dragleave="if ($event.currentTarget === $event.target) dragOverCol = null"
           @drop.prevent="dropOnColEnd(col.key, $event)">
-
           <div class="px-3 py-2.5 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white rounded-t-lg z-10">
             <div class="flex items-center gap-2 min-w-0">
               <span class="w-2 h-2 rounded-full shrink-0" :class="col.dot"></span>
@@ -215,28 +214,22 @@
               <span class="text-xs text-slate-400 font-medium" x-text="dealsByStatus(col.key).length"></span>
               <div class="relative" @click.outside="openSortMenu = null">
                 <button @click.stop="openSortMenu = openSortMenu === col.key ? null : col.key"
-                  class="text-slate-400 hover:text-slate-700 p-0.5 rounded"
-                  :title="`Ordenar: ${sortLabel(col.key)}`">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 6h18M6 12h12M10 18h4"/>
-                  </svg>
+                  class="text-slate-400 hover:text-slate-700 p-0.5 rounded" :title="`Ordenar: ${sortLabel(col.key)}`">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
                 </button>
                 <div x-show="openSortMenu === col.key" x-cloak x-transition.opacity class="sort-menu">
                   <template x-for="opt in sortOptions" :key="opt.key">
                     <button @click="setSort(col.key, opt.key); openSortMenu = null"
-                      :class="{'active': (sortByCol[col.key] || 'score-desc') === opt.key}"
-                      x-text="opt.label"></button>
+                      :class="{'active': (sortByCol[col.key] || 'score-desc') === opt.key}" x-text="opt.label"></button>
                   </template>
                 </div>
               </div>
             </div>
           </div>
-
           <div class="kcol-body flex-1 overflow-y-auto scrollbar-thin p-2 space-y-2 min-h-[100px]">
             <template x-for="deal in dealsByStatus(col.key)" :key="deal.id">
               <div draggable="true"
-                @dragstart="dragStart(deal, $event)"
-                @dragend="dragEnd($event)"
+                @dragstart="dragStart(deal, $event)" @dragend="dragEnd($event)"
                 @dragover.prevent.stop="dragOverCard(deal, col.key, $event)"
                 @dragleave="clearCardIndicators($event.currentTarget)"
                 @drop.prevent.stop="dropOnCard(deal, col.key, $event)"
@@ -245,22 +238,28 @@
                 <div class="flex items-start justify-between gap-2 mb-2">
                   <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
                   <span class="shrink-0 text-xs font-bold px-1.5 py-0.5 rounded"
-                    :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
-                    x-text="deal.state"></span>
+                    :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="deal.state"></span>
                 </div>
                 <p class="text-xs text-slate-500 mb-2.5">
                   <span x-text="categoryIcon(deal.business_type) + ' ' + deal.business_type"></span> · <span x-text="deal.city"></span>
                 </p>
-                <div class="flex items-baseline gap-3 mb-2.5">
+                <div class="flex items-baseline gap-3 mb-2">
                   <div>
                     <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
                     <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
                   </div>
                   <div x-show="deal.reported_sde">
                     <p class="text-[10px] text-slate-400 uppercase tracking-wide">
-                      <span class="tt" data-tip="SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre.">SDE</span>
+                      <span class="tt" data-tip="SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño.">SDE</span>
                     </p>
                     <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde)"></p>
+                  </div>
+                </div>
+                <!-- Multiple vs industry indicator -->
+                <div x-show="deal.reported_sde && multipleBadge(deal)" class="mb-2">
+                  <div :class="multipleBadge(deal).class" class="text-[10px] px-2 py-1 rounded font-medium flex items-center gap-1">
+                    <span x-text="multipleBadge(deal).label"></span>
+                    <span class="tt opacity-70" :data-tip="multipleBadge(deal).tip">·</span>
                   </div>
                 </div>
                 <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
@@ -268,9 +267,9 @@
                     <span x-show="deal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
                       :class="priorityClass(deal.priority)" x-text="priorityLabel(deal.priority)"></span>
                     <span x-show="deal.seller_financing" class="tt text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium"
-                      data-tip="Seller Financing: el vendedor te financia parte del precio (cobra a plazos).">SF</span>
+                      data-tip="Seller Financing: el vendedor te financia parte del precio.">SF</span>
                     <span x-show="deal.sba_prequalified" class="tt text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium"
-                      data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios (hasta 90% del precio).">SBA</span>
+                      data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios.">SBA</span>
                     <span x-show="deal.curated_source" title="Listado pre-validado"
                       class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
                   </div>
@@ -289,93 +288,88 @@
     </div>
     <p class="text-[11px] text-slate-400 text-center mt-4">
       💡 Arrastra cards entre columnas (mueve de estado) o arriba/abajo dentro de una columna (reordena).
-      El ícono <svg class="inline" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
-      en cada columna abre opciones de ordenar.
     </p>
   </main>
 
-  <!-- =========================================================== -->
-  <!-- VIEW: POR CATEGORÍA                                         -->
-  <!-- =========================================================== -->
+  <!-- VIEW: POR CATEGORÍA (super → sub → deals) -->
   <main x-show="view === 'category'" x-cloak class="max-w-screen-2xl mx-auto px-6 py-6 space-y-8">
-    <template x-for="[cat, ds] in categoriesGrouped()" :key="cat">
+    <template x-for="superCat in categoriesBySuper()" :key="superCat.name">
       <section>
-        <div class="flex items-baseline justify-between mb-3 pb-2 border-b border-slate-200">
-          <div class="flex items-baseline gap-3">
-            <h2 class="text-lg font-bold text-slate-900">
-              <span x-text="categoryIcon(cat)"></span>
-              <span x-text="cat"></span>
-            </h2>
-            <span class="text-sm text-slate-500"
-              x-text="`${ds.length} ${ds.length === 1 ? 'deal' : 'deals'} · valor total ${fmtPrice(ds.reduce((s,d) => s + (d.asking_price || 0), 0))}`"></span>
-          </div>
+        <div class="flex items-baseline justify-between mb-4 pb-2 border-b-2 border-slate-300">
+          <h2 class="text-xl font-bold text-slate-900">
+            <span x-text="superIcon(superCat.name)"></span>
+            <span x-text="superCat.name"></span>
+            <span class="text-sm font-normal text-slate-500 ml-2" x-text="`(${superCat.totalDeals} ${superCat.totalDeals === 1 ? 'deal' : 'deals'} · ${fmtPrice(superCat.totalValue)} valor total)`"></span>
+          </h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          <template x-for="deal in ds" :key="deal.id">
-            <div @click="openDeal(deal)"
-              class="bg-white border border-slate-200 rounded-lg p-3 card-shadow cursor-pointer transition group">
-              <div class="flex items-start justify-between gap-2 mb-1">
-                <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
-                <div class="flex items-center gap-1 shrink-0">
-                  <span class="text-xs font-bold px-1.5 py-0.5 rounded"
-                    :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
-                    x-text="deal.state"></span>
-                  <span class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
-                    :class="pipelineBadgeClass(deal.pipeline_status)"
-                    x-text="statusLabel(deal.pipeline_status)"></span>
+        <template x-for="subCat in superCat.subcategories" :key="subCat.name">
+          <div class="mb-6">
+            <h3 class="text-sm font-bold text-slate-700 mb-3 flex items-baseline gap-2">
+              <span x-text="categoryIcon(subCat.name) + ' ' + subCat.name"></span>
+              <span class="text-xs font-normal text-slate-500" x-text="`${subCat.deals.length} ${subCat.deals.length === 1 ? 'deal' : 'deals'}`"></span>
+              <span x-show="VALUATION[subCat.name]" class="tt text-[11px] text-slate-400 font-medium ml-auto"
+                :data-tip="valuationTip(subCat.name)" x-text="valuationShort(subCat.name)"></span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+              <template x-for="deal in subCat.deals" :key="deal.id">
+                <div @click="openDeal(deal)" class="bg-white border border-slate-200 rounded-lg p-3 card-shadow cursor-pointer transition group">
+                  <div class="flex items-start justify-between gap-2 mb-1">
+                    <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
+                    <div class="flex items-center gap-1 shrink-0">
+                      <span class="text-xs font-bold px-1.5 py-0.5 rounded"
+                        :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="deal.state"></span>
+                      <span class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
+                        :class="pipelineBadgeClass(deal.pipeline_status)" x-text="statusLabel(deal.pipeline_status)"></span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-slate-500 mb-2.5" x-text="deal.city"></p>
+                  <div class="flex items-baseline gap-3 mb-2">
+                    <div>
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
+                      <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
+                    </div>
+                    <div x-show="deal.reported_sde">
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wide">
+                        <span class="tt" data-tip="SDE: lo que el negocio genera al año limpio.">SDE</span>
+                      </p>
+                      <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde)"></p>
+                    </div>
+                    <div x-show="deal.reported_sde" class="ml-auto text-right">
+                      <p class="text-[10px] text-slate-400 uppercase tracking-wide">Múltiplo</p>
+                      <p class="text-sm font-semibold text-slate-700" x-text="`${(deal.asking_price / deal.reported_sde).toFixed(1)}x`"></p>
+                    </div>
+                  </div>
+                  <div x-show="deal.reported_sde && multipleBadge(deal)" class="mb-2">
+                    <div :class="multipleBadge(deal).class" class="text-[10px] px-2 py-1 rounded font-medium" x-text="multipleBadge(deal).label"></div>
+                  </div>
+                  <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
+                    <div class="flex items-center gap-1 flex-wrap">
+                      <span x-show="deal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
+                        :class="priorityClass(deal.priority)" x-text="priorityLabel(deal.priority)"></span>
+                      <span x-show="deal.seller_financing" class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">SF</span>
+                      <span x-show="deal.sba_prequalified" class="text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium">SBA</span>
+                      <span x-show="deal.curated_source" class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
+                    </div>
+                    <div x-show="deal.overall_score" class="text-right">
+                      <span class="text-base font-bold" :class="scoreColor(deal.overall_score)" x-text="Math.round(deal.overall_score)"></span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <p class="text-xs text-slate-500 mb-2.5" x-text="deal.city"></p>
-              <div class="flex items-baseline gap-3 mb-2">
-                <div>
-                  <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
-                  <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
-                </div>
-                <div x-show="deal.reported_sde">
-                  <p class="text-[10px] text-slate-400 uppercase tracking-wide">
-                    <span class="tt" data-tip="SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño.">SDE</span>
-                  </p>
-                  <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde)"></p>
-                </div>
-                <div x-show="deal.reported_sde" class="ml-auto text-right">
-                  <p class="text-[10px] text-slate-400 uppercase tracking-wide">Múltiplo</p>
-                  <p class="text-sm font-semibold text-slate-700" x-text="`${(deal.asking_price / deal.reported_sde).toFixed(1)}x`"></p>
-                </div>
-              </div>
-              <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
-                <div class="flex items-center gap-1 flex-wrap">
-                  <span x-show="deal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
-                    :class="priorityClass(deal.priority)" x-text="priorityLabel(deal.priority)"></span>
-                  <span x-show="deal.seller_financing" class="tt text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium"
-                    data-tip="Seller Financing: el vendedor te financia parte del precio.">SF</span>
-                  <span x-show="deal.sba_prequalified" class="tt text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium"
-                    data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios.">SBA</span>
-                  <span x-show="deal.curated_source" title="Listado pre-validado"
-                    class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
-                </div>
-                <div x-show="deal.overall_score" class="text-right">
-                  <span class="text-base font-bold" :class="scoreColor(deal.overall_score)" x-text="Math.round(deal.overall_score)"></span>
-                </div>
-              </div>
+              </template>
             </div>
-          </template>
-        </div>
+          </div>
+        </template>
       </section>
     </template>
-    <p x-show="categoriesGrouped().length === 0" class="text-center text-sm text-slate-400 py-12">
-      No hay deals que coincidan con los filtros activos.
-    </p>
+    <p x-show="categoriesBySuper().length === 0" class="text-center text-sm text-slate-400 py-12">No hay deals que coincidan con los filtros activos.</p>
   </main>
 
-  <!-- =========================================================== -->
-  <!-- VIEW: GLOSARIO                                              -->
-  <!-- =========================================================== -->
+  <!-- VIEW: GLOSARIO -->
   <main x-show="view === 'glossary'" x-cloak class="max-w-screen-xl mx-auto px-6 py-6">
     <div class="mb-6">
       <h2 class="text-xl font-bold text-slate-900 mb-1">Glosario de términos</h2>
       <p class="text-sm text-slate-500">Todos los acrónimos, jerga financiera, y términos de industria que aparecen en el dashboard.</p>
-      <input type="text" x-model="glossarySearch"
-        placeholder="Buscar término..."
+      <input type="text" x-model="glossarySearch" placeholder="Buscar término..."
         class="mt-3 w-full md:w-80 px-3 py-2 text-sm border border-slate-300 rounded-md focus:outline-none focus:border-slate-900">
     </div>
     <template x-for="[catName, terms] in filteredGlossary()" :key="catName">
@@ -391,29 +385,51 @@
         </div>
       </section>
     </template>
-    <p x-show="filteredGlossary().length === 0" class="text-center text-sm text-slate-400 py-12">
-      Sin resultados para "<span x-text="glossarySearch"></span>".
-    </p>
+
+    <!-- Valuation table -->
+    <section class="mt-10">
+      <h3 class="text-sm font-bold text-slate-700 uppercase tracking-wide mb-3">Múltiplos típicos por industria (mercado EE.UU. 2026)</h3>
+      <p class="text-xs text-slate-500 mb-3">Cuántas veces el SDE anual paga el mercado por cada tipo de negocio. Si pagas dentro o debajo del rango, vas bien. Si pagas arriba, justifica con tasas de retención, contratos, equipo, o marca.</p>
+      <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-slate-50 text-xs text-slate-500 uppercase">
+            <tr><th class="text-left px-3 py-2">Industria</th><th class="text-center px-3 py-2">Rango bajo</th><th class="text-center px-3 py-2">Rango alto</th><th class="text-left px-3 py-2">Nota</th></tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <template x-for="(v, ind) in VALUATION" :key="ind">
+              <tr>
+                <td class="px-3 py-2 font-medium"><span x-text="categoryIcon(ind) + ' ' + ind"></span></td>
+                <td class="text-center text-slate-700" x-text="`${v.low}x ${v.metric || 'SDE'}`"></td>
+                <td class="text-center text-slate-700" x-text="`${v.high}x ${v.metric || 'SDE'}`"></td>
+                <td class="px-3 py-2 text-xs text-slate-500" x-text="v.note || ''"></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[11px] text-slate-400 mt-3">
+        Promedio nacional 2026: <strong>2.5x SDE</strong> en 9,500+ transacciones (Sundance Financial). Recurring revenue, contratos firmes, y baja dependencia del dueño suben al alto del rango. Owner-dependent: descuentos al bajo del rango.
+      </p>
+    </section>
+
+    <p x-show="filteredGlossary().length === 0 && !glossarySearch" class="text-center text-sm text-slate-400 py-12">Sin resultados.</p>
   </main>
 
   <!-- Detail panel -->
-  <div x-show="selectedDeal" x-cloak x-transition.opacity
-    class="fixed inset-0 bg-slate-900/40 z-40" @click.self="closeDeal()">
+  <div x-show="selectedDeal" x-cloak x-transition.opacity class="fixed inset-0 bg-slate-900/40 z-40" @click.self="closeDeal()">
     <div x-show="selectedDeal"
       x-transition:enter="transition transform ease-out duration-200"
       x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
       x-transition:leave="transition transform ease-in duration-150"
       x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
       class="fixed right-0 top-0 bottom-0 w-full max-w-2xl bg-white shadow-2xl overflow-y-auto scrollbar-thin">
-
       <template x-if="selectedDeal">
         <div>
           <div class="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-start justify-between z-10">
             <div class="flex-1 pr-4">
               <div class="flex items-center gap-2 mb-1 flex-wrap">
                 <span class="text-xs font-bold px-1.5 py-0.5 rounded"
-                  :class="selectedDeal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
-                  x-text="selectedDeal.state"></span>
+                  :class="selectedDeal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="selectedDeal.state"></span>
                 <span class="text-xs text-slate-500">
                   <span x-text="categoryIcon(selectedDeal.business_type)"></span>
                   <span x-text="selectedDeal.business_type + ' · ' + selectedDeal.city"></span>
@@ -445,6 +461,31 @@
               </div>
             </section>
 
+            <!-- Comparación con sector -->
+            <section x-show="selectedDeal.reported_sde && VALUATION[selectedDeal.business_type]">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">¿Cómo está el precio vs el sector?</h3>
+              <div class="bg-slate-50 rounded-lg p-3">
+                <div class="flex items-center justify-between mb-2">
+                  <div>
+                    <p class="text-xs text-slate-500">Pagas</p>
+                    <p class="text-xl font-bold text-slate-900" x-text="`${(selectedDeal.asking_price / selectedDeal.reported_sde).toFixed(1)}x`"></p>
+                    <p class="text-[10px] text-slate-400">años de ganancias</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-xs text-slate-500">Rango típico <span x-text="selectedDeal.business_type"></span></p>
+                    <p class="text-xl font-bold text-slate-700" x-text="`${VALUATION[selectedDeal.business_type].low}x – ${VALUATION[selectedDeal.business_type].high}x`"></p>
+                    <p class="text-[10px] text-slate-400">mercado EE.UU. 2026</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-slate-500">Veredicto</p>
+                    <p :class="multipleBadge(selectedDeal).class" class="text-sm px-2 py-1 rounded font-bold text-center" x-text="multipleBadge(selectedDeal).label"></p>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-600 mt-2" x-text="multipleBadge(selectedDeal).explanation"></p>
+                <p x-show="VALUATION[selectedDeal.business_type].note" class="text-[11px] text-slate-500 mt-2 italic" x-text="VALUATION[selectedDeal.business_type].note"></p>
+              </div>
+            </section>
+
             <section>
               <h3 class="text-sm font-bold text-slate-900 mb-2">¿Qué es este negocio?</h3>
               <div class="text-sm text-slate-700 space-y-1">
@@ -462,7 +503,7 @@
               </div>
               <div class="grid grid-cols-2 gap-2 text-sm">
                 <div class="bg-slate-50 p-2 rounded">
-                  <p class="text-xs text-slate-500">Pagas <strong x-text="(selectedDeal.asking_price / selectedDeal.reported_sde).toFixed(1)"></strong> años de ganancias por el negocio</p>
+                  <p class="text-xs text-slate-500">Pagas <strong x-text="(selectedDeal.asking_price / selectedDeal.reported_sde).toFixed(1)"></strong> años de ganancias</p>
                 </div>
                 <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.dscr">
                   <p class="text-xs text-slate-500">Por cada $1 de deuda, genera $<strong class="text-slate-900" x-text="selectedDeal.financial?.dscr.toFixed(2)"></strong>
@@ -470,10 +511,10 @@
                   </p>
                 </div>
                 <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.cash_on_cash_y1">
-                  <p class="text-xs text-slate-500">Recuperas <strong class="text-slate-900" x-text="`${(selectedDeal.financial?.cash_on_cash_y1 * 100).toFixed(0)}%`"></strong> año 1 de lo que pones de tu bolsillo</p>
+                  <p class="text-xs text-slate-500">Recuperas <strong class="text-slate-900" x-text="`${(selectedDeal.financial?.cash_on_cash_y1 * 100).toFixed(0)}%`"></strong> año 1</p>
                 </div>
                 <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.payback_years">
-                  <p class="text-xs text-slate-500">Recuperas tu plata en ~<strong class="text-slate-900" x-text="`${selectedDeal.financial?.payback_years} años`"></strong></p>
+                  <p class="text-xs text-slate-500">Recuperas en ~<strong class="text-slate-900" x-text="`${selectedDeal.financial?.payback_years} años`"></strong></p>
                 </div>
               </div>
             </section>
@@ -488,12 +529,10 @@
                     </div>
                   </template>
                 </div>
-                <p class="text-xs text-slate-700">
-                  Pago mensual estimado: <strong x-text="fmtPrice(selectedDeal.financial?.suggested_structure?.estimated_monthly_debt_service)"></strong>
-                </p>
+                <p class="text-xs text-slate-700">Pago mensual estimado: <strong x-text="fmtPrice(selectedDeal.financial?.suggested_structure?.estimated_monthly_debt_service)"></strong></p>
                 <div class="mt-2 flex gap-2 flex-wrap text-[11px]">
                   <span x-show="selectedDeal.seller_financing" class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-medium">El vendedor te financia parte</span>
-                  <span x-show="selectedDeal.financial?.sba_eligible" class="px-2 py-0.5 bg-purple-100 text-purple-700 rounded font-medium">Califica crédito <span class="tt" data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios — hasta 90% del precio.">SBA</span></span>
+                  <span x-show="selectedDeal.financial?.sba_eligible" class="px-2 py-0.5 bg-purple-100 text-purple-700 rounded font-medium">Califica crédito <span class="tt" data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios.">SBA</span></span>
                 </div>
               </div>
             </section>
@@ -569,8 +608,7 @@
             </section>
 
             <p class="text-[11px] text-slate-400 text-center pt-4 border-t border-slate-100">
-              Para agregar una nota o cambiar algo más complejo, dile a Claude:
-              <br><span class="italic">"agrega nota al deal <strong x-text="selectedDeal.id?.slice(0,8)"></strong>: …"</span>
+              Para agregar nota o cambiar algo más complejo: dile a Claude "agrega nota al deal <strong x-text="selectedDeal.id?.slice(0,8)"></strong>: …"
             </p>
           </div>
         </div>
@@ -579,42 +617,42 @@
   </div>
 
   <script>
-    // ─── Glossary ───────────────────────────────────────────────
     const GLOSSARY = {
-      'SDE':    "SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre. Es la métrica número uno para valorar pequeños negocios.",
-      'DSCR':   "DSCR (Debt Service Coverage Ratio): cuántas veces el negocio cubre la cuota de la deuda. Arriba de 1.25x = se paga solo con margen. Bancos SBA exigen mínimo 1.15x.",
-      'SBA':    "SBA (Small Business Administration): agencia federal de EE.UU. que garantiza créditos para comprar pequeños negocios. SBA 7(a) financia hasta 90% del precio con 10-25 años de plazo.",
+      'SDE':    "SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre.",
+      'DSCR':   "DSCR (Debt Service Coverage Ratio): cuántas veces el negocio cubre la cuota de la deuda. Arriba de 1.25x = se paga solo con margen.",
+      'SBA':    "SBA (Small Business Administration): agencia federal de EE.UU. que garantiza créditos para comprar pequeños negocios. SBA 7(a) financia hasta 90% del precio.",
       'SBA 7(a)': "SBA 7(a): el programa más usado de la SBA para comprar negocios. Hasta $5M, 10-25 años, tasa Prime + 2.75-4.75%.",
       'SBA 504':  "SBA 504: programa SBA cuando hay real estate o equipo grande en la compra. 10% equity + 40% CDC debenture + 50% banco.",
-      'EBITDA': "EBITDA (Earnings Before Interest, Taxes, Depreciation, Amortization): ganancia operativa antes de intereses, impuestos, depreciación y amortización. Mide cuánto genera la operación pura.",
-      'IRR':    "IRR (Internal Rate of Return): retorno anual compuesto del proyecto considerando todos los flujos de caja en el tiempo. Por encima del 20% se considera atractivo.",
-      'ROI':    "ROI (Return on Investment): retorno sobre lo que invertiste, expresado como porcentaje. Métrica simple pero no captura el tiempo.",
-      'LOI':    "LOI (Letter of Intent): carta de intención. Primer acuerdo NO vinculante con el vendedor para empezar negociación seria y due diligence. Típicamente 30-60 días de exclusividad.",
-      'DSO':    "DSO (Dental Service Organization): empresa que consolida consultorios dentales y paga premium por prácticas con sistemas claros. Compradores típicos: Heartland, Aspen, Pacific Dental.",
-      'D2C':    "D2C (Direct to Consumer): marca que vende directo al consumidor sin intermediarios. Típico de e-commerce moderno (Shopify, web propio).",
-      'CAC':    "CAC (Customer Acquisition Cost): cuánto te cuesta conseguir un cliente nuevo. Métrica clave en e-commerce y SaaS. Sano cuando recuperas CAC en menos de 12 meses.",
-      'LTV':    "LTV (Lifetime Value): cuánto te genera un cliente en toda su vida útil. La regla de oro es LTV/CAC > 3x.",
-      'HVAC':   "HVAC (Heating, Ventilation, Air Conditioning): empresas de calefacción, ventilación y aire acondicionado. Servicio esencial, demanda estable, sector que PE/strategics consolidan agresivamente.",
-      'TPCL':   "TPCL (Texas Pest Control License): licencia obligatoria en Texas para operar control de plagas. Es barrera de entrada — toma 6-12 meses obtenerla.",
-      'CEREC':  "CEREC: tecnología dental para hacer restauraciones cerámicas (coronas, carillas) en la consulta el mismo día, sin laboratorio externo. Equipo de $80K+ pero permite cobrar premium.",
-      'CRM':    "CRM (Customer Relationship Management): software para manejar la relación con clientes — historial, comunicaciones, ventas. Ejemplos: HubSpot, Salesforce, Pipedrive.",
-      'PE':     "PE (Private Equity): fondos que compran empresas para mejorarlas y revenderlas en 3-7 años con utilidad. Los grandes consolidadores de servicios (HVAC, plomería, dental) suelen ser PE.",
-      'IoT':    "IoT (Internet of Things): dispositivos físicos conectados a internet que envían datos (sensores, trampas inteligentes, equipos monitoreados, termostatos).",
-      'M&A':    "M&A (Mergers & Acquisitions): fusiones y adquisiciones de empresas. Es el mundo de los deals.",
-      'ML':     "ML (Machine Learning): rama de IA donde el software aprende patrones de datos históricos para predecir o automatizar decisiones.",
-      'KPI':    "KPI (Key Performance Indicator): métrica clave que mide el desempeño de un negocio o área. Ej: ventas mensuales, churn, NPS, CAC.",
-      'SaaS':   "SaaS (Software as a Service): software vendido por suscripción mensual/anual. Ingresos recurrentes y alta valoración (típicamente 5-15x ARR).",
-      'SEO':    "SEO (Search Engine Optimization): técnicas para posicionar contenido alto en Google y atraer tráfico orgánico (sin pagar publicidad).",
-      'Seller Financing': "Seller Financing: el vendedor te financia parte del precio. Tú pagas, por ejemplo, 80% al cierre + 20% a plazos al vendedor (a 5-7 años, 6-8% interés). Reduce el cash inicial y demuestra confianza del vendedor.",
-      'Add-back': "Add-back: gasto en los EEFF que NO es operativo y se le suma de vuelta al SDE. Ejemplos: sueldo del dueño, vehículo personal, gastos familiares, eventos one-time.",
-      'Due Diligence': "Due Diligence: el proceso de revisar a fondo el negocio antes de cerrar — finanzas, contratos, demandas, equipo, clientes top. Típicamente 30-90 días.",
-      'Earnout': "Earnout: parte del precio que se paga al vendedor solo si el negocio cumple ciertas métricas post-cierre (típicamente revenue o EBITDA durante 1-3 años).",
-      'Working Capital': "Working Capital (capital de trabajo): el efectivo que el negocio necesita para operar día a día (inventario, cuentas por cobrar, pagar nómina antes de cobrar). Se ajusta en el cierre.",
-      'Multiple': "Múltiplo: el precio de compra dividido por el SDE (o EBITDA). Pequeños negocios suelen venderse entre 1.5x-4x SDE; un múltiplo de 4.5x es agresivo.",
-      'Closing': "Closing (cierre): el día en que se firma todo, transferes el dinero y eres oficialmente dueño. Pasa después del due diligence y la aprobación del financiamiento.",
-      'Recurring Revenue': "Recurring Revenue (ingreso recurrente): clientes que pagan mes a mes o tienen contratos. Es lo más valioso porque hace el negocio predecible (vale más en el exit).",
-      'Asset Sale': "Asset Sale (venta de activos): compras los activos del negocio (clientes, equipo, marca) pero NO la entidad legal. Más común en pequeños negocios — más limpio fiscalmente.",
-      'Stock Sale': "Stock Sale (venta de acciones): compras la entidad legal completa, con todos sus activos Y pasivos. Más complejo pero a veces preferido por el vendedor.",
+      'EBITDA': "EBITDA: ganancia operativa antes de intereses, impuestos, depreciación y amortización. Mide cuánto genera la operación pura.",
+      'IRR':    "IRR (Internal Rate of Return): retorno anual compuesto del proyecto. Por encima del 20% se considera atractivo.",
+      'ROI':    "ROI (Return on Investment): retorno sobre lo que invertiste, expresado como porcentaje.",
+      'LOI':    "LOI (Letter of Intent): carta de intención. Primer acuerdo NO vinculante con el vendedor para empezar negociación seria y due diligence.",
+      'DSO':    "DSO (Dental Service Organization): empresa que consolida consultorios dentales. Compradores típicos: Heartland, Aspen, Pacific Dental.",
+      'D2C':    "D2C (Direct to Consumer): marca que vende directo al consumidor sin intermediarios.",
+      'CAC':    "CAC (Customer Acquisition Cost): cuánto te cuesta conseguir un cliente nuevo.",
+      'LTV':    "LTV (Lifetime Value): cuánto te genera un cliente en toda su vida útil. Sano cuando LTV/CAC > 3x.",
+      'HVAC':   "HVAC (Heating, Ventilation, Air Conditioning): empresas de calefacción, ventilación y aire acondicionado.",
+      'TPCL':   "TPCL (Texas Pest Control License): licencia obligatoria en Texas para operar control de plagas.",
+      'CEREC':  "CEREC: tecnología dental para hacer restauraciones cerámicas en la consulta el mismo día, sin laboratorio externo.",
+      'CRM':    "CRM (Customer Relationship Management): software para manejar la relación con clientes.",
+      'PE':     "PE (Private Equity): fondos que compran empresas para mejorarlas y revenderlas en 3-7 años.",
+      'IoT':    "IoT (Internet of Things): dispositivos físicos conectados a internet que envían datos (sensores, equipos monitoreados).",
+      'M&A':    "M&A (Mergers & Acquisitions): fusiones y adquisiciones de empresas.",
+      'ML':     "ML (Machine Learning): rama de IA donde el software aprende patrones de datos para predecir o automatizar.",
+      'KPI':    "KPI (Key Performance Indicator): métrica clave que mide el desempeño.",
+      'SaaS':   "SaaS (Software as a Service): software vendido por suscripción mensual/anual. Ingresos recurrentes, alta valoración.",
+      'SEO':    "SEO (Search Engine Optimization): técnicas para posicionar contenido alto en Google y atraer tráfico orgánico.",
+      'Seller Financing': "Seller Financing: el vendedor te financia parte del precio (5-7 años, 6-8% interés). Reduce cash inicial y demuestra confianza.",
+      'Add-back': "Add-back: gasto en EEFF NO operativo que se suma de vuelta al SDE (sueldo dueño, vehículo personal, gastos familiares, one-time).",
+      'Due Diligence': "Due Diligence: revisar a fondo el negocio antes de cerrar — finanzas, contratos, demandas, equipo, clientes top. 30-90 días.",
+      'Earnout': "Earnout: parte del precio que se paga al vendedor solo si el negocio cumple métricas post-cierre (1-3 años).",
+      'Working Capital': "Working Capital (capital de trabajo): efectivo que el negocio necesita para operar día a día. Se ajusta en el cierre.",
+      'Multiple': "Múltiplo: precio de compra dividido por SDE (o EBITDA). Pequeños negocios típicamente 1.5x-4x SDE.",
+      'Closing': "Closing (cierre): el día en que se firma todo, transfieres el dinero y eres oficialmente dueño.",
+      'Recurring Revenue': "Recurring Revenue: clientes que pagan mes a mes o tienen contratos. Lo más valioso porque hace el negocio predecible.",
+      'Asset Sale': "Asset Sale: compras los activos del negocio (clientes, equipo, marca) pero NO la entidad legal. Más limpio fiscalmente.",
+      'Stock Sale': "Stock Sale: compras la entidad legal completa, con activos Y pasivos. Más complejo.",
+      'FSM':    "FSM (Field Service Management): software para empresas de servicios en terreno (HVAC, plomería) — despacho, rutas, facturación móvil. Ejemplos: ServiceTitan, Housecall Pro.",
     };
 
     const GLOSSARY_CATEGORIES = {
@@ -622,23 +660,56 @@
       'Métricas de retorno': ['DSCR', 'IRR', 'ROI'],
       'Financiamiento': ['SBA', 'SBA 7(a)', 'SBA 504', 'Seller Financing', 'Earnout'],
       'Proceso de compra': ['LOI', 'Due Diligence', 'Closing', 'Asset Sale', 'Stock Sale', 'Recurring Revenue'],
-      'Industrias específicas': ['HVAC', 'TPCL', 'CEREC', 'DSO', 'D2C'],
+      'Industrias específicas': ['HVAC', 'TPCL', 'CEREC', 'DSO', 'D2C', 'FSM'],
       'Negocios digitales y métricas': ['SaaS', 'CAC', 'LTV', 'KPI'],
       'Tecnología / IA': ['CRM', 'IoT', 'ML', 'SEO'],
       'M&A': ['PE', 'M&A'],
     };
 
-    // ─── Category icons ────────────────────────────────────────
+    // Super categories — Daniel's grouping
+    const SUPER_CATEGORIES = {
+      'Servicios del hogar': ['HVAC', 'Plumbing', 'Electrical', 'Landscaping', 'Cleaning Services', 'Pool Service', 'Pest Control', 'Property Management', 'Home Services'],
+      'Automotriz': ['Auto Repair'],
+      'Salud y belleza': ['Med Spa', 'Dental Practice'],
+      'Hospitalidad y alimentos': ['Restaurant'],
+      'Digital': ['E-commerce', 'SaaS', 'Digital Marketing Agency'],
+      'Servicios profesionales': ['Insurance Agency', 'Accounting'],
+    };
+    const SUPER_ICONS = {
+      'Servicios del hogar': '🏠', 'Automotriz': '🚗', 'Salud y belleza': '💆',
+      'Hospitalidad y alimentos': '🍽️', 'Digital': '💻', 'Servicios profesionales': '📋',
+    };
+
     const CATEGORY_ICONS = {
-      'HVAC': '🌡️', 'Plumbing': '🚿', 'Electrical': '⚡',
-      'Landscaping': '🌳', 'Cleaning Services': '🧽',
-      'Pest Control': '🐜', 'Pool Service': '🏊',
-      'Auto Repair': '🔧', 'Property Management': '🏢',
-      'Home Services': '🏡',
+      'HVAC': '🌡️', 'Plumbing': '🚿', 'Electrical': '⚡', 'Landscaping': '🌳',
+      'Cleaning Services': '🧽', 'Pest Control': '🐜', 'Pool Service': '🏊',
+      'Auto Repair': '🔧', 'Property Management': '🏢', 'Home Services': '🏡',
       'Restaurant': '🍽️', 'Med Spa': '💆', 'Dental Practice': '🦷',
-      'E-commerce': '💻', 'SaaS': '☁️',
-      'Digital Marketing Agency': '📈',
+      'E-commerce': '💻', 'SaaS': '☁️', 'Digital Marketing Agency': '📈',
       'Insurance Agency': '🛡️', 'Accounting': '📊',
+    };
+
+    // Industry valuation multiples (US small biz, 2026 market data)
+    // Sources: Sundance Financial, BizBuySell market data, broker reports
+    const VALUATION = {
+      'HVAC':                    { low: 2.5, high: 3.5, note: 'Premium con contratos recurrentes; consolidadores PE pagan 3.5-4x' },
+      'Plumbing':                { low: 2.0, high: 3.0, note: 'Servicio residencial sube; nuevas construcciones más cíclico' },
+      'Electrical':              { low: 2.0, high: 3.0, note: 'Solar/comercial especializado puede llegar a 3.5x' },
+      'Landscaping':             { low: 1.8, high: 2.8, note: 'Comercial recurrente > residencial; FL año redondo premium' },
+      'Cleaning Services':       { low: 1.5, high: 2.5, note: 'Janitorial B2B con contratos arriba del rango; <1.5x es sospechoso' },
+      'Pool Service':            { low: 8, high: 12, metric: 'monthly gross', note: 'Pool routes usan múltiplo único: 8-12x ingreso MENSUAL gross' },
+      'Pest Control':            { low: 2.5, high: 4.0, note: 'Súper defensivo; Rentokil/Rollins consolidan agresivo en TX/FL' },
+      'Auto Repair':             { low: 1.8, high: 2.5, note: 'Equipo y especialización suben; dependencia del dueño-mecánico baja' },
+      'Property Management':     { low: 2.5, high: 3.5, note: 'Recurring revenue alto = premium' },
+      'Home Services':           { low: 2.0, high: 3.0, note: 'Multi-trade más valorado por consolidadores' },
+      'Restaurant':              { low: 1.5, high: 2.5, note: 'Alto riesgo, bajo múltiplo; >3x suele ser sobrevalorado' },
+      'Med Spa':                 { low: 2.0, high: 3.5, note: 'Marca + equipo láser + MD director estable = alto del rango' },
+      'Dental Practice':         { low: 2.5, high: 3.5, metric: 'SDE (o 75-85% revenue collected)', note: 'DSO consolidation (Heartland, Aspen) paga premium en FL/TX' },
+      'E-commerce':              { low: 2.5, high: 4.0, note: 'Marca propia D2C + repeat rate alto > Amazon-only. Aggregators han caído.' },
+      'SaaS':                    { low: 3, high: 7, metric: 'ARR', note: 'SaaS usa multiple de ARR (Annual Recurring Revenue), no SDE' },
+      'Digital Marketing Agency':{ low: 2.5, high: 4.0, note: 'Retainers MRR vs project-based: retainers son premium' },
+      'Insurance Agency':        { low: 2.0, high: 2.8, metric: 'commissions', note: 'P&C estándar 2.5x commissions; independent > captive' },
+      'Accounting':              { low: 1.0, high: 1.3, metric: 'revenue', note: 'Acctng/CPA usa multiple de revenue, no SDE' },
     };
 
     function withTips(text) {
@@ -653,13 +724,11 @@
       return out;
     }
 
-    // ─── JS-positioned tooltip popup (never clipped by viewport) ──
     function initTooltipPopup() {
       const popup = document.createElement('div');
       popup.id = 'tt-popup';
       document.body.appendChild(popup);
       let current = null;
-
       function show(target) {
         const tip = target.dataset.tip;
         if (!tip) return;
@@ -667,9 +736,7 @@
         popup.textContent = tip;
         popup.style.display = 'block';
         popup.style.opacity = '0';
-        // Force layout to measure
-        const pw = popup.offsetWidth;
-        const ph = popup.offsetHeight;
+        const pw = popup.offsetWidth, ph = popup.offsetHeight;
         const rect = target.getBoundingClientRect();
         let left = rect.left + rect.width / 2 - pw / 2;
         let top = rect.top - ph - 8;
@@ -680,12 +747,7 @@
         popup.style.top = top + 'px';
         popup.style.opacity = '1';
       }
-      function hide() {
-        current = null;
-        popup.style.display = 'none';
-        popup.style.opacity = '0';
-      }
-
+      function hide() { current = null; popup.style.display = 'none'; popup.style.opacity = '0'; }
       document.addEventListener('mouseover', e => {
         const t = e.target.closest('.tt');
         if (t && t !== current) show(t);
@@ -694,48 +756,33 @@
       document.addEventListener('mouseout', e => {
         const t = e.target.closest('.tt');
         if (t === current) {
-          // Hide if mouse left target entirely
           const related = e.relatedTarget;
           if (!related || !related.closest || !related.closest('.tt')) hide();
         }
       });
       document.addEventListener('touchstart', e => {
         const t = e.target.closest('.tt');
-        if (t) {
-          e.preventDefault();
-          show(t);
-          clearTimeout(window._tttouch);
-          window._tttouch = setTimeout(hide, 4500);
-        } else if (current) {
-          hide();
-        }
+        if (t) { e.preventDefault(); show(t); clearTimeout(window._tttouch); window._tttouch = setTimeout(hide, 4500); }
+        else if (current) hide();
       }, { passive: false });
       document.addEventListener('scroll', () => { if (current) hide(); }, true);
     }
     document.addEventListener('DOMContentLoaded', initTooltipPopup);
 
-    // ─── Dashboard component ─────────────────────────────────
     function dashboard() {
       const savedSort = JSON.parse(localStorage.getItem('bizacq_sort_v1') || '{}');
       const savedManual = JSON.parse(localStorage.getItem('bizacq_manual_v1') || '{}');
       const savedView = localStorage.getItem('bizacq_view_v1') || 'pipeline';
 
       return {
-        deals: [],
-        lastUpdate: '—',
-        selectedDeal: null,
-        toastMsg: null,
-        draggingId: null,
-        dragOverCol: null,
-        openSortMenu: null,
-        view: savedView,
-        glossarySearch: '',
+        deals: [], lastUpdate: '—', selectedDeal: null, toastMsg: null,
+        draggingId: null, dragOverCol: null, openSortMenu: null,
+        view: savedView, glossarySearch: '',
+        catMenuOpen: false,
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
-        sortByCol: savedSort,
-        manualOrder: savedManual,
-        filters: { state: 'Todos', priority: 'Todas', priceRange: 'Todos', sellerFinancing: false, sbaEligible: false },
-        GLOSSARY,
-        GLOSSARY_CATEGORIES,
+        sortByCol: savedSort, manualOrder: savedManual,
+        filters: { state: 'Todos', priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false },
+        GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES,
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
           { key: 'EN_ANALISIS',     label: 'En análisis',    dot: 'bg-blue-400' },
@@ -745,10 +792,10 @@
           { key: 'DESCARTADO',      label: 'Descartado',     dot: 'bg-red-300' },
         ],
         priceRanges: [
-          { key: 'Todos',  label: 'Todos',         tip: 'Sin filtro de tamaño' },
-          { key: '0-100',  label: '$0 – $100K',    tip: 'Negocios chicos' },
-          { key: '100-500',label: '$100K – $500K', tip: 'Tamaño medio' },
-          { key: '500+',   label: '$500K +',       tip: 'Negocios grandes' },
+          { key: 'Todos',  label: 'Todos',         tip: 'Sin filtro' },
+          { key: '0-100',  label: '$0 – $100K',    tip: 'Chicos' },
+          { key: '100-500',label: '$100K – $500K', tip: 'Medianos' },
+          { key: '500+',   label: '$500K +',       tip: 'Grandes' },
         ],
         sortOptions: [
           { key: 'score-desc',  label: 'Score (alto → bajo)' },
@@ -772,12 +819,12 @@
             console.error('Error loading deals.json', e);
             this.deals = [];
           }
-          // Persist view choice
           this.$watch('view', v => localStorage.setItem('bizacq_view_v1', v));
         },
 
         withTips(t) { return withTips(t); },
         categoryIcon(name) { return CATEGORY_ICONS[name] || '🏷️'; },
+        superIcon(name) { return SUPER_ICONS[name] || '📁'; },
         get totalDeals() { return this.deals.length; },
         get filteredCount() { return this.deals.filter(d => this.passesFilters(d)).length; },
         get overrideCount() {
@@ -792,14 +839,73 @@
         },
         pipelineBadgeClass(s) {
           const m = {
-            'RADAR': 'bg-slate-100 text-slate-600',
-            'EN_ANALISIS': 'bg-blue-100 text-blue-700',
-            'PARA_CONTACTAR': 'bg-amber-100 text-amber-700',
-            'EN_NEGOCIACION': 'bg-emerald-100 text-emerald-700',
-            'CIERRE': 'bg-purple-100 text-purple-700',
-            'DESCARTADO': 'bg-red-100 text-red-700',
+            'RADAR': 'bg-slate-100 text-slate-600', 'EN_ANALISIS': 'bg-blue-100 text-blue-700',
+            'PARA_CONTACTAR': 'bg-amber-100 text-amber-700', 'EN_NEGOCIACION': 'bg-emerald-100 text-emerald-700',
+            'CIERRE': 'bg-purple-100 text-purple-700', 'DESCARTADO': 'bg-red-100 text-red-700',
           };
           return m[s] || 'bg-slate-100 text-slate-600';
+        },
+
+        // Multiple comparison badge
+        multipleBadge(deal) {
+          const v = VALUATION[deal.business_type];
+          if (!v || !deal.reported_sde || !deal.asking_price) return null;
+          if (v.metric === 'monthly gross') return null; // pool routes: different calc
+          if (v.metric === 'ARR' || v.metric === 'revenue' || v.metric === 'commissions') {
+            const rev = deal.reported_revenue || deal.reported_sde;
+            const mult = deal.asking_price / rev;
+            return this.buildBadge(mult, v.low, v.high, v.metric);
+          }
+          const mult = deal.asking_price / deal.reported_sde;
+          return this.buildBadge(mult, v.low, v.high, 'SDE');
+        },
+        buildBadge(mult, low, high, metric) {
+          const m = mult.toFixed(1);
+          if (mult > high * 1.15) return {
+            class: 'mb-over',
+            label: `⚠ ${m}x ${metric} — SOBRE rango`,
+            tip: `Industria típico: ${low}x-${high}x. Este deal pide ${m}x, ${((mult/high - 1) * 100).toFixed(0)}% arriba. Justifica con recurring revenue, contratos, marca, o equipo nuevo — sino, sobrevalorado.`,
+            explanation: `El vendedor pide más de lo que el mercado paga típicamente por este tipo de negocio. Si no hay un motivo claro (contratos firmes, marca, recurring revenue alto), está sobrevalorado.`
+          };
+          if (mult > high) return {
+            class: 'mb-edge',
+            label: `${m}x ${metric} — AL ALZA`,
+            tip: `Industria típico: ${low}x-${high}x. Este deal pide ${m}x, justo en el borde alto. Pedir descuento o exigir prueba de premium.`,
+            explanation: `Está en el borde alto del rango. Razonable si tiene características premium (contratos, marca, equipo nuevo). Negociable.`
+          };
+          if (mult < low * 0.75) return {
+            class: 'mb-under',
+            label: `⚠ ${m}x ${metric} — DEBAJO rango`,
+            tip: `Industria típico: ${low}x-${high}x. Este pide solo ${m}x. Sospecha algo — vendedor desesperado, contratos vencidos, equipo dañado. DD agresivo.`,
+            explanation: `Precio anómalamente bajo. Puede ser oportunidad real (vendedor necesita cash) o señal de problemas ocultos. Due diligence agresivo OBLIGATORIO antes de avanzar.`
+          };
+          return {
+            class: 'mb-ok',
+            label: `✓ ${m}x ${metric} — en rango`,
+            tip: `Industria típico: ${low}x-${high}x. Este deal pide ${m}x — dentro del rango sano.`,
+            explanation: `El precio está dentro del rango típico de la industria. Negociación normal.`
+          };
+        },
+
+        valuationShort(name) {
+          const v = VALUATION[name];
+          if (!v) return '';
+          return `${v.low}-${v.high}x ${v.metric || 'SDE'}`;
+        },
+        valuationTip(name) {
+          const v = VALUATION[name];
+          if (!v) return '';
+          return `Rango típico mercado: ${v.low}x – ${v.high}x ${v.metric || 'SDE'}. ${v.note || ''}`;
+        },
+
+        categoryFilterLabel() {
+          const c = this.filters.category;
+          if (c === 'Todas') return 'Todas';
+          if (c.startsWith('super:')) {
+            const name = c.substring(6);
+            return SUPER_ICONS[name] + ' ' + name;
+          }
+          return CATEGORY_ICONS[c] + ' ' + c;
         },
 
         passesFilters(d) {
@@ -811,6 +917,15 @@
           if (this.filters.priceRange === '0-100' && price > 100_000) return false;
           if (this.filters.priceRange === '100-500' && (price <= 100_000 || price > 500_000)) return false;
           if (this.filters.priceRange === '500+' && price <= 500_000) return false;
+          if (this.filters.category !== 'Todas') {
+            if (this.filters.category.startsWith('super:')) {
+              const supName = this.filters.category.substring(6);
+              const subs = SUPER_CATEGORIES[supName] || [];
+              if (!subs.includes(d.business_type)) return false;
+            } else {
+              if (d.business_type !== this.filters.category) return false;
+            }
+          }
           return true;
         },
 
@@ -829,8 +944,7 @@
             case 'sde-desc':   return arr.sort((a, b) => (b.reported_sde || 0) - (a.reported_sde || 0));
             case 'years-desc': return arr.sort((a, b) => (b.years_operation || 0) - (a.years_operation || 0));
             case 'recent':     return arr.sort((a, b) => {
-              const ax = a.events?.[0]?.created_at || '';
-              const bx = b.events?.[0]?.created_at || '';
+              const ax = a.events?.[0]?.created_at || '', bx = b.events?.[0]?.created_at || '';
               return bx.localeCompare(ax);
             });
             case 'manual': {
@@ -843,32 +957,39 @@
           }
         },
 
-        // ─── Por categoría view ───────────────────────────────
-        categoriesGrouped() {
-          const map = new Map();
-          for (const d of this.deals) {
-            if (!this.passesFilters(d)) continue;
-            const cat = d.business_type || 'Sin categoría';
-            if (!map.has(cat)) map.set(cat, []);
-            map.get(cat).push(d);
+        // Por categoría view — grouped by super then sub
+        categoriesBySuper() {
+          const result = [];
+          for (const [supName, subList] of Object.entries(SUPER_CATEGORIES)) {
+            const subcategories = [];
+            let totalDeals = 0, totalValue = 0;
+            for (const subName of subList) {
+              const ds = this.deals.filter(d => d.business_type === subName && this.passesFilters(d));
+              if (ds.length === 0) continue;
+              ds.sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
+              subcategories.push({ name: subName, deals: ds });
+              totalDeals += ds.length;
+              totalValue += ds.reduce((s, d) => s + (d.asking_price || 0), 0);
+            }
+            if (subcategories.length > 0) result.push({ name: supName, subcategories, totalDeals, totalValue });
           }
-          // Sort within each: score desc; sort categories: count desc, then name
-          for (const [k, v] of map) v.sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
-          return Array.from(map.entries()).sort((a, b) => {
-            if (b[1].length !== a[1].length) return b[1].length - a[1].length;
-            return a[0].localeCompare(b[0]);
-          });
+          // Also include uncategorized
+          const allCategorized = Object.values(SUPER_CATEGORIES).flat();
+          const uncats = this.deals.filter(d => !allCategorized.includes(d.business_type) && this.passesFilters(d));
+          if (uncats.length > 0) {
+            const byType = {};
+            for (const d of uncats) { (byType[d.business_type] ||= []).push(d); }
+            const subcategories = Object.entries(byType).map(([name, deals]) => ({ name, deals }));
+            result.push({ name: 'Otros', subcategories, totalDeals: uncats.length, totalValue: uncats.reduce((s, d) => s + (d.asking_price || 0), 0) });
+          }
+          return result;
         },
 
-        // ─── Glossary view ────────────────────────────────────
         filteredGlossary() {
           const q = this.glossarySearch.trim().toLowerCase();
           const result = [];
           for (const [cat, terms] of Object.entries(GLOSSARY_CATEGORIES)) {
-            const filtered = terms.filter(t => {
-              if (!q) return true;
-              return t.toLowerCase().includes(q) || (GLOSSARY[t] || '').toLowerCase().includes(q);
-            });
+            const filtered = terms.filter(t => !q || t.toLowerCase().includes(q) || (GLOSSARY[t] || '').toLowerCase().includes(q));
             if (filtered.length > 0) result.push([cat, filtered]);
           }
           return result;
@@ -886,7 +1007,7 @@
           document.body.style.overflow = 'hidden';
         },
         closeDeal() { this.selectedDeal = null; document.body.style.overflow = ''; },
-        resetFilters() { this.filters = { state: 'Todos', priority: 'Todas', priceRange: 'Todos', sellerFinancing: false, sbaEligible: false }; },
+        resetFilters() { this.filters = { state: 'Todos', priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false }; },
 
         fmtPrice(v) {
           if (v == null) return '—';
@@ -895,9 +1016,7 @@
           return `$${v}`;
         },
         priorityClass(p) {
-          return p === 'ALTA' ? 'bg-red-100 text-red-700'
-               : p === 'MEDIA' ? 'bg-amber-100 text-amber-700'
-               : 'bg-slate-100 text-slate-600';
+          return p === 'ALTA' ? 'bg-red-100 text-red-700' : p === 'MEDIA' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-600';
         },
         priorityLabel(p) { return p === 'ALTA' ? '🔥 alta' : p === 'MEDIA' ? '⚡ media' : '👀 baja'; },
         scoreColor(s) {
@@ -917,7 +1036,7 @@
           return parts;
         },
 
-        // ─── Drag and drop ─────────────────────────────────
+        // Drag and drop
         dragStart(deal, e) {
           e.dataTransfer.setData('text/plain', deal.id);
           e.dataTransfer.effectAllowed = 'move';
@@ -926,17 +1045,11 @@
         },
         dragEnd(e) {
           e.target.classList.remove('dragging');
-          document.querySelectorAll('.drop-before, .drop-after').forEach(el => {
-            el.classList.remove('drop-before', 'drop-after');
-          });
+          document.querySelectorAll('.drop-before, .drop-after').forEach(el => el.classList.remove('drop-before', 'drop-after'));
           setTimeout(() => { this.draggingId = null; }, 80);
           this.dragOverCol = null;
         },
-        allowDropEmpty(colKey, e) {
-          if (!this.draggingId) return;
-          e.dataTransfer.dropEffect = 'move';
-          this.dragOverCol = colKey;
-        },
+        allowDropEmpty(colKey, e) { if (!this.draggingId) return; e.dataTransfer.dropEffect = 'move'; this.dragOverCol = colKey; },
         dropOnColEnd(colKey, e) {
           this.dragOverCol = null;
           const dealId = e.dataTransfer.getData('text/plain') || this.draggingId;
@@ -953,9 +1066,7 @@
           this.clearCardIndicators(card);
           card.classList.add(before ? 'drop-before' : 'drop-after');
         },
-        clearCardIndicators(el) {
-          if (el?.classList) el.classList.remove('drop-before', 'drop-after');
-        },
+        clearCardIndicators(el) { if (el?.classList) el.classList.remove('drop-before', 'drop-after'); },
         dropOnCard(targetDeal, colKey, e) {
           const card = e.currentTarget;
           const before = card.classList.contains('drop-before');
@@ -964,35 +1075,28 @@
           if (!dealId || dealId === targetDeal.id) return;
           this.moveDeal(dealId, colKey, targetDeal.id, before ? 'before' : 'after');
         },
-
         moveDeal(dealId, newColKey, targetDealId, position) {
           const deal = this.deals.find(d => d.id === dealId);
           if (!deal) return;
           const oldStatus = deal.pipeline_status;
           const sameColumn = oldStatus === newColKey;
-
           let reason = null;
           if (!sameColumn && newColKey === 'DESCARTADO') {
-            reason = prompt('¿Por qué descartas este deal? (esta razón se guarda)');
+            reason = prompt('¿Por qué descartas este deal?');
             if (!reason || !reason.trim()) return;
             reason = reason.trim();
           }
-
           if (!sameColumn) {
             deal.pipeline_status = newColKey;
             if (reason) deal.discard_reason = reason;
             this.overrides[dealId] = {
-              pipeline_status: newColKey,
-              discard_reason: reason,
-              moved_at: new Date().toISOString(),
-              previous_status: oldStatus,
+              pipeline_status: newColKey, discard_reason: reason,
+              moved_at: new Date().toISOString(), previous_status: oldStatus,
             };
             localStorage.setItem('bizacq_overrides_v1', JSON.stringify(this.overrides));
           }
-
           this.sortByCol[newColKey] = 'manual';
           localStorage.setItem('bizacq_sort_v1', JSON.stringify(this.sortByCol));
-
           const colDeals = this.deals.filter(d => d.pipeline_status === newColKey);
           let order = (this.manualOrder[newColKey] || []).filter(id => colDeals.find(d => d.id === id));
           order = order.filter(id => id !== dealId);
@@ -1002,19 +1106,15 @@
           } else if (targetDealId && position === 'after') {
             const idx = order.indexOf(targetDealId);
             if (idx === -1) order.push(dealId); else order.splice(idx + 1, 0, dealId);
-          } else {
-            order.push(dealId);
-          }
+          } else { order.push(dealId); }
           for (const d of colDeals) if (!order.includes(d.id)) order.push(d.id);
           this.manualOrder[newColKey] = order;
           localStorage.setItem('bizacq_manual_v1', JSON.stringify(this.manualOrder));
-
           const shortTitle = deal.title.substring(0, 30) + (deal.title.length > 30 ? '…' : '');
           if (!sameColumn) this.toast(`"${shortTitle}" → ${this.statusLabel(newColKey)}`);
           else this.toast(`"${shortTitle}" reordenado`);
           this.deals = [...this.deals];
         },
-
         applyOverrides() {
           for (const [dealId, ov] of Object.entries(this.overrides)) {
             const deal = this.deals.find(d => d.id === dealId);
@@ -1024,15 +1124,13 @@
           }
         },
         resetOverrides() {
-          if (!confirm('Esto borra TODOS tus movimientos locales, reordenamientos manuales y preferencias de orden. ¿Continuar?')) return;
+          if (!confirm('Esto borra TODOS tus movimientos locales y preferencias de orden. ¿Continuar?')) return;
           localStorage.removeItem('bizacq_overrides_v1');
           localStorage.removeItem('bizacq_manual_v1');
           localStorage.removeItem('bizacq_sort_v1');
-          this.overrides = {};
-          this.manualOrder = {};
-          this.sortByCol = {};
+          this.overrides = {}; this.manualOrder = {}; this.sortByCol = {};
           this.init();
-          this.toast('Cambios locales borrados — vuelto al estado original');
+          this.toast('Cambios locales borrados');
         },
         copyOverridesForClaude() {
           const lines = [];
@@ -1052,13 +1150,11 @@
             });
             lines.push(`\nOrden manual en "${colName}":\n  ${ordered.map((t, i) => `${i + 1}. ${t}`).join('\n  ')}`);
           }
-          const text = `Quiero fijar estos cambios al deals.json del proyecto BizAcq:\n\n${lines.join('\n')}\n\nActualiza los pipeline_status, agrega eventos correspondientes, persiste el orden manual como campo display_order, y commitéalo.`;
+          const text = `Quiero fijar estos cambios al deals.json del proyecto BizAcq:\n\n${lines.join('\n')}\n\nActualiza los pipeline_status, agrega eventos correspondientes, y commitéalo.`;
           if (navigator.clipboard?.writeText) {
             navigator.clipboard.writeText(text);
             this.toast('✓ Copiado — pégalo en tu chat con Claude');
-          } else {
-            window.prompt('Copia este texto y pégalo en tu chat con Claude:', text);
-          }
+          } else { window.prompt('Copia este texto:', text); }
         },
         toast(msg) {
           this.toastMsg = msg;
