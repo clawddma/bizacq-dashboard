@@ -156,13 +156,29 @@
   <!-- Filters bar -->
   <div x-show="view !== 'glossary'" x-cloak class="bg-white border-b border-slate-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-3 flex items-center gap-4 flex-wrap">
-      <div class="flex items-center gap-2">
-        <span class="text-xs text-slate-500 font-medium">Estado:</span>
-        <template x-for="opt in ['Todos','TX','FL']" :key="opt">
-          <button @click="filters.state = opt"
-            :class="filters.state === opt ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
-            class="px-3 py-1 text-xs font-medium rounded-md transition" x-text="opt"></button>
-        </template>
+      <div class="flex items-center gap-2 relative" @click.outside="stateMenuOpen = false">
+        <span class="text-xs text-slate-500 font-medium">Estados:</span>
+        <button @click.stop="stateMenuOpen = !stateMenuOpen"
+          class="px-3 py-1 text-xs font-medium rounded-md transition bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center gap-1">
+          <span x-text="statesLabel()"></span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div x-show="stateMenuOpen" x-cloak x-transition.opacity class="cat-menu" style="min-width:280px; max-height:480px;">
+          <div class="flex items-center justify-between p-2 border-b border-slate-100">
+            <button @click.stop="selectAllStates()" class="text-xs text-blue-600 hover:underline">Todos</button>
+            <button @click.stop="setTxFlOnly()" class="text-xs text-slate-600 hover:underline">Solo TX+FL</button>
+            <button @click.stop="clearStates()" class="text-xs text-slate-500 hover:underline">Limpiar</button>
+          </div>
+          <template x-for="s in US_STATES" :key="s.code">
+            <label class="flex items-center gap-2 px-3 py-1.5 hover:bg-slate-50 cursor-pointer text-xs"
+              :class="filters.states.includes(s.code) ? 'bg-blue-50' : ''">
+              <input type="checkbox" :checked="filters.states.includes(s.code)" @change="toggleState(s.code)" class="rounded">
+              <span><strong x-text="s.code"></strong> — <span x-text="s.name"></span>
+                <span x-show="dealCountByState(s.code) > 0" class="text-slate-400 ml-1" x-text="`(${dealCountByState(s.code)})`"></span>
+              </span>
+            </label>
+          </template>
+        </div>
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
       <div class="flex items-center gap-2">
@@ -278,7 +294,7 @@
                       <span x-show="deal.source_url_kind === 'category'" class="text-[9px] ml-0.5 text-amber-600 font-bold" title="Página de categoría — no la listing específica">📂</span>
                     </a>
                     <span class="text-xs font-bold px-1.5 py-0.5 rounded"
-                      :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="deal.state"></span>
+                      :class="stateBadgeClass(deal.state)" x-text="deal.state"></span>
                   </div>
                 </div>
                 <p class="text-xs text-slate-500 mb-2.5">
@@ -361,7 +377,7 @@
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
                       </a>
                       <span class="text-xs font-bold px-1.5 py-0.5 rounded"
-                        :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="deal.state"></span>
+                        :class="stateBadgeClass(deal.state)" x-text="deal.state"></span>
                       <span class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
                         :class="pipelineBadgeClass(deal.pipeline_status)" x-text="statusLabel(deal.pipeline_status)"></span>
                     </div>
@@ -508,9 +524,9 @@
           <label>Estado</label>
           <select x-model="addForm.state">
             <option value="">Auto-detectar</option>
-            <option value="TX">Texas</option>
-            <option value="FL">Florida</option>
-            <option value="OTHER">Otro estado</option>
+            <template x-for="s in US_STATES" :key="s.code">
+              <option :value="s.code" x-text="`${s.code} — ${s.name}`"></option>
+            </template>
           </select>
         </div>
       </div>
@@ -550,7 +566,7 @@
             <div class="flex-1 pr-4">
               <div class="flex items-center gap-2 mb-1 flex-wrap">
                 <span class="text-xs font-bold px-1.5 py-0.5 rounded"
-                  :class="selectedDeal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="selectedDeal.state"></span>
+                  :class="stateBadgeClass(selectedDeal.state)" x-text="selectedDeal.state"></span>
                 <span class="text-xs text-slate-500">
                   <span x-text="categoryIcon(selectedDeal.business_type)"></span>
                   <span x-text="selectedDeal.business_type + ' · ' + selectedDeal.city"></span>
@@ -864,6 +880,27 @@
       'Insurance Agency': '🛡️', 'Accounting': '📊',
     };
 
+    // US states (50 + DC) — alphabetical by code
+    const US_STATES = [
+      {code:'AL', name:'Alabama'},     {code:'AK', name:'Alaska'},        {code:'AZ', name:'Arizona'},
+      {code:'AR', name:'Arkansas'},    {code:'CA', name:'California'},    {code:'CO', name:'Colorado'},
+      {code:'CT', name:'Connecticut'}, {code:'DE', name:'Delaware'},      {code:'DC', name:'District of Columbia'},
+      {code:'FL', name:'Florida'},     {code:'GA', name:'Georgia'},       {code:'HI', name:'Hawaii'},
+      {code:'ID', name:'Idaho'},       {code:'IL', name:'Illinois'},      {code:'IN', name:'Indiana'},
+      {code:'IA', name:'Iowa'},        {code:'KS', name:'Kansas'},        {code:'KY', name:'Kentucky'},
+      {code:'LA', name:'Louisiana'},   {code:'ME', name:'Maine'},         {code:'MD', name:'Maryland'},
+      {code:'MA', name:'Massachusetts'},{code:'MI', name:'Michigan'},     {code:'MN', name:'Minnesota'},
+      {code:'MS', name:'Mississippi'}, {code:'MO', name:'Missouri'},      {code:'MT', name:'Montana'},
+      {code:'NE', name:'Nebraska'},    {code:'NV', name:'Nevada'},        {code:'NH', name:'New Hampshire'},
+      {code:'NJ', name:'New Jersey'},  {code:'NM', name:'New Mexico'},    {code:'NY', name:'New York'},
+      {code:'NC', name:'North Carolina'},{code:'ND', name:'North Dakota'},{code:'OH', name:'Ohio'},
+      {code:'OK', name:'Oklahoma'},    {code:'OR', name:'Oregon'},        {code:'PA', name:'Pennsylvania'},
+      {code:'RI', name:'Rhode Island'},{code:'SC', name:'South Carolina'},{code:'SD', name:'South Dakota'},
+      {code:'TN', name:'Tennessee'},   {code:'TX', name:'Texas'},         {code:'UT', name:'Utah'},
+      {code:'VT', name:'Vermont'},     {code:'VA', name:'Virginia'},      {code:'WA', name:'Washington'},
+      {code:'WV', name:'West Virginia'},{code:'WI', name:'Wisconsin'},    {code:'WY', name:'Wyoming'},
+    ];
+
     // Industry valuation multiples (US small biz, 2026 market data)
     // Sources: Sundance Financial, BizBuySell market data, broker reports
     const VALUATION = {
@@ -954,12 +991,13 @@
         draggingId: null, dragOverCol: null, openSortMenu: null,
         view: savedView, glossarySearch: '',
         catMenuOpen: false,
+        stateMenuOpen: false,
         addModalOpen: false,
         addForm: { listingUrl: '', websiteUrl: '', category: '', state: '', askingPrice: '', notes: '' },
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
-        filters: { state: 'Todos', priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false },
-        GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES,
+        filters: { states: ['TX','FL'], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false },
+        GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES, US_STATES,
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
           { key: 'EN_ANALISIS',     label: 'En análisis',    dot: 'bg-blue-400' },
@@ -991,12 +1029,12 @@
             const data = await res.json();
             this.deals = data.deals || [];
             this.lastUpdate = data.last_update || '—';
-            // Load server-side manual_orders as default (localStorage overrides if present)
             const serverOrders = data.manual_orders || {};
+            // Auto-cleanup: if localStorage matches the server, clear it (no more "cambios locales" banner)
+            this.autoCleanInSyncOverrides(serverOrders);
             for (const [col, ids] of Object.entries(serverOrders)) {
               if (!this.manualOrder[col] || this.manualOrder[col].length === 0) {
                 this.manualOrder[col] = ids;
-                // If server has a manual order, default that column to 'manual' sort
                 if (!this.sortByCol[col]) this.sortByCol[col] = 'manual';
               }
             }
@@ -1006,6 +1044,31 @@
             this.deals = [];
           }
           this.$watch('view', v => localStorage.setItem('bizacq_view_v1', v));
+        },
+
+        // Compare localStorage state vs server state. Drop entries that the server already has.
+        autoCleanInSyncOverrides(serverOrders) {
+          // Pipeline_status overrides: clean if server already shows the same state
+          const cleanedOverrides = {};
+          for (const [dealId, ov] of Object.entries(this.overrides)) {
+            const serverDeal = this.deals.find(d => d.id === dealId);
+            if (!serverDeal) { cleanedOverrides[dealId] = ov; continue; }
+            const serverMatches = serverDeal.pipeline_status === ov.pipeline_status
+              && (serverDeal.discard_reason || null) === (ov.discard_reason || null);
+            if (!serverMatches) cleanedOverrides[dealId] = ov;
+          }
+          this.overrides = cleanedOverrides;
+          localStorage.setItem('bizacq_overrides_v1', JSON.stringify(cleanedOverrides));
+
+          // Manual order: clean if server array matches localStorage array exactly
+          const cleanedManual = {};
+          for (const [col, localIds] of Object.entries(this.manualOrder)) {
+            const serverIds = serverOrders[col] || [];
+            const matches = JSON.stringify(localIds) === JSON.stringify(serverIds);
+            if (!matches) cleanedManual[col] = localIds;
+          }
+          this.manualOrder = cleanedManual;
+          localStorage.setItem('bizacq_manual_v1', JSON.stringify(cleanedManual));
         },
 
         withTips(t) { return withTips(t); },
@@ -1095,7 +1158,7 @@
         },
 
         passesFilters(d) {
-          if (this.filters.state !== 'Todos' && d.state !== this.filters.state) return false;
+          if (this.filters.states.length > 0 && !this.filters.states.includes(d.state)) return false;
           if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
           if (this.filters.sellerFinancing && !d.seller_financing) return false;
           if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
@@ -1193,7 +1256,28 @@
           document.body.style.overflow = 'hidden';
         },
         closeDeal() { this.selectedDeal = null; document.body.style.overflow = ''; },
-        resetFilters() { this.filters = { state: 'Todos', priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false }; },
+        resetFilters() { this.filters = { states: ['TX','FL'], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false }; },
+        toggleState(code) {
+          const i = this.filters.states.indexOf(code);
+          if (i === -1) this.filters.states.push(code);
+          else this.filters.states.splice(i, 1);
+        },
+        selectAllStates() { this.filters.states = US_STATES.map(s => s.code); },
+        setTxFlOnly() { this.filters.states = ['TX', 'FL']; },
+        clearStates() { this.filters.states = []; },
+        statesLabel() {
+          const n = this.filters.states.length;
+          if (n === 0) return 'Sin filtro';
+          if (n === US_STATES.length) return 'Todos los estados';
+          if (n <= 3) return this.filters.states.sort().join(', ');
+          return `${n} estados seleccionados`;
+        },
+        dealCountByState(code) { return this.deals.filter(d => d.state === code).length; },
+        stateBadgeClass(state) {
+          if (state === 'TX') return 'bg-red-50 text-red-700';
+          if (state === 'FL') return 'bg-orange-50 text-orange-700';
+          return 'bg-slate-100 text-slate-700';
+        },
 
         fmtPrice(v) {
           if (v == null) return '—';

@@ -1,5 +1,9 @@
 acquisition:
-  target_states: ["TX", "FL"]
+  # Empty list = no state hard filter (accept any US state).
+  # Daniel/socio preferían TX+FL inicialmente; ahora abierto a los 50 estados + DC.
+  # Preferred states (scoring bonus, no hard filter): TX, FL
+  target_states: []
+  preferred_states: ["TX", "FL"]
   max_deal_size_usd: 5_000_000
   min_sde_usd: 75_000
   min_years_operation: 2
