@@ -330,6 +330,10 @@
           <input type="checkbox" x-model="filters.sbaEligible" class="rounded border-slate-300">
           <span class="tt" data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios.">SBA elegible</span>
         </label>
+        <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer ml-2">
+          <input type="checkbox" x-model="filters.manualOnly" class="rounded border-slate-300">
+          <span class="tt" data-tip="Solo deals agregados vía botón '+ Agregar negocio' (no incluye scraping automático).">📥 Solo cargados manualmente</span>
+        </label>
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
       <div class="flex items-center gap-2">
@@ -691,14 +695,21 @@
                   :class="priorityClass(selectedDeal.priority)" x-text="priorityLabel(selectedDeal.priority)"></span>
               </div>
               <h2 class="text-xl font-bold text-slate-900" x-text="selectedDeal.title"></h2>
-              <p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
-                <a :href="selectedDeal.source_url" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1">
-                  <span x-text="urlKindIcon(selectedDeal.source_url_kind)"></span>
-                  <span x-text="urlKindLabel(selectedDeal) + ' ↗'"></span>
-                </a>
-                <span x-show="selectedDeal.source_url_kind === 'category'" class="tt text-amber-600"
-                  data-tip="Página de categoría: te lleva a la sección de búsqueda del marketplace (no a esta listing específica). Los listings exactos están detrás de anti-bot (BizBuySell+Akamai) o login (BizScout). Para llegar a listings específicos necesitamos scraping autenticado — pendiente.">⚠</span>
-              </p>
+              <div class="flex items-center gap-2 mt-1 flex-wrap">
+                <p class="text-xs text-slate-500 flex items-center gap-1.5">
+                  <a :href="selectedDeal.source_url" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1">
+                    <span x-text="urlKindIcon(selectedDeal.source_url_kind)"></span>
+                    <span x-text="urlKindLabel(selectedDeal) + ' ↗'"></span>
+                  </a>
+                  <span x-show="selectedDeal.source_url_kind === 'category'" class="tt text-amber-600"
+                    data-tip="Página de categoría: te lleva a la sección de búsqueda del marketplace (no a esta listing específica).">⚠</span>
+                </p>
+                <span x-show="selectedDeal.added_manually" class="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-medium" title="Deal cargado manualmente vía botón '+ Agregar negocio'">📥 manual</span>
+                <button @click="copyDealLink()" class="text-[11px] px-2 py-1 rounded bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium flex items-center gap-1" title="Copia un enlace directo al deal para mandárselo a tu socio">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                  Compartir link al socio
+                </button>
+              </div>
             </div>
             <button @click="closeDeal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none w-8 h-8 flex items-center justify-center">×</button>
           </div>
@@ -1284,7 +1295,7 @@
         GH_FILE: 'data/deals.json',
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
-        filters: { states: [], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75 },
+        filters: { states: [], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false },
         GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES, US_STATES,
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
@@ -1332,6 +1343,18 @@
             this.deals = [];
           }
           this.$watch('view', v => localStorage.setItem('bizacq_view_v1', v));
+          // Deep link: if URL has #deal=ID, auto-open that deal
+          this.$nextTick(() => {
+            const m = window.location.hash.match(/deal=([a-f0-9-]+)/);
+            if (m) {
+              const target = this.deals.find(d => d.id === m[1]);
+              if (target) {
+                this.view = 'pipeline';
+                this.selectedDeal = target;
+                document.body.style.overflow = 'hidden';
+              }
+            }
+          });
         },
 
         // Compare localStorage state vs server state. Drop entries that the server already has.
@@ -1475,6 +1498,8 @@
         },
 
         passesFilters(d) {
+          // Manually-added filter: when ON, only show deals added via "+ Agregar negocio"
+          if (this.filters.manualOnly && !d.added_manually) return false;
           // Score threshold filter (default 75). DESCARTADO deals always pass this so the column is populated.
           if (this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO') {
             if (!d.overall_score || d.overall_score < this.filters.minScore) return false;
@@ -1575,9 +1600,28 @@
           if (this.draggingId) return;
           this.selectedDeal = deal;
           document.body.style.overflow = 'hidden';
+          // Deep link: update URL hash so the link can be shared
+          if (deal?.id) history.replaceState(null, '', '#deal=' + deal.id);
         },
-        closeDeal() { this.selectedDeal = null; document.body.style.overflow = ''; },
-        resetFilters() { this.filters = { states: [], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75 }; },
+        closeDeal() {
+          this.selectedDeal = null;
+          document.body.style.overflow = '';
+          // Clear hash from URL
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        },
+        copyDealLink() {
+          if (!this.selectedDeal?.id) return;
+          const baseUrl = window.location.origin + window.location.pathname;
+          const shareUrl = `${baseUrl}#deal=${this.selectedDeal.id}`;
+          const text = `Deal en el dashboard BizAcq: "${this.selectedDeal.title}"\n\nAbre el link directo:\n${shareUrl}`;
+          if (navigator.clipboard?.writeText) {
+            navigator.clipboard.writeText(text);
+            this.toast('✓ Link copiado — pégalo al socio (WhatsApp, email, etc.)');
+          } else {
+            window.prompt('Copia este link y mándaselo al socio:', shareUrl);
+          }
+        },
+        resetFilters() { this.filters = { states: [], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false }; },
         toggleState(code) {
           const i = this.filters.states.indexOf(code);
           if (i === -1) this.filters.states.push(code);

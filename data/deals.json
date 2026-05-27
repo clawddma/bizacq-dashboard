@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 22:45 COT",
-  "version": "0.11.1-bizscout-inventory-confirmed",
+  "last_update": "2026-05-27 23:00 COT",
+  "version": "0.12.0-manual-filter+deeplink",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -186,7 +186,8 @@
             "detail": "La estructura sugerida (80% SBA + 10% seller + 10% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "a1b2c3d4-2222-4000-8000-000000000002",
@@ -359,7 +360,8 @@
             "detail": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "a1b2c3d4-3333-4000-8000-000000000003",
@@ -521,7 +523,8 @@
             "detail": "La estructura sugerida (75% SBA + 10% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "a1b2c3d4-4444-4000-8000-000000000004",
@@ -685,7 +688,8 @@
             "detail": "TX TPCL requiere examen + supervisor licenciado activo en operación"
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "a1b2c3d4-5555-4000-8000-000000000005",
@@ -843,7 +847,8 @@
             "detail": "La estructura sugerida (70% SBA + 10% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "a1b2c3d4-6666-4000-8000-000000000006",
@@ -1036,7 +1041,8 @@
             "detail": "FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentista FL-licensed dueño formal del PA dental. Costo legal extra: $10-15K."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "a1b2c3d4-7777-4000-8000-000000000007",
@@ -1137,7 +1143,8 @@
             "detail": "Liquor license estatal puede requerir manager con presencia US — verificar con cada estado"
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "a1b2c3d4-8888-4000-8000-000000000008",
@@ -1306,7 +1313,8 @@
             "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0009-4000-8000-000000000009",
@@ -1463,7 +1471,8 @@
             "detail": "La estructura sugerida (85% SBA + 0% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0010-4000-8000-000000000010",
@@ -1630,7 +1639,8 @@
             "detail": "Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)"
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0011-4000-8000-000000000011",
@@ -1791,7 +1801,8 @@
             "detail": "Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)"
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0012-4000-8000-000000000012",
@@ -1954,7 +1965,8 @@
             "detail": "Licencia electricista estatal + master electrician supervisando obra"
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0013-4000-8000-000000000013",
@@ -2121,7 +2133,8 @@
             "detail": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0014-4000-8000-000000000014",
@@ -2271,7 +2284,8 @@
             "detail": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0015-4000-8000-000000000015",
@@ -2426,7 +2440,8 @@
             "detail": "La estructura sugerida (50% SBA + 30% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0016-4000-8000-000000000016",
@@ -2581,7 +2596,8 @@
             "detail": "La estructura sugerida (75% SBA + 10% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0017-4000-8000-000000000017",
@@ -2731,7 +2747,8 @@
             "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "id": "b2c3d4e5-0018-4000-8000-000000000018",
@@ -2901,7 +2918,8 @@
             "detail": "TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citizen/LPR como agent of record (les dan equity minoritario) y ustedes operan via management entity."
           }
         ]
-      }
+      },
+      "added_manually": false
     },
     {
       "title": "Ice Cream Shop — Downtown Atlanta (World Cup 2026 proximity)",
@@ -2940,7 +2958,8 @@
           "created_at": "2026-05-27",
           "description": "Descartado automáticamente: Múltiplo precio/SDE 5.0x supera el máximo 4.5x. Sobrevalorado."
         }
-      ]
+      ],
+      "added_manually": false
     },
     {
       "title": "Bar & Restaurant — Decatur GA (Farm-to-table)",
@@ -2979,7 +2998,8 @@
           "created_at": "2026-05-27",
           "description": "Descartado automáticamente: Múltiplo precio/SDE 5.4x supera el máximo 4.5x. Sobrevalorado."
         }
-      ]
+      ],
+      "added_manually": false
     },
     {
       "title": "Exterior Maintenance Company — Phoenix Metro (SBA Pre-Approved)",
@@ -3126,7 +3146,8 @@
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Insurance Agency — Phoenix AZ ($6.3M premium)",
@@ -3169,7 +3190,8 @@
           "created_at": "2026-05-27",
           "description": "Movido de DESCARTADO → RADAR (auto-sync desde dashboard)"
         }
-      ]
+      ],
+      "added_manually": false
     },
     {
       "title": "Auto Glass Repair — Phoenix AZ (SBA $5M cap, 16% EBITDA)",
@@ -3316,7 +3338,8 @@
           "description": "Análisis preliminar generado (overall 90.0 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Outdoor Living Retailer — Tucson AZ (Southern Arizona)",
@@ -3468,7 +3491,8 @@
           "description": "Análisis preliminar generado (overall 69.3 — MEDIA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Martin's Bread Route — Raleigh NC (Distribution)",
@@ -3608,7 +3632,8 @@
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Bar & Grill — Boulder CO (Prime location)",
@@ -3761,7 +3786,8 @@
           "description": "Análisis preliminar generado (overall 83.8 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "FedEx Ground Routes — Chattanooga TN (3 routes)",
@@ -3800,7 +3826,8 @@
           "created_at": "2026-05-27",
           "description": "Descartado automáticamente: Múltiplo precio/SDE 4.7x supera el máximo 4.5x. Sobrevalorado."
         }
-      ]
+      ],
+      "added_manually": false
     },
     {
       "title": "Flowers Bread Route — Nashville TN",
@@ -3940,7 +3967,8 @@
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Recurring Landscaping — Buffalo NY (95% recurring)",
@@ -4086,7 +4114,8 @@
           "description": "Análisis preliminar generado (overall 91.8 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "UPS Store Franchise — Boston MA (SBA Pre-Qualified)",
@@ -4232,7 +4261,8 @@
           "description": "Análisis preliminar generado (overall 87.4 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Mission's Tortilla Route — Boston MA",
@@ -4378,7 +4408,8 @@
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Martin's Bread Route — Boston MA",
@@ -4524,7 +4555,8 @@
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Diesel & Heavy Truck Repair — Las Vegas NV (90% fleet recurring)",
@@ -4671,7 +4703,8 @@
           "description": "Análisis preliminar generado (overall 88.2 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Landscape Chemical Spray — Reno NV (600+ recurring customers, 40yr)",
@@ -4817,7 +4850,8 @@
           "description": "Análisis preliminar generado (overall 91.8 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "FedEx Ground Routes — Portland OR (5 routes)",
@@ -4963,7 +4997,8 @@
           "description": "Análisis preliminar generado (overall 85.1 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Small Animal Veterinary Practice — Naples FL (24yr establecida)",
@@ -5122,7 +5157,8 @@
           "description": "Análisis preliminar generado (overall 85.8 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Veterinary Mixed-Animal Practice — North Central Texas (40yr)",
@@ -5281,7 +5317,8 @@
           "description": "Análisis preliminar generado (overall 85.8 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "title": "Vet Urgent Care — Milwaukee Metro (SBA, $1.45M SDE)",
@@ -5440,7 +5477,8 @@
           "description": "Análisis preliminar generado (overall 85.8 — ALTA)"
         }
       ],
-      "notes": []
+      "notes": [],
+      "added_manually": false
     },
     {
       "id": "e0b7ff29-f9a2-4e28-b386-d6c000d67120",
@@ -5631,7 +5669,8 @@
           "text": "Confirmé con info del listing: inventory es $14M USD. Reportar a socio para que veamos juntos. Antes de LOI: pedir desglose detallado del inventory (por SKU, costo unitario, fecha de adquisición, fecha de expiración) + warehouse address para auditoría física."
         }
       ],
-      "inventory_usd": 14000000
+      "inventory_usd": 14000000,
+      "added_manually": true
     }
   ],
   "manual_orders": {
