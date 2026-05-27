@@ -11,10 +11,11 @@ acquisition:
   min_dscr: 1.25
 
 scoring_weights:
-  financial_score: 0.35
-  self_financing_score: 0.25
-  ai_upside_score: 0.20
-  strategic_score: 0.20
+  financial_score: 0.30
+  self_financing_score: 0.20
+  ai_upside_score: 0.15
+  strategic_score: 0.15
+  legal_feasibility_score: 0.20   # nuevo — agente Legal evalúa viabilidad migratoria + restricciones de industria
 
 priority_thresholds:
   alta: 80

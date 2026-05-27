@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 17:00 COT",
-  "version": "0.5.0-url-audited",
+  "last_update": "2026-05-27 18:00 COT",
+  "version": "0.6.0-legal-integrated",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -21,7 +21,7 @@
       "raw_description": "HVAC con 12 años, base de 1,800 clientes recurrentes con contratos de mantenimiento anual. 8 técnicos + 2 admin. Flota propia de 6 vehículos. Dueño se retira por edad — quiere transición de 6 meses.",
       "pipeline_status": "RADAR",
       "filter_score": 60,
-      "overall_score": 84,
+      "overall_score": 82.6,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 480000,
@@ -109,7 +109,34 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 78,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": null,
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 80% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+      }
     },
     {
       "id": "a1b2c3d4-2222-4000-8000-000000000002",
@@ -129,8 +156,8 @@
       "raw_description": "Med spa 6 años en zona premium de Coral Gables. 4 cabinas, equipo de láser nuevo (2024). 950 clientes activos, 35% retornan trimestralmente. Médico director con contrato a 3 años. Dueña se muda.",
       "pipeline_status": "RADAR",
       "filter_score": 65,
-      "overall_score": 81,
-      "priority": "ALTA",
+      "overall_score": 70.3,
+      "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 320000,
         "dscr": 1.45,
@@ -192,7 +219,35 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "WARNING",
+        "feasibility_score": 50,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
+        "key_warnings": [
+          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 75% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+      }
     },
     {
       "id": "a1b2c3d4-3333-4000-8000-000000000003",
@@ -212,7 +267,7 @@
       "raw_description": "Ruta de mantenimiento de piscinas con 320 clientes mensuales recurrentes en Tampa, Brandon y Riverview. 3 técnicos. Dueño operario quiere semi-retirarse.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 68,
+      "overall_score": 69.0,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 180000,
@@ -279,7 +334,34 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 82,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": null,
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 75% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+      }
     },
     {
       "id": "a1b2c3d4-4444-4000-8000-000000000004",
@@ -299,7 +381,7 @@
       "raw_description": "Control de plagas con 15 años, licencia TPCL completa, 1,200 cuentas residenciales recurrentes (trimestral) + 80 comerciales mensuales. 4 técnicos certificados. Dueño cambia de industria.",
       "pipeline_status": "RADAR",
       "filter_score": 70,
-      "overall_score": 79,
+      "overall_score": 74.7,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 240000,
@@ -362,7 +444,35 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 72,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "TX TPCL requiere examen + supervisor licenciado activo en operación",
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes.",
+          "ℹ Restricción menor: TX TPCL requiere examen + supervisor licenciado activo en operación"
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+      }
     },
     {
       "id": "a1b2c3d4-5555-4000-8000-000000000005",
@@ -382,7 +492,7 @@
       "raw_description": "Taller mecánico con 22 años, 4 bahías, 3 mecánicos. Especializado en flotillas comerciales pequeñas y vehículos europeos. Dueño se jubila — abierto a transición larga.",
       "pipeline_status": "RADAR",
       "filter_score": 50,
-      "overall_score": 56,
+      "overall_score": 45.5,
       "priority": "BAJA",
       "financial": {
         "reconstructed_sde": 145000,
@@ -445,7 +555,34 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 80,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": null,
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 70% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+      }
     },
     {
       "id": "a1b2c3d4-6666-4000-8000-000000000006",
@@ -465,8 +602,8 @@
       "raw_description": "Consultorio dental general + cosmética. 9 años, 3 sillas, 2 higienistas, recepción. Dueño dentista que se va a docencia universitaria. 2,800 pacientes activos, 70% retornan anualmente. Equipo CEREC.",
       "pipeline_status": "RADAR",
       "filter_score": 65,
-      "overall_score": 87,
-      "priority": "ALTA",
+      "overall_score": 75.7,
+      "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 410000,
         "dscr": 1.62,
@@ -548,7 +685,35 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "WARNING",
+        "feasibility_score": 48,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentista FL-licensed dueño formal del PA dental. Costo legal extra: $10-15K.",
+        "key_warnings": [
+          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentista FL-licensed dueño formal del PA dental. Costo legal extra: $10-15K.",
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 80% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "POSIBLE pero requiere estructura especial. FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentis... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+      }
     },
     {
       "id": "a1b2c3d4-7777-4000-8000-000000000007",
@@ -585,7 +750,34 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 60,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "Liquor license estatal puede requerir manager con presencia US — verificar con cada estado",
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "ℹ Restricción menor: Liquor license estatal puede requerir manager con presencia US — verificar con cada estado"
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+      }
     },
     {
       "id": "a1b2c3d4-8888-4000-8000-000000000008",
@@ -605,7 +797,7 @@
       "raw_description": "Marca D2C de suplementos deportivos. 3 años, 18K clientes únicos, 32% repeat rate. Amazon (60%) + Shopify directo (40%). 3 empleados remotos. Fundadora se va a maternidad larga.",
       "pipeline_status": "RADAR",
       "filter_score": 60,
-      "overall_score": 82,
+      "overall_score": 80.9,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 220000,
@@ -685,7 +877,33 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 90,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": null,
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+      }
     },
     {
       "id": "b2c3d4e5-0009-4000-8000-000000000009",
@@ -705,7 +923,7 @@
       "raw_description": "HVAC family-run con 25 años, sirviendo Harris County desde 1997. Equipo técnico 24/7, mix residencial + comercial. Dueños fundadores se retiran. SDE estimado en margen 20% sobre $3.5MM gross revenue (estándar industria HVAC madura).",
       "pipeline_status": "RADAR",
       "filter_score": 65,
-      "overall_score": 86,
+      "overall_score": 80.5,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 700000,
@@ -765,7 +983,34 @@
       ],
       "notes": [],
       "source_url_kind": "listing",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 78,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": null,
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+      }
     },
     {
       "id": "b2c3d4e5-0010-4000-8000-000000000010",
@@ -785,7 +1030,7 @@
       "raw_description": "Plumbing enfocado en custom builders en Tarrant County. 14 años, equipo 18 plomeros + 4 admin. Mix 80% nuevas construcciones / 20% servicio. SBA eligible. SDE estimado con margen industria 18%.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 74,
+      "overall_score": 69.5,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 750000,
@@ -849,7 +1094,35 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 75,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)",
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes.",
+          "ℹ Restricción menor: Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)"
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+      }
     },
     {
       "id": "b2c3d4e5-0011-4000-8000-000000000011",
@@ -869,7 +1142,7 @@
       "raw_description": "Plomería residencial Corpus Christi. 8 años, 2 plomeros + dueño operario. Base de 600 clientes ocasionales. Vendedor abre seller financing 25%.",
       "pipeline_status": "RADAR",
       "filter_score": 50,
-      "overall_score": 64,
+      "overall_score": 68.1,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 110000,
@@ -929,7 +1202,35 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 75,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)",
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 60% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes.",
+          "ℹ Restricción menor: Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)"
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+      }
     },
     {
       "id": "b2c3d4e5-0012-4000-8000-000000000012",
@@ -949,7 +1250,7 @@
       "raw_description": "Electrical contractor especializado en solar residencial + pool energy systems. 11 años, 28 empleados, contratos con 4 builders grandes. Sarasota es mercado #3 EE.UU. en adopción solar residencial. SBA approved.",
       "pipeline_status": "RADAR",
       "filter_score": 65,
-      "overall_score": 78,
+      "overall_score": 74.7,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 1100000,
@@ -1009,7 +1310,35 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 73,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "Licencia electricista estatal + master electrician supervisando obra",
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes.",
+          "ℹ Restricción menor: Licencia electricista estatal + master electrician supervisando obra"
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+      }
     },
     {
       "id": "b2c3d4e5-0013-4000-8000-000000000013",
@@ -1029,7 +1358,7 @@
       "raw_description": "MedSpa cerca Houston (Friendswood). Establecido 2022, tecnología cosmética avanzada. Staff: MD, enfermeras, esteticista, manager, guest relations. Gross profits >$600K en 2023-2025. SDE $193K en 2024, 2025 trending igual o arriba.",
       "pipeline_status": "RADAR",
       "filter_score": 50,
-      "overall_score": 75,
+      "overall_score": 66.7,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 193041,
@@ -1089,7 +1418,35 @@
       ],
       "notes": [],
       "source_url_kind": "listing",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "WARNING",
+        "feasibility_score": 50,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
+        "key_warnings": [
+          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 75% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+      }
     },
     {
       "id": "b2c3d4e5-0014-4000-8000-000000000014",
@@ -1109,8 +1466,8 @@
       "raw_description": "Med spa upscale full-service en Miami. 2025: revenue $315K, SDE $76K. Inventario $44K incluido en el precio. Asking $285K (ratio ~3.7x SDE).",
       "pipeline_status": "RADAR",
       "filter_score": 35,
-      "overall_score": 52,
-      "priority": "BAJA",
+      "overall_score": 36.6,
+      "priority": null,
       "financial": {
         "reconstructed_sde": 76100,
         "dscr": 1.18,
@@ -1152,7 +1509,35 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "WARNING",
+        "feasibility_score": 50,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
+        "key_warnings": [
+          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 79% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+      }
     },
     {
       "id": "b2c3d4e5-0015-4000-8000-000000000015",
@@ -1172,8 +1557,8 @@
       "raw_description": "Janitorial Houston, 11 años. Contratos comerciales recurrentes (oficinas, retail chico). Asking $85K con SDE $75K — múltiplo 1.13x, atípicamente bajo. Investigar por qué tan barato (typical industria 1.5-2.5x).",
       "pipeline_status": "RADAR",
       "filter_score": 35,
-      "overall_score": 58,
-      "priority": "BAJA",
+      "overall_score": 66.8,
+      "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 75000,
         "dscr": 1.95,
@@ -1232,7 +1617,34 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 85,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": null,
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 50% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+      }
     },
     {
       "id": "b2c3d4e5-0016-4000-8000-000000000016",
@@ -1252,7 +1664,7 @@
       "raw_description": "Commercial landscape Tampa Bay. 7 contratos mensuales B2B firmes ($47K/mes recurring). 9 años, equipo 12 técnicos + 3 trucks. Cubre Hillsborough, Pinellas, Manatee, Sarasota, Charlotte.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 72,
+      "overall_score": 74.0,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 145000,
@@ -1312,7 +1724,34 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 85,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": null,
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 75% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+      }
     },
     {
       "id": "b2c3d4e5-0017-4000-8000-000000000017",
@@ -1332,7 +1771,7 @@
       "raw_description": "109 cuentas residenciales mensuales en Wesley Chapel/Lutz, $11,995/mes recurring + ingresos de reparaciones. Ruta densa, 1 técnico. Pool routes se venden 10-12x monthly gross — ask $132K es 11x monthly (medio del rango).",
       "pipeline_status": "RADAR",
       "filter_score": 50,
-      "overall_score": 68,
+      "overall_score": 70.6,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 108000,
@@ -1393,7 +1832,33 @@
       ],
       "notes": [],
       "source_url_kind": "listing",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 82,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": null,
+        "key_warnings": [
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+      }
     },
     {
       "id": "b2c3d4e5-0018-4000-8000-000000000018",
@@ -1413,7 +1878,7 @@
       "raw_description": "Allstate agency Plano TX, fundada 2011. $8M premium book, $1.5M commission revenue 2025. SDE estimado ~32% margen (típico P&C). Valoración a 2.5x commissions (estándar P&C).",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 78,
+      "overall_score": 65.0,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 480000,
@@ -1473,7 +1938,35 @@
       ],
       "notes": [],
       "source_url_kind": "category",
-      "source_url_verified": true
+      "source_url_verified": true,
+      "legal_check": {
+        "done": true,
+        "feasibility": "WARNING",
+        "feasibility_score": 42,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "alternative_financing": [
+          "Seller financing 30-50% (CLAVE — pedir lo más alto posible)",
+          "Conventional bank loan 20-30% down (Live Oak, Pursuit Lending, community banks)",
+          "Equity propia 15-25%",
+          "Private credit / mezzanine si deal > $1M",
+          "EB-5 ($800K en TEA o $1.05M general) si deciden green card path"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
+        "industry_restrictions": "TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citizen/LPR como agent of record (les dan equity minoritario) y ustedes operan via management entity.",
+        "key_warnings": [
+          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citizen/LPR como agent of record (les dan equity minoritario) y ustedes operan via management entity.",
+          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
+          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
+        ],
+        "next_steps": [
+          "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
+          "Attorney M&A: $8-15K para deal estándar",
+          "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
+          "Total stack legal/admin: ~$25-35K + capital del deal"
+        ],
+        "plain_summary": "POSIBLE pero requiere estructura especial. TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citi... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+      }
     }
   ],
   "manual_orders": {
