@@ -76,6 +76,36 @@
   .cat-menu button:hover { background: #f1f5f9; }
   .cat-menu button.active { background: #1e293b; color: white; font-weight: 600; }
 
+  /* Modal */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(15,23,42,.55); z-index: 100;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-box {
+    background: white; border-radius: 12px; max-width: 580px; width: 100%;
+    max-height: 92vh; overflow-y: auto; padding: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.3);
+  }
+  .modal-box label { display: block; font-size: 12px; font-weight: 600; color: #475569; margin-top: 14px; margin-bottom: 4px; }
+  .modal-box input, .modal-box textarea, .modal-box select {
+    width: 100%; padding: 8px 10px; font-size: 14px; border: 1px solid #cbd5e1;
+    border-radius: 6px; background: white;
+  }
+  .modal-box input:focus, .modal-box textarea:focus, .modal-box select:focus { outline: none; border-color: #1e293b; }
+  .modal-box textarea { resize: vertical; min-height: 80px; font-family: inherit; }
+
+  /* URL link icon on card */
+  .url-link {
+    color: #94a3b8; padding: 2px 4px; border-radius: 4px;
+    line-height: 0; display: inline-flex; align-items: center;
+  }
+  .url-link:hover { color: #1e293b; background: #f1f5f9; }
+
+  /* Digital audit gauge */
+  .gauge { display: inline-flex; align-items: center; gap: 6px; }
+  .gauge-bar { display: inline-block; width: 60px; height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+  .gauge-fill { display: block; height: 100%; border-radius: 3px; }
+
   @media (hover: none) { .draggable { -webkit-user-select: none; user-select: none; } }
 </style>
 </head>
@@ -99,6 +129,11 @@
       <button class="tab-btn" :class="{'active': view === 'pipeline'}" @click="view = 'pipeline'">Pipeline</button>
       <button class="tab-btn" :class="{'active': view === 'category'}" @click="view = 'category'">Por categoría</button>
       <button class="tab-btn" :class="{'active': view === 'glossary'}" @click="view = 'glossary'">Glosario</button>
+      <button @click="openAddModal()"
+        class="ml-auto bg-slate-900 hover:bg-slate-700 text-white text-xs font-semibold px-3 py-2 rounded-md flex items-center gap-1.5 my-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>
+        Agregar negocio
+      </button>
     </div>
   </header>
 
@@ -237,8 +272,13 @@
                 class="draggable bg-white border border-slate-200 rounded-md p-3 card-shadow transition group">
                 <div class="flex items-start justify-between gap-2 mb-2">
                   <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
-                  <span class="shrink-0 text-xs font-bold px-1.5 py-0.5 rounded"
-                    :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="deal.state"></span>
+                  <div class="flex items-center gap-1 shrink-0">
+                    <a x-show="deal.source_url" :href="deal.source_url" target="_blank" rel="noopener" @click.stop class="url-link" :title="`Abrir listing en ${deal.source}`">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                    </a>
+                    <span class="text-xs font-bold px-1.5 py-0.5 rounded"
+                      :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="deal.state"></span>
+                  </div>
                 </div>
                 <p class="text-xs text-slate-500 mb-2.5">
                   <span x-text="categoryIcon(deal.business_type) + ' ' + deal.business_type"></span> · <span x-text="deal.city"></span>
@@ -316,6 +356,9 @@
                   <div class="flex items-start justify-between gap-2 mb-1">
                     <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
                     <div class="flex items-center gap-1 shrink-0">
+                      <a x-show="deal.source_url" :href="deal.source_url" target="_blank" rel="noopener" @click.stop class="url-link" :title="`Abrir listing en ${deal.source}`">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                      </a>
                       <span class="text-xs font-bold px-1.5 py-0.5 rounded"
                         :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="deal.state"></span>
                       <span class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
@@ -414,6 +457,69 @@
 
     <p x-show="filteredGlossary().length === 0 && !glossarySearch" class="text-center text-sm text-slate-400 py-12">Sin resultados.</p>
   </main>
+
+  <!-- Add Business Modal -->
+  <div x-show="addModalOpen" x-cloak x-transition.opacity class="modal-overlay" @click.self="closeAddModal()">
+    <div class="modal-box" x-show="addModalOpen" x-transition x-cloak>
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900">Agregar nuevo negocio al pipeline</h2>
+          <p class="text-xs text-slate-500 mt-1">Pega lo que tengas (URL del listing, website del negocio, o solo notas) — el resto lo armo yo.</p>
+        </div>
+        <button @click="closeAddModal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none">×</button>
+      </div>
+
+      <label>URL del listing en el marketplace <span class="text-slate-400">(BizBuySell, BizScout, BusinessBroker, etc.)</span></label>
+      <input type="url" x-model="addForm.listingUrl" placeholder="https://www.bizbuysell.com/Business-Opportunity/...">
+
+      <label>URL del website del negocio <span class="text-slate-400">(si tiene — para auditar potencial digital)</span></label>
+      <input type="url" x-model="addForm.websiteUrl" placeholder="https://example-hvac.com">
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label>Categoría sugerida</label>
+          <select x-model="addForm.category">
+            <option value="">Auto-detectar</option>
+            <template x-for="(subs, sup) in SUPER_CATEGORIES" :key="sup">
+              <optgroup :label="sup">
+                <template x-for="b in subs" :key="b">
+                  <option :value="b" x-text="b"></option>
+                </template>
+              </optgroup>
+            </template>
+          </select>
+        </div>
+        <div>
+          <label>Estado</label>
+          <select x-model="addForm.state">
+            <option value="">Auto-detectar</option>
+            <option value="TX">Texas</option>
+            <option value="FL">Florida</option>
+            <option value="OTHER">Otro estado</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Precio asking <span class="text-slate-400">(si lo conoces)</span></label>
+      <input type="text" x-model="addForm.askingPrice" placeholder="$450,000">
+
+      <label>Notas o contexto adicional</label>
+      <textarea x-model="addForm.notes" placeholder="Por qué te llama la atención, qué viste especial, fuente del lead, etc."></textarea>
+
+      <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded text-xs text-blue-900">
+        <strong>Si tienes el PDF del listing</strong> (CIM, broker package), súbelo a tu chat con Claude DESPUÉS de pegar este mensaje. Claude lo va a leer y extraer los datos directamente del PDF.
+      </div>
+
+      <div class="flex items-center justify-end gap-2 mt-5">
+        <button @click="closeAddModal()" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">Cancelar</button>
+        <button @click="copyAddRequest()"
+          class="bg-slate-900 hover:bg-slate-700 text-white text-sm font-semibold px-4 py-2 rounded-md flex items-center gap-2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar pedido para Claude
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Detail panel -->
   <div x-show="selectedDeal" x-cloak x-transition.opacity class="fixed inset-0 bg-slate-900/40 z-40" @click.self="closeDeal()">
@@ -558,6 +664,55 @@
                   <li x-html="withTips(op)"></li>
                 </template>
               </ul>
+            </section>
+
+            <!-- Potencial digital -->
+            <section x-show="selectedDeal.digital_presence?.audit_done">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">Potencial digital del negocio</h3>
+              <div class="bg-slate-50 rounded-lg p-3 mb-2">
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                  <div>
+                    <p class="text-[11px] text-slate-500 uppercase tracking-wide mb-1">Web actual</p>
+                    <div class="gauge">
+                      <span class="gauge-bar"><span class="gauge-fill" :class="auditFillClass(selectedDeal.digital_presence?.audit_score)" :style="`width: ${selectedDeal.digital_presence?.audit_score || 0}%`"></span></span>
+                      <span class="text-sm font-bold" :class="auditTextClass(selectedDeal.digital_presence?.audit_score)" x-text="`${selectedDeal.digital_presence?.audit_score}/100`"></span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-1" x-text="auditLabel(selectedDeal.digital_presence?.audit_score)"></p>
+                  </div>
+                  <div>
+                    <p class="text-[11px] text-slate-500 uppercase tracking-wide mb-1">Upside si modernizas</p>
+                    <div class="gauge">
+                      <span class="gauge-bar"><span class="gauge-fill bg-emerald-500" :style="`width: ${selectedDeal.digital_presence?.digital_upside_score || 0}%`"></span></span>
+                      <span class="text-sm font-bold text-emerald-700" x-text="`${selectedDeal.digital_presence?.digital_upside_score}/100`"></span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-1" x-text="upsideLabel(selectedDeal.digital_presence?.digital_upside_score)"></p>
+                  </div>
+                </div>
+                <p class="text-sm text-slate-700 mb-3" x-html="withTips(selectedDeal.digital_presence?.current_state)"></p>
+                <div x-show="selectedDeal.digital_presence?.website" class="text-xs mb-2">
+                  <span class="text-slate-500">Website:</span>
+                  <a :href="selectedDeal.digital_presence?.website" target="_blank" rel="noopener" class="text-blue-600 hover:underline" x-text="selectedDeal.digital_presence?.website"></a>
+                </div>
+                <div x-show="!selectedDeal.digital_presence?.website" class="text-xs mb-2 text-amber-700 font-medium">⚠ El negocio NO tiene website</div>
+                <p class="text-xs font-semibold text-slate-700 mb-1.5">Quick wins (orden de prioridad):</p>
+                <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+                  <template x-for="qw in selectedDeal.digital_presence?.quick_wins" :key="qw">
+                    <li x-html="withTips(qw)"></li>
+                  </template>
+                </ul>
+              </div>
+            </section>
+
+            <section x-show="!selectedDeal.digital_presence?.audit_done">
+              <h3 class="text-sm font-bold text-slate-900 mb-2">Potencial digital del negocio</h3>
+              <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-900">
+                <p class="mb-2"><strong>Sin auditoría digital aún.</strong> Para evaluar el potencial digital de este negocio:</p>
+                <ol class="list-decimal list-inside text-xs space-y-1 text-amber-800">
+                  <li>Encuentra el website del negocio (busca el nombre en Google)</li>
+                  <li>Pídele a Claude: <code class="bg-amber-100 px-1 rounded">audita la web del deal <strong x-text="selectedDeal.id?.slice(0,8)"></strong> en https://...</code></li>
+                  <li>Claude analiza booking, SEO, reviews, redes — y agrega quick wins</li>
+                </ol>
+              </div>
             </section>
 
             <section x-show="selectedDeal.strategy?.buy_thesis">
@@ -779,6 +934,8 @@
         draggingId: null, dragOverCol: null, openSortMenu: null,
         view: savedView, glossarySearch: '',
         catMenuOpen: false,
+        addModalOpen: false,
+        addForm: { listingUrl: '', websiteUrl: '', category: '', state: '', askingPrice: '', notes: '' },
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
         filters: { state: 'Todos', priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false },
@@ -1160,6 +1317,77 @@
           this.toastMsg = msg;
           clearTimeout(this._toastTimer);
           this._toastTimer = setTimeout(() => { this.toastMsg = null; }, 3500);
+        },
+
+        // ─── Digital audit helpers ─────────────────────
+        auditFillClass(score) {
+          if (score == null) return 'bg-slate-300';
+          if (score >= 70) return 'bg-emerald-500';
+          if (score >= 40) return 'bg-amber-500';
+          return 'bg-red-500';
+        },
+        auditTextClass(score) {
+          if (score == null) return 'text-slate-500';
+          if (score >= 70) return 'text-emerald-700';
+          if (score >= 40) return 'text-amber-700';
+          return 'text-red-700';
+        },
+        auditLabel(score) {
+          if (score == null) return 'sin auditar';
+          if (score >= 75) return 'web sólida';
+          if (score >= 50) return 'web aceptable';
+          if (score >= 25) return 'web débil';
+          return 'web muy débil o inexistente';
+        },
+        upsideLabel(score) {
+          if (score == null) return '';
+          if (score >= 75) return 'upside muy alto';
+          if (score >= 50) return 'upside moderado';
+          return 'upside bajo';
+        },
+
+        // ─── Add business modal ────────────────────────
+        openAddModal() {
+          this.addForm = { listingUrl: '', websiteUrl: '', category: '', state: '', askingPrice: '', notes: '' };
+          this.addModalOpen = true;
+          document.body.style.overflow = 'hidden';
+        },
+        closeAddModal() {
+          this.addModalOpen = false;
+          document.body.style.overflow = '';
+        },
+        copyAddRequest() {
+          const f = this.addForm;
+          const lines = ['Quiero agregar un nuevo negocio al dashboard BizAcq:'];
+          lines.push('');
+          if (f.listingUrl) lines.push(`- URL del listing: ${f.listingUrl}`);
+          if (f.websiteUrl) lines.push(`- URL del website del negocio: ${f.websiteUrl}`);
+          if (f.category) lines.push(`- Categoría sugerida: ${f.category}`);
+          if (f.state) lines.push(`- Estado: ${f.state}`);
+          if (f.askingPrice) lines.push(`- Precio asking: ${f.askingPrice}`);
+          if (f.notes) lines.push(`- Notas: ${f.notes}`);
+          if (!f.listingUrl && !f.websiteUrl && !f.notes) {
+            this.toast('⚠ Pega al menos un URL o agrega notas antes de copiar');
+            return;
+          }
+          lines.push('');
+          lines.push('Por favor:');
+          if (f.listingUrl) lines.push('1. Hacer WebFetch del listing y extraer datos (precio, SDE, revenue, años, tipo de negocio, seller financing, SBA)');
+          if (f.websiteUrl) lines.push((f.listingUrl ? '2' : '1') + '. Hacer WebFetch del website del negocio y auditar potencial digital (booking online, SEO, reviews, redes, mobile-friendly) — generar audit_score, digital_upside_score y quick_wins concretos');
+          lines.push('3. Aplicar análisis financiero (DSCR, payback, structure SBA + seller financing) y estratégico (buy_thesis, AI upside, exit profile)');
+          lines.push('4. Comparar múltiplo vs rango típico de su industria');
+          lines.push('5. Agregarlo al deals.json en estado RADAR');
+          lines.push('6. Commit + push al repo (auto redeploya GitHub Pages)');
+          lines.push('');
+          lines.push('Si te subo un PDF (CIM, broker package), úsalo como fuente primaria de datos en vez del listing.');
+          const text = lines.join('\n');
+          if (navigator.clipboard?.writeText) {
+            navigator.clipboard.writeText(text);
+            this.toast('✓ Pedido copiado — pégalo en tu chat con Claude');
+            this.closeAddModal();
+          } else {
+            window.prompt('Copia este texto y pégalo en tu chat con Claude:', text);
+          }
         },
       };
     }
