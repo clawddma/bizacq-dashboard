@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 20:23 UTC (auto-sync)",
-  "version": "0.9.0-multi-state+partner-options",
+  "last_update": "2026-05-27 22:00 COT",
+  "version": "0.10.0-informative-legal",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -125,17 +125,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": null,
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 80% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 70,
@@ -174,7 +171,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 80% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (80% SBA + 10% seller + 10% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       }
     },
     {
@@ -195,7 +206,7 @@
       "raw_description": "Med spa 6 años en zona premium de Coral Gables. 4 cabinas, equipo de láser nuevo (2024). 950 clientes activos, 35% retornan trimestralmente. Médico director con contrato a 3 años. Dueña se muda.",
       "pipeline_status": "RADAR",
       "filter_score": 65,
-      "overall_score": 70.3,
+      "overall_score": 74.3,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 320000,
@@ -261,8 +272,8 @@
       "source_url_verified": true,
       "legal_check": {
         "done": true,
-        "feasibility": "WARNING",
-        "feasibility_score": 50,
+        "feasibility": "OK",
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "alternative_financing": [
@@ -274,18 +285,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
-        "key_warnings": [
-          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 75% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 10,
@@ -325,7 +332,33 @@
           "profession": "MD (licensed in state)",
           "state_specific": null,
           "structure_alternative": "Friendly PC: MSO (su LLC) + PC (médico licenciado del estado dueño formal). Costo legal extra ~$10K."
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "🩺",
+            "title": "Industria requiere MD (licensed in state) como socio formal o managing professional",
+            "detail": "NO es blocker del deal. Friendly PC: MSO (su LLC) + PC (médico licenciado del estado dueño formal). Costo legal extra ~$10K. Costo legal extra estimado: $10-15K (attorney especializado en esa industria + estructura corporativa). Esta es práctica estándar en PE consolidación de la industria — se hace rutinariamente."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 75% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (75% SBA + 10% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal."
+          }
+        ]
       }
     },
     {
@@ -346,7 +379,7 @@
       "raw_description": "Ruta de mantenimiento de piscinas con 320 clientes mensuales recurrentes en Tampa, Brandon y Riverview. 3 técnicos. Dueño operario quiere semi-retirarse.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 69,
+      "overall_score": 69.0,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 180000,
@@ -429,17 +462,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": null,
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 75% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -476,7 +506,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 75% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (75% SBA + 10% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       }
     },
     {
@@ -576,18 +620,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "TX TPCL requiere examen + supervisor licenciado activo en operación",
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes.",
-          "ℹ Restricción menor: TX TPCL requiere examen + supervisor licenciado activo en operación"
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -624,7 +664,27 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 85% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (85% SBA + 0% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "TX TPCL requiere examen + supervisor licenciado activo en operación"
+          }
+        ]
       }
     },
     {
@@ -724,17 +784,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": null,
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 70% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -771,7 +828,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 70% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (70% SBA + 10% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       }
     },
     {
@@ -792,8 +863,8 @@
       "raw_description": "Consultorio dental general + cosmética. 9 años, 3 sillas, 2 higienistas, recepción. Dueño dentista que se va a docencia universitaria. 2,800 pacientes activos, 70% retornan anualmente. Equipo CEREC.",
       "pipeline_status": "RADAR",
       "filter_score": 65,
-      "overall_score": 75.7,
-      "priority": "MEDIA",
+      "overall_score": 80.1,
+      "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 410000,
         "dscr": 1.62,
@@ -878,8 +949,8 @@
       "source_url_verified": true,
       "legal_check": {
         "done": true,
-        "feasibility": "WARNING",
-        "feasibility_score": 48,
+        "feasibility": "OK",
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "alternative_financing": [
@@ -891,18 +962,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentista FL-licensed dueño formal del PA dental. Costo legal extra: $10-15K.",
-        "key_warnings": [
-          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentista FL-licensed dueño formal del PA dental. Costo legal extra: $10-15K.",
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 80% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentis... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 55,
@@ -942,7 +1009,33 @@
           "profession": "DDS Florida-licensed",
           "state_specific": null,
           "structure_alternative": "FL Statute 466.0285 — DSO permitido pero PA dental debe ser dentist-owned."
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "🩺",
+            "title": "Industria requiere DDS Florida-licensed como socio formal o managing professional",
+            "detail": "NO es blocker del deal. FL Statute 466.0285 — DSO permitido pero PA dental debe ser dentist-owned. Costo legal extra estimado: $10-15K (attorney especializado en esa industria + estructura corporativa). Esta es práctica estándar en PE consolidación de la industria — se hace rutinariamente."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 80% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (80% SBA + 10% seller + 10% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentista FL-licensed dueño formal del PA dental. Costo legal extra: $10-15K."
+          }
+        ]
       }
     },
     {
@@ -984,7 +1077,7 @@
       "legal_check": {
         "done": true,
         "feasibility": "OK",
-        "feasibility_score": 60,
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "alternative_financing": [
@@ -996,17 +1089,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "Liquor license estatal puede requerir manager con presencia US — verificar con cada estado",
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "ℹ Restricción menor: Liquor license estatal puede requerir manager con presencia US — verificar con cada estado"
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -1032,7 +1122,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "Liquor license estatal puede requerir manager con presencia US — verificar con cada estado"
+          }
+        ]
       }
     },
     {
@@ -1149,16 +1253,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": null,
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -1195,7 +1297,15 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          }
+        ]
       }
     },
     {
@@ -1292,17 +1402,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": null,
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 70,
@@ -1341,7 +1448,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 85% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (85% SBA + 0% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       }
     },
     {
@@ -1442,18 +1563,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)",
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes.",
-          "ℹ Restricción menor: Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)"
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 70,
@@ -1492,7 +1609,27 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 85% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (85% SBA + 0% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)"
+          }
+        ]
       }
     },
     {
@@ -1589,18 +1726,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)",
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 60% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes.",
-          "ℹ Restricción menor: Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)"
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -1637,7 +1770,27 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 60% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (60% SBA + 25% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "Licencia contratista estatal (TX/FL no exigen residencia US para licencia, sí para fianza)"
+          }
+        ]
       }
     },
     {
@@ -1734,18 +1887,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "Licencia electricista estatal + master electrician supervisando obra",
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes.",
-          "ℹ Restricción menor: Licencia electricista estatal + master electrician supervisando obra"
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 70,
@@ -1784,7 +1933,27 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 85% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (85% SBA + 0% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "Licencia electricista estatal + master electrician supervisando obra"
+          }
+        ]
       }
     },
     {
@@ -1805,7 +1974,7 @@
       "raw_description": "MedSpa cerca Houston (Friendswood). Establecido 2022, tecnología cosmética avanzada. Staff: MD, enfermeras, esteticista, manager, guest relations. Gross profits >$600K en 2023-2025. SDE $193K en 2024, 2025 trending igual o arriba.",
       "pipeline_status": "RADAR",
       "filter_score": 50,
-      "overall_score": 66.7,
+      "overall_score": 70.7,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 193041,
@@ -1868,8 +2037,8 @@
       "source_url_verified": true,
       "legal_check": {
         "done": true,
-        "feasibility": "WARNING",
-        "feasibility_score": 50,
+        "feasibility": "OK",
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "alternative_financing": [
@@ -1881,18 +2050,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
-        "key_warnings": [
-          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 75% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -1929,7 +2094,33 @@
           "profession": "MD (licensed in state)",
           "state_specific": null,
           "structure_alternative": "Friendly PC: MSO (su LLC) + PC (médico licenciado del estado dueño formal). Costo legal extra ~$10K."
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "🩺",
+            "title": "Industria requiere MD (licensed in state) como socio formal o managing professional",
+            "detail": "NO es blocker del deal. Friendly PC: MSO (su LLC) + PC (médico licenciado del estado dueño formal). Costo legal extra ~$10K. Costo legal extra estimado: $10-15K (attorney especializado en esa industria + estructura corporativa). Esta es práctica estándar en PE consolidación de la industria — se hace rutinariamente."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 75% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (75% SBA + 10% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal."
+          }
+        ]
       }
     },
     {
@@ -1950,8 +2141,8 @@
       "raw_description": "Med spa upscale full-service en Miami. 2025: revenue $315K, SDE $76K. Inventario $44K incluido en el precio. Asking $285K (ratio ~3.7x SDE).",
       "pipeline_status": "RADAR",
       "filter_score": 35,
-      "overall_score": 36.6,
-      "priority": null,
+      "overall_score": 40.6,
+      "priority": "BAJA",
       "financial": {
         "reconstructed_sde": 76100,
         "dscr": 1.18,
@@ -1996,8 +2187,8 @@
       "source_url_verified": true,
       "legal_check": {
         "done": true,
-        "feasibility": "WARNING",
-        "feasibility_score": 50,
+        "feasibility": "OK",
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "alternative_financing": [
@@ -2009,18 +2200,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
-        "key_warnings": [
-          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal.",
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 79% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -2057,7 +2244,33 @@
           "profession": "MD (licensed in state)",
           "state_specific": null,
           "structure_alternative": "Friendly PC: MSO (su LLC) + PC (médico licenciado del estado dueño formal). Costo legal extra ~$10K."
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "🩺",
+            "title": "Industria requiere MD (licensed in state) como socio formal o managing professional",
+            "detail": "NO es blocker del deal. Friendly PC: MSO (su LLC) + PC (médico licenciado del estado dueño formal). Costo legal extra ~$10K. Costo legal extra estimado: $10-15K (attorney especializado en esa industria + estructura corporativa). Esta es práctica estándar en PE consolidación de la industria — se hace rutinariamente."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 79% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (79% SBA + 0% seller + 21% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Organization (MSO), MD US-licensed dueño formal del Professional Corporation (PC) clínica. Common en PE buyouts pero +$10K legal."
+          }
+        ]
       }
     },
     {
@@ -2154,17 +2367,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": null,
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 50% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -2201,7 +2411,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 50% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (50% SBA + 30% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       }
     },
     {
@@ -2222,7 +2446,7 @@
       "raw_description": "Commercial landscape Tampa Bay. 7 contratos mensuales B2B firmes ($47K/mes recurring). 9 años, equipo 12 técnicos + 3 trucks. Cubre Hillsborough, Pinellas, Manatee, Sarasota, Charlotte.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 74,
+      "overall_score": 74.0,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 145000,
@@ -2298,17 +2522,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": null,
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 75% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -2345,7 +2566,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 75% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (75% SBA + 10% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       }
     },
     {
@@ -2443,16 +2678,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": null,
-        "key_warnings": [
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -2489,7 +2722,15 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          }
+        ]
       }
     },
     {
@@ -2510,7 +2751,7 @@
       "raw_description": "Allstate agency Plano TX, fundada 2011. $8M premium book, $1.5M commission revenue 2025. SDE estimado ~32% margen (típico P&C). Valoración a 2.5x commissions (estándar P&C).",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 65,
+      "overall_score": 70.6,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 480000,
@@ -2573,8 +2814,8 @@
       "source_url_verified": true,
       "legal_check": {
         "done": true,
-        "feasibility": "WARNING",
-        "feasibility_score": 42,
+        "feasibility": "OK",
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "alternative_financing": [
@@ -2586,18 +2827,14 @@
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (pasaporte ES) y socio (pasaporte MX), ambos con visa E-2. La LLC adquiere ACTIVOS del negocio (Asset Purchase preferido vs Stock por temas fiscales y de pasivos).",
         "industry_restrictions": "TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citizen/LPR como agent of record (les dan equity minoritario) y ustedes operan via management entity.",
-        "key_warnings": [
-          "⚠ INDUSTRIA REQUIERE ESTRUCTURA ESPECIAL: TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citizen/LPR como agent of record (les dan equity minoritario) y ustedes operan via management entity.",
-          "🚩 Sin LPR/green card NO califican para SBA. Cualquier propuesta de \"califica SBA\" en este dashboard es TEÓRICA — recalcular structure sin SBA antes de avanzar.",
-          "⚠ Este deal propone 85% SBA loan — NO viable sin green card. Renegociar a max seller financing + conventional. Si el vendedor no cede, el deal está EFFECTIVELY SOBREPRECIO para ustedes."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2: aplicar en consulado US (Madrid para Daniel, CDMX para socio). Timeline 4-12 semanas, ~$5K legal por persona + $315 USCIS fee",
           "Attorney M&A: $8-15K para deal estándar",
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citi... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 55,
@@ -2637,7 +2874,33 @@
           "profession": "Licensed insurance producer (state-licensed)",
           "state_specific": null,
           "structure_alternative": "Daniel/socio pueden ser dueños del LLC; agent of record debe tener licencia (puede ser empleado contratado, no socio)."
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "🩺",
+            "title": "Industria requiere Licensed insurance producer (state-licensed) como socio formal o managing professional",
+            "detail": "NO es blocker del deal. Daniel/socio pueden ser dueños del LLC; agent of record debe tener licencia (puede ser empleado contratado, no socio). Costo legal extra estimado: $10-15K (attorney especializado en esa industria + estructura corporativa). Esta es práctica estándar en PE consolidación de la industria — se hace rutinariamente."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 85% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (85% SBA + 0% seller + 15% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citizen/LPR como agent of record (les dan equity minoritario) y ustedes operan via management entity."
+          }
+        ]
       }
     },
     {
@@ -2793,15 +3056,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 en consulado (4-12 semanas, $5K legal)",
           "Attorney M&A: $8-15K",
           "Delaware LLC: $500 setup"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 55,
@@ -2839,7 +3100,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 50% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (50% SBA + 0% seller + 50% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -2916,7 +3191,7 @@
       "source_url_verified": true,
       "pipeline_status": "RADAR",
       "filter_score": 20,
-      "overall_score": 90,
+      "overall_score": 90.0,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 720000,
@@ -2971,15 +3246,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 en consulado (4-12 semanas, $5K legal)",
           "Attorney M&A: $8-15K",
           "Delaware LLC: $500 setup"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 40,
@@ -3017,7 +3290,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 50% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (50% SBA + 0% seller + 50% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -3051,7 +3338,7 @@
       "source_url_verified": true,
       "pipeline_status": "RADAR",
       "filter_score": 35,
-      "overall_score": 69.3,
+      "overall_score": 71.3,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 145000,
@@ -3094,7 +3381,7 @@
       "legal_check": {
         "done": true,
         "feasibility": "OK",
-        "feasibility_score": 60,
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "industry_restrictions": "Liquor license estatal puede requerir manager con presencia US",
@@ -3106,15 +3393,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 en consulado (4-12 semanas, $5K legal)",
           "Attorney M&A: $8-15K",
           "Delaware LLC: $500 setup"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -3151,7 +3436,27 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "Liquor license estatal puede requerir manager con presencia US"
+          }
+        ]
       },
       "events": [
         {
@@ -3240,15 +3545,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 en consulado (4-12 semanas, $5K legal)",
           "Attorney M&A: $8-15K",
           "Delaware LLC: $500 setup"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -3285,7 +3588,15 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          }
+        ]
       },
       "events": [
         {
@@ -3319,7 +3630,7 @@
       "source_url_verified": true,
       "pipeline_status": "RADAR",
       "filter_score": 40,
-      "overall_score": 83.8,
+      "overall_score": 85.8,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 350000,
@@ -3362,7 +3673,7 @@
       "legal_check": {
         "done": true,
         "feasibility": "OK",
-        "feasibility_score": 60,
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "industry_restrictions": "Liquor license estatal puede requerir manager con presencia US",
@@ -3374,15 +3685,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 en consulado (4-12 semanas, $5K legal)",
           "Attorney M&A: $8-15K",
           "Delaware LLC: $500 setup"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 40,
@@ -3420,7 +3729,27 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "Liquor license estatal puede requerir manager con presencia US"
+          }
+        ]
       },
       "events": [
         {
@@ -3548,15 +3877,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 en consulado (4-12 semanas, $5K legal)",
           "Attorney M&A: $8-15K",
           "Delaware LLC: $500 setup"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -3593,7 +3920,15 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          }
+        ]
       },
       "events": [
         {
@@ -3682,15 +4017,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 en consulado (4-12 semanas, $5K legal)",
           "Attorney M&A: $8-15K",
           "Delaware LLC: $500 setup"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -3727,7 +4060,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -3816,15 +4163,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -3861,7 +4206,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -3950,15 +4309,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -3995,7 +4352,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -4084,15 +4455,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -4129,7 +4498,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -4218,15 +4601,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 40,
@@ -4264,7 +4645,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -4353,15 +4748,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -4398,7 +4791,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -4487,15 +4894,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": false,
           "viability_score": 0,
@@ -4532,7 +4937,21 @@
           "profession": null,
           "state_specific": null,
           "structure_alternative": null
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          }
+        ]
       },
       "events": [
         {
@@ -4566,7 +4985,7 @@
       "source_url_verified": true,
       "pipeline_status": "RADAR",
       "filter_score": 50,
-      "overall_score": 85.8,
+      "overall_score": 90.2,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 285000,
@@ -4608,8 +5027,8 @@
       },
       "legal_check": {
         "done": true,
-        "feasibility": "WARNING",
-        "feasibility_score": 48,
+        "feasibility": "OK",
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "industry_restrictions": "FL exige dentista licenciado owner. DSO/Friendly PC structure.",
@@ -4621,15 +5040,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 40,
@@ -4667,7 +5084,33 @@
           "profession": "DDS Florida-licensed",
           "state_specific": null,
           "structure_alternative": "FL Statute 466.0285 — DSO permitido pero PA dental debe ser dentist-owned."
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "🩺",
+            "title": "Industria requiere DDS Florida-licensed como socio formal o managing professional",
+            "detail": "NO es blocker del deal. FL Statute 466.0285 — DSO permitido pero PA dental debe ser dentist-owned. Costo legal extra estimado: $10-15K (attorney especializado en esa industria + estructura corporativa). Esta es práctica estándar en PE consolidación de la industria — se hace rutinariamente."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "FL exige dentista licenciado owner. DSO/Friendly PC structure."
+          }
+        ]
       },
       "events": [
         {
@@ -4701,7 +5144,7 @@
       "source_url_verified": true,
       "pipeline_status": "RADAR",
       "filter_score": 50,
-      "overall_score": 85.8,
+      "overall_score": 90.2,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 580000,
@@ -4743,8 +5186,8 @@
       },
       "legal_check": {
         "done": true,
-        "feasibility": "WARNING",
-        "feasibility_score": 48,
+        "feasibility": "OK",
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "industry_restrictions": "FL exige dentista licenciado owner. DSO/Friendly PC structure.",
@@ -4756,15 +5199,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 40,
@@ -4802,7 +5243,33 @@
           "profession": "DDS managing partner",
           "state_specific": null,
           "structure_alternative": "TX permite Lay corporate ownership con dentist on staff. Más flexible."
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "info",
+            "icon": "📋",
+            "title": "TX permite ownership sin profesional licenciado",
+            "detail": "TX permite Lay corporate ownership con dentist on staff. Más flexible."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "FL exige dentista licenciado owner. DSO/Friendly PC structure."
+          }
+        ]
       },
       "events": [
         {
@@ -4836,7 +5303,7 @@
       "source_url_verified": true,
       "pipeline_status": "RADAR",
       "filter_score": 35,
-      "overall_score": 85.8,
+      "overall_score": 90.2,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 1450000,
@@ -4878,8 +5345,8 @@
       },
       "legal_check": {
         "done": true,
-        "feasibility": "WARNING",
-        "feasibility_score": 48,
+        "feasibility": "OK",
+        "feasibility_score": 70,
         "sba_accessible": false,
         "e2_compatible": true,
         "industry_restrictions": "FL exige dentista licenciado owner. DSO/Friendly PC structure.",
@@ -4891,15 +5358,13 @@
           "EB-5 si camino green card"
         ],
         "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
-        "key_warnings": [
-          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
-        ],
+        "key_warnings": [],
         "next_steps": [
           "Visa E-2 ($5K legal, 4-12 sem)",
           "Attorney M&A ($8-15K)",
           "Delaware LLC ($500 + $300/yr)"
         ],
-        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Costo legal ~$25-30K.",
+        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
         "eb5_viability": {
           "viable": true,
           "viability_score": 65,
@@ -4937,7 +5402,33 @@
           "profession": "DDS or DMD (state-licensed)",
           "state_specific": null,
           "structure_alternative": "DSO/Friendly PA: su Dental Service Org provee management; PA dental owned por dentista licenciado."
-        }
+        },
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
+            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
+          },
+          {
+            "severity": "warning",
+            "icon": "🩺",
+            "title": "Industria requiere DDS or DMD (state-licensed) como socio formal o managing professional",
+            "detail": "NO es blocker del deal. DSO/Friendly PA: su Dental Service Org provee management; PA dental owned por dentista licenciado. Costo legal extra estimado: $10-15K (attorney especializado en esa industria + estructura corporativa). Esta es práctica estándar en PE consolidación de la industria — se hace rutinariamente."
+          },
+          {
+            "severity": "warning",
+            "icon": "💰",
+            "title": "Structure default propone 40% SBA loan — recalcular sin SBA",
+            "detail": "La estructura sugerida (40% SBA + 40% seller + 20% equity) NO es viable sin socio US-LPR. Renegociar con vendedor para subir seller financing a 50%+ y bajar SBA a 0% (o introducir socio US para mantener SBA)."
+          },
+          {
+            "severity": "info",
+            "icon": "📜",
+            "title": "Licencia operativa de la industria",
+            "detail": "FL exige dentista licenciado owner. DSO/Friendly PC structure."
+          }
+        ]
       },
       "events": [
         {
