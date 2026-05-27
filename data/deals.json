@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 22:00 COT",
-  "version": "0.10.0-informative-legal",
+  "last_update": "2026-05-27 22:30 COT",
+  "version": "0.11.0-bizscout-listing-added",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -5441,6 +5441,175 @@
         }
       ],
       "notes": []
+    },
+    {
+      "id": "e0b7ff29-f9a2-4e28-b386-d6c000d67120",
+      "source": "bizscout",
+      "source_url": "https://dealos.bizscout.com/listings/773564654",
+      "source_url_kind": "listing",
+      "source_url_verified": true,
+      "title": "Skincare & Beauty E-Commerce Brand — Sheridan WY (BizScout Exclusive)",
+      "state": "WY",
+      "city": "Sheridan",
+      "business_type": "E-commerce",
+      "years_operation": 1,
+      "asking_price": 276000,
+      "reported_revenue": 631000,
+      "reported_sde": 227000,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": true,
+      "raw_description": "Founded March 2025 (track record 14 meses). E-commerce skincare/beauty, formulaciones naturales, dropshipping. Revenue $631K, net profit $227K (36% margen — alto para e-commerce). 47K customer base, email marketing 18% conversion. Marketing: Google Ads + Meta Ads. Listing BizScout Exclusive.",
+      "pipeline_status": "RADAR",
+      "filter_score": 25,
+      "overall_score": 80.0,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 227000,
+        "dscr": 9.04,
+        "cash_on_cash_y1": 2.44,
+        "cash_on_cash_y3": 2.93,
+        "payback_years": 0.4,
+        "equity_required": 82800.0,
+        "sba_eligible": false,
+        "suggested_structure": {
+          "equity_pct": 30,
+          "sba_loan_pct": 0,
+          "seller_note_pct": 0,
+          "bank_loan_pct": 70,
+          "estimated_monthly_debt_service": 2093.0
+        },
+        "self_financing_score": 85,
+        "financial_score": 75,
+        "risk_flags": [
+          "⚠ MÚLTIPLO 1.22x SDE — anómalamente BAJO vs rango e-commerce típico (2.5x-4x). Investigar por qué tan barato. Razones probables: track record solo 14 meses, dropshipping (poca defensibilidad), seller necesita exit rápido. Due diligence agresivo OBLIGATORIO antes de avanzar.",
+          "Solo 14 meses de operación (founded March 2025) — sin track record completo. SBA típicamente exige 2+ años.",
+          "Dropshipping model — barrera de entrada baja, competidores pueden copiar.",
+          "Inventory listado en $13,999,997 — claro typo del listing (debería ser ~$14K). Verificar inventario real con seller.",
+          "Sin info sobre repeat purchase rate específico ni retention de los 47K clientes."
+        ],
+        "plain_summary": "Negocio nuevo (14 meses) pero con números fuertes: genera $227 mil al año con margen 36% — alto para e-commerce. Pagas SOLO 1.22 años de ganancias, anómalamente barato vs el rango típico de e-commerce. Esa anomalía es la bandera roja más grande: investiga por qué tan barato antes de avanzar."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "Generó $631K revenue y $227K profit en SOLO 14 meses — momentum real",
+          "47K customer base con email marketing 18% conversion (industria avg 1-3%) — relación con audiencia fuerte",
+          "36% net margin para e-commerce es excelente (industria avg 5-15%)",
+          "Múltiplo 1.22x SDE — recoge inversión en 14 meses si los números aguantan"
+        ],
+        "ai_upside": {
+          "score": 90,
+          "opportunities": [
+            "AI personalization en el journey del cliente — proyección +25% AOV en skincare premium",
+            "Subscription model con AI recomendando productos según skin profile del cliente",
+            "UGC + influencer automation — escalar contenido sin agencia (skincare = TikTok native)",
+            "Expandir a private label / proprietary formulations — sale del modelo dropshipping y crea moat real",
+            "Email automation por segmentos (acquired vs lapsed) — la lista de 47K es oro si la trabajas bien"
+          ],
+          "value_multiplier_low": 2.5,
+          "value_multiplier_high": 4.5
+        },
+        "exit_profile": "Reventa a aggregator de marcas D2C (aunque varios débiles ahora) o estratégico de skincare. Path realista a 3 años: transitionar de dropshipping → private label, crecer revenue a $2-3M, vender a 3-4x SDE.",
+        "red_flags": [
+          "Dropshipping = baja defensibilidad. Aggregators y estrategicos pagan PREMIUM por brands con private label/IP, descuento por dropshipping.",
+          "Track record 14 meses = el aggregator descuenta por falta de historial. Esperar 12-18 meses post-acquisition antes de exit serio."
+        ],
+        "strategic_score": 60,
+        "plain_summary": "Negocio digital con tracción real pero todavía joven y sin barrera defensible (dropshipping). Si transicionas a private label y agregas IA en el customer journey, vale entre 2.5 y 4.5 veces lo que pagas en 3 años. El precio bajo te da margen para experimentar — pero ANTES verifica los números reales del vendedor."
+      },
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 90,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "industry_restrictions": null,
+        "alternative_financing": [
+          "Conventional bank loan 70% (Live Oak, Pursuit Lending; e-commerce con historial proveable)",
+          "Equity propia 30% ($83K — accesible)",
+          "Seller financing NO ofrecido en listing — negociar es opción (al precio bajo el seller puede aceptar)",
+          "EB-5 NO viable a este precio (debajo de $800K min)"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel + socio (vía E-2 cada uno). Asset Purchase del e-commerce (brand, domain, customer list, supplier contracts, social accounts). Operación remota desde cualquier estado US.",
+        "key_warnings": [],
+        "next_steps": [
+          "Visa E-2 (4-12 semanas, $5K legal por persona)",
+          "Delaware LLC + EIN ($500 + $300/año)",
+          "Attorney M&A — para e-commerce ~$6-10K (más simple que brick-and-mortar)",
+          "Due diligence técnica: pedir Shopify analytics export, Google Ads + Meta Ads accounts, email metrics, supplier list. CRÍTICO porque listing no muestra estos detalles."
+        ],
+        "plain_summary": "E-commerce 100% viable migratoriamente. Sin restricciones de industria, sin necesidad de presencia física, operable remotamente. Tu Delaware LLC adquiere el brand vía asset purchase. Costo legal cierre ~$15-20K (más bajo que deals con brick-and-mortar).",
+        "informative_requirements": [
+          {
+            "severity": "info",
+            "icon": "🏛",
+            "title": "Para SBA: socio US-LPR o citizen requerido (NO blocker aquí)",
+            "detail": "Este deal NO califica SBA de todos modos (track record < 2 años). La estructura recomendada es 30% equity + 70% conventional bank — sin SBA. Cuando el negocio cumpla 2 años bajo tu management Y tengas socio US-LPR, podrías refinanciar con SBA para sacar capital."
+          },
+          {
+            "severity": "info",
+            "icon": "🌍",
+            "title": "Operable 100% remoto desde cualquier estado US (no necesita presencia en WY)",
+            "detail": "E-commerce dropshipping no requiere base física. La incorporación puede ser Delaware (mejor jurisdicción) aunque el listing diga Sheridan WY (donde está registrado actualmente)."
+          },
+          {
+            "severity": "warning",
+            "icon": "⚠",
+            "title": "Due diligence técnica AGRESIVA antes de LOI — el precio bajo es señal de alerta",
+            "detail": "Pedir: Shopify analytics 14-meses completos, Google Ads + Meta Ads accounts access para verificar spend y attribution real, email platform metrics (open/click/conversion rates verificables), lista de productos vendidos vs returns, supplier contracts y términos. El múltiplo 1.22x sobre SDE puede ser real (vendedor con urgencia) o puede ser que algunos números estén infladar."
+          }
+        ],
+        "us_partner_options": {
+          "viable": true,
+          "min_us_partner_pct": 51,
+          "unlocks_sba": false,
+          "structure_notes": "Para este deal NO desbloquea SBA (el negocio mismo no califica por track record corto). Pero traer socio US podría ayudar a obtener crédito conventional mejor. Probablemente no vale la pena para un deal de $276K.",
+          "downsides": [
+            "Para deal de $276K no se justifica la complejidad de un tercer socio"
+          ],
+          "ideal_us_partner_profile": "No aplicable para este deal — proceder los 2 socios actuales",
+          "when_worth_doing": "NO recomendado para este deal específico por tamaño"
+        },
+        "professional_partner": {
+          "needed": false,
+          "profession": null,
+          "state_specific": null,
+          "structure_alternative": "E-commerce sin requisito de profesional licenciado"
+        },
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 800000,
+          "is_tea_likely": true,
+          "tea_evidence": "Sheridan WY es ciudad chica en estado rural — probablemente cae en TEA por geografía rural. Pero el deal cuesta $276K, debajo del mínimo EB-5.",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 0,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $276K muy debajo de mínimo EB-5 $800K.",
+            "Dropshipping no crea 10 empleos US directos."
+          ],
+          "plain_summary": "NO viable para EB-5 path solo. Si quieres green card, considera Regional Center EB-5 separado ($800K en proyecto pooled) y compra este e-commerce vía E-2. Los caminos no se excluyen."
+        }
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Daniel agregó vía botón \"+ Agregar negocio\" → PDF subido desde BizScout listing 773564654"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis completo generado por Claude (overall 80.0 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "⚠ Bandera: múltiplo 1.22x SDE es anómalamente bajo para e-commerce (típico 2.5x-4x). Investigación obligatoria antes de LOI."
+        }
+      ],
+      "notes": []
     }
   ],
   "manual_orders": {
@@ -5478,7 +5647,8 @@
       "b8e1279c-8cd5-4e75-ac5b-3bf35e0a8f79",
       "6a6e57b2-cd32-4d4c-83ed-c1e4b31744a1",
       "e8444b88-a4f5-42ec-9c42-5baf81506347",
-      "0d2efe36-7d36-4b00-a57f-4decf2026cab"
+      "0d2efe36-7d36-4b00-a57f-4decf2026cab",
+      "e0b7ff29-f9a2-4e28-b386-d6c000d67120"
     ]
   },
   "data_quality": {
