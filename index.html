@@ -912,6 +912,47 @@
                   </template>
                 </ol>
               </div>
+
+              <!-- EB-5 viability sub-section -->
+              <div x-show="selectedDeal.legal_check?.eb5_viability" class="mt-4 pt-4 border-t border-slate-200">
+                <p class="text-xs font-bold text-slate-900 mb-2">📗 Camino <span class="tt" data-tip="EB-5: green card vía inversión $800K (TEA) o $1.05M (general) + crear 10 empleos US directos. Una vez aprobado, abre SBA y elimina restricciones de no-residente.">EB-5</span> (green card vía inversión)</p>
+
+                <template x-if="selectedDeal.legal_check?.eb5_viability?.viable">
+                  <div>
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class="text-[10px] font-bold px-2 py-0.5 rounded uppercase"
+                        :class="selectedDeal.legal_check.eb5_viability.viability_score >= 70 ? 'bg-emerald-100 text-emerald-700' : selectedDeal.legal_check.eb5_viability.viability_score >= 50 ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'"
+                        x-text="`Score ${selectedDeal.legal_check.eb5_viability.viability_score}/100`"></span>
+                      <span class="text-[10px] px-2 py-0.5 rounded font-bold"
+                        :class="selectedDeal.legal_check.eb5_viability.path_recommendation === 'DIRECT_EB5' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-700'"
+                        x-text="selectedDeal.legal_check.eb5_viability.path_recommendation.replace('_', ' ')"></span>
+                    </div>
+                    <p class="text-sm text-slate-800 leading-relaxed mb-3" x-html="withTips(selectedDeal.legal_check?.eb5_viability?.plain_summary)"></p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs mb-3">
+                      <div class="bg-slate-50 p-2 rounded"><p class="text-slate-500 text-[10px]">Inversión mín.</p><p class="font-bold" x-text="fmtPrice(selectedDeal.legal_check.eb5_viability.min_investment_required)"></p></div>
+                      <div class="bg-slate-50 p-2 rounded"><p class="text-slate-500 text-[10px]">Zona TEA</p><p class="font-bold" :class="selectedDeal.legal_check.eb5_viability.is_tea_likely ? 'text-emerald-700' : 'text-amber-700'" x-text="selectedDeal.legal_check.eb5_viability.is_tea_likely ? 'Sí (probable)' : 'No típica'"></p></div>
+                      <div class="bg-slate-50 p-2 rounded"><p class="text-slate-500 text-[10px]">10 empleos</p><p class="font-bold text-[11px]" x-text="selectedDeal.legal_check.eb5_viability.creates_10_jobs.replace(/_/g, ' ')"></p></div>
+                      <div class="bg-slate-50 p-2 rounded"><p class="text-slate-500 text-[10px]">Timeline</p><p class="font-bold" x-text="selectedDeal.legal_check.eb5_viability.timeline_months + ' meses'"></p></div>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-2"><strong>Costo total estimado:</strong> <span x-text="fmtPrice(selectedDeal.legal_check.eb5_viability.total_cost_usd)"></span> (capital invertido + ~$75K legal/USCIS)</p>
+                    <p class="text-xs text-slate-600 mb-2"><strong>Base TEA:</strong> <span x-text="selectedDeal.legal_check.eb5_viability.tea_evidence"></span></p>
+                    <div x-show="selectedDeal.legal_check?.eb5_viability?.key_risks?.length">
+                      <p class="text-xs font-semibold text-slate-700 mb-1">Riesgos EB-5:</p>
+                      <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+                        <template x-for="r in selectedDeal.legal_check?.eb5_viability?.key_risks" :key="r">
+                          <li x-html="withTips(r)"></li>
+                        </template>
+                      </ul>
+                    </div>
+                  </div>
+                </template>
+
+                <template x-if="!selectedDeal.legal_check?.eb5_viability?.viable">
+                  <div class="bg-slate-50 rounded p-3 text-sm text-slate-700">
+                    <p x-text="selectedDeal.legal_check?.eb5_viability?.plain_summary"></p>
+                  </div>
+                </template>
+              </div>
             </section>
 
             <section x-show="(selectedDeal.financial?.risk_flags?.length) || (selectedDeal.strategy?.red_flags?.length)">
@@ -1008,6 +1049,12 @@
       'Asset Purchase': "Asset Purchase (compra de activos): adquieres los activos del negocio (clientes, equipo, contratos, marca) sin asumir la entidad legal vieja. Para compradores extranjeros típicamente preferido — más limpio fiscalmente y aísla pasivos ocultos.",
       'Treaty': "Tratado de Comercio y Navegación (E-2 treaty): acuerdo bilateral entre US y país extranjero que permite a los nacionales del país aplicar a visa E-2. La lista cambia raramente. España y México sí están, Colombia y Brasil no.",
       'FARA':   "FARA (Foreign Agents Registration Act): exige registro como 'agente extranjero' si haces lobby en US por cuenta de un principal extranjero. No aplica a compra de negocios comerciales normales, pero sí a consultoría política.",
+      'TEA':    "TEA (Targeted Employment Area): zona designada por USCIS donde el mínimo EB-5 baja a $800K (vs $1.05M general). Dos tipos: rural (county no adyacente a ciudad >20K hab) o alta desempleo (census tract con desempleo ≥ 150% del promedio nacional). Verificar census tract específico — la elegibilidad puede cambiar.",
+      'I-526':  "I-526 (Immigrant Petition by Alien Investor): formulario USCIS que inicia el proceso EB-5. Se filea después de invertir capital. Aprobación actual: 24-36 meses backlog. Una vez aprobado, recibe green card condicional de 2 años.",
+      'I-829':  "I-829 (Petition by Investor to Remove Conditions): formulario USCIS para remover condiciones de la green card EB-5 después de 2 años. Se filea entre los meses 21-24. Aprobación da residencia permanente sin condiciones.",
+      'Regional Center': "Regional Center: entidad USCIS-aprobada que canaliza inversión EB-5 en proyectos pooled (real estate, infraestructura, hoteles). Inversores son LPs pasivos, no operan. Job creation se cuenta indirectamente. Ventaja: pasivo, menos riesgo de denegación. Desventaja: liquidez menor (5-7 años), retorno típicamente lower (1-2%).",
+      'Source of Funds': "Source of Funds (SOF): documentación obligatoria para EB-5 que prueba que el capital invertido viene de fuentes legales. USCIS escrutina capital extranjero — especialmente latinoamericano. Requiere paper trail: estados de cuenta, contratos de venta, herencias, salarios, declaraciones de impuestos. Preparación 6-12 meses.",
+      'Direct EB-5': "Direct EB-5: tú inviertes en TU propio negocio US, lo escalas, debes crear y mantener 10 empleos full-time US-worker durante 2 años. Mayor control, mayor upside económico, mayor riesgo de visa si no se cumplen empleos.",
     };
 
     const GLOSSARY_CATEGORIES = {
@@ -1019,7 +1066,7 @@
       'Negocios digitales y métricas': ['SaaS', 'CAC', 'LTV', 'KPI'],
       'Tecnología / IA': ['CRM', 'IoT', 'ML', 'SEO'],
       'M&A': ['PE', 'M&A', 'Asset Purchase'],
-      'Legal e inmigración (para compradores extranjeros)': ['LPR', 'E-2', 'EB-5', 'Treaty', 'ITIN', 'Friendly PC', 'MSO', 'CFIUS', 'FARA'],
+      'Legal e inmigración (para compradores extranjeros)': ['LPR', 'E-2', 'EB-5', 'Direct EB-5', 'Regional Center', 'TEA', 'I-526', 'I-829', 'Source of Funds', 'Treaty', 'ITIN', 'Friendly PC', 'MSO', 'CFIUS', 'FARA'],
     };
 
     // Super categories — Daniel's grouping

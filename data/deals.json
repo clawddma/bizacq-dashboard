@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 18:00 COT",
-  "version": "0.6.0-legal-integrated",
+  "last_update": "2026-05-27 19:00 COT",
+  "version": "0.7.0-eb5-advisor",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -135,7 +135,26 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 70,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Houston NO califica como TEA típicamente — investment mínimo $1.05M en lugar de $800K. (Verificar tract — algunas zonas dentro de la ciudad sí califican).",
+          "creates_10_jobs": "YES_NEW",
+          "current_employees": 10,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Sin TEA, el capital requerido sube 31% vs TEA ($1.05M vs $800K)",
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro (extracts, contratos venta, herencia, salarios).",
+            "Timeline I-526 actual: 24-36 meses solo para aprobación (sin contar I-829 después)."
+          ],
+          "plain_summary": "Viable para EB-5. EB-5 directo: tu inversión va a este negocio, lo escalas a 10+ empleos nuevos en 2 años, USCIS otorga green card condicional, luego permanente. Costo total ~$1125K (capital + legal). Timeline ~30 meses al green card condicional."
+        }
       }
     },
     {
@@ -246,7 +265,27 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 10,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Coral Gables NO califica como TEA típicamente — investment mínimo $1.05M en lugar de $800K. (Verificar tract — algunas zonas dentro de la ciudad sí califican).",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 8,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "REGIONAL_CENTER_EB5",
+          "key_risks": [
+            "Industria con techo de empleo bajo (Med spa 4 cabinas, staff limitado) — difícil crear 10 nuevos US-resident full-time. Considerar Regional Center EB-5 en paralelo.",
+            "Sin TEA, el capital requerido sube 31% vs TEA ($1.05M vs $800K)",
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro (extracts, contratos venta, herencia, salarios).",
+            "Timeline I-526 actual: 24-36 meses solo para aprobación (sin contar I-829 después)."
+          ],
+          "plain_summary": "Marginal para EB-5. Este deal NO puede crear 10 empleos directos. Para green card: Regional Center EB-5 separado ($800K en proyecto pooled, USCIS-approved). Compras este deal vía E-2. Costo total ~$1125K (capital + legal). Timeline ~30 meses al green card condicional."
+        }
       }
     },
     {
@@ -360,7 +399,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Tampa NO cae en TEA típica",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 3,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $580K está debajo del mínimo EB-5 $1050K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($580K) para EB-5 path solo. EB-5 exige inversión mínima $1050K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -471,7 +527,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Austin NO cae en TEA típica",
+          "creates_10_jobs": "NEEDS_EXPANSION_PLAN",
+          "current_employees": 4,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $720K está debajo del mínimo EB-5 $1050K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($720K) para EB-5 path solo. EB-5 exige inversión mínima $1050K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -581,7 +654,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "San Antonio NO cae en TEA típica",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 3,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $410K está debajo del mínimo EB-5 $1050K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($410K) para EB-5 path solo. EB-5 exige inversión mínima $1050K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -712,7 +802,27 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentis... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+        "plain_summary": "POSIBLE pero requiere estructura especial. FL exige práctica dental owned por dentista licenciado FL. Estructura DSO/Friendly PC: ustedes dueños de Dental Service Organization, dentis... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 55,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Jacksonville NO califica como TEA típicamente — investment mínimo $1.05M en lugar de $800K. (Verificar tract — algunas zonas dentro de la ciudad sí califican).",
+          "creates_10_jobs": "NEEDS_EXPANSION_PLAN",
+          "current_employees": 6,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Industria permite crecer empleados pero requiere plan de expansión documentado para USCIS antes de I-526.",
+            "Sin TEA, el capital requerido sube 31% vs TEA ($1.05M vs $800K)",
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro (extracts, contratos venta, herencia, salarios).",
+            "Timeline I-526 actual: 24-36 meses solo para aprobación (sin contar I-829 después)."
+          ],
+          "plain_summary": "Marginal para EB-5. EB-5 directo es posible pero con plan de expansión agresivo. Alternativa más segura: Regional Center EB-5 ($800K pooled), green card vía proyecto profesional, y este deal vía E-2 en paralelo. Costo total ~$1125K (capital + legal). Timeline ~30 meses al green card condicional."
+        }
       }
     },
     {
@@ -776,7 +886,13 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "plain_summary": "Deal descartado por filtro previo — EB-5 no aplica."
+        }
       }
     },
     {
@@ -902,7 +1018,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Dallas NO cae en TEA típica",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 3,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $670K está debajo del mínimo EB-5 $1050K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($670K) para EB-5 path solo. EB-5 exige inversión mínima $1050K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -1009,7 +1142,26 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 70,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Houston NO califica como TEA típicamente — investment mínimo $1.05M en lugar de $800K. (Verificar tract — algunas zonas dentro de la ciudad sí califican).",
+          "creates_10_jobs": "YES_NEW",
+          "current_employees": 20,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Sin TEA, el capital requerido sube 31% vs TEA ($1.05M vs $800K)",
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro (extracts, contratos venta, herencia, salarios).",
+            "Timeline I-526 actual: 24-36 meses solo para aprobación (sin contar I-829 después)."
+          ],
+          "plain_summary": "Viable para EB-5. EB-5 directo: tu inversión va a este negocio, lo escalas a 10+ empleos nuevos en 2 años, USCIS otorga green card condicional, luego permanente. Costo total ~$1125K (capital + legal). Timeline ~30 meses al green card condicional."
+        }
       }
     },
     {
@@ -1121,7 +1273,26 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 70,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Fort Worth NO califica como TEA típicamente — investment mínimo $1.05M en lugar de $800K. (Verificar tract — algunas zonas dentro de la ciudad sí califican).",
+          "creates_10_jobs": "YES_NEW",
+          "current_employees": 22,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Sin TEA, el capital requerido sube 31% vs TEA ($1.05M vs $800K)",
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro (extracts, contratos venta, herencia, salarios).",
+            "Timeline I-526 actual: 24-36 meses solo para aprobación (sin contar I-829 después)."
+          ],
+          "plain_summary": "Viable para EB-5. EB-5 directo: tu inversión va a este negocio, lo escalas a 10+ empleos nuevos en 2 años, USCIS otorga green card condicional, luego permanente. Costo total ~$1125K (capital + legal). Timeline ~30 meses al green card condicional."
+        }
       }
     },
     {
@@ -1229,7 +1400,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 800000,
+          "is_tea_likely": true,
+          "tea_evidence": "Corpus Christi cae en zona típicamente TEA",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 3,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $257K está debajo del mínimo EB-5 $800K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($257K) para EB-5 path solo. EB-5 exige inversión mínima $800K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -1337,7 +1525,26 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia."
+        "plain_summary": "Viable con licencia operativa específica de la industria. E-2 funciona, SBA bloqueado. Estructura: max seller financing + banco + equity. Costo legal ~$25-30K + costo de cumplir la licencia.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 70,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Sarasota NO califica como TEA típicamente — investment mínimo $1.05M en lugar de $800K. (Verificar tract — algunas zonas dentro de la ciudad sí califican).",
+          "creates_10_jobs": "YES_NEW",
+          "current_employees": 28,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Sin TEA, el capital requerido sube 31% vs TEA ($1.05M vs $800K)",
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro (extracts, contratos venta, herencia, salarios).",
+            "Timeline I-526 actual: 24-36 meses solo para aprobación (sin contar I-829 después)."
+          ],
+          "plain_summary": "Viable para EB-5. EB-5 directo: tu inversión va a este negocio, lo escalas a 10+ empleos nuevos en 2 años, USCIS otorga green card condicional, luego permanente. Costo total ~$1125K (capital + legal). Timeline ~30 meses al green card condicional."
+        }
       }
     },
     {
@@ -1445,7 +1652,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 800000,
+          "is_tea_likely": true,
+          "tea_evidence": "Friendswood cae en zona típicamente TEA",
+          "creates_10_jobs": "NEEDS_EXPANSION_PLAN",
+          "current_employees": 6,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $580K está debajo del mínimo EB-5 $800K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($580K) para EB-5 path solo. EB-5 exige inversión mínima $800K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -1536,7 +1760,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+        "plain_summary": "POSIBLE pero requiere estructura especial. FL y TX exigen que práctica médica sea owned por MD licenciado. Estructura \"Friendly PC\" requerida: ustedes dueños de Management Services Or... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Miami NO cae en TEA típica",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 3,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $285K está debajo del mínimo EB-5 $1050K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($285K) para EB-5 path solo. EB-5 exige inversión mínima $1050K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -1643,7 +1884,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Houston NO cae en TEA típica",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 3,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $85K está debajo del mínimo EB-5 $1050K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($85K) para EB-5 path solo. EB-5 exige inversión mínima $1050K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -1750,7 +2008,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Tampa NO cae en TEA típica",
+          "creates_10_jobs": "NEEDS_EXPANSION_PLAN",
+          "current_employees": 15,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $420K está debajo del mínimo EB-5 $1050K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($420K) para EB-5 path solo. EB-5 exige inversión mínima $1050K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -1857,7 +2132,24 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K."
+        "plain_summary": "Viable. Vía visa E-2 ambos operan el negocio en US. SBA bloqueado sin green card, así que la estructura realista es 40-50% seller financing + 30% banco + 20% equity. Costo legal del cierre ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 800000,
+          "is_tea_likely": true,
+          "tea_evidence": "Wesley Chapel cae en zona típicamente TEA",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 1,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $132K está debajo del mínimo EB-5 $800K. EB-5 obliga a INVERTIR el monto entero — comprar este deal y luego inyectar más capital es posible pero el deal solo no resuelve EB-5."
+          ],
+          "plain_summary": "Deal muy chico ($132K) para EB-5 path solo. EB-5 exige inversión mínima $800K. Podrías comprar este deal vía E-2 y simultáneamente meter capital adicional en otro vehículo EB-5 si quieres green card."
+        }
       }
     },
     {
@@ -1965,7 +2257,27 @@
           "Crear Delaware LLC antes del LOI ($500 setup + $300/año)",
           "Total stack legal/admin: ~$25-35K + capital del deal"
         ],
-        "plain_summary": "POSIBLE pero requiere estructura especial. TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citi... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho."
+        "plain_summary": "POSIBLE pero requiere estructura especial. TX exige licencia agente con SSN/ITIN. Allstate captive típicamente requiere agent of record con presencia US. Considerar: contratar US-citi... Costo legal extra +$10-15K vs deal estándar. Lograble — los PE consolidadores lo hacen rutinariamente — pero exige attorney experto en su nicho.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 55,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Plano NO califica como TEA típicamente — investment mínimo $1.05M en lugar de $800K. (Verificar tract — algunas zonas dentro de la ciudad sí califican).",
+          "creates_10_jobs": "NEEDS_EXPANSION_PLAN",
+          "current_employees": 5,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Industria permite crecer empleados pero requiere plan de expansión documentado para USCIS antes de I-526.",
+            "Sin TEA, el capital requerido sube 31% vs TEA ($1.05M vs $800K)",
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro (extracts, contratos venta, herencia, salarios).",
+            "Timeline I-526 actual: 24-36 meses solo para aprobación (sin contar I-829 después)."
+          ],
+          "plain_summary": "Marginal para EB-5. EB-5 directo es posible pero con plan de expansión agresivo. Alternativa más segura: Regional Center EB-5 ($800K pooled), green card vía proyecto profesional, y este deal vía E-2 en paralelo. Costo total ~$1125K (capital + legal). Timeline ~30 meses al green card condicional."
+        }
       }
     }
   ],
