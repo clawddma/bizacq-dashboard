@@ -136,11 +136,11 @@
       <button class="tab-btn" :class="{'active': view === 'glossary'}" @click="view = 'glossary'">Glosario</button>
       <div class="ml-auto flex items-center gap-2 my-2">
         <button @click="openTokenModal()"
-          class="text-xs px-2 py-1.5 rounded flex items-center gap-1 transition"
-          :class="hasAutoSync() ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'"
+          class="text-xs px-3 py-1.5 rounded flex items-center gap-1.5 transition font-semibold"
+          :class="hasAutoSync() ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100' : (overrideCount > 0 ? 'bg-red-100 text-red-800 hover:bg-red-200 ring-2 ring-red-400 animate-pulse' : 'bg-amber-100 text-amber-800 hover:bg-amber-200')"
           :title="hasAutoSync() ? 'Auto-sync con GitHub activo' : 'Auto-sync no configurado — click para activar'">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 6v6l4 2"/></svg>
-          <span x-text="hasAutoSync() ? 'Auto-sync ON' : 'Auto-sync OFF'"></span>
+          <span x-text="hasAutoSync() ? '✓ Auto-sync ACTIVO' : (overrideCount > 0 ? '⚠ Activa auto-sync ('+overrideCount+' cambios sin guardar)' : '⚙ Configurar auto-sync')"></span>
         </button>
         <button @click="openAddModal()"
           class="bg-slate-900 hover:bg-slate-700 text-white text-xs font-semibold px-3 py-2 rounded-md flex items-center gap-1.5">
@@ -341,6 +341,20 @@
       <div class="flex items-center gap-2 ml-auto">
         <span class="text-xs text-slate-500" x-text="`Mostrando ${filteredCount} de ${totalDeals}`"></span>
         <button @click="resetFilters()" class="text-xs text-slate-400 hover:text-slate-700 underline">limpiar</button>
+      </div>
+    </div>
+    <!-- Hidden-by-score warning banner — appears only when score filter hides deals that would otherwise pass -->
+    <div x-show="hiddenByScore > 0" x-cloak class="max-w-screen-2xl mx-auto px-6 pb-2">
+      <div class="bg-amber-50 border border-amber-200 rounded text-xs text-amber-900 px-3 py-2 flex items-center justify-between gap-3 flex-wrap">
+        <span>
+          ⚠ <strong x-text="hiddenByScore"></strong>
+          <span x-text="hiddenByScore === 1 ? 'deal está oculto' : 'deals están ocultos'"></span>
+          por el filtro de score mínimo (<strong x-text="filters.minScore + '%'"></strong>) — incluye deals legítimos con score más bajo.
+        </span>
+        <div class="flex items-center gap-2">
+          <button @click="filters.minScore = 0" class="text-xs bg-amber-700 hover:bg-amber-800 text-white px-3 py-1 rounded font-medium">Ver todos sin importar score</button>
+          <button @click="filters.minScore = Math.max(0, filters.minScore - 25)" class="text-xs text-amber-800 hover:text-amber-950 underline" :title="'Bajar el threshold 25 puntos'">bajar 25 pts</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1337,6 +1351,32 @@
         superIcon(name) { return SUPER_ICONS[name] || '📁'; },
         get totalDeals() { return this.deals.length; },
         get filteredCount() { return this.deals.filter(d => this.passesFilters(d)).length; },
+        get hiddenByScore() {
+          // Cuántos deals pasarían todos los filtros EXCEPTO el de score
+          if (this.filters.minScore <= 0) return 0;
+          return this.deals.filter(d => {
+            if (d.pipeline_status === 'DESCARTADO') return false;
+            if (this.filters.states.length > 0 && !this.filters.states.includes(d.state)) return false;
+            if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
+            if (this.filters.sellerFinancing && !d.seller_financing) return false;
+            if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
+            const price = d.asking_price || 0;
+            if (this.filters.priceRange === '0-100' && price > 100_000) return false;
+            if (this.filters.priceRange === '100-500' && (price <= 100_000 || price > 500_000)) return false;
+            if (this.filters.priceRange === '500+' && price <= 500_000) return false;
+            if (this.filters.category !== 'Todas') {
+              if (this.filters.category.startsWith('super:')) {
+                const supName = this.filters.category.substring(6);
+                const subs = SUPER_CATEGORIES[supName] || [];
+                if (!subs.includes(d.business_type)) return false;
+              } else {
+                if (d.business_type !== this.filters.category) return false;
+              }
+            }
+            // Solo cuenta si el deal FALLA por score
+            return !d.overall_score || d.overall_score < this.filters.minScore;
+          }).length;
+        },
         get overrideCount() {
           const moves = Object.keys(this.overrides).length;
           const manuals = Object.keys(this.manualOrder).filter(k => (this.manualOrder[k] || []).length > 0).length;
