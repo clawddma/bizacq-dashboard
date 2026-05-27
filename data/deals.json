@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-05-27 20:30 COT",
+  "last_update": "2026-05-27 20:23 UTC (auto-sync)",
   "version": "0.9.0-multi-state+partner-options",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
@@ -202,7 +202,7 @@
         "dscr": 1.45,
         "cash_on_cash_y1": 0.24,
         "cash_on_cash_y3": 0.31,
-        "payback_years": 4.0,
+        "payback_years": 4,
         "equity_required": 165000,
         "sba_eligible": true,
         "suggested_structure": {
@@ -232,7 +232,7 @@
             "Análisis de clientes top 20% — paquetes personalizados con IA",
             "Captura digital: Instagram orgánico débil, espacio +40% sin pauta"
           ],
-          "value_multiplier_low": 2.0,
+          "value_multiplier_low": 2,
           "value_multiplier_high": 2.8
         },
         "exit_profile": "Reventa a cadena de med spas (Skin Spirit, Ideal Image) o roll-up de wellness",
@@ -346,7 +346,7 @@
       "raw_description": "Ruta de mantenimiento de piscinas con 320 clientes mensuales recurrentes en Tampa, Brandon y Riverview. 3 técnicos. Dueño operario quiere semi-retirarse.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 69.0,
+      "overall_score": 69,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 180000,
@@ -535,7 +535,7 @@
             "ML para predecir infestaciones por zona y clima"
           ],
           "value_multiplier_low": 2.2,
-          "value_multiplier_high": 3.0
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a Rentokil, Rollins, o Anticimex que consolidan en Texas",
         "red_flags": [
@@ -830,7 +830,7 @@
             "Programar cita en línea (la práctica solo recibe por teléfono actualmente)"
           ],
           "value_multiplier_low": 2.3,
-          "value_multiplier_high": 3.0
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a DSO (Heartland, Pacific Dental Services, Aspen) — están comprando agresivo en Florida",
         "red_flags": [
@@ -1092,7 +1092,7 @@
             "Subscription model con personalización IA según historial"
           ],
           "value_multiplier_low": 2.8,
-          "value_multiplier_high": 4.0
+          "value_multiplier_high": 4
         },
         "exit_profile": "Reventa a aggregator de marcas (Thrasio, Branded, Perch) o estratégico de nutrición/wellness",
         "red_flags": [
@@ -1223,7 +1223,7 @@
         "dscr": 1.78,
         "cash_on_cash_y1": 0.33,
         "cash_on_cash_y3": 0.44,
-        "payback_years": 3.0,
+        "payback_years": 3,
         "equity_required": 270000,
         "sba_eligible": true,
         "suggested_structure": {
@@ -1520,7 +1520,7 @@
         "dscr": 1.45,
         "cash_on_cash_y1": 0.32,
         "cash_on_cash_y3": 0.39,
-        "payback_years": 3.0,
+        "payback_years": 3,
         "equity_required": 38000,
         "sba_eligible": true,
         "suggested_structure": {
@@ -1696,7 +1696,7 @@
             "ML para optimizar diseño solar por casa (size, orientation, shading) — diferenciador vs competencia",
             "Vertical a battery storage (Tesla Powerwall) — siguiente ola del mercado"
           ],
-          "value_multiplier_low": 2.0,
+          "value_multiplier_low": 2,
           "value_multiplier_high": 2.8
         },
         "exit_profile": "Reventa a strategic de energía (Sunrun, SunPower) o PE de home services con thesis solar",
@@ -1843,7 +1843,7 @@
             "AI consultation virtual — captura leads antes de visita física",
             "Cross-sell estructurado por tipo de cliente (anti-aging vs body contouring vs injectables)"
           ],
-          "value_multiplier_low": 2.0,
+          "value_multiplier_low": 2,
           "value_multiplier_high": 2.8
         },
         "exit_profile": "Reventa a cadena med spa (Skin Spirit, Ideal Image) o roll-up de wellness en Houston metro",
@@ -2222,7 +2222,7 @@
       "raw_description": "Commercial landscape Tampa Bay. 7 contratos mensuales B2B firmes ($47K/mes recurring). 9 años, equipo 12 técnicos + 3 trucks. Cubre Hillsborough, Pinellas, Manatee, Sarasota, Charlotte.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 74.0,
+      "overall_score": 74,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 145000,
@@ -2260,7 +2260,7 @@
             "Cross-sell servicios premium (pest control, irrigation) a base existente",
             "Software cotización automática para ganar contratos nuevos 3x más rápido"
           ],
-          "value_multiplier_low": 2.0,
+          "value_multiplier_low": 2,
           "value_multiplier_high": 2.8
         },
         "exit_profile": "Reventa a BrightView, U.S. Lawns, Yellowstone Landscape — todos consolidando agresivo",
@@ -2406,7 +2406,7 @@
             "Sales digital para escalar a 200+ cuentas"
           ],
           "value_multiplier_low": 1.5,
-          "value_multiplier_high": 2.0
+          "value_multiplier_high": 2
         },
         "exit_profile": "Reventa a operador regional o consolidador de pool service (recibirás 9-11x monthly de nuevo)",
         "red_flags": [
@@ -2510,14 +2510,14 @@
       "raw_description": "Allstate agency Plano TX, fundada 2011. $8M premium book, $1.5M commission revenue 2025. SDE estimado ~32% margen (típico P&C). Valoración a 2.5x commissions (estándar P&C).",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 65.0,
+      "overall_score": 65,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 480000,
         "dscr": 1.35,
         "cash_on_cash_y1": 0.18,
         "cash_on_cash_y3": 0.24,
-        "payback_years": 5.0,
+        "payback_years": 5,
         "equity_required": 563000,
         "sba_eligible": true,
         "suggested_structure": {
@@ -2746,13 +2746,13 @@
         "cash_on_cash_y1": 0.45,
         "cash_on_cash_y3": 0.58,
         "payback_years": 2.2,
-        "equity_required": 1250000.0,
+        "equity_required": 1250000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 50,
           "sba_loan_pct": 50,
           "seller_note_pct": 0,
-          "estimated_monthly_debt_service": 13542.0
+          "estimated_monthly_debt_service": 13542
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -2770,8 +2770,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Cleaning Services"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Cleaning Services o PE de la industria",
         "red_flags": [],
@@ -2871,7 +2871,7 @@
       "raw_description": "Insurance agency Phoenix. $6.3M recurring policy premium renewals (book of business). Revenue ~$640K commissions. Multi-carrier independent. SBA + bank loan funding sources available.",
       "id": "25ff475d-6861-4124-9ef0-ea90a835b7d9",
       "source_url_verified": true,
-      "pipeline_status": "DESCARTADO",
+      "pipeline_status": "RADAR",
       "filter_score": 0,
       "overall_score": null,
       "priority": null,
@@ -2889,6 +2889,10 @@
         {
           "created_at": "2026-05-27",
           "description": "Descartado automáticamente: Múltiplo precio/SDE 7.3x supera el máximo 4.5x. Sobrevalorado."
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Movido de DESCARTADO → RADAR (auto-sync desde dashboard)"
         }
       ]
     },
@@ -2912,7 +2916,7 @@
       "source_url_verified": true,
       "pipeline_status": "RADAR",
       "filter_score": 20,
-      "overall_score": 90.0,
+      "overall_score": 90,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 720000,
@@ -2920,13 +2924,13 @@
         "cash_on_cash_y1": 0.38,
         "cash_on_cash_y3": 0.5,
         "payback_years": 2.6,
-        "equity_required": 1400000.0,
+        "equity_required": 1400000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 50,
           "sba_loan_pct": 50,
           "seller_note_pct": 0,
-          "estimated_monthly_debt_service": 15167.0
+          "estimated_monthly_debt_service": 15167
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -2944,8 +2948,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Auto Repair"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Auto Repair o PE de la industria",
         "red_flags": [],
@@ -3055,13 +3059,13 @@
         "cash_on_cash_y1": 0.64,
         "cash_on_cash_y3": 0.83,
         "payback_years": 1.6,
-        "equity_required": 125000.0,
+        "equity_required": 125000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 5417.0
+          "estimated_monthly_debt_service": 5417
         },
         "self_financing_score": 100,
         "financial_score": 68,
@@ -3079,8 +3083,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Restaurant"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Restaurant o PE de la industria",
         "red_flags": [],
@@ -3188,14 +3192,14 @@
         "dscr": 12.15,
         "cash_on_cash_y1": 0.97,
         "cash_on_cash_y3": 1.26,
-        "payback_years": 1.0,
-        "equity_required": 78000.0,
+        "payback_years": 1,
+        "equity_required": 78000,
         "sba_eligible": false,
         "suggested_structure": {
           "equity_pct": 60,
           "sba_loan_pct": 0,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 563.0
+          "estimated_monthly_debt_service": 563
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -3213,8 +3217,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Cleaning Services"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Cleaning Services o PE de la industria",
         "red_flags": [],
@@ -3321,15 +3325,15 @@
         "reconstructed_sde": 350000,
         "dscr": 3.96,
         "cash_on_cash_y1": 1.54,
-        "cash_on_cash_y3": 2.0,
+        "cash_on_cash_y3": 2,
         "payback_years": 0.6,
-        "equity_required": 170000.0,
+        "equity_required": 170000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 7367.0
+          "estimated_monthly_debt_service": 7367
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -3347,8 +3351,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Restaurant"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Restaurant o PE de la industria",
         "red_flags": [],
@@ -3497,13 +3501,13 @@
         "cash_on_cash_y1": 0.59,
         "cash_on_cash_y3": 0.76,
         "payback_years": 1.7,
-        "equity_required": 141000.0,
+        "equity_required": 141000,
         "sba_eligible": false,
         "suggested_structure": {
           "equity_pct": 60,
           "sba_loan_pct": 0,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 1018.0
+          "estimated_monthly_debt_service": 1018
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -3521,8 +3525,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Cleaning Services"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Cleaning Services o PE de la industria",
         "red_flags": [],
@@ -3631,13 +3635,13 @@
         "cash_on_cash_y1": 1.85,
         "cash_on_cash_y3": 2.4,
         "payback_years": 0.5,
-        "equity_required": 57000.0,
+        "equity_required": 57000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 2470.0
+          "estimated_monthly_debt_service": 2470
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -3655,8 +3659,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Landscaping"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Landscaping o PE de la industria",
         "red_flags": [],
@@ -3765,13 +3769,13 @@
         "cash_on_cash_y1": 0.86,
         "cash_on_cash_y3": 1.12,
         "payback_years": 1.2,
-        "equity_required": 76000.0,
+        "equity_required": 76000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 3293.0
+          "estimated_monthly_debt_service": 3293
         },
         "self_financing_score": 100,
         "financial_score": 87,
@@ -3789,8 +3793,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Cleaning Services"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Cleaning Services",
         "red_flags": [],
@@ -3899,13 +3903,13 @@
         "cash_on_cash_y1": 3.68,
         "cash_on_cash_y3": 4.79,
         "payback_years": 0.3,
-        "equity_required": 30000.0,
+        "equity_required": 30000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 1300.0
+          "estimated_monthly_debt_service": 1300
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -3923,8 +3927,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Cleaning Services"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Cleaning Services",
         "red_flags": [],
@@ -4033,13 +4037,13 @@
         "cash_on_cash_y1": 2.76,
         "cash_on_cash_y3": 3.59,
         "payback_years": 0.4,
-        "equity_required": 76000.0,
+        "equity_required": 76000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 3293.0
+          "estimated_monthly_debt_service": 3293
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -4057,8 +4061,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Cleaning Services"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Cleaning Services",
         "red_flags": [],
@@ -4166,14 +4170,14 @@
         "dscr": 2.88,
         "cash_on_cash_y1": 0.98,
         "cash_on_cash_y3": 1.27,
-        "payback_years": 1.0,
-        "equity_required": 240000.0,
+        "payback_years": 1,
+        "equity_required": 240000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 10400.0
+          "estimated_monthly_debt_service": 10400
         },
         "self_financing_score": 100,
         "financial_score": 96,
@@ -4191,8 +4195,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Auto Repair"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Auto Repair",
         "red_flags": [],
@@ -4302,13 +4306,13 @@
         "cash_on_cash_y1": 1.13,
         "cash_on_cash_y3": 1.47,
         "payback_years": 0.9,
-        "equity_required": 130000.0,
+        "equity_required": 130000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 5633.0
+          "estimated_monthly_debt_service": 5633
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -4326,8 +4330,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Landscaping"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Landscaping",
         "red_flags": [],
@@ -4436,13 +4440,13 @@
         "cash_on_cash_y1": 0.8,
         "cash_on_cash_y3": 1.04,
         "payback_years": 1.2,
-        "equity_required": 125000.0,
+        "equity_required": 125000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 5417.0
+          "estimated_monthly_debt_service": 5417
         },
         "self_financing_score": 100,
         "financial_score": 82,
@@ -4460,8 +4464,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Cleaning Services"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Cleaning Services",
         "red_flags": [],
@@ -4570,13 +4574,13 @@
         "cash_on_cash_y1": 1.16,
         "cash_on_cash_y3": 1.5,
         "payback_years": 0.9,
-        "equity_required": 170000.0,
+        "equity_required": 170000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 7367.0
+          "estimated_monthly_debt_service": 7367
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -4594,8 +4598,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Dental Practice"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Dental Practice",
         "red_flags": [],
@@ -4705,13 +4709,13 @@
         "cash_on_cash_y1": 1.55,
         "cash_on_cash_y3": 2.02,
         "payback_years": 0.6,
-        "equity_required": 280000.0,
+        "equity_required": 280000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 12133.0
+          "estimated_monthly_debt_service": 12133
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -4729,8 +4733,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Dental Practice"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Dental Practice",
         "red_flags": [],
@@ -4840,13 +4844,13 @@
         "cash_on_cash_y1": 1.09,
         "cash_on_cash_y3": 1.42,
         "payback_years": 0.9,
-        "equity_required": 900000.0,
+        "equity_required": 900000,
         "sba_eligible": true,
         "suggested_structure": {
           "equity_pct": 20,
           "sba_loan_pct": 40,
           "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 39000.0
+          "estimated_monthly_debt_service": 39000
         },
         "self_financing_score": 100,
         "financial_score": 100,
@@ -4864,8 +4868,8 @@
             "Modernizar operación con CRM/automation",
             "Capturar leads digitales — sector Dental Practice"
           ],
-          "value_multiplier_low": 2.0,
-          "value_multiplier_high": 3.0
+          "value_multiplier_low": 2,
+          "value_multiplier_high": 3
         },
         "exit_profile": "Reventa a consolidador regional de Dental Practice",
         "red_flags": [],
@@ -4967,6 +4971,7 @@
       "b2c3d4e5-0011-4000-8000-000000000011",
       "b2c3d4e5-0015-4000-8000-000000000015",
       "b2c3d4e5-0014-4000-8000-000000000014",
+      "25ff475d-6861-4124-9ef0-ea90a835b7d9",
       "ea80f033-a34d-4732-b95b-74888ca83b7b",
       "5d989bed-81d3-4ffd-b43f-59b4677cf579",
       "59fda941-057c-4f11-8275-9a4fd1ac67a7",
