@@ -709,30 +709,88 @@
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
                   Compartir link al socio
                 </button>
+                <button @click="requestDeepAnalysis()"
+                  class="text-[11px] px-2 py-1 rounded font-medium flex items-center gap-1"
+                  :class="selectedDeal.deep_analysis ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700' : 'bg-purple-50 hover:bg-purple-100 text-purple-700'"
+                  :title="selectedDeal.deep_analysis ? 'Ya hay verificación profunda — click para refrescar' : 'Pedir a Claude verificar contra bases públicas (Census, SBA FOIA, Secretary of State, PACER, reviews)'">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                  <span x-text="selectedDeal.deep_analysis ? '✓ Verificado a fondo' : '🔬 Analizar más a fondo'"></span>
+                </button>
               </div>
             </div>
             <button @click="closeDeal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none w-8 h-8 flex items-center justify-center">×</button>
           </div>
 
           <div class="px-6 py-5 space-y-6">
+            <!-- Data confidence legend — collapsible -->
+            <div x-data="{ legendOpen: false }" class="bg-slate-50 rounded-lg p-2 text-[11px]">
+              <button @click="legendOpen = !legendOpen" class="w-full text-left text-slate-600 hover:text-slate-900 flex items-center justify-between">
+                <span><strong>Confianza de los datos</strong> — 📊 del listing · 🧮 calculado · 📈 benchmark industria · 🔍 inferencia</span>
+                <span x-text="legendOpen ? '▾' : '▸'"></span>
+              </button>
+              <div x-show="legendOpen" x-cloak class="mt-2 space-y-1 text-slate-600 border-t border-slate-200 pt-2">
+                <p><strong>📊 VERIFIED</strong>: del listing/PDF del seller (asking, SDE, revenue, años, descripción). Hay que verificar veracidad en DD.</p>
+                <p><strong>🧮 CALCULATED</strong>: matemática determinística sobre los datos del listing (DSCR, payback, structure, score total).</p>
+                <p><strong>📈 INDUSTRY BENCHMARK</strong>: rangos de mercado verificables (multiplier ranges, SBA rules, E-2 treaty, etc.).</p>
+                <p><strong>🔍 INFERRED</strong>: análisis estratégico generado por Claude basado en patrones de industria. Hipótesis razonables, NO investigación específica del negocio.</p>
+                <p class="text-slate-500 italic mt-1">Click <strong>"🔬 Analizar más a fondo"</strong> para subir confianza con bases públicas reales (Census, SBA FOIA, Secretary of State, PACER, reviews).</p>
+              </div>
+            </div>
+
             <section class="grid grid-cols-3 gap-3">
               <div class="bg-slate-50 rounded-lg p-3">
-                <p class="text-[11px] text-slate-500 uppercase tracking-wide">Precio</p>
+                <p class="text-[11px] text-slate-500 uppercase tracking-wide">📊 Precio</p>
                 <p class="text-2xl font-bold text-slate-900" x-text="fmtPrice(selectedDeal.asking_price)"></p>
               </div>
               <div class="bg-emerald-50 rounded-lg p-3">
-                <p class="text-[11px] text-emerald-700 uppercase tracking-wide">Genera al año</p>
+                <p class="text-[11px] text-emerald-700 uppercase tracking-wide">📊 Genera al año (SDE)</p>
                 <p class="text-2xl font-bold text-emerald-900" x-text="selectedDeal.reported_sde ? fmtPrice(selectedDeal.reported_sde) : '—'"></p>
               </div>
               <div class="bg-blue-50 rounded-lg p-3">
-                <p class="text-[11px] text-blue-700 uppercase tracking-wide">Score total</p>
+                <p class="text-[11px] text-blue-700 uppercase tracking-wide">🧮 Score total</p>
                 <p class="text-2xl font-bold" :class="scoreColor(selectedDeal.overall_score)" x-text="selectedDeal.overall_score ? Math.round(selectedDeal.overall_score) : '—'"></p>
+              </div>
+            </section>
+
+            <!-- Deep analysis section — only when fact-checker has run -->
+            <section x-show="selectedDeal.deep_analysis">
+              <h3 class="text-sm font-bold text-slate-900 mb-2 flex items-center gap-2">
+                🔬 Verificación profunda
+                <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-bold" x-text="`+confianza: ${selectedDeal.deep_analysis?.confidence_uplift || 'medium'}`"></span>
+                <span class="text-[10px] text-slate-400 font-normal" x-text="`(${selectedDeal.deep_analysis?.performed_at?.slice(0,10) || ''})`"></span>
+              </h3>
+              <div class="bg-purple-50 border-l-4 border-purple-500 p-3 rounded-r mb-3">
+                <p class="text-sm text-slate-800" x-html="withTips(selectedDeal.deep_analysis?.summary)"></p>
+              </div>
+              <div class="space-y-2 mb-3">
+                <template x-for="f in selectedDeal.deep_analysis?.findings || []" :key="f.title">
+                  <div class="p-2.5 rounded border-l-4 bg-white"
+                    :class="f.status === 'verified' ? 'border-emerald-500' : f.status === 'warning' ? 'border-amber-500' : 'border-red-500'">
+                    <p class="text-sm font-semibold flex items-center gap-1.5">
+                      <span x-text="f.icon"></span>
+                      <span class="text-[10px] uppercase tracking-wide" :class="f.status === 'verified' ? 'text-emerald-700' : f.status === 'warning' ? 'text-amber-700' : 'text-red-700'" x-text="f.category"></span>
+                      <span class="text-slate-900" x-text="f.title"></span>
+                    </p>
+                    <p class="text-xs text-slate-700 mt-1" x-text="f.detail"></p>
+                    <p x-show="f.source" class="text-[10px] text-slate-400 mt-1">
+                      <a :href="f.source" target="_blank" rel="noopener" class="hover:underline" x-text="`Fuente: ${f.source}`"></a>
+                    </p>
+                  </div>
+                </template>
+              </div>
+              <div x-show="selectedDeal.deep_analysis?.questions_for_seller?.length" class="bg-amber-50 p-2 rounded text-xs">
+                <p class="font-semibold text-amber-900 mb-1">❓ Preguntar al seller en DD post-fact-check:</p>
+                <ul class="list-disc list-inside text-amber-800 space-y-0.5">
+                  <template x-for="q in selectedDeal.deep_analysis?.questions_for_seller" :key="q">
+                    <li x-text="q"></li>
+                  </template>
+                </ul>
               </div>
             </section>
 
             <!-- Comparación con sector -->
             <section x-show="selectedDeal.reported_sde && VALUATION[selectedDeal.business_type]">
-              <h3 class="text-sm font-bold text-slate-900 mb-2">¿Cómo está el precio vs el sector?</h3>
+              <h3 class="text-sm font-bold text-slate-900 mb-2">📈 ¿Cómo está el precio vs el sector? <span class="text-[10px] text-slate-400 font-normal">(benchmark de industria 2026)</span></h3>
               <div class="bg-slate-50 rounded-lg p-3">
                 <div class="flex items-center justify-between mb-2">
                   <div>
@@ -766,7 +824,7 @@
             </section>
 
             <section x-show="selectedDeal.financial">
-              <h3 class="text-sm font-bold text-slate-900 mb-2">Los números clave</h3>
+              <h3 class="text-sm font-bold text-slate-900 mb-2">🧮 Los números clave <span class="text-[10px] text-slate-400 font-normal">(calculados sobre datos del listing)</span></h3>
               <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 mb-3 rounded-r">
                 <p class="text-sm text-slate-800 leading-relaxed" x-html="withTips(selectedDeal.financial?.plain_summary)"></p>
               </div>
@@ -807,7 +865,7 @@
             </section>
 
             <section x-show="selectedDeal.strategy">
-              <h3 class="text-sm font-bold text-slate-900 mb-2">Potencial con IA</h3>
+              <h3 class="text-sm font-bold text-slate-900 mb-2">🔍 Potencial con IA <span class="text-[10px] text-slate-400 font-normal">(análisis estratégico — hipótesis de Claude, no investigación específica)</span></h3>
               <div class="bg-purple-50 border-l-4 border-purple-500 p-3 rounded-r mb-2">
                 <div class="flex items-center justify-between mb-2">
                   <span class="text-xs text-purple-700 font-semibold uppercase">Upside score</span>
@@ -1621,6 +1679,46 @@
             window.prompt('Copia este link y mándaselo al socio:', shareUrl);
           }
         },
+
+        requestDeepAnalysis() {
+          if (!this.selectedDeal?.id) return;
+          const d = this.selectedDeal;
+          const lines = [
+            'Pido análisis profundo (fact-checker subagent) del siguiente deal:',
+            '',
+            `Deal ID: ${d.id}`,
+            `Title: ${d.title}`,
+            `Industry: ${d.business_type}`,
+            `Location: ${d.city}, ${d.state}`,
+            `Asking: $${(d.asking_price || 0).toLocaleString()}`,
+            `Source URL: ${d.source_url || '—'}`,
+            '',
+            'Por favor ejecutar fact-checker subagent con bases públicas:',
+            '1. WebSearch del business name + ciudad → existencia, website, redes',
+            '2. Secretary of State del estado → verificar entity legal active',
+            '3. SBA FOIA loan data → market activity de la industria + estado',
+            '4. Census/BLS → demographics + employment trend del county',
+            '5. PACER federal courts → litigios o bankruptcies del seller',
+            '6. Yelp/Google reviews del business → reputation actual',
+            '7. OpenCorporates cross-reference si aplica',
+            '',
+            'Output: agregar campo `deep_analysis` al deal en deals.json con:',
+            '- summary (2-3 oraciones plain Spanish)',
+            '- findings list con category/status/icon/title/detail/source',
+            '- contradictions entre listing vs realidad',
+            '- questions_for_seller (qué preguntar específicamente)',
+            '- confidence_uplift level',
+            '',
+            'Cuando termines: commit + push al repo. El dashboard mostrará la sección automáticamente.',
+          ];
+          const text = lines.join('\n');
+          if (navigator.clipboard?.writeText) {
+            navigator.clipboard.writeText(text);
+            this.toast('✓ Pedido copiado — pégalo en tu chat con Claude (el fact-checker tarda ~5-10 min)');
+          } else {
+            window.prompt('Copia este pedido y pégalo a Claude:', text);
+          }
+        },
         resetFilters() { this.filters = { states: [], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false }; },
         toggleState(code) {
           const i = this.filters.states.indexOf(code);
@@ -1776,6 +1874,15 @@
           this.deals = [...this.deals];
           // Auto-sync trigger (debounced 2.5s — agrupa múltiples drags en un commit)
           this.triggerAutoSync();
+          // AUTO-TRIGGER análisis profundo cuando deal va RADAR → EN_ANALISIS
+          if (!sameColumn && oldStatus === 'RADAR' && newColKey === 'EN_ANALISIS' && !deal.deep_analysis) {
+            setTimeout(() => {
+              if (confirm(`¿Activar análisis profundo de "${shortTitle}"?\n\nEl fact-checker buscará en bases públicas (Census, SBA FOIA, Secretary of State, PACER, Yelp/Google). Toma ~5-10 min y sube la confianza del análisis significativamente.\n\nClick OK = se copia un pedido al clipboard que pegas a Claude. Click Cancel = sigues con el análisis base actual.`)) {
+                this.selectedDeal = deal;
+                this.requestDeepAnalysis();
+              }
+            }, 600);
+          }
         },
         applyOverrides() {
           for (const [dealId, ov] of Object.entries(this.overrides)) {
