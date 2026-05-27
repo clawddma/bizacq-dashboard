@@ -971,6 +971,15 @@
             const data = await res.json();
             this.deals = data.deals || [];
             this.lastUpdate = data.last_update || '—';
+            // Load server-side manual_orders as default (localStorage overrides if present)
+            const serverOrders = data.manual_orders || {};
+            for (const [col, ids] of Object.entries(serverOrders)) {
+              if (!this.manualOrder[col] || this.manualOrder[col].length === 0) {
+                this.manualOrder[col] = ids;
+                // If server has a manual order, default that column to 'manual' sort
+                if (!this.sortByCol[col]) this.sortByCol[col] = 'manual';
+              }
+            }
             this.applyOverrides();
           } catch (e) {
             console.error('Error loading deals.json', e);

@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 14:30 COT",
-  "version": "0.3.0-seed+real",
+  "last_update": "2026-05-27 16:30 COT",
+  "version": "0.4.0-manual-order",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -8,24 +8,63 @@
       "source": "bizbuysell",
       "source_url": "https://www.bizbuysell.com/Business-Opportunity/example-hvac-houston/2401234/",
       "title": "HVAC Services & Repair — Houston Metro",
-      "state": "TX", "city": "Houston", "business_type": "HVAC", "years_operation": 12,
-      "asking_price": 1400000, "reported_revenue": 2100000, "reported_sde": 480000,
-      "seller_financing": true, "sba_prequalified": true, "curated_source": false,
+      "state": "TX",
+      "city": "Houston",
+      "business_type": "HVAC",
+      "years_operation": 12,
+      "asking_price": 1400000,
+      "reported_revenue": 2100000,
+      "reported_sde": 480000,
+      "seller_financing": true,
+      "sba_prequalified": true,
+      "curated_source": false,
       "raw_description": "HVAC con 12 años, base de 1,800 clientes recurrentes con contratos de mantenimiento anual. 8 técnicos + 2 admin. Flota propia de 6 vehículos. Dueño se retira por edad — quiere transición de 6 meses.",
-      "pipeline_status": "RADAR", "filter_score": 60, "overall_score": 84, "priority": "ALTA",
+      "pipeline_status": "RADAR",
+      "filter_score": 60,
+      "overall_score": 84,
+      "priority": "ALTA",
       "financial": {
-        "reconstructed_sde": 480000, "dscr": 1.68, "cash_on_cash_y1": 0.31, "cash_on_cash_y3": 0.42,
-        "payback_years": 3.2, "equity_required": 140000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 10, "sba_loan_pct": 80, "seller_note_pct": 10, "estimated_monthly_debt_service": 14800},
-        "self_financing_score": 88, "financial_score": 82,
-        "risk_flags": ["El dueño lleva las relaciones grandes — riesgo de transición", "60% de contratos vencen en 18 meses y deben renovarse"],
+        "reconstructed_sde": 480000,
+        "dscr": 1.68,
+        "cash_on_cash_y1": 0.31,
+        "cash_on_cash_y3": 0.42,
+        "payback_years": 3.2,
+        "equity_required": 140000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 10,
+          "sba_loan_pct": 80,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 14800
+        },
+        "self_financing_score": 88,
+        "financial_score": 82,
+        "risk_flags": [
+          "El dueño lleva las relaciones grandes — riesgo de transición",
+          "60% de contratos vencen en 18 meses y deben renovarse"
+        ],
         "plain_summary": "Negocio fuerte: genera $480 mil al año limpio y se paga la deuda con holgura. Pagas 2.9 años de ganancias — buen precio. El riesgo es que el dueño lleva las relaciones grandes, hay que planear bien la transición."
       },
       "strategy": {
-        "buy_thesis": ["12 años de historia con flujo de caja predecible y márgenes estables (~23%)", "Base de clientes recurrentes con contratos = ingreso defendible", "Houston crece 2.5% anual — demanda HVAC al alza"],
-        "ai_upside": {"score": 85, "opportunities": ["Mantenimiento predictivo IoT en equipos clientes — reducir emergencias 30%", "Automatizar agendamiento, recordatorios y facturación (ahorro: 20h/sem)", "Pricing dinámico por zona y temporada"], "value_multiplier_low": 2.5, "value_multiplier_high": 3.5},
+        "buy_thesis": [
+          "12 años de historia con flujo de caja predecible y márgenes estables (~23%)",
+          "Base de clientes recurrentes con contratos = ingreso defendible",
+          "Houston crece 2.5% anual — demanda HVAC al alza"
+        ],
+        "ai_upside": {
+          "score": 85,
+          "opportunities": [
+            "Mantenimiento predictivo IoT en equipos clientes — reducir emergencias 30%",
+            "Automatizar agendamiento, recordatorios y facturación (ahorro: 20h/sem)",
+            "Pricing dinámico por zona y temporada"
+          ],
+          "value_multiplier_low": 2.5,
+          "value_multiplier_high": 3.5
+        },
         "exit_profile": "Reventa a consolidador HVAC (ARS, ServiceMaster) o PE de home services",
-        "red_flags": ["3 técnicos clave con +8 años — necesitan retención post-cierre"],
+        "red_flags": [
+          "3 técnicos clave con +8 años — necesitan retención post-cierre"
+        ],
         "strategic_score": 80,
         "plain_summary": "Excelente operación con potencial fuerte de automatización. Si modernizas el agendamiento y metes mantenimiento predictivo, vale entre 2.5 y 3.5 veces lo que pagas en 3 años. El equipo técnico es el activo crítico — retenerlo es prioridad uno."
       },
@@ -35,9 +74,39 @@
         "audit_score": 38,
         "digital_upside_score": 82,
         "current_state": "Web vieja (estilo 2018, no mobile-friendly). Sin booking online — clientes llaman. Google Business Profile sin reviews recientes (último Q4 2024). Cero presencia en Instagram/FB.",
-        "quick_wins": ["Booking online + SMS confirmación — captura el 30% de clientes que buscan a las 8pm cuando nadie contesta el teléfono", "Reset Google Business Profile + pedir reviews a 1,800 clientes recurrentes (sería un boost masivo en SEO local)", "Email marketing automatizado con calendario de mantenimiento — recuperar 15% de clientes lapsed", "Landing pages segmentadas por servicio (instalación nueva vs mantenimiento vs emergencia) para Google Ads de mayor conversión"]
+        "quick_wins": [
+          "Booking online + SMS confirmación — captura el 30% de clientes que buscan a las 8pm cuando nadie contesta el teléfono",
+          "Reset Google Business Profile + pedir reviews a 1,800 clientes recurrentes (sería un boost masivo en SEO local)",
+          "Email marketing automatizado con calendario de mantenimiento — recuperar 15% de clientes lapsed",
+          "Landing pages segmentadas por servicio (instalación nueva vs mantenimiento vs emergencia) para Google Ads de mayor conversión"
+        ]
       },
-      "events": [{"created_at": "2026-05-20", "description": "Encontrado en BizBuySell"}, {"created_at": "2026-05-20", "description": "Pasó filtros automáticos → RADAR"}, {"created_at": "2026-05-22", "description": "Análisis financiero completado (score 82)"}, {"created_at": "2026-05-22", "description": "Análisis estratégico completado (score 80)"}, {"created_at": "2026-05-22", "description": "Auditoría digital: web score 38/100, upside score 82/100 — alto potencial"}],
+      "events": [
+        {
+          "created_at": "2026-05-20",
+          "description": "Encontrado en BizBuySell"
+        },
+        {
+          "created_at": "2026-05-20",
+          "description": "Pasó filtros automáticos → RADAR"
+        },
+        {
+          "created_at": "2026-05-22",
+          "description": "Análisis financiero completado (score 82)"
+        },
+        {
+          "created_at": "2026-05-22",
+          "description": "Análisis estratégico completado (score 80)"
+        },
+        {
+          "created_at": "2026-05-22",
+          "description": "Auditoría digital: web score 38/100, upside score 82/100 — alto potencial"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Daniel lo puso #2 en orden de prioridad de Radar"
+        }
+      ],
       "notes": []
     },
     {
@@ -45,28 +114,80 @@
       "source": "bizscout",
       "source_url": "https://www.bizscout.com/listing/medspa-coral-gables-fl",
       "title": "Med Spa Boutique — Coral Gables",
-      "state": "FL", "city": "Coral Gables", "business_type": "Med Spa", "years_operation": 6,
-      "asking_price": 1100000, "reported_revenue": 1450000, "reported_sde": 320000,
-      "seller_financing": true, "sba_prequalified": false, "curated_source": true,
+      "state": "FL",
+      "city": "Coral Gables",
+      "business_type": "Med Spa",
+      "years_operation": 6,
+      "asking_price": 1100000,
+      "reported_revenue": 1450000,
+      "reported_sde": 320000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": true,
       "raw_description": "Med spa 6 años en zona premium de Coral Gables. 4 cabinas, equipo de láser nuevo (2024). 950 clientes activos, 35% retornan trimestralmente. Médico director con contrato a 3 años. Dueña se muda.",
-      "pipeline_status": "RADAR", "filter_score": 65, "overall_score": 81, "priority": "ALTA",
+      "pipeline_status": "RADAR",
+      "filter_score": 65,
+      "overall_score": 81,
+      "priority": "ALTA",
       "financial": {
-        "reconstructed_sde": 320000, "dscr": 1.45, "cash_on_cash_y1": 0.24, "cash_on_cash_y3": 0.31,
-        "payback_years": 4.0, "equity_required": 165000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 75, "seller_note_pct": 10, "estimated_monthly_debt_service": 11200},
-        "self_financing_score": 78, "financial_score": 75,
-        "risk_flags": ["Dependencia del médico director — si no renueva, hay que recolocarlo (FL regula estrictamente)", "3 nuevos med spas en Coral Gables en 12 meses"],
+        "reconstructed_sde": 320000,
+        "dscr": 1.45,
+        "cash_on_cash_y1": 0.24,
+        "cash_on_cash_y3": 0.31,
+        "payback_years": 4.0,
+        "equity_required": 165000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 75,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 11200
+        },
+        "self_financing_score": 78,
+        "financial_score": 75,
+        "risk_flags": [
+          "Dependencia del médico director — si no renueva, hay que recolocarlo (FL regula estrictamente)",
+          "3 nuevos med spas en Coral Gables en 12 meses"
+        ],
         "plain_summary": "Buen negocio en zona premium. Genera $320 mil al año y se paga su deuda. Pagas 3.4 años de ganancias — razonable para un med spa establecido. El riesgo principal es que el médico director es indispensable: si no renueva, hay que buscar reemplazo."
       },
       "strategy": {
-        "buy_thesis": ["Marca consolidada en zona de alto ticket — clientela paga premium", "Equipo láser reciente reduce capex inmediato", "Vendedora motivada por mudanza, no por mala operación"],
-        "ai_upside": {"score": 76, "opportunities": ["CRM con seguimiento automático post-tratamiento + recordatorios mes 3-6", "Análisis de clientes top 20% — paquetes personalizados con IA", "Captura digital: Instagram orgánico débil, espacio +40% sin pauta"], "value_multiplier_low": 2.0, "value_multiplier_high": 2.8},
+        "buy_thesis": [
+          "Marca consolidada en zona de alto ticket — clientela paga premium",
+          "Equipo láser reciente reduce capex inmediato",
+          "Vendedora motivada por mudanza, no por mala operación"
+        ],
+        "ai_upside": {
+          "score": 76,
+          "opportunities": [
+            "CRM con seguimiento automático post-tratamiento + recordatorios mes 3-6",
+            "Análisis de clientes top 20% — paquetes personalizados con IA",
+            "Captura digital: Instagram orgánico débil, espacio +40% sin pauta"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 2.8
+        },
         "exit_profile": "Reventa a cadena de med spas (Skin Spirit, Ideal Image) o roll-up de wellness",
-        "red_flags": ["Sector regulado FL — verificar licencias FL Board of Medicine antes de LOI"],
+        "red_flags": [
+          "Sector regulado FL — verificar licencias FL Board of Medicine antes de LOI"
+        ],
         "strategic_score": 72,
         "plain_summary": "Buen activo en mercado premium con marca real. Si modernizas el CRM y aprovechas la marca en redes, vale entre 2 y 2.8 veces lo que pagas en 3 años. La transición del médico director es el tema crítico — esa conversación tiene que pasar antes de firmar."
       },
-      "events": [{"created_at": "2026-05-15", "description": "Encontrado en BizScout (fuente curada — bonus +10)"}, {"created_at": "2026-05-16", "description": "Análisis completado (overall 81 — ALTA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-15",
+          "description": "Encontrado en BizScout (fuente curada — bonus +10)"
+        },
+        {
+          "created_at": "2026-05-16",
+          "description": "Análisis completado (overall 81 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Daniel lo puso #3 en orden de prioridad de Radar"
+        }
+      ],
       "notes": []
     },
     {
@@ -74,28 +195,84 @@
       "source": "bizbuysell",
       "source_url": "https://www.bizbuysell.com/Business-Opportunity/pool-service-tampa/2398765/",
       "title": "Pool Service Route — Tampa Bay",
-      "state": "FL", "city": "Tampa", "business_type": "Pool Service", "years_operation": 8,
-      "asking_price": 580000, "reported_revenue": 720000, "reported_sde": 180000,
-      "seller_financing": true, "sba_prequalified": false, "curated_source": false,
+      "state": "FL",
+      "city": "Tampa",
+      "business_type": "Pool Service",
+      "years_operation": 8,
+      "asking_price": 580000,
+      "reported_revenue": 720000,
+      "reported_sde": 180000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "Ruta de mantenimiento de piscinas con 320 clientes mensuales recurrentes en Tampa, Brandon y Riverview. 3 técnicos. Dueño operario quiere semi-retirarse.",
-      "pipeline_status": "RADAR", "filter_score": 55, "overall_score": 68, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 55,
+      "overall_score": 68,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 180000, "dscr": 1.32, "cash_on_cash_y1": 0.19, "cash_on_cash_y3": 0.24,
-        "payback_years": 4.5, "equity_required": 87000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 75, "seller_note_pct": 10, "estimated_monthly_debt_service": 6100},
-        "self_financing_score": 70, "financial_score": 65,
-        "risk_flags": ["Estacional — Tampa baja 25% en invierno", "Margen ajustado (~25%) — poco espacio si suben químicos o gasolina"],
+        "reconstructed_sde": 180000,
+        "dscr": 1.32,
+        "cash_on_cash_y1": 0.19,
+        "cash_on_cash_y3": 0.24,
+        "payback_years": 4.5,
+        "equity_required": 87000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 75,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 6100
+        },
+        "self_financing_score": 70,
+        "financial_score": 65,
+        "risk_flags": [
+          "Estacional — Tampa baja 25% en invierno",
+          "Margen ajustado (~25%) — poco espacio si suben químicos o gasolina"
+        ],
         "plain_summary": "Negocio decente con clientes recurrentes. Genera $180 mil al año y se paga la deuda con margen ajustado. Pagas 3.2 años de ganancias — razonable. El riesgo es la estacionalidad de Florida y márgenes apretados."
       },
       "strategy": {
-        "buy_thesis": ["Base 100% recurrente — ingreso predecible mes a mes", "Ruta densa (3 zonas contiguas) reduce combustible y tiempo entre clientes", "Sector defensivo — piscinas no se descontinúan con recesión"],
-        "ai_upside": {"score": 65, "opportunities": ["App cliente con foto/reporte post-visita — diferenciación vs competencia local", "Optimización ruta por IA — reducir 15% tiempo de manejo", "Cross-sell de reparaciones (bombas, filtros) detectadas en visitas"], "value_multiplier_low": 1.8, "value_multiplier_high": 2.4},
+        "buy_thesis": [
+          "Base 100% recurrente — ingreso predecible mes a mes",
+          "Ruta densa (3 zonas contiguas) reduce combustible y tiempo entre clientes",
+          "Sector defensivo — piscinas no se descontinúan con recesión"
+        ],
+        "ai_upside": {
+          "score": 65,
+          "opportunities": [
+            "App cliente con foto/reporte post-visita — diferenciación vs competencia local",
+            "Optimización ruta por IA — reducir 15% tiempo de manejo",
+            "Cross-sell de reparaciones (bombas, filtros) detectadas en visitas"
+          ],
+          "value_multiplier_low": 1.8,
+          "value_multiplier_high": 2.4
+        },
         "exit_profile": "Reventa a operador regional o consolidador de servicios de hogar",
-        "red_flags": ["Sin contratos firmados — clientes mes a mes, fácil cancelar"],
+        "red_flags": [
+          "Sin contratos firmados — clientes mes a mes, fácil cancelar"
+        ],
         "strategic_score": 62,
         "plain_summary": "Negocio sólido pero techo limitado. Modernizar la operación con app y ruteo inteligente lo puede llevar a 1.8-2.4 veces el precio en 3 años. No es el mejor deal pero es seguro y autopagable."
       },
-      "events": [{"created_at": "2026-05-23", "description": "Encontrado en BizBuySell"}, {"created_at": "2026-05-23", "description": "Pasó filtros → RADAR"}, {"created_at": "2026-05-24", "description": "Análisis completado"}],
+      "events": [
+        {
+          "created_at": "2026-05-23",
+          "description": "Encontrado en BizBuySell"
+        },
+        {
+          "created_at": "2026-05-23",
+          "description": "Pasó filtros → RADAR"
+        },
+        {
+          "created_at": "2026-05-24",
+          "description": "Análisis completado"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Daniel lo puso #4 en orden de prioridad de Radar"
+        }
+      ],
       "notes": []
     },
     {
@@ -103,28 +280,80 @@
       "source": "bizscout",
       "source_url": "https://www.bizscout.com/listing/pest-control-austin-tx",
       "title": "Pest Control Operations — Greater Austin",
-      "state": "TX", "city": "Austin", "business_type": "Pest Control", "years_operation": 15,
-      "asking_price": 720000, "reported_revenue": 980000, "reported_sde": 240000,
-      "seller_financing": false, "sba_prequalified": true, "curated_source": true,
+      "state": "TX",
+      "city": "Austin",
+      "business_type": "Pest Control",
+      "years_operation": 15,
+      "asking_price": 720000,
+      "reported_revenue": 980000,
+      "reported_sde": 240000,
+      "seller_financing": false,
+      "sba_prequalified": true,
+      "curated_source": true,
       "raw_description": "Control de plagas con 15 años, licencia TPCL completa, 1,200 cuentas residenciales recurrentes (trimestral) + 80 comerciales mensuales. 4 técnicos certificados. Dueño cambia de industria.",
-      "pipeline_status": "RADAR", "filter_score": 70, "overall_score": 79, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 70,
+      "overall_score": 79,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 240000, "dscr": 1.55, "cash_on_cash_y1": 0.26, "cash_on_cash_y3": 0.34,
-        "payback_years": 3.8, "equity_required": 108000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 85, "seller_note_pct": 0, "estimated_monthly_debt_service": 7400},
-        "self_financing_score": 75, "financial_score": 78,
-        "risk_flags": ["Sin seller financing — el vendedor quiere salida limpia", "Austin tiene competencia agresiva de Terminix y Orkin"],
+        "reconstructed_sde": 240000,
+        "dscr": 1.55,
+        "cash_on_cash_y1": 0.26,
+        "cash_on_cash_y3": 0.34,
+        "payback_years": 3.8,
+        "equity_required": 108000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 85,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 7400
+        },
+        "self_financing_score": 75,
+        "financial_score": 78,
+        "risk_flags": [
+          "Sin seller financing — el vendedor quiere salida limpia",
+          "Austin tiene competencia agresiva de Terminix y Orkin"
+        ],
         "plain_summary": "Negocio muy estable: 15 años, base recurrente, márgenes sanos. Genera $240 mil al año y cubre la deuda con buena holgura. Pagas 3 años de ganancias — buen precio. La pega es que el vendedor no quiere financiarte nada."
       },
       "strategy": {
-        "buy_thesis": ["Sector altamente defensivo — control de plagas no se pospone", "Licencia TPCL — barrera de entrada para nuevos", "Base 92% recurrente con contratos firmados"],
-        "ai_upside": {"score": 72, "opportunities": ["IoT sensores en cuentas comerciales (trampas inteligentes) — premium pricing corporativo", "Automatizar renovaciones de contratos email+SMS+Stripe — reducir churn 8%", "ML para predecir infestaciones por zona y clima"], "value_multiplier_low": 2.2, "value_multiplier_high": 3.0},
+        "buy_thesis": [
+          "Sector altamente defensivo — control de plagas no se pospone",
+          "Licencia TPCL — barrera de entrada para nuevos",
+          "Base 92% recurrente con contratos firmados"
+        ],
+        "ai_upside": {
+          "score": 72,
+          "opportunities": [
+            "IoT sensores en cuentas comerciales (trampas inteligentes) — premium pricing corporativo",
+            "Automatizar renovaciones de contratos email+SMS+Stripe — reducir churn 8%",
+            "ML para predecir infestaciones por zona y clima"
+          ],
+          "value_multiplier_low": 2.2,
+          "value_multiplier_high": 3.0
+        },
         "exit_profile": "Reventa a Rentokil, Rollins, o Anticimex que consolidan en Texas",
-        "red_flags": ["Equipo de 4 técnicos — perder a 2 sería golpe duro"],
+        "red_flags": [
+          "Equipo de 4 técnicos — perder a 2 sería golpe duro"
+        ],
         "strategic_score": 74,
         "plain_summary": "Negocio defensivo con barrera regulatoria — difícil que nuevos entren rápido. Si metes tecnología en cuentas comerciales y reduces el churn con automatización, vale entre 2.2 y 3 veces lo que pagas en 3 años. El sector se está consolidando — exit a multinacional es probable."
       },
-      "events": [{"created_at": "2026-05-24", "description": "Encontrado en BizScout (fuente curada — bonus +10)"}, {"created_at": "2026-05-25", "description": "Análisis completado (overall 79 — MEDIA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-24",
+          "description": "Encontrado en BizScout (fuente curada — bonus +10)"
+        },
+        {
+          "created_at": "2026-05-25",
+          "description": "Análisis completado (overall 79 — MEDIA)"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Daniel lo puso #5 en orden de prioridad de Radar"
+        }
+      ],
       "notes": []
     },
     {
@@ -132,17 +361,42 @@
       "source": "bizbuysell",
       "source_url": "https://www.bizbuysell.com/Business-Opportunity/auto-repair-sa/2389123/",
       "title": "Auto Repair & Diagnostics — San Antonio",
-      "state": "TX", "city": "San Antonio", "business_type": "Auto Repair", "years_operation": 22,
-      "asking_price": 410000, "reported_revenue": 680000, "reported_sde": 145000,
-      "seller_financing": true, "sba_prequalified": false, "curated_source": false,
+      "state": "TX",
+      "city": "San Antonio",
+      "business_type": "Auto Repair",
+      "years_operation": 22,
+      "asking_price": 410000,
+      "reported_revenue": 680000,
+      "reported_sde": 145000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "Taller mecánico con 22 años, 4 bahías, 3 mecánicos. Especializado en flotillas comerciales pequeñas y vehículos europeos. Dueño se jubila — abierto a transición larga.",
-      "pipeline_status": "RADAR", "filter_score": 50, "overall_score": 56, "priority": "BAJA",
+      "pipeline_status": "RADAR",
+      "filter_score": 50,
+      "overall_score": 56,
+      "priority": "BAJA",
       "financial": {
-        "reconstructed_sde": 145000, "dscr": 1.22, "cash_on_cash_y1": 0.15, "cash_on_cash_y3": 0.19,
-        "payback_years": 5.5, "equity_required": 82000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 20, "sba_loan_pct": 70, "seller_note_pct": 10, "estimated_monthly_debt_service": 4700},
-        "self_financing_score": 65, "financial_score": 55,
-        "risk_flags": ["Cobertura de deuda apenas cubre — si baja 10% el ingreso, no se paga sola", "Negocio depende del dueño-mecánico master", "Equipo viejo (lift 2008, scanner OBD básico) — capex modernización ~$45K"],
+        "reconstructed_sde": 145000,
+        "dscr": 1.22,
+        "cash_on_cash_y1": 0.15,
+        "cash_on_cash_y3": 0.19,
+        "payback_years": 5.5,
+        "equity_required": 82000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 20,
+          "sba_loan_pct": 70,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 4700
+        },
+        "self_financing_score": 65,
+        "financial_score": 55,
+        "risk_flags": [
+          "Cobertura de deuda apenas cubre — si baja 10% el ingreso, no se paga sola",
+          "Negocio depende del dueño-mecánico master",
+          "Equipo viejo (lift 2008, scanner OBD básico) — capex modernización ~$45K"
+        ],
         "plain_summary": "Negocio viejo y conocido localmente pero ajustado financieramente. Genera $145 mil al año, apenas cubre la deuda y te toma 4.5 años recuperar tu inversión. La transición del dueño es el tema más grande porque clientes vienen por él, no por el taller."
       },
       "strategy": null,
@@ -152,9 +406,35 @@
         "audit_score": 12,
         "digital_upside_score": 88,
         "current_state": "SIN WEBSITE. Solo perfil Google Business Profile básico con 23 reviews (4.6 stars). Cero presencia en redes. Clientes son 100% referidos boca a boca o llamadas walk-in.",
-        "quick_wins": ["Website básico ($300 setup) — incluso una página con horarios + teléfono + 'pedir cita' triplica leads cualificados", "Activar 'reservar cita' en Google Maps (gratis) — Google lo prioriza en búsquedas locales", "WhatsApp Business + automatización — el 50% de clientes prefiere chat vs llamada", "Reactivar base de clientes viejos con SMS recordatorio de mantenimiento — recuperar revenue dormido"]
+        "quick_wins": [
+          "Website básico ($300 setup) — incluso una página con horarios + teléfono + 'pedir cita' triplica leads cualificados",
+          "Activar 'reservar cita' en Google Maps (gratis) — Google lo prioriza en búsquedas locales",
+          "WhatsApp Business + automatización — el 50% de clientes prefiere chat vs llamada",
+          "Reactivar base de clientes viejos con SMS recordatorio de mantenimiento — recuperar revenue dormido"
+        ]
       },
-      "events": [{"created_at": "2026-05-22", "description": "Encontrado en BizBuySell"}, {"created_at": "2026-05-22", "description": "Pasó filtros → RADAR"}, {"created_at": "2026-05-23", "description": "Análisis financiero (score 55, al límite del umbral 55 para estratégico)"}, {"created_at": "2026-05-23", "description": "Auditoría digital: SIN website, upside score 88/100 — oportunidad enorme"}],
+      "events": [
+        {
+          "created_at": "2026-05-22",
+          "description": "Encontrado en BizBuySell"
+        },
+        {
+          "created_at": "2026-05-22",
+          "description": "Pasó filtros → RADAR"
+        },
+        {
+          "created_at": "2026-05-23",
+          "description": "Análisis financiero (score 55, al límite del umbral 55 para estratégico)"
+        },
+        {
+          "created_at": "2026-05-23",
+          "description": "Auditoría digital: SIN website, upside score 88/100 — oportunidad enorme"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Daniel lo puso #6 en orden de prioridad de Radar"
+        }
+      ],
       "notes": []
     },
     {
@@ -162,24 +442,63 @@
       "source": "bizbuysell",
       "source_url": "https://www.bizbuysell.com/Business-Opportunity/dental-jax/2401888/",
       "title": "Established Dental Practice — Jacksonville",
-      "state": "FL", "city": "Jacksonville", "business_type": "Dental Practice", "years_operation": 9,
-      "asking_price": 1800000, "reported_revenue": 2400000, "reported_sde": 410000,
-      "seller_financing": true, "sba_prequalified": true, "curated_source": false,
+      "state": "FL",
+      "city": "Jacksonville",
+      "business_type": "Dental Practice",
+      "years_operation": 9,
+      "asking_price": 1800000,
+      "reported_revenue": 2400000,
+      "reported_sde": 410000,
+      "seller_financing": true,
+      "sba_prequalified": true,
+      "curated_source": false,
       "raw_description": "Consultorio dental general + cosmética. 9 años, 3 sillas, 2 higienistas, recepción. Dueño dentista que se va a docencia universitaria. 2,800 pacientes activos, 70% retornan anualmente. Equipo CEREC.",
-      "pipeline_status": "RADAR", "filter_score": 65, "overall_score": 87, "priority": "ALTA",
+      "pipeline_status": "RADAR",
+      "filter_score": 65,
+      "overall_score": 87,
+      "priority": "ALTA",
       "financial": {
-        "reconstructed_sde": 410000, "dscr": 1.62, "cash_on_cash_y1": 0.28, "cash_on_cash_y3": 0.38,
-        "payback_years": 3.5, "equity_required": 180000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 10, "sba_loan_pct": 80, "seller_note_pct": 10, "estimated_monthly_debt_service": 18900},
-        "self_financing_score": 86, "financial_score": 84,
-        "risk_flags": ["Necesitas dentista asociado o socio dentista — la práctica requiere licencia", "Equipo CEREC 5 años, vida útil restante 5-7 años — planear renovación"],
+        "reconstructed_sde": 410000,
+        "dscr": 1.62,
+        "cash_on_cash_y1": 0.28,
+        "cash_on_cash_y3": 0.38,
+        "payback_years": 3.5,
+        "equity_required": 180000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 10,
+          "sba_loan_pct": 80,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 18900
+        },
+        "self_financing_score": 86,
+        "financial_score": 84,
+        "risk_flags": [
+          "Necesitas dentista asociado o socio dentista — la práctica requiere licencia",
+          "Equipo CEREC 5 años, vida útil restante 5-7 años — planear renovación"
+        ],
         "plain_summary": "Excelente práctica dental con números muy sólidos. Genera $410 mil al año y se paga la deuda con holgura. Pagas 4.4 años de ganancias — premium pero justificado. Tienes que conseguir un dentista asociado antes de cerrar (Florida lo exige)."
       },
       "strategy": {
-        "buy_thesis": ["70% retención anual de pacientes — flujo predecible", "Marca consolidada en zona residencial premium de Jax", "Equipo CEREC permite cobrar más por restauraciones cerámicas vs labs externos"],
-        "ai_upside": {"score": 80, "opportunities": ["Recordatorios chequeo + limpieza automatizados (prácticas dentales típicamente pierden 25% de pacientes por no contactarlos)", "Análisis pacientes con seguros vs cash-pay — pricing diferenciado para mejorar mix", "Programar cita en línea (la práctica solo recibe por teléfono actualmente)"], "value_multiplier_low": 2.3, "value_multiplier_high": 3.0},
+        "buy_thesis": [
+          "70% retención anual de pacientes — flujo predecible",
+          "Marca consolidada en zona residencial premium de Jax",
+          "Equipo CEREC permite cobrar más por restauraciones cerámicas vs labs externos"
+        ],
+        "ai_upside": {
+          "score": 80,
+          "opportunities": [
+            "Recordatorios chequeo + limpieza automatizados (prácticas dentales típicamente pierden 25% de pacientes por no contactarlos)",
+            "Análisis pacientes con seguros vs cash-pay — pricing diferenciado para mejorar mix",
+            "Programar cita en línea (la práctica solo recibe por teléfono actualmente)"
+          ],
+          "value_multiplier_low": 2.3,
+          "value_multiplier_high": 3.0
+        },
         "exit_profile": "Reventa a DSO (Heartland, Pacific Dental Services, Aspen) — están comprando agresivo en Florida",
-        "red_flags": ["Higienistas con poco tiempo en la práctica (1-2 años)"],
+        "red_flags": [
+          "Higienistas con poco tiempo en la práctica (1-2 años)"
+        ],
         "strategic_score": 78,
         "plain_summary": "Práctica dental sólida con potencial real de DSO acquisition. Si modernizas el agendamiento y mejoras la retención con automatización, vale entre 2.3 y 3 veces lo que pagas en 3 años. El consolidador dental DSO típicamente paga premium por prácticas con sistemas claros."
       },
@@ -189,9 +508,34 @@
         "audit_score": 64,
         "digital_upside_score": 55,
         "current_state": "Web decente y mobile-friendly. SÍ tiene info de servicios pero NO booking online (clientes deben llamar). Google Business Profile activo con 187 reviews (4.7 stars). Instagram con 1.2K followers — moderado.",
-        "quick_wins": ["Booking online integrado al PMS dental (los DSO compradores lo exigen para valuation premium) — recuperar 25% de pacientes lapsed", "Workflow automatizado de recordatorios pre-cita + post-tratamiento — la métrica más miran los DSO en DD", "Captura leads de pacientes nuevos vía Google Local Service Ads (los DSO pagan premium por flujo predecible de pacientes nuevos)"]
+        "quick_wins": [
+          "Booking online integrado al PMS dental (los DSO compradores lo exigen para valuation premium) — recuperar 25% de pacientes lapsed",
+          "Workflow automatizado de recordatorios pre-cita + post-tratamiento — la métrica más miran los DSO en DD",
+          "Captura leads de pacientes nuevos vía Google Local Service Ads (los DSO pagan premium por flujo predecible de pacientes nuevos)"
+        ]
       },
-      "events": [{"created_at": "2026-05-10", "description": "Encontrado en BizBuySell"}, {"created_at": "2026-05-10", "description": "Pasó filtros → RADAR"}, {"created_at": "2026-05-12", "description": "Análisis completado (overall 87 — ALTA)"}, {"created_at": "2026-05-12", "description": "Auditoría digital: web score 64/100, upside score 55/100 — moderado pero crítico para exit DSO"}],
+      "events": [
+        {
+          "created_at": "2026-05-10",
+          "description": "Encontrado en BizBuySell"
+        },
+        {
+          "created_at": "2026-05-10",
+          "description": "Pasó filtros → RADAR"
+        },
+        {
+          "created_at": "2026-05-12",
+          "description": "Análisis completado (overall 87 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-12",
+          "description": "Auditoría digital: web score 64/100, upside score 55/100 — moderado pero crítico para exit DSO"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Daniel lo puso #1 en orden de prioridad de Radar"
+        }
+      ],
       "notes": []
     },
     {
@@ -199,14 +543,34 @@
       "source": "bizbuysell",
       "source_url": "https://www.bizbuysell.com/Business-Opportunity/restaurant-mia/2378891/",
       "title": "Cuban Restaurant — Little Havana",
-      "state": "FL", "city": "Miami", "business_type": "Restaurant", "years_operation": 4,
-      "asking_price": 580000, "reported_revenue": 920000, "reported_sde": 90000,
-      "seller_financing": false, "sba_prequalified": false, "curated_source": false,
+      "state": "FL",
+      "city": "Miami",
+      "business_type": "Restaurant",
+      "years_operation": 4,
+      "asking_price": 580000,
+      "reported_revenue": 920000,
+      "reported_sde": 90000,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "Restaurante cubano en Little Havana, 60 sillas + terraza, 4 años de operación. Dueño quiere vender por temas familiares.",
-      "pipeline_status": "DESCARTADO", "filter_score": 0, "overall_score": null, "priority": null,
+      "pipeline_status": "DESCARTADO",
+      "filter_score": 0,
+      "overall_score": null,
+      "priority": null,
       "discard_reason": "Múltiplo precio/SDE de 6.4x — supera el máximo de 4.5x. Negocio sobrevalorado.",
-      "financial": null, "strategy": null,
-      "events": [{"created_at": "2026-05-19", "description": "Encontrado en BizBuySell"}, {"created_at": "2026-05-19", "description": "Descartado automáticamente: múltiplo 6.4x > 4.5x máximo"}],
+      "financial": null,
+      "strategy": null,
+      "events": [
+        {
+          "created_at": "2026-05-19",
+          "description": "Encontrado en BizBuySell"
+        },
+        {
+          "created_at": "2026-05-19",
+          "description": "Descartado automáticamente: múltiplo 6.4x > 4.5x máximo"
+        }
+      ],
       "notes": []
     },
     {
@@ -214,24 +578,64 @@
       "source": "bizscout",
       "source_url": "https://www.bizscout.com/listing/ecom-supplements-dallas-tx",
       "title": "E-commerce Supplements Brand — Dallas (D2C)",
-      "state": "TX", "city": "Dallas", "business_type": "E-commerce", "years_operation": 3,
-      "asking_price": 670000, "reported_revenue": 1100000, "reported_sde": 220000,
-      "seller_financing": true, "sba_prequalified": false, "curated_source": true,
+      "state": "TX",
+      "city": "Dallas",
+      "business_type": "E-commerce",
+      "years_operation": 3,
+      "asking_price": 670000,
+      "reported_revenue": 1100000,
+      "reported_sde": 220000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": true,
       "raw_description": "Marca D2C de suplementos deportivos. 3 años, 18K clientes únicos, 32% repeat rate. Amazon (60%) + Shopify directo (40%). 3 empleados remotos. Fundadora se va a maternidad larga.",
-      "pipeline_status": "RADAR", "filter_score": 60, "overall_score": 82, "priority": "ALTA",
+      "pipeline_status": "RADAR",
+      "filter_score": 60,
+      "overall_score": 82,
+      "priority": "ALTA",
       "financial": {
-        "reconstructed_sde": 220000, "dscr": 1.51, "cash_on_cash_y1": 0.28, "cash_on_cash_y3": 0.36,
-        "payback_years": 3.6, "equity_required": 100000, "sba_eligible": false,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 0, "seller_note_pct": 35, "bank_loan_pct": 50, "estimated_monthly_debt_service": 7800},
-        "self_financing_score": 76, "financial_score": 76,
-        "risk_flags": ["60% del ingreso depende de Amazon — riesgo de cuenta suspendida", "Suplementos D2C — espacio competitivo con CAC subiendo"],
+        "reconstructed_sde": 220000,
+        "dscr": 1.51,
+        "cash_on_cash_y1": 0.28,
+        "cash_on_cash_y3": 0.36,
+        "payback_years": 3.6,
+        "equity_required": 100000,
+        "sba_eligible": false,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 0,
+          "seller_note_pct": 35,
+          "bank_loan_pct": 50,
+          "estimated_monthly_debt_service": 7800
+        },
+        "self_financing_score": 76,
+        "financial_score": 76,
+        "risk_flags": [
+          "60% del ingreso depende de Amazon — riesgo de cuenta suspendida",
+          "Suplementos D2C — espacio competitivo con CAC subiendo"
+        ],
         "plain_summary": "Marca digital sólida con tracción real. Genera $220 mil al año limpio y se paga la deuda con margen. Pagas 3 años de ganancias — bueno para D2C. Dependes mucho de Amazon (60% del ingreso) — diversificar a Shopify es la prioridad uno después de cerrar."
       },
       "strategy": {
-        "buy_thesis": ["32% repeat rate — base de clientes leal en sector con churn alto", "Margen sano (~20% post-Amazon fees)", "Fundadora motivada por razones personales — venta limpia"],
-        "ai_upside": {"score": 84, "opportunities": ["Email marketing automatizado con IA por segmento (compradores únicos vs recurrentes vs lapsed) — proyección +15% LTV", "Generar contenido (TikTok, blog SEO) con IA para reducir CAC 25%", "Subscription model con personalización IA según historial"], "value_multiplier_low": 2.8, "value_multiplier_high": 4.0},
+        "buy_thesis": [
+          "32% repeat rate — base de clientes leal en sector con churn alto",
+          "Margen sano (~20% post-Amazon fees)",
+          "Fundadora motivada por razones personales — venta limpia"
+        ],
+        "ai_upside": {
+          "score": 84,
+          "opportunities": [
+            "Email marketing automatizado con IA por segmento (compradores únicos vs recurrentes vs lapsed) — proyección +15% LTV",
+            "Generar contenido (TikTok, blog SEO) con IA para reducir CAC 25%",
+            "Subscription model con personalización IA según historial"
+          ],
+          "value_multiplier_low": 2.8,
+          "value_multiplier_high": 4.0
+        },
         "exit_profile": "Reventa a aggregator de marcas (Thrasio, Branded, Perch) o estratégico de nutrición/wellness",
-        "red_flags": ["Diversificación off-Amazon urgente — sin eso, el deal de exit pierde 30% de valor"],
+        "red_flags": [
+          "Diversificación off-Amazon urgente — sin eso, el deal de exit pierde 30% de valor"
+        ],
         "strategic_score": 82,
         "plain_summary": "Activo digital de alta calidad. Si rompes la dependencia de Amazon construyendo el canal directo y subscription, vale entre 2.8 y 4 veces lo que pagas en 3 años. Es el deal con mayor upside del pipeline — el ejemplo perfecto del modelo BizAcq."
       },
@@ -241,303 +645,820 @@
         "audit_score": 72,
         "digital_upside_score": 68,
         "current_state": "Shopify funcional con buen branding. Tiene email marketing básico (Klaviyo). NO subscription model. Tracking pixel y conversions setup. Instagram 8K followers, engagement bajo (1.2%). Amazon listings optimizados.",
-        "quick_wins": ["Subscription program con descuento 15% — los aggregators valoran subscriptions a 1.5x más que one-time", "UGC content engine + TikTok shop (LTV +25% en suplementos D2C)", "Email segmentation por health goals + AI personalization en checkout — proyección +18% AOV"]
+        "quick_wins": [
+          "Subscription program con descuento 15% — los aggregators valoran subscriptions a 1.5x más que one-time",
+          "UGC content engine + TikTok shop (LTV +25% en suplementos D2C)",
+          "Email segmentation por health goals + AI personalization en checkout — proyección +18% AOV"
+        ]
       },
-      "events": [{"created_at": "2026-04-12", "description": "Encontrado en BizScout (fuente curada — bonus +10)"}, {"created_at": "2026-04-13", "description": "Análisis completado (overall 82 — ALTA)"}, {"created_at": "2026-04-13", "description": "Auditoría digital: web score 72/100, upside score 68/100"}],
+      "events": [
+        {
+          "created_at": "2026-04-12",
+          "description": "Encontrado en BizScout (fuente curada — bonus +10)"
+        },
+        {
+          "created_at": "2026-04-13",
+          "description": "Análisis completado (overall 82 — ALTA)"
+        },
+        {
+          "created_at": "2026-04-13",
+          "description": "Auditoría digital: web score 72/100, upside score 68/100"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Daniel lo puso #7 en orden de prioridad de Radar"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0009-4000-8000-000000000009",
       "source": "businessbroker",
       "source_url": "https://www.businessbroker.net/business-for-sale/hvac-and-mechanical-business-houston-texas/614287.aspx",
       "title": "Family-Run HVAC & Mechanical — Harris County (off-market 25yr)",
-      "state": "TX", "city": "Houston", "business_type": "HVAC", "years_operation": 25,
-      "asking_price": 1800000, "reported_revenue": 3500000, "reported_sde": 700000,
-      "seller_financing": false, "sba_prequalified": true, "curated_source": false,
+      "state": "TX",
+      "city": "Houston",
+      "business_type": "HVAC",
+      "years_operation": 25,
+      "asking_price": 1800000,
+      "reported_revenue": 3500000,
+      "reported_sde": 700000,
+      "seller_financing": false,
+      "sba_prequalified": true,
+      "curated_source": false,
       "raw_description": "HVAC family-run con 25 años, sirviendo Harris County desde 1997. Equipo técnico 24/7, mix residencial + comercial. Dueños fundadores se retiran. SDE estimado en margen 20% sobre $3.5MM gross revenue (estándar industria HVAC madura).",
-      "pipeline_status": "RADAR", "filter_score": 65, "overall_score": 86, "priority": "ALTA",
+      "pipeline_status": "RADAR",
+      "filter_score": 65,
+      "overall_score": 86,
+      "priority": "ALTA",
       "financial": {
-        "reconstructed_sde": 700000, "dscr": 1.78, "cash_on_cash_y1": 0.33, "cash_on_cash_y3": 0.44,
-        "payback_years": 3.0, "equity_required": 270000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 85, "seller_note_pct": 0, "estimated_monthly_debt_service": 18500},
-        "self_financing_score": 80, "financial_score": 84,
-        "risk_flags": ["SDE estimado a partir de revenue (margen industria) — confirmar EEFF auditados en DD", "Sin seller financing — exposición 100% bancaria", "Dueños fundadores 25 años — riesgo transición cultural"],
+        "reconstructed_sde": 700000,
+        "dscr": 1.78,
+        "cash_on_cash_y1": 0.33,
+        "cash_on_cash_y3": 0.44,
+        "payback_years": 3.0,
+        "equity_required": 270000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 85,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 18500
+        },
+        "self_financing_score": 80,
+        "financial_score": 84,
+        "risk_flags": [
+          "SDE estimado a partir de revenue (margen industria) — confirmar EEFF auditados en DD",
+          "Sin seller financing — exposición 100% bancaria",
+          "Dueños fundadores 25 años — riesgo transición cultural"
+        ],
         "plain_summary": "Negocio grande, maduro, con mucha caja. Genera $700 mil al año (estimado) y cubre la deuda con buena holgura. Pagas 2.6 años de ganancias — buen precio para un HVAC de 25 años. La pega: el vendedor no financia, sale 100% por banco SBA."
       },
       "strategy": {
-        "buy_thesis": ["25 años — el contendor establecido con reputación local", "Mix comercial + residencial reduce estacionalidad", "Houston metro: crecimiento sostenido, demanda HVAC subiendo"],
-        "ai_upside": {"score": 80, "opportunities": ["Software de despacho FSM (ServiceTitan, Housecall Pro) — productividad por técnico +20%", "Programa de mantenimiento residencial recurrente (no lo tienen) — capturar revenue base estable", "Dynamic pricing en emergencias verano por demanda alta"], "value_multiplier_low": 2.4, "value_multiplier_high": 3.2},
+        "buy_thesis": [
+          "25 años — el contendor establecido con reputación local",
+          "Mix comercial + residencial reduce estacionalidad",
+          "Houston metro: crecimiento sostenido, demanda HVAC subiendo"
+        ],
+        "ai_upside": {
+          "score": 80,
+          "opportunities": [
+            "Software de despacho FSM (ServiceTitan, Housecall Pro) — productividad por técnico +20%",
+            "Programa de mantenimiento residencial recurrente (no lo tienen) — capturar revenue base estable",
+            "Dynamic pricing en emergencias verano por demanda alta"
+          ],
+          "value_multiplier_low": 2.4,
+          "value_multiplier_high": 3.2
+        },
         "exit_profile": "Reventa a PE rollup (Apex Service Partners, Wrench Group, Service Champions) o strategic local",
-        "red_flags": ["Dueños fundadores con 25 años — clientela vinculada personalmente, transición delicada"],
+        "red_flags": [
+          "Dueños fundadores con 25 años — clientela vinculada personalmente, transición delicada"
+        ],
         "strategic_score": 78,
         "plain_summary": "HVAC clásico bien posicionado para profesionalizar. Si modernizas operaciones con FSM y agregas mantenimiento recurrente residencial, vale entre 2.4 y 3.2 veces lo que pagas en 3 años. PE consolidadores están comprando este perfil agresivo."
       },
-      "events": [{"created_at": "2026-05-25", "description": "Encontrado vía búsqueda web (businessbroker.net listing 614287)"}, {"created_at": "2026-05-26", "description": "Análisis completado (overall 86 — ALTA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-25",
+          "description": "Encontrado vía búsqueda web (businessbroker.net listing 614287)"
+        },
+        {
+          "created_at": "2026-05-26",
+          "description": "Análisis completado (overall 86 — ALTA)"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0010-4000-8000-000000000010",
       "source": "dealstream",
       "source_url": "https://dealstream.com/texas/plumbing-businesses-for-sale",
       "title": "Custom-Builder Plumbing Co. — Tarrant County",
-      "state": "TX", "city": "Fort Worth", "business_type": "Plumbing", "years_operation": 14,
-      "asking_price": 2700000, "reported_revenue": 4200000, "reported_sde": 750000,
-      "seller_financing": false, "sba_prequalified": true, "curated_source": false,
+      "state": "TX",
+      "city": "Fort Worth",
+      "business_type": "Plumbing",
+      "years_operation": 14,
+      "asking_price": 2700000,
+      "reported_revenue": 4200000,
+      "reported_sde": 750000,
+      "seller_financing": false,
+      "sba_prequalified": true,
+      "curated_source": false,
       "raw_description": "Plumbing enfocado en custom builders en Tarrant County. 14 años, equipo 18 plomeros + 4 admin. Mix 80% nuevas construcciones / 20% servicio. SBA eligible. SDE estimado con margen industria 18%.",
-      "pipeline_status": "RADAR", "filter_score": 55, "overall_score": 74, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 55,
+      "overall_score": 74,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 750000, "dscr": 1.40, "cash_on_cash_y1": 0.22, "cash_on_cash_y3": 0.28,
-        "payback_years": 4.5, "equity_required": 405000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 85, "seller_note_pct": 0, "estimated_monthly_debt_service": 28500},
-        "self_financing_score": 70, "financial_score": 70,
-        "risk_flags": ["80% exposición a nuevas construcciones — riesgo si DFW desacelera vivienda", "Múltiplo 3.6x — al alza del rango plumbing (típico 2-3x)", "SDE estimado sin EEFF auditados"],
+        "reconstructed_sde": 750000,
+        "dscr": 1.4,
+        "cash_on_cash_y1": 0.22,
+        "cash_on_cash_y3": 0.28,
+        "payback_years": 4.5,
+        "equity_required": 405000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 85,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 28500
+        },
+        "self_financing_score": 70,
+        "financial_score": 70,
+        "risk_flags": [
+          "80% exposición a nuevas construcciones — riesgo si DFW desacelera vivienda",
+          "Múltiplo 3.6x — al alza del rango plumbing (típico 2-3x)",
+          "SDE estimado sin EEFF auditados"
+        ],
         "plain_summary": "Operación grande de plomería atada al mercado de construcción nueva en DFW. Genera $750 mil al año (estimado) y se paga la deuda. Pagas 3.6 años de ganancias — en el alto del rango para plumbing. Si DFW desacelera la vivienda, este negocio sufre — diversificar a servicio residencial es crítico."
       },
       "strategy": {
-        "buy_thesis": ["DFW sigue siendo metro #1 EE.UU. en permisos de construcción (2025)", "Equipo de 18 plomeros — escala difícil de replicar", "SBA aprobado pre-listing = financiamiento más rápido"],
-        "ai_upside": {"score": 65, "opportunities": ["Pivot 30% a servicio residencial recurrente para diversificar exposure builder", "Dispatch automation + GPS técnicos para mejorar utilización", "Programa de mantenimiento commercial — recurring revenue defensivo"], "value_multiplier_low": 1.8, "value_multiplier_high": 2.5},
+        "buy_thesis": [
+          "DFW sigue siendo metro #1 EE.UU. en permisos de construcción (2025)",
+          "Equipo de 18 plomeros — escala difícil de replicar",
+          "SBA aprobado pre-listing = financiamiento más rápido"
+        ],
+        "ai_upside": {
+          "score": 65,
+          "opportunities": [
+            "Pivot 30% a servicio residencial recurrente para diversificar exposure builder",
+            "Dispatch automation + GPS técnicos para mejorar utilización",
+            "Programa de mantenimiento commercial — recurring revenue defensivo"
+          ],
+          "value_multiplier_low": 1.8,
+          "value_multiplier_high": 2.5
+        },
         "exit_profile": "Reventa a PE consolidador de servicios (Wrench Group, Service Champions) o builder cliente integrando vertical",
-        "red_flags": ["Cyclicality: si vivienda DFW cae 30%, ingresos pueden caer 50% en 18 meses"],
+        "red_flags": [
+          "Cyclicality: si vivienda DFW cae 30%, ingresos pueden caer 50% en 18 meses"
+        ],
         "strategic_score": 65,
         "plain_summary": "Negocio sólido pero cíclico por dependencia de construcción nueva. Pre-aprobado SBA es ventaja. Para sacar 1.8-2.5x en 3 años hay que diversificar agresivo a servicio residencial — sin eso, el comprador estratégico no paga premium."
       },
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en DealStream"}, {"created_at": "2026-05-26", "description": "SBA pre-approved confirmado (bonus +10 filter)"}, {"created_at": "2026-05-27", "description": "Análisis completado"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en DealStream"
+        },
+        {
+          "created_at": "2026-05-26",
+          "description": "SBA pre-approved confirmado (bonus +10 filter)"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis completado"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0011-4000-8000-000000000011",
       "source": "bizquest",
       "source_url": "https://www.bizquest.com/plumbing-businesses-for-sale/",
       "title": "Residential Plumbing & Repair — Corpus Christi",
-      "state": "TX", "city": "Corpus Christi", "business_type": "Plumbing", "years_operation": 8,
-      "asking_price": 257142, "reported_revenue": 480000, "reported_sde": 110000,
-      "seller_financing": true, "sba_prequalified": false, "curated_source": false,
+      "state": "TX",
+      "city": "Corpus Christi",
+      "business_type": "Plumbing",
+      "years_operation": 8,
+      "asking_price": 257142,
+      "reported_revenue": 480000,
+      "reported_sde": 110000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "Plomería residencial Corpus Christi. 8 años, 2 plomeros + dueño operario. Base de 600 clientes ocasionales. Vendedor abre seller financing 25%.",
-      "pipeline_status": "RADAR", "filter_score": 50, "overall_score": 64, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 50,
+      "overall_score": 64,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 110000, "dscr": 1.45, "cash_on_cash_y1": 0.32, "cash_on_cash_y3": 0.39,
-        "payback_years": 3.0, "equity_required": 38000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 60, "seller_note_pct": 25, "estimated_monthly_debt_service": 2700},
-        "self_financing_score": 75, "financial_score": 68,
-        "risk_flags": ["Negocio depende fuertemente del dueño operario", "Base clientes ocasionales (no contratos) — ingreso menos predecible", "Mercado pequeño Corpus Christi limita upside"],
+        "reconstructed_sde": 110000,
+        "dscr": 1.45,
+        "cash_on_cash_y1": 0.32,
+        "cash_on_cash_y3": 0.39,
+        "payback_years": 3.0,
+        "equity_required": 38000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 60,
+          "seller_note_pct": 25,
+          "estimated_monthly_debt_service": 2700
+        },
+        "self_financing_score": 75,
+        "financial_score": 68,
+        "risk_flags": [
+          "Negocio depende fuertemente del dueño operario",
+          "Base clientes ocasionales (no contratos) — ingreso menos predecible",
+          "Mercado pequeño Corpus Christi limita upside"
+        ],
         "plain_summary": "Plomería chica pero limpia. Genera $110 mil al año y se paga la deuda con holgura. Pagas 2.3 años de ganancias — precio muy razonable. El dueño es operario clave — necesitas reemplazarlo o seguir tú mismo en operación los primeros 12-18 meses."
       },
       "strategy": {
-        "buy_thesis": ["Múltiplo 2.3x — barato para el rango plumbing", "Seller financing 25% — vendedor cree en el negocio", "Mercado Corpus subatendido vs metros grandes"],
-        "ai_upside": {"score": 58, "opportunities": ["Software de booking online + SMS — ganar share vs competidores artesanales locales", "Programa mantenimiento residencial anual — convertir ocasionales en recurrentes", "Google Local Service Ads para capturar emergencias"], "value_multiplier_low": 1.5, "value_multiplier_high": 2.2},
+        "buy_thesis": [
+          "Múltiplo 2.3x — barato para el rango plumbing",
+          "Seller financing 25% — vendedor cree en el negocio",
+          "Mercado Corpus subatendido vs metros grandes"
+        ],
+        "ai_upside": {
+          "score": 58,
+          "opportunities": [
+            "Software de booking online + SMS — ganar share vs competidores artesanales locales",
+            "Programa mantenimiento residencial anual — convertir ocasionales en recurrentes",
+            "Google Local Service Ads para capturar emergencias"
+          ],
+          "value_multiplier_low": 1.5,
+          "value_multiplier_high": 2.2
+        },
         "exit_profile": "Reventa a operador local que quiera escalar, o roll-up regional de servicios del hogar",
-        "red_flags": ["Mercado Corpus Christi limita techo de valoración"],
+        "red_flags": [
+          "Mercado Corpus Christi limita techo de valoración"
+        ],
         "strategic_score": 60,
         "plain_summary": "Buen ticket de entrada al sector plumbing en TX. Si profesionalizas operación y conviertes clientes en recurrentes, vale entre 1.5 y 2.2 veces lo que pagas en 3 años. No es trade de exit grande, pero retorno cash anual sólido."
       },
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en BizQuest"}, {"created_at": "2026-05-27", "description": "Análisis completado (overall 64 — MEDIA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en BizQuest"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis completado (overall 64 — MEDIA)"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0012-4000-8000-000000000012",
       "source": "synergybb",
       "source_url": "https://synergybb.com/businesses-for-sale/electrical-contractors-for-sale/",
       "title": "Solar & Pool Energy Solutions — Sarasota County",
-      "state": "FL", "city": "Sarasota", "business_type": "Electrical", "years_operation": 11,
-      "asking_price": 3750000, "reported_revenue": 6800000, "reported_sde": 1100000,
-      "seller_financing": false, "sba_prequalified": true, "curated_source": false,
+      "state": "FL",
+      "city": "Sarasota",
+      "business_type": "Electrical",
+      "years_operation": 11,
+      "asking_price": 3750000,
+      "reported_revenue": 6800000,
+      "reported_sde": 1100000,
+      "seller_financing": false,
+      "sba_prequalified": true,
+      "curated_source": false,
       "raw_description": "Electrical contractor especializado en solar residencial + pool energy systems. 11 años, 28 empleados, contratos con 4 builders grandes. Sarasota es mercado #3 EE.UU. en adopción solar residencial. SBA approved.",
-      "pipeline_status": "RADAR", "filter_score": 65, "overall_score": 78, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 65,
+      "overall_score": 78,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 1100000, "dscr": 1.45, "cash_on_cash_y1": 0.24, "cash_on_cash_y3": 0.32,
-        "payback_years": 4.2, "equity_required": 563000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 85, "seller_note_pct": 0, "estimated_monthly_debt_service": 39600},
-        "self_financing_score": 76, "financial_score": 76,
-        "risk_flags": ["3.4x múltiplo — al alza para electrical estándar (2-3x) pero justificado por nicho solar premium", "Dependencia 60% de 4 builders — concentración de clientes alta", "Cambios en incentivos federales solar pueden afectar demanda"],
+        "reconstructed_sde": 1100000,
+        "dscr": 1.45,
+        "cash_on_cash_y1": 0.24,
+        "cash_on_cash_y3": 0.32,
+        "payback_years": 4.2,
+        "equity_required": 563000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 85,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 39600
+        },
+        "self_financing_score": 76,
+        "financial_score": 76,
+        "risk_flags": [
+          "3.4x múltiplo — al alza para electrical estándar (2-3x) pero justificado por nicho solar premium",
+          "Dependencia 60% de 4 builders — concentración de clientes alta",
+          "Cambios en incentivos federales solar pueden afectar demanda"
+        ],
         "plain_summary": "Negocio grande en nicho solar premium con buen flujo. Genera $1.1 millón al año y se paga la deuda. Pagas 3.4 años de ganancias — precio justo para el upside del sector. El riesgo grande: 60% del ingreso viene de solo 4 builders. Si uno se va, el golpe es duro."
       },
       "strategy": {
-        "buy_thesis": ["Solar residencial FL: crecimiento 18% anual, Sarasota top-3 nacional", "Equipo de 28 — escala defendible", "Contratos B2B con builders = ingreso recurrente proyectable"],
-        "ai_upside": {"score": 75, "opportunities": ["Plataforma de monitoreo IoT de sistemas solares instalados — recurring revenue post-venta", "ML para optimizar diseño solar por casa (size, orientation, shading) — diferenciador vs competencia", "Vertical a battery storage (Tesla Powerwall) — siguiente ola del mercado"], "value_multiplier_low": 2.0, "value_multiplier_high": 2.8},
+        "buy_thesis": [
+          "Solar residencial FL: crecimiento 18% anual, Sarasota top-3 nacional",
+          "Equipo de 28 — escala defendible",
+          "Contratos B2B con builders = ingreso recurrente proyectable"
+        ],
+        "ai_upside": {
+          "score": 75,
+          "opportunities": [
+            "Plataforma de monitoreo IoT de sistemas solares instalados — recurring revenue post-venta",
+            "ML para optimizar diseño solar por casa (size, orientation, shading) — diferenciador vs competencia",
+            "Vertical a battery storage (Tesla Powerwall) — siguiente ola del mercado"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 2.8
+        },
         "exit_profile": "Reventa a strategic de energía (Sunrun, SunPower) o PE de home services con thesis solar",
-        "red_flags": ["Cambios regulatorios federales (IRA tax credits) impactan demanda inmediata"],
+        "red_flags": [
+          "Cambios regulatorios federales (IRA tax credits) impactan demanda inmediata"
+        ],
         "strategic_score": 72,
         "plain_summary": "Apuesta concentrada al boom solar residencial Florida. Si diversificas tu base de builders y agregas monitoreo recurring, vale entre 2 y 2.8 veces lo que pagas en 3 años. Si Trump elimina IRA tax credits agresivo, este negocio sufre — riesgo regulatorio real."
       },
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en Synergy Business Brokers"}, {"created_at": "2026-05-27", "description": "Análisis completado (overall 78 — MEDIA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en Synergy Business Brokers"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis completado (overall 78 — MEDIA)"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0013-4000-8000-000000000013",
       "source": "openfair",
       "source_url": "https://openfair.co/businesses-for-sale/en/luxurious-medical-spa-near-houston-texas-for-sale-OF0007531",
       "title": "Luxurious Med Spa near Houston — Friendswood",
-      "state": "TX", "city": "Friendswood", "business_type": "Med Spa", "years_operation": 4,
-      "asking_price": 580000, "reported_revenue": 620000, "reported_sde": 193041,
-      "seller_financing": true, "sba_prequalified": false, "curated_source": false,
+      "state": "TX",
+      "city": "Friendswood",
+      "business_type": "Med Spa",
+      "years_operation": 4,
+      "asking_price": 580000,
+      "reported_revenue": 620000,
+      "reported_sde": 193041,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "MedSpa cerca Houston (Friendswood). Establecido 2022, tecnología cosmética avanzada. Staff: MD, enfermeras, esteticista, manager, guest relations. Gross profits >$600K en 2023-2025. SDE $193K en 2024, 2025 trending igual o arriba.",
-      "pipeline_status": "RADAR", "filter_score": 50, "overall_score": 75, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 50,
+      "overall_score": 75,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 193041, "dscr": 1.45, "cash_on_cash_y1": 0.28, "cash_on_cash_y3": 0.36,
-        "payback_years": 3.2, "equity_required": 87000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 75, "seller_note_pct": 10, "estimated_monthly_debt_service": 5900},
-        "self_financing_score": 72, "financial_score": 70,
-        "risk_flags": ["Solo 4 años de operación — historial corto vs típico de med spas", "MD director es key person — verificar contrato post-venta", "Mercado Friendswood limita techo vs Houston metro"],
+        "reconstructed_sde": 193041,
+        "dscr": 1.45,
+        "cash_on_cash_y1": 0.28,
+        "cash_on_cash_y3": 0.36,
+        "payback_years": 3.2,
+        "equity_required": 87000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 75,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 5900
+        },
+        "self_financing_score": 72,
+        "financial_score": 70,
+        "risk_flags": [
+          "Solo 4 años de operación — historial corto vs típico de med spas",
+          "MD director es key person — verificar contrato post-venta",
+          "Mercado Friendswood limita techo vs Houston metro"
+        ],
         "plain_summary": "Med spa nuevo pero con números bonitos. Genera $193 mil al año limpio y se paga la deuda con buen margen. Pagas 3 años de ganancias — precio razonable. La pega es que el MD director es crítico y solo lleva 4 años de track record."
       },
       "strategy": {
-        "buy_thesis": ["Equipo cosmético avanzado ya instalado — capex cubierto", "Staff completo (MD, enfermeras) — operación turnkey", "Mercado Friendswood + Houston south crecimiento poblacional alto"],
-        "ai_upside": {"score": 72, "opportunities": ["CRM con member program (subscription mensual de tratamientos) — recurring revenue", "AI consultation virtual — captura leads antes de visita física", "Cross-sell estructurado por tipo de cliente (anti-aging vs body contouring vs injectables)"], "value_multiplier_low": 2.0, "value_multiplier_high": 2.8},
+        "buy_thesis": [
+          "Equipo cosmético avanzado ya instalado — capex cubierto",
+          "Staff completo (MD, enfermeras) — operación turnkey",
+          "Mercado Friendswood + Houston south crecimiento poblacional alto"
+        ],
+        "ai_upside": {
+          "score": 72,
+          "opportunities": [
+            "CRM con member program (subscription mensual de tratamientos) — recurring revenue",
+            "AI consultation virtual — captura leads antes de visita física",
+            "Cross-sell estructurado por tipo de cliente (anti-aging vs body contouring vs injectables)"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 2.8
+        },
         "exit_profile": "Reventa a cadena med spa (Skin Spirit, Ideal Image) o roll-up de wellness en Houston metro",
-        "red_flags": ["Historial corto 4 años — DSO/strategic pueden descontar por falta de track record"],
+        "red_flags": [
+          "Historial corto 4 años — DSO/strategic pueden descontar por falta de track record"
+        ],
         "strategic_score": 70,
         "plain_summary": "Med spa joven con potencial. Si lo conviertes en negocio de membresía mensual y captas leads con IA antes de visita, vale entre 2 y 2.8 veces lo que pagas en 3 años. El track record corto es la pega — el comprador de exit puede descontar por eso."
       },
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en Openfair (OF0007531)"}, {"created_at": "2026-05-27", "description": "Análisis completado (overall 75 — MEDIA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en Openfair (OF0007531)"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis completado (overall 75 — MEDIA)"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0014-4000-8000-000000000014",
       "source": "bizbuysell",
       "source_url": "https://www.bizbuysell.com/florida/spas-for-sale/",
       "title": "Upscale Full-Service Med Spa — Miami",
-      "state": "FL", "city": "Miami", "business_type": "Med Spa", "years_operation": 7,
-      "asking_price": 285000, "reported_revenue": 315421, "reported_sde": 76100,
-      "seller_financing": false, "sba_prequalified": false, "curated_source": false,
+      "state": "FL",
+      "city": "Miami",
+      "business_type": "Med Spa",
+      "years_operation": 7,
+      "asking_price": 285000,
+      "reported_revenue": 315421,
+      "reported_sde": 76100,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "Med spa upscale full-service en Miami. 2025: revenue $315K, SDE $76K. Inventario $44K incluido en el precio. Asking $285K (ratio ~3.7x SDE).",
-      "pipeline_status": "RADAR", "filter_score": 35, "overall_score": 52, "priority": "BAJA",
+      "pipeline_status": "RADAR",
+      "filter_score": 35,
+      "overall_score": 52,
+      "priority": "BAJA",
       "financial": {
-        "reconstructed_sde": 76100, "dscr": 1.18, "cash_on_cash_y1": 0.15, "cash_on_cash_y3": 0.19,
-        "payback_years": 5.6, "equity_required": 60000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 21, "sba_loan_pct": 79, "seller_note_pct": 0, "estimated_monthly_debt_service": 2700},
-        "self_financing_score": 55, "financial_score": 52,
-        "risk_flags": ["SDE $76K apenas pasa el mínimo de $75K — al borde de descarte automático", "DSCR 1.18 < target 1.25 — apenas cubre deuda", "Sin seller financing — todo banco SBA", "Miami med spa muy competitivo"],
+        "reconstructed_sde": 76100,
+        "dscr": 1.18,
+        "cash_on_cash_y1": 0.15,
+        "cash_on_cash_y3": 0.19,
+        "payback_years": 5.6,
+        "equity_required": 60000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 21,
+          "sba_loan_pct": 79,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 2700
+        },
+        "self_financing_score": 55,
+        "financial_score": 52,
+        "risk_flags": [
+          "SDE $76K apenas pasa el mínimo de $75K — al borde de descarte automático",
+          "DSCR 1.18 < target 1.25 — apenas cubre deuda",
+          "Sin seller financing — todo banco SBA",
+          "Miami med spa muy competitivo"
+        ],
         "plain_summary": "Med spa chico apenas pasa filtros. Genera $76 mil al año, casi no cubre la deuda y te toma 5.6 años recuperar tu inversión. El precio incluye $44K de inventario lo cual ayuda. No es buen deal a este precio — solo tiene sentido si negocias bajar a $200-220K."
       },
       "strategy": null,
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en BizBuySell"}, {"created_at": "2026-05-26", "description": "Pasó filtro mínimo (SDE > $75K, apenas)"}, {"created_at": "2026-05-27", "description": "Score 52 — debajo umbral 55 para análisis estratégico"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en BizBuySell"
+        },
+        {
+          "created_at": "2026-05-26",
+          "description": "Pasó filtro mínimo (SDE > $75K, apenas)"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Score 52 — debajo umbral 55 para análisis estratégico"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0015-4000-8000-000000000015",
       "source": "bizquest",
       "source_url": "https://www.bizquest.com/commercial-cleaning-and-janitorial-businesses-for-sale-in-houston-tx/",
       "title": "Recession-Resistant Janitorial — Houston",
-      "state": "TX", "city": "Houston", "business_type": "Cleaning Services", "years_operation": 11,
-      "asking_price": 85000, "reported_revenue": 245000, "reported_sde": 75000,
-      "seller_financing": true, "sba_prequalified": false, "curated_source": false,
+      "state": "TX",
+      "city": "Houston",
+      "business_type": "Cleaning Services",
+      "years_operation": 11,
+      "asking_price": 85000,
+      "reported_revenue": 245000,
+      "reported_sde": 75000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "Janitorial Houston, 11 años. Contratos comerciales recurrentes (oficinas, retail chico). Asking $85K con SDE $75K — múltiplo 1.13x, atípicamente bajo. Investigar por qué tan barato (typical industria 1.5-2.5x).",
-      "pipeline_status": "RADAR", "filter_score": 35, "overall_score": 58, "priority": "BAJA",
+      "pipeline_status": "RADAR",
+      "filter_score": 35,
+      "overall_score": 58,
+      "priority": "BAJA",
       "financial": {
-        "reconstructed_sde": 75000, "dscr": 1.95, "cash_on_cash_y1": 0.42, "cash_on_cash_y3": 0.51,
-        "payback_years": 1.8, "equity_required": 17000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 20, "sba_loan_pct": 50, "seller_note_pct": 30, "estimated_monthly_debt_service": 1450},
-        "self_financing_score": 70, "financial_score": 62,
-        "risk_flags": ["⚠ Múltiplo 1.13x INUSUALMENTE bajo vs típico 1.5-2.5x — bandera roja, investigar por qué", "Posibles razones: contratos vencen, cliente top se va, problema legal, equipo viejo", "SDE en el mínimo absoluto del filtro ($75K)"],
+        "reconstructed_sde": 75000,
+        "dscr": 1.95,
+        "cash_on_cash_y1": 0.42,
+        "cash_on_cash_y3": 0.51,
+        "payback_years": 1.8,
+        "equity_required": 17000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 20,
+          "sba_loan_pct": 50,
+          "seller_note_pct": 30,
+          "estimated_monthly_debt_service": 1450
+        },
+        "self_financing_score": 70,
+        "financial_score": 62,
+        "risk_flags": [
+          "⚠ Múltiplo 1.13x INUSUALMENTE bajo vs típico 1.5-2.5x — bandera roja, investigar por qué",
+          "Posibles razones: contratos vencen, cliente top se va, problema legal, equipo viejo",
+          "SDE en el mínimo absoluto del filtro ($75K)"
+        ],
         "plain_summary": "Negocio super barato — sospechosamente barato. Genera $75 mil al año limpio y el precio es solo $85K, te lo pagas en 1.8 años. PERO un múltiplo tan bajo vs lo normal (1.5-2.5x para janitorial) indica que algo no anda — contratos vencidos, cliente grande se va, o equipo dañado. ANTES de avanzar, ENTENDER por qué está tan barato."
       },
       "strategy": {
-        "buy_thesis": ["Si el descuento es real (vendedor necesita cash rápido), payback en 22 meses es excepcional", "Contratos comerciales B2B = ingreso defendible si están firmes", "Houston: mercado grande, espacio para crecer rutas"],
-        "ai_upside": {"score": 60, "opportunities": ["Software de scheduling + tracking — ganar contratos vs competencia artesanal", "QC con fotos pre/post — diferenciador para contratos clase A office", "Sales SDR digital para ganar contratos nuevos a 20% comisión"], "value_multiplier_low": 1.8, "value_multiplier_high": 2.8},
+        "buy_thesis": [
+          "Si el descuento es real (vendedor necesita cash rápido), payback en 22 meses es excepcional",
+          "Contratos comerciales B2B = ingreso defendible si están firmes",
+          "Houston: mercado grande, espacio para crecer rutas"
+        ],
+        "ai_upside": {
+          "score": 60,
+          "opportunities": [
+            "Software de scheduling + tracking — ganar contratos vs competencia artesanal",
+            "QC con fotos pre/post — diferenciador para contratos clase A office",
+            "Sales SDR digital para ganar contratos nuevos a 20% comisión"
+          ],
+          "value_multiplier_low": 1.8,
+          "value_multiplier_high": 2.8
+        },
         "exit_profile": "Reventa a operador local que escale, o roll-up regional",
-        "red_flags": ["🚩 Precio anómalo bajo — typical pattern de 'distressed sale' o problema oculto. Due diligence agresivo OBLIGATORIO antes de LOI"],
+        "red_flags": [
+          "🚩 Precio anómalo bajo — typical pattern de 'distressed sale' o problema oculto. Due diligence agresivo OBLIGATORIO antes de LOI"
+        ],
         "strategic_score": 55,
         "plain_summary": "Apuesta de alto retorno SI el descuento es genuino. Si los contratos están firmes y nadie te ocultó nada, en 3 años vale 1.8-2.8 veces tu inversión. Pero el precio anómalo es señal de alerta — pregunta directo al broker por qué tan barato y mira EEFF de los últimos 6 meses con lupa antes de avanzar."
       },
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en BizQuest"}, {"created_at": "2026-05-27", "description": "Análisis: precio anómalo bajo (múltiplo 1.13x vs industria 1.5-2.5x) — bandera roja"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en BizQuest"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis: precio anómalo bajo (múltiplo 1.13x vs industria 1.5-2.5x) — bandera roja"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0016-4000-8000-000000000016",
       "source": "businessbroker",
       "source_url": "https://www.businessbroker.net/keyword/florida/landscaping-and-lawn-care-businesses-for-sale.aspx",
       "title": "Commercial Landscape Maintenance — Tampa Bay",
-      "state": "FL", "city": "Tampa", "business_type": "Landscaping", "years_operation": 9,
-      "asking_price": 420000, "reported_revenue": 564000, "reported_sde": 145000,
-      "seller_financing": true, "sba_prequalified": false, "curated_source": false,
+      "state": "FL",
+      "city": "Tampa",
+      "business_type": "Landscaping",
+      "years_operation": 9,
+      "asking_price": 420000,
+      "reported_revenue": 564000,
+      "reported_sde": 145000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "Commercial landscape Tampa Bay. 7 contratos mensuales B2B firmes ($47K/mes recurring). 9 años, equipo 12 técnicos + 3 trucks. Cubre Hillsborough, Pinellas, Manatee, Sarasota, Charlotte.",
-      "pipeline_status": "RADAR", "filter_score": 55, "overall_score": 72, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 55,
+      "overall_score": 72,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 145000, "dscr": 1.52, "cash_on_cash_y1": 0.26, "cash_on_cash_y3": 0.33,
-        "payback_years": 3.5, "equity_required": 63000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 75, "seller_note_pct": 10, "estimated_monthly_debt_service": 4300},
-        "self_financing_score": 75, "financial_score": 70,
-        "risk_flags": ["7 contratos = concentración media — perder 1 grande golpea fuerte", "Mercado FL con alta competencia hispana low-cost", "Equipo de trucks 5+ años — capex pronto"],
+        "reconstructed_sde": 145000,
+        "dscr": 1.52,
+        "cash_on_cash_y1": 0.26,
+        "cash_on_cash_y3": 0.33,
+        "payback_years": 3.5,
+        "equity_required": 63000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 75,
+          "seller_note_pct": 10,
+          "estimated_monthly_debt_service": 4300
+        },
+        "self_financing_score": 75,
+        "financial_score": 70,
+        "risk_flags": [
+          "7 contratos = concentración media — perder 1 grande golpea fuerte",
+          "Mercado FL con alta competencia hispana low-cost",
+          "Equipo de trucks 5+ años — capex pronto"
+        ],
         "plain_summary": "Landscape comercial sólido con base recurrente. Genera $145 mil al año, paga la deuda con holgura. Pagas 2.9 años de ganancias — buen precio. El riesgo es la concentración: solo 7 contratos sostienen el negocio."
       },
       "strategy": {
-        "buy_thesis": ["100% B2B comercial = ingreso mes a mes proyectable", "5 condados cubiertos — barrera logística vs nuevos entrantes", "Florida sin estacionalidad real para landscape — ingreso todo el año"],
-        "ai_upside": {"score": 70, "opportunities": ["Optimización ruta IA — reducir tiempo entre clientes 20%", "Cross-sell servicios premium (pest control, irrigation) a base existente", "Software cotización automática para ganar contratos nuevos 3x más rápido"], "value_multiplier_low": 2.0, "value_multiplier_high": 2.8},
+        "buy_thesis": [
+          "100% B2B comercial = ingreso mes a mes proyectable",
+          "5 condados cubiertos — barrera logística vs nuevos entrantes",
+          "Florida sin estacionalidad real para landscape — ingreso todo el año"
+        ],
+        "ai_upside": {
+          "score": 70,
+          "opportunities": [
+            "Optimización ruta IA — reducir tiempo entre clientes 20%",
+            "Cross-sell servicios premium (pest control, irrigation) a base existente",
+            "Software cotización automática para ganar contratos nuevos 3x más rápido"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 2.8
+        },
         "exit_profile": "Reventa a BrightView, U.S. Lawns, Yellowstone Landscape — todos consolidando agresivo",
-        "red_flags": ["Si pierdes 2 de los 7 contratos antes del cierre, valoración cae 30%+"],
+        "red_flags": [
+          "Si pierdes 2 de los 7 contratos antes del cierre, valoración cae 30%+"
+        ],
         "strategic_score": 70,
         "plain_summary": "Negocio recurrente bien armado con upside de cross-sell. Si diversificas a 12+ contratos y agregas servicios premium, vale entre 2 y 2.8 veces lo que pagas en 3 años. Consolidadores nacionales están comprando este perfil en FL — exit probable a 3-5 años."
       },
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en BusinessBroker.net"}, {"created_at": "2026-05-27", "description": "Análisis completado (overall 72 — MEDIA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en BusinessBroker.net"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis completado (overall 72 — MEDIA)"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0017-4000-8000-000000000017",
       "source": "businessbroker",
       "source_url": "https://www.businessbroker.net/business-for-sale/pool-route-service-in-tampa-wesley-chapel-florida/583504.aspx",
       "title": "Pool Route 109 Accounts — Wesley Chapel area",
-      "state": "FL", "city": "Wesley Chapel", "business_type": "Pool Service", "years_operation": 7,
-      "asking_price": 132000, "reported_revenue": 144000, "reported_sde": 108000,
-      "seller_financing": false, "sba_prequalified": false, "curated_source": false,
+      "state": "FL",
+      "city": "Wesley Chapel",
+      "business_type": "Pool Service",
+      "years_operation": 7,
+      "asking_price": 132000,
+      "reported_revenue": 144000,
+      "reported_sde": 108000,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": false,
       "raw_description": "109 cuentas residenciales mensuales en Wesley Chapel/Lutz, $11,995/mes recurring + ingresos de reparaciones. Ruta densa, 1 técnico. Pool routes se venden 10-12x monthly gross — ask $132K es 11x monthly (medio del rango).",
-      "pipeline_status": "RADAR", "filter_score": 50, "overall_score": 68, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 50,
+      "overall_score": 68,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 108000, "dscr": 2.18, "cash_on_cash_y1": 0.55, "cash_on_cash_y3": 0.66,
-        "payback_years": 1.8, "equity_required": 25000, "sba_eligible": false,
-        "suggested_structure": {"equity_pct": 19, "sba_loan_pct": 0, "seller_note_pct": 0, "bank_loan_pct": 81, "estimated_monthly_debt_service": 1800},
-        "self_financing_score": 78, "financial_score": 72,
-        "risk_flags": ["Solo 1 técnico — clave para operación, hay que reemplazar o seguir tú", "Pool routes valuation única (8-12x monthly gross), NO usa múltiplo SDE estándar", "Clientes mes a mes sin contrato — fácil cancelar"],
+        "reconstructed_sde": 108000,
+        "dscr": 2.18,
+        "cash_on_cash_y1": 0.55,
+        "cash_on_cash_y3": 0.66,
+        "payback_years": 1.8,
+        "equity_required": 25000,
+        "sba_eligible": false,
+        "suggested_structure": {
+          "equity_pct": 19,
+          "sba_loan_pct": 0,
+          "seller_note_pct": 0,
+          "bank_loan_pct": 81,
+          "estimated_monthly_debt_service": 1800
+        },
+        "self_financing_score": 78,
+        "financial_score": 72,
+        "risk_flags": [
+          "Solo 1 técnico — clave para operación, hay que reemplazar o seguir tú",
+          "Pool routes valuation única (8-12x monthly gross), NO usa múltiplo SDE estándar",
+          "Clientes mes a mes sin contrato — fácil cancelar"
+        ],
         "plain_summary": "Ruta densa de piscinas con cash flow inmediato. Genera $108 mil al año limpio y te recuperas en 22 meses. Múltiplo de 11x mensual gross — está en el rango típico para pool routes. La pega: depende de 1 técnico (probablemente el dueño) que hay que reemplazar o seguir operando tú."
       },
       "strategy": {
-        "buy_thesis": ["Payback 22 meses — uno de los más rápidos del pipeline", "Pool routes son super defensivos (no se desinstalan piscinas)", "Densidad de ruta = bajo costo por cliente"],
-        "ai_upside": {"score": 55, "opportunities": ["App cliente con foto del agua + química post-visita — diferenciador en Wesley Chapel", "Cross-sell reparaciones (bombas, filtros)", "Sales digital para escalar a 200+ cuentas"], "value_multiplier_low": 1.5, "value_multiplier_high": 2.0},
+        "buy_thesis": [
+          "Payback 22 meses — uno de los más rápidos del pipeline",
+          "Pool routes son super defensivos (no se desinstalan piscinas)",
+          "Densidad de ruta = bajo costo por cliente"
+        ],
+        "ai_upside": {
+          "score": 55,
+          "opportunities": [
+            "App cliente con foto del agua + química post-visita — diferenciador en Wesley Chapel",
+            "Cross-sell reparaciones (bombas, filtros)",
+            "Sales digital para escalar a 200+ cuentas"
+          ],
+          "value_multiplier_low": 1.5,
+          "value_multiplier_high": 2.0
+        },
         "exit_profile": "Reventa a operador regional o consolidador de pool service (recibirás 9-11x monthly de nuevo)",
-        "red_flags": ["Pool routes no escalan a 5-10x multiples como otros negocios — techo de valoración bajo"],
+        "red_flags": [
+          "Pool routes no escalan a 5-10x multiples como otros negocios — techo de valoración bajo"
+        ],
         "strategic_score": 58,
         "plain_summary": "Excelente cash flow rápido pero exit limitado. En 3 años vale 1.5-2x lo que pagas — el sector no premia salidas grandes. Ideal si quieres flujo mensual seguro, no si buscas crecer 4x."
       },
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en BusinessBroker.net (listing 583504)"}, {"created_at": "2026-05-27", "description": "Análisis completado (overall 68 — MEDIA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en BusinessBroker.net (listing 583504)"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis completado (overall 68 — MEDIA)"
+        }
+      ],
       "notes": []
     },
-
     {
       "id": "b2c3d4e5-0018-4000-8000-000000000018",
       "source": "agencyforsale",
       "source_url": "https://agencyforsale.com/listings",
       "title": "Allstate Insurance Agency — Plano TX (14yr)",
-      "state": "TX", "city": "Plano", "business_type": "Insurance Agency", "years_operation": 14,
-      "asking_price": 3750000, "reported_revenue": 1500000, "reported_sde": 480000,
-      "seller_financing": false, "sba_prequalified": true, "curated_source": false,
+      "state": "TX",
+      "city": "Plano",
+      "business_type": "Insurance Agency",
+      "years_operation": 14,
+      "asking_price": 3750000,
+      "reported_revenue": 1500000,
+      "reported_sde": 480000,
+      "seller_financing": false,
+      "sba_prequalified": true,
+      "curated_source": false,
       "raw_description": "Allstate agency Plano TX, fundada 2011. $8M premium book, $1.5M commission revenue 2025. SDE estimado ~32% margen (típico P&C). Valoración a 2.5x commissions (estándar P&C).",
-      "pipeline_status": "RADAR", "filter_score": 55, "overall_score": 78, "priority": "MEDIA",
+      "pipeline_status": "RADAR",
+      "filter_score": 55,
+      "overall_score": 78,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 480000, "dscr": 1.35, "cash_on_cash_y1": 0.18, "cash_on_cash_y3": 0.24,
-        "payback_years": 5.0, "equity_required": 563000, "sba_eligible": true,
-        "suggested_structure": {"equity_pct": 15, "sba_loan_pct": 85, "seller_note_pct": 0, "estimated_monthly_debt_service": 29600},
-        "self_financing_score": 70, "financial_score": 72,
-        "risk_flags": ["Captive Allstate — limitas a 1 carrier (vs independent agency)", "Plano es zona competitiva con muchas otras agencies", "Múltiplo 2.5x commissions es estándar pero alto en dollar terms vs SDE"],
+        "reconstructed_sde": 480000,
+        "dscr": 1.35,
+        "cash_on_cash_y1": 0.18,
+        "cash_on_cash_y3": 0.24,
+        "payback_years": 5.0,
+        "equity_required": 563000,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 15,
+          "sba_loan_pct": 85,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 29600
+        },
+        "self_financing_score": 70,
+        "financial_score": 72,
+        "risk_flags": [
+          "Captive Allstate — limitas a 1 carrier (vs independent agency)",
+          "Plano es zona competitiva con muchas otras agencies",
+          "Múltiplo 2.5x commissions es estándar pero alto en dollar terms vs SDE"
+        ],
         "plain_summary": "Agencia Allstate grande con $8 millones en pólizas activas. Genera $480 mil al año limpio. Te toma 5 años recuperar tu inversión — más lento que servicios. La pega es que es captive Allstate — no puedes meter otras compañías de seguro, limita upside."
       },
       "strategy": {
-        "buy_thesis": ["P&C book con 79%+ retention típica — ingreso super recurrente", "14 años establecidos = relaciones cliente profundas", "Plano TX: zona con crecimiento poblacional sostenido"],
-        "ai_upside": {"score": 70, "opportunities": ["AI cross-sell — pacientes auto típicamente compran home en 6 meses con sistema correcto", "Sistema retención automatizado pre-renewal (call+email+SMS) — subir retención a 85%+", "Chatbot 24/7 para quote y service requests — escalar sin contratar"], "value_multiplier_low": 1.8, "value_multiplier_high": 2.4},
+        "buy_thesis": [
+          "P&C book con 79%+ retention típica — ingreso super recurrente",
+          "14 años establecidos = relaciones cliente profundas",
+          "Plano TX: zona con crecimiento poblacional sostenido"
+        ],
+        "ai_upside": {
+          "score": 70,
+          "opportunities": [
+            "AI cross-sell — pacientes auto típicamente compran home en 6 meses con sistema correcto",
+            "Sistema retención automatizado pre-renewal (call+email+SMS) — subir retención a 85%+",
+            "Chatbot 24/7 para quote y service requests — escalar sin contratar"
+          ],
+          "value_multiplier_low": 1.8,
+          "value_multiplier_high": 2.4
+        },
         "exit_profile": "Reventa a otra Allstate agency local o roll-up regional (los hay activos en TX)",
-        "red_flags": ["Captive Allstate limita exit valuations vs independent (independent vale 3-4x revenue)"],
+        "red_flags": [
+          "Captive Allstate limita exit valuations vs independent (independent vale 3-4x revenue)"
+        ],
         "strategic_score": 70,
         "plain_summary": "Agencia sólida con base recurrente fuerte. En 3 años vale 1.8-2.4 veces lo que pagas. Para sacar más, hay que considerar convertir a independent agency post-cierre (proceso 18-24 meses pero abre upside 30-50%)."
       },
-      "events": [{"created_at": "2026-05-26", "description": "Encontrado en AgencyForSale.com"}, {"created_at": "2026-05-27", "description": "Análisis completado (overall 78 — MEDIA)"}],
+      "events": [
+        {
+          "created_at": "2026-05-26",
+          "description": "Encontrado en AgencyForSale.com"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis completado (overall 78 — MEDIA)"
+        }
+      ],
       "notes": []
     }
-  ]
+  ],
+  "manual_orders": {
+    "RADAR": [
+      "a1b2c3d4-6666-4000-8000-000000000006",
+      "a1b2c3d4-1111-4000-8000-000000000001",
+      "a1b2c3d4-2222-4000-8000-000000000002",
+      "a1b2c3d4-3333-4000-8000-000000000003",
+      "a1b2c3d4-4444-4000-8000-000000000004",
+      "a1b2c3d4-5555-4000-8000-000000000005",
+      "a1b2c3d4-8888-4000-8000-000000000008",
+      "b2c3d4e5-0009-4000-8000-000000000009",
+      "b2c3d4e5-0012-4000-8000-000000000012",
+      "b2c3d4e5-0018-4000-8000-000000000018",
+      "b2c3d4e5-0013-4000-8000-000000000013",
+      "b2c3d4e5-0010-4000-8000-000000000010",
+      "b2c3d4e5-0016-4000-8000-000000000016",
+      "b2c3d4e5-0017-4000-8000-000000000017",
+      "b2c3d4e5-0011-4000-8000-000000000011",
+      "b2c3d4e5-0015-4000-8000-000000000015",
+      "b2c3d4e5-0014-4000-8000-000000000014"
+    ]
+  }
 }
