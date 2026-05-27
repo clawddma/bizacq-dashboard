@@ -273,8 +273,9 @@
                 <div class="flex items-start justify-between gap-2 mb-2">
                   <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
                   <div class="flex items-center gap-1 shrink-0">
-                    <a x-show="deal.source_url" :href="deal.source_url" target="_blank" rel="noopener" @click.stop class="url-link" :title="`Abrir listing en ${deal.source}`">
+                    <a x-show="deal.source_url" :href="deal.source_url" target="_blank" rel="noopener" @click.stop class="url-link" :title="urlKindLabel(deal) + ' en ' + deal.source">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                      <span x-show="deal.source_url_kind === 'category'" class="text-[9px] ml-0.5 text-amber-600 font-bold" title="Página de categoría — no la listing específica">📂</span>
                     </a>
                     <span class="text-xs font-bold px-1.5 py-0.5 rounded"
                       :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'" x-text="deal.state"></span>
@@ -455,6 +456,20 @@
       </p>
     </section>
 
+    <!-- Honest URL audit status -->
+    <section class="mt-10">
+      <h3 class="text-sm font-bold text-slate-700 uppercase tracking-wide mb-3">Estado de las URLs de los deals</h3>
+      <div class="bg-white rounded-lg border border-slate-200 p-4 text-sm">
+        <p class="text-slate-700 mb-3">Honestidad sobre la calidad de los enlaces:</p>
+        <ul class="space-y-2 text-slate-700">
+          <li class="flex items-baseline gap-2"><span>📄</span><div><strong>3 listings específicos verificados</strong> — HVAC Harris County 25yr, Med Spa Friendswood, Pool 109-cuentas Wesley Chapel. URLs reales con ID del listing.</div></li>
+          <li class="flex items-baseline gap-2"><span>📂</span><div><strong>15 páginas de categoría</strong> — el enlace lleva a la sección del marketplace correcta (HVAC Houston, etc.) pero NO al listing exacto del deal en el dashboard. Para llegar a listings específicos individuales necesitamos: (1) credenciales de BizScout, o (2) Playwright stealth para vencer Akamai en BizBuySell.</div></li>
+          <li class="flex items-baseline gap-2"><span>⚠</span><div><strong>0 URLs muertas</strong> — antes había 4 (404) y 8 fake (inventadas en los seeds originales). Las reemplacé con URLs reales de búsqueda de los mismos marketplaces.</div></li>
+        </ul>
+        <p class="text-xs text-slate-500 mt-3 italic">Cuando uses <strong>"+ Agregar negocio"</strong> con un URL específico, ese URL queda como <strong>📄 listing específico</strong> (porque tú lo pegas, no lo invento yo).</p>
+      </div>
+    </section>
+
     <p x-show="filteredGlossary().length === 0 && !glossarySearch" class="text-center text-sm text-slate-400 py-12">Sin resultados.</p>
   </main>
 
@@ -544,8 +559,13 @@
                   :class="priorityClass(selectedDeal.priority)" x-text="priorityLabel(selectedDeal.priority)"></span>
               </div>
               <h2 class="text-xl font-bold text-slate-900" x-text="selectedDeal.title"></h2>
-              <p class="text-xs text-slate-500 mt-1">
-                <a :href="selectedDeal.source_url" target="_blank" rel="noopener" class="hover:underline" x-text="`Listing original (${selectedDeal.source}) ↗`"></a>
+              <p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+                <a :href="selectedDeal.source_url" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1">
+                  <span x-text="urlKindIcon(selectedDeal.source_url_kind)"></span>
+                  <span x-text="urlKindLabel(selectedDeal) + ' ↗'"></span>
+                </a>
+                <span x-show="selectedDeal.source_url_kind === 'category'" class="tt text-amber-600"
+                  data-tip="Página de categoría: te lleva a la sección de búsqueda del marketplace (no a esta listing específica). Los listings exactos están detrás de anti-bot (BizBuySell+Akamai) o login (BizScout). Para llegar a listings específicos necesitamos scraping autenticado — pendiente.">⚠</span>
               </p>
             </div>
             <button @click="closeDeal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none w-8 h-8 flex items-center justify-center">×</button>
@@ -1326,6 +1346,22 @@
           this.toastMsg = msg;
           clearTimeout(this._toastTimer);
           this._toastTimer = setTimeout(() => { this.toastMsg = null; }, 3500);
+        },
+
+        // ─── URL kind helpers ──────────────────────────
+        urlKindIcon(kind) {
+          if (kind === 'listing') return '📄';
+          if (kind === 'category') return '📂';
+          if (kind === 'search') return '🔍';
+          return '🔗';
+        },
+        urlKindLabel(deal) {
+          const k = deal.source_url_kind;
+          const src = deal.source;
+          if (k === 'listing') return `Listing específico (${src})`;
+          if (k === 'category') return `Página de categoría (${src})`;
+          if (k === 'search') return `Búsqueda en ${src}`;
+          return `Abrir en ${src}`;
         },
 
         // ─── Digital audit helpers ─────────────────────
