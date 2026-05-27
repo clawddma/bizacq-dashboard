@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 19:00 COT",
-  "version": "0.7.0-eb5-advisor",
+  "last_update": "2026-05-27 19:30 COT",
+  "version": "0.8.0-multi-state-scout",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -2279,6 +2279,963 @@
           "plain_summary": "Marginal para EB-5. EB-5 directo es posible pero con plan de expansión agresivo. Alternativa más segura: Regional Center EB-5 ($800K pooled), green card vía proyecto profesional, y este deal vía E-2 en paralelo. Costo total ~$1125K (capital + legal). Timeline ~30 meses al green card condicional."
         }
       }
+    },
+    {
+      "title": "Ice Cream Shop — Downtown Atlanta (World Cup 2026 proximity)",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/georgia/atlanta/restaurants-for-sale/",
+      "source_url_kind": "category",
+      "state": "GA",
+      "city": "Atlanta",
+      "business_type": "Restaurant",
+      "years_operation": 5,
+      "asking_price": 400000,
+      "reported_revenue": 400000,
+      "reported_sde": 80000,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Ice cream shop downtown Atlanta cerca de Centennial Olympic Park. $400K sales, $80K owner benefit. Expectativa demand surge con FIFA World Cup 2026 (Atlanta es host city).",
+      "id": "359dd012-d535-4451-9f1c-d5ba6a412972",
+      "source_url_verified": true,
+      "pipeline_status": "DESCARTADO",
+      "filter_score": 0,
+      "overall_score": null,
+      "priority": null,
+      "discard_reason": "Múltiplo precio/SDE 5.0x supera el máximo 4.5x. Sobrevalorado.",
+      "financial": null,
+      "strategy": null,
+      "legal_check": {
+        "done": false
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en bizbuysell"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Descartado automáticamente: Múltiplo precio/SDE 5.0x supera el máximo 4.5x. Sobrevalorado."
+        }
+      ]
+    },
+    {
+      "title": "Bar & Restaurant — Decatur GA (Farm-to-table)",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/georgia/decatur/restaurants-for-sale/",
+      "source_url_kind": "category",
+      "state": "GA",
+      "city": "Decatur",
+      "business_type": "Restaurant",
+      "years_operation": 8,
+      "asking_price": 1100000,
+      "reported_revenue": 1700000,
+      "reported_sde": 204000,
+      "seller_financing": true,
+      "sba_prequalified": true,
+      "curated_source": false,
+      "raw_description": "Bar & Grill Decatur GA, $1.7M sales 2025, $204K profit (~12% margin). Menús estacionales, ingredientes locales. SBA pre-qualified.",
+      "id": "3f6ec87c-c79b-4b83-aa6e-9c8c13800643",
+      "source_url_verified": true,
+      "pipeline_status": "DESCARTADO",
+      "filter_score": 0,
+      "overall_score": null,
+      "priority": null,
+      "discard_reason": "Múltiplo precio/SDE 5.4x supera el máximo 4.5x. Sobrevalorado.",
+      "financial": null,
+      "strategy": null,
+      "legal_check": {
+        "done": false
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en bizbuysell"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Descartado automáticamente: Múltiplo precio/SDE 5.4x supera el máximo 4.5x. Sobrevalorado."
+        }
+      ]
+    },
+    {
+      "title": "Exterior Maintenance Company — Phoenix Metro (SBA Pre-Approved)",
+      "source": "businessbrokerphoenixaz",
+      "source_url": "https://businessbrokerphoenixaz.com/projects/sba-pre-approved-established-exterior-maintenance-company-for-sale/",
+      "source_url_kind": "listing",
+      "state": "AZ",
+      "city": "Phoenix",
+      "business_type": "Cleaning Services",
+      "years_operation": 12,
+      "asking_price": 2500000,
+      "reported_revenue": 3200000,
+      "reported_sde": 720000,
+      "seller_financing": false,
+      "sba_prequalified": true,
+      "curated_source": false,
+      "raw_description": "Empresa mantenimiento exterior Phoenix. 400+ locations Maricopa County (100+ recurring). 12 años operación. SBA pre-approved up to $5M.",
+      "id": "ea80f033-a34d-4732-b95b-74888ca83b7b",
+      "source_url_verified": true,
+      "pipeline_status": "RADAR",
+      "filter_score": 20,
+      "overall_score": 93.2,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 720000,
+        "dscr": 4.43,
+        "cash_on_cash_y1": 0.45,
+        "cash_on_cash_y3": 0.58,
+        "payback_years": 2.2,
+        "equity_required": 1250000.0,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 50,
+          "sba_loan_pct": 50,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 13542.0
+        },
+        "self_financing_score": 100,
+        "financial_score": 100,
+        "risk_flags": [],
+        "plain_summary": "Genera $720K/año limpio. Múltiplo 3.5x — alto del rango para Cleaning Services. Cobertura deuda OK, payback ~2.2 años."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "12 años en operación",
+          "Ubicación: Phoenix, AZ"
+        ],
+        "ai_upside": {
+          "score": 80,
+          "opportunities": [
+            "Modernizar operación con CRM/automation",
+            "Capturar leads digitales — sector Cleaning Services"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a consolidador regional de Cleaning Services o PE de la industria",
+        "red_flags": [],
+        "strategic_score": 95,
+        "plain_summary": "Negocio en Phoenix con potencial razonable. Análisis preliminar — necesita DD profundo si avanza."
+      },
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 85,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "industry_restrictions": null,
+        "alternative_financing": [
+          "Seller financing 30-50% (clave — pedir alto)",
+          "Conventional bank 20-30% down",
+          "Equity 15-25%",
+          "Private credit si > $1M",
+          "EB-5 si camino green card"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
+        "key_warnings": [
+          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
+        ],
+        "next_steps": [
+          "Visa E-2 en consulado (4-12 semanas, $5K legal)",
+          "Attorney M&A: $8-15K",
+          "Delaware LLC: $500 setup"
+        ],
+        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 55,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Phoenix no TEA típica — $1.05M min",
+          "creates_10_jobs": "YES_NEW",
+          "current_employees": 0,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro.",
+            "Timeline I-526 actual: 24-36 meses solo aprobación."
+          ],
+          "plain_summary": "DIRECT EB5 viable. Costo total ~$1125K, timeline ~30 meses al green card."
+        }
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en businessbrokerphoenixaz"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "title": "Insurance Agency — Phoenix AZ ($6.3M premium)",
+      "source": "dealstream",
+      "source_url": "https://dealstream.com/arizona-businesses-for-sale",
+      "source_url_kind": "category",
+      "state": "AZ",
+      "city": "Phoenix",
+      "business_type": "Insurance Agency",
+      "years_operation": 10,
+      "asking_price": 1600000,
+      "reported_revenue": 640000,
+      "reported_sde": 220000,
+      "seller_financing": true,
+      "sba_prequalified": true,
+      "curated_source": false,
+      "raw_description": "Insurance agency Phoenix. $6.3M recurring policy premium renewals (book of business). Revenue ~$640K commissions. Multi-carrier independent. SBA + bank loan funding sources available.",
+      "id": "25ff475d-6861-4124-9ef0-ea90a835b7d9",
+      "source_url_verified": true,
+      "pipeline_status": "DESCARTADO",
+      "filter_score": 0,
+      "overall_score": null,
+      "priority": null,
+      "discard_reason": "Múltiplo precio/SDE 7.3x supera el máximo 4.5x. Sobrevalorado.",
+      "financial": null,
+      "strategy": null,
+      "legal_check": {
+        "done": false
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en dealstream"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Descartado automáticamente: Múltiplo precio/SDE 7.3x supera el máximo 4.5x. Sobrevalorado."
+        }
+      ]
+    },
+    {
+      "title": "Auto Glass Repair — Phoenix AZ (SBA $5M cap, 16% EBITDA)",
+      "source": "bizquest",
+      "source_url": "https://www.bizquest.com/sba-financing-businesses-for-sale-in-phoenix-az/",
+      "source_url_kind": "category",
+      "state": "AZ",
+      "city": "Phoenix",
+      "business_type": "Auto Repair",
+      "years_operation": 14,
+      "asking_price": 2800000,
+      "reported_revenue": 4500000,
+      "reported_sde": 720000,
+      "seller_financing": false,
+      "sba_prequalified": true,
+      "curated_source": false,
+      "raw_description": "Auto glass repair Phoenix. SBA prequalified up to $5M. EBITDA margin 16%. Multi-location, insurance work + retail. 14 años operación.",
+      "id": "5d989bed-81d3-4ffd-b43f-59b4677cf579",
+      "source_url_verified": true,
+      "pipeline_status": "RADAR",
+      "filter_score": 20,
+      "overall_score": 90.0,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 720000,
+        "dscr": 3.96,
+        "cash_on_cash_y1": 0.38,
+        "cash_on_cash_y3": 0.5,
+        "payback_years": 2.6,
+        "equity_required": 1400000.0,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 50,
+          "sba_loan_pct": 50,
+          "seller_note_pct": 0,
+          "estimated_monthly_debt_service": 15167.0
+        },
+        "self_financing_score": 100,
+        "financial_score": 100,
+        "risk_flags": [],
+        "plain_summary": "Genera $720K/año limpio. Múltiplo 3.9x — alto del rango para Auto Repair. Cobertura deuda OK, payback ~2.6 años."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "14 años en operación",
+          "Ubicación: Phoenix, AZ"
+        ],
+        "ai_upside": {
+          "score": 65,
+          "opportunities": [
+            "Modernizar operación con CRM/automation",
+            "Capturar leads digitales — sector Auto Repair"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a consolidador regional de Auto Repair o PE de la industria",
+        "red_flags": [],
+        "strategic_score": 95,
+        "plain_summary": "Negocio en Phoenix con potencial razonable. Análisis preliminar — necesita DD profundo si avanza."
+      },
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 80,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "industry_restrictions": null,
+        "alternative_financing": [
+          "Seller financing 30-50% (clave — pedir alto)",
+          "Conventional bank 20-30% down",
+          "Equity 15-25%",
+          "Private credit si > $1M",
+          "EB-5 si camino green card"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
+        "key_warnings": [
+          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
+        ],
+        "next_steps": [
+          "Visa E-2 en consulado (4-12 semanas, $5K legal)",
+          "Attorney M&A: $8-15K",
+          "Delaware LLC: $500 setup"
+        ],
+        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 40,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Phoenix no TEA típica — $1.05M min",
+          "creates_10_jobs": "NEEDS_EXPANSION_PLAN",
+          "current_employees": 0,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro.",
+            "Timeline I-526 actual: 24-36 meses solo aprobación."
+          ],
+          "plain_summary": "DIRECT EB5 viable. Costo total ~$1125K, timeline ~30 meses al green card."
+        }
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en bizquest"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis preliminar generado (overall 90.0 — ALTA)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "title": "Outdoor Living Retailer — Tucson AZ (Southern Arizona)",
+      "source": "dealstream",
+      "source_url": "https://dealstream.com/arizona-businesses-for-sale",
+      "source_url_kind": "category",
+      "state": "AZ",
+      "city": "Tucson",
+      "business_type": "Restaurant",
+      "years_operation": 18,
+      "asking_price": 625000,
+      "reported_revenue": 850000,
+      "reported_sde": 145000,
+      "seller_financing": true,
+      "sba_prequalified": true,
+      "curated_source": false,
+      "raw_description": "Outdoor living specialty retailer Tucson. 18 años en mercado. SBA qualified buyer. NOTA: este es retail físico, no restaurant — re-categorizar si dashboard agrega Retail.",
+      "id": "59fda941-057c-4f11-8275-9a4fd1ac67a7",
+      "source_url_verified": true,
+      "pipeline_status": "RADAR",
+      "filter_score": 35,
+      "overall_score": 69.3,
+      "priority": "MEDIA",
+      "financial": {
+        "reconstructed_sde": 145000,
+        "dscr": 2.23,
+        "cash_on_cash_y1": 0.64,
+        "cash_on_cash_y3": 0.83,
+        "payback_years": 1.6,
+        "equity_required": 125000.0,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 20,
+          "sba_loan_pct": 40,
+          "seller_note_pct": 40,
+          "estimated_monthly_debt_service": 5417.0
+        },
+        "self_financing_score": 100,
+        "financial_score": 68,
+        "risk_flags": [],
+        "plain_summary": "Genera $145K/año limpio. Múltiplo 4.3x — alto del rango para Restaurant. Cobertura deuda OK, payback ~1.6 años."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "18 años en operación",
+          "Ubicación: Tucson, AZ"
+        ],
+        "ai_upside": {
+          "score": 50,
+          "opportunities": [
+            "Modernizar operación con CRM/automation",
+            "Capturar leads digitales — sector Restaurant"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a consolidador regional de Restaurant o PE de la industria",
+        "red_flags": [],
+        "strategic_score": 63,
+        "plain_summary": "Negocio en Tucson con potencial razonable. Análisis preliminar — necesita DD profundo si avanza."
+      },
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 60,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "industry_restrictions": "Liquor license estatal puede requerir manager con presencia US",
+        "alternative_financing": [
+          "Seller financing 30-50% (clave — pedir alto)",
+          "Conventional bank 20-30% down",
+          "Equity 15-25%",
+          "Private credit si > $1M",
+          "EB-5 si camino green card"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
+        "key_warnings": [
+          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
+        ],
+        "next_steps": [
+          "Visa E-2 en consulado (4-12 semanas, $5K legal)",
+          "Attorney M&A: $8-15K",
+          "Delaware LLC: $500 setup"
+        ],
+        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 800000,
+          "is_tea_likely": true,
+          "tea_evidence": "Tucson cae en zona típicamente TEA",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 0,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $625K debajo de mínimo EB-5 $800K."
+          ],
+          "plain_summary": "Deal muy chico ($625K) para EB-5 path solo. Considera E-2 para este + Regional Center EB-5 separado si quieres green card."
+        }
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en dealstream"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis preliminar generado (overall 69.3 — MEDIA)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "title": "Martin's Bread Route — Raleigh NC (Distribution)",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/north-carolina/raleigh-businesses-for-sale/",
+      "source_url_kind": "category",
+      "state": "NC",
+      "city": "Raleigh",
+      "business_type": "Cleaning Services",
+      "years_operation": 7,
+      "asking_price": 130000,
+      "reported_revenue": 387840,
+      "reported_sde": 82104,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Martin's Bread Route Raleigh. Revenue $387,840/año, net earnings $82,104. Ruta establecida, contratos con stores. NOTA: ruta de distribución, no cleaning — pendiente categoría Distribution.",
+      "id": "c7beb18b-003c-4ef3-8b74-c2ba141ab7ab",
+      "source_url_verified": true,
+      "pipeline_status": "RADAR",
+      "filter_score": 40,
+      "overall_score": 93.2,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 82104,
+        "dscr": 12.15,
+        "cash_on_cash_y1": 0.97,
+        "cash_on_cash_y3": 1.26,
+        "payback_years": 1.0,
+        "equity_required": 78000.0,
+        "sba_eligible": false,
+        "suggested_structure": {
+          "equity_pct": 60,
+          "sba_loan_pct": 0,
+          "seller_note_pct": 40,
+          "estimated_monthly_debt_service": 563.0
+        },
+        "self_financing_score": 100,
+        "financial_score": 100,
+        "risk_flags": [],
+        "plain_summary": "Genera $82K/año limpio. Múltiplo 1.6x — dentro del rango para Cleaning Services. Cobertura deuda OK, payback ~1.0 años."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "7 años en operación",
+          "Ubicación: Raleigh, NC"
+        ],
+        "ai_upside": {
+          "score": 80,
+          "opportunities": [
+            "Modernizar operación con CRM/automation",
+            "Capturar leads digitales — sector Cleaning Services"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a consolidador regional de Cleaning Services o PE de la industria",
+        "red_flags": [],
+        "strategic_score": 95,
+        "plain_summary": "Negocio en Raleigh con potencial razonable. Análisis preliminar — necesita DD profundo si avanza."
+      },
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 85,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "industry_restrictions": null,
+        "alternative_financing": [
+          "Seller financing 30-50% (clave — pedir alto)",
+          "Conventional bank 20-30% down",
+          "Equity 15-25%",
+          "Private credit si > $1M",
+          "EB-5 si camino green card"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
+        "key_warnings": [
+          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
+        ],
+        "next_steps": [
+          "Visa E-2 en consulado (4-12 semanas, $5K legal)",
+          "Attorney M&A: $8-15K",
+          "Delaware LLC: $500 setup"
+        ],
+        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Raleigh NO en TEA típica",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 0,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $130K debajo de mínimo EB-5 $1050K."
+          ],
+          "plain_summary": "Deal muy chico ($130K) para EB-5 path solo. Considera E-2 para este + Regional Center EB-5 separado si quieres green card."
+        }
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en bizbuysell"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "title": "Bar & Grill — Boulder CO (Prime location)",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/colorado/boulder-county-businesses-for-sale/",
+      "source_url_kind": "category",
+      "state": "CO",
+      "city": "Boulder",
+      "business_type": "Restaurant",
+      "years_operation": 11,
+      "asking_price": 850000,
+      "reported_revenue": 1400000,
+      "reported_sde": 350000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Bar & Grill ubicación prime Boulder. $350K SDE. 11 años, foot traffic alto (universidad + turismo). Restaurant.",
+      "id": "edbe40d3-aee7-4d7f-890d-b5406d742041",
+      "source_url_verified": true,
+      "pipeline_status": "RADAR",
+      "filter_score": 40,
+      "overall_score": 83.8,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 350000,
+        "dscr": 3.96,
+        "cash_on_cash_y1": 1.54,
+        "cash_on_cash_y3": 2.0,
+        "payback_years": 0.6,
+        "equity_required": 170000.0,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 20,
+          "sba_loan_pct": 40,
+          "seller_note_pct": 40,
+          "estimated_monthly_debt_service": 7367.0
+        },
+        "self_financing_score": 100,
+        "financial_score": 100,
+        "risk_flags": [],
+        "plain_summary": "Genera $350K/año limpio. Múltiplo 2.4x — dentro del rango para Restaurant. Cobertura deuda OK, payback ~0.6 años."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "11 años en operación",
+          "Ubicación: Boulder, CO"
+        ],
+        "ai_upside": {
+          "score": 50,
+          "opportunities": [
+            "Modernizar operación con CRM/automation",
+            "Capturar leads digitales — sector Restaurant"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a consolidador regional de Restaurant o PE de la industria",
+        "red_flags": [],
+        "strategic_score": 95,
+        "plain_summary": "Negocio en Boulder con potencial razonable. Análisis preliminar — necesita DD profundo si avanza."
+      },
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 60,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "industry_restrictions": "Liquor license estatal puede requerir manager con presencia US",
+        "alternative_financing": [
+          "Seller financing 30-50% (clave — pedir alto)",
+          "Conventional bank 20-30% down",
+          "Equity 15-25%",
+          "Private credit si > $1M",
+          "EB-5 si camino green card"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
+        "key_warnings": [
+          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
+        ],
+        "next_steps": [
+          "Visa E-2 en consulado (4-12 semanas, $5K legal)",
+          "Attorney M&A: $8-15K",
+          "Delaware LLC: $500 setup"
+        ],
+        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "eb5_viability": {
+          "viable": true,
+          "viability_score": 40,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Boulder no TEA típica — $1.05M min",
+          "creates_10_jobs": "NEEDS_EXPANSION_PLAN",
+          "current_employees": 0,
+          "troubled_business": false,
+          "timeline_months": 30,
+          "total_cost_usd": 1125000,
+          "path_recommendation": "DIRECT_EB5",
+          "key_risks": [
+            "Documentar source of funds — capital colombiano requiere paper trail muy claro.",
+            "Timeline I-526 actual: 24-36 meses solo aprobación."
+          ],
+          "plain_summary": "DIRECT EB5 viable. Costo total ~$1125K, timeline ~30 meses al green card."
+        }
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en bizbuysell"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis preliminar generado (overall 83.8 — ALTA)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "title": "FedEx Ground Routes — Chattanooga TN (3 routes)",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/tennessee/nashville/owner-financed-businesses-for-sale/",
+      "source_url_kind": "category",
+      "state": "TN",
+      "city": "Chattanooga",
+      "business_type": "Cleaning Services",
+      "years_operation": 6,
+      "asking_price": 1025000,
+      "reported_revenue": 980000,
+      "reported_sde": 220000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "FedEx Ground routes Chattanooga TN. Structure: $275K cash + $250K vehicle financing + $500K seller financing = $1.025M total. Recurring B2B revenue.",
+      "id": "9c764bce-524a-4dd0-a88e-066dcf859015",
+      "source_url_verified": true,
+      "pipeline_status": "DESCARTADO",
+      "filter_score": 0,
+      "overall_score": null,
+      "priority": null,
+      "discard_reason": "Múltiplo precio/SDE 4.7x supera el máximo 4.5x. Sobrevalorado.",
+      "financial": null,
+      "strategy": null,
+      "legal_check": {
+        "done": false
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en bizbuysell"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Descartado automáticamente: Múltiplo precio/SDE 4.7x supera el máximo 4.5x. Sobrevalorado."
+        }
+      ]
+    },
+    {
+      "title": "Flowers Bread Route — Nashville TN",
+      "source": "bizbuysell",
+      "source_url": "https://www.bizbuysell.com/tennessee/nashville/owner-financed-businesses-for-sale/",
+      "source_url_kind": "category",
+      "state": "TN",
+      "city": "Nashville",
+      "business_type": "Cleaning Services",
+      "years_operation": 4,
+      "asking_price": 235000,
+      "reported_revenue": 410000,
+      "reported_sde": 95000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Flowers Bread Route distributorship Nashville. $235K ask, company financing ~$131K down. Ruta panaderia consolidada.",
+      "id": "34712d1a-da24-4651-823f-11fa85b1300d",
+      "source_url_verified": true,
+      "pipeline_status": "RADAR",
+      "filter_score": 40,
+      "overall_score": 93.2,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 95000,
+        "dscr": 7.77,
+        "cash_on_cash_y1": 0.59,
+        "cash_on_cash_y3": 0.76,
+        "payback_years": 1.7,
+        "equity_required": 141000.0,
+        "sba_eligible": false,
+        "suggested_structure": {
+          "equity_pct": 60,
+          "sba_loan_pct": 0,
+          "seller_note_pct": 40,
+          "estimated_monthly_debt_service": 1018.0
+        },
+        "self_financing_score": 100,
+        "financial_score": 100,
+        "risk_flags": [],
+        "plain_summary": "Genera $95K/año limpio. Múltiplo 2.5x — dentro del rango para Cleaning Services. Cobertura deuda OK, payback ~1.7 años."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "4 años en operación",
+          "Ubicación: Nashville, TN"
+        ],
+        "ai_upside": {
+          "score": 80,
+          "opportunities": [
+            "Modernizar operación con CRM/automation",
+            "Capturar leads digitales — sector Cleaning Services"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a consolidador regional de Cleaning Services o PE de la industria",
+        "red_flags": [],
+        "strategic_score": 95,
+        "plain_summary": "Negocio en Nashville con potencial razonable. Análisis preliminar — necesita DD profundo si avanza."
+      },
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 85,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "industry_restrictions": null,
+        "alternative_financing": [
+          "Seller financing 30-50% (clave — pedir alto)",
+          "Conventional bank 20-30% down",
+          "Equity 15-25%",
+          "Private credit si > $1M",
+          "EB-5 si camino green card"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
+        "key_warnings": [
+          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
+        ],
+        "next_steps": [
+          "Visa E-2 en consulado (4-12 semanas, $5K legal)",
+          "Attorney M&A: $8-15K",
+          "Delaware LLC: $500 setup"
+        ],
+        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Nashville NO en TEA típica",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 0,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $235K debajo de mínimo EB-5 $1050K."
+          ],
+          "plain_summary": "Deal muy chico ($235K) para EB-5 path solo. Considera E-2 para este + Regional Center EB-5 separado si quieres green card."
+        }
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en bizbuysell"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "title": "Recurring Landscaping — Buffalo NY (95% recurring)",
+      "source": "dealstream",
+      "source_url": "https://dealstream.com/new-york/buffalo/very-small-businesses-for-sale",
+      "source_url_kind": "category",
+      "state": "NY",
+      "city": "Buffalo",
+      "business_type": "Landscaping",
+      "years_operation": 9,
+      "asking_price": 285000,
+      "reported_revenue": 200000,
+      "reported_sde": 135000,
+      "seller_financing": true,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Landscaping Buffalo NY. Revenue $200K, SDE $135K (68% margin — alto). Territorio protegido, base recurrente. $40K down opcional. Bonus territory Buffalo: TEA candidate por unemployment.",
+      "id": "5ef6d5bf-91c4-4c21-b116-3c252f150c18",
+      "source_url_verified": true,
+      "pipeline_status": "RADAR",
+      "filter_score": 40,
+      "overall_score": 91.8,
+      "priority": "ALTA",
+      "financial": {
+        "reconstructed_sde": 135000,
+        "dscr": 4.55,
+        "cash_on_cash_y1": 1.85,
+        "cash_on_cash_y3": 2.4,
+        "payback_years": 0.5,
+        "equity_required": 57000.0,
+        "sba_eligible": true,
+        "suggested_structure": {
+          "equity_pct": 20,
+          "sba_loan_pct": 40,
+          "seller_note_pct": 40,
+          "estimated_monthly_debt_service": 2470.0
+        },
+        "self_financing_score": 100,
+        "financial_score": 100,
+        "risk_flags": [],
+        "plain_summary": "Genera $135K/año limpio. Múltiplo 2.1x — dentro del rango para Landscaping. Cobertura deuda OK, payback ~0.5 años."
+      },
+      "strategy": {
+        "buy_thesis": [
+          "9 años en operación",
+          "Ubicación: Buffalo, NY"
+        ],
+        "ai_upside": {
+          "score": 70,
+          "opportunities": [
+            "Modernizar operación con CRM/automation",
+            "Capturar leads digitales — sector Landscaping"
+          ],
+          "value_multiplier_low": 2.0,
+          "value_multiplier_high": 3.0
+        },
+        "exit_profile": "Reventa a consolidador regional de Landscaping o PE de la industria",
+        "red_flags": [],
+        "strategic_score": 95,
+        "plain_summary": "Negocio en Buffalo con potencial razonable. Análisis preliminar — necesita DD profundo si avanza."
+      },
+      "legal_check": {
+        "done": true,
+        "feasibility": "OK",
+        "feasibility_score": 85,
+        "sba_accessible": false,
+        "e2_compatible": true,
+        "industry_restrictions": null,
+        "alternative_financing": [
+          "Seller financing 30-50% (clave — pedir alto)",
+          "Conventional bank 20-30% down",
+          "Equity 15-25%",
+          "Private credit si > $1M",
+          "EB-5 si camino green card"
+        ],
+        "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
+        "key_warnings": [
+          "⚠ Sin LPR/green card NO califican para SBA. Renegociar a max seller financing."
+        ],
+        "next_steps": [
+          "Visa E-2 en consulado (4-12 semanas, $5K legal)",
+          "Attorney M&A: $8-15K",
+          "Delaware LLC: $500 setup"
+        ],
+        "plain_summary": "Viable vía E-2. SBA bloqueado sin green card. Structure: max seller financing + banco + equity. Costo legal ~$25-30K.",
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 800000,
+          "is_tea_likely": true,
+          "tea_evidence": "Buffalo cae en zona típicamente TEA",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 0,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $285K debajo de mínimo EB-5 $800K."
+          ],
+          "plain_summary": "Deal muy chico ($285K) para EB-5 path solo. Considera E-2 para este + Regional Center EB-5 separado si quieres green card."
+        }
+      },
+      "events": [
+        {
+          "created_at": "2026-05-27",
+          "description": "Encontrado vía WebSearch en dealstream"
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "Análisis preliminar generado (overall 91.8 — ALTA)"
+        }
+      ],
+      "notes": []
     }
   ],
   "manual_orders": {
@@ -2299,7 +3256,14 @@
       "b2c3d4e5-0017-4000-8000-000000000017",
       "b2c3d4e5-0011-4000-8000-000000000011",
       "b2c3d4e5-0015-4000-8000-000000000015",
-      "b2c3d4e5-0014-4000-8000-000000000014"
+      "b2c3d4e5-0014-4000-8000-000000000014",
+      "ea80f033-a34d-4732-b95b-74888ca83b7b",
+      "5d989bed-81d3-4ffd-b43f-59b4677cf579",
+      "59fda941-057c-4f11-8275-9a4fd1ac67a7",
+      "c7beb18b-003c-4ef3-8b74-c2ba141ab7ab",
+      "edbe40d3-aee7-4d7f-890d-b5406d742041",
+      "34712d1a-da24-4651-823f-11fa85b1300d",
+      "5ef6d5bf-91c4-4c21-b116-3c252f150c18"
     ]
   },
   "data_quality": {
