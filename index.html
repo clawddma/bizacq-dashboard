@@ -1823,7 +1823,8 @@
         triggerAutoSync() {
           if (!this.hasAutoSync()) return;
           clearTimeout(this._syncTimer);
-          this._syncTimer = setTimeout(() => this.syncToServer(), 2500);
+          // Debounce 800ms — agrupa múltiples drags rápidos en un solo commit
+          this._syncTimer = setTimeout(() => this.syncToServer(), 800);
         },
         async syncToServer() {
           if (!this.githubToken) return;
