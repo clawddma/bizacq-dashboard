@@ -52,10 +52,12 @@
   }
 
   /* Drag and drop visuals */
-  .dragging { opacity: .4 !important; transform: scale(.97); cursor: grabbing !important; }
+  .dragging { opacity: .35 !important; transform: scale(.97); cursor: grabbing !important; }
   .draggable { cursor: grab; }
   .draggable:active { cursor: grabbing; }
-  .kcol.drag-over .kcol-body { background-color: #eff6ff; border-radius: 4px; outline: 2px dashed #60a5fa; outline-offset: -4px; }
+  .kcol.drag-over-empty .kcol-body { background-color: #eff6ff; border-radius: 4px; outline: 2px dashed #60a5fa; outline-offset: -4px; }
+  .drop-before { border-top: 3px solid #3b82f6 !important; margin-top: -3px; }
+  .drop-after  { border-bottom: 3px solid #3b82f6 !important; margin-bottom: -3px; }
 
   /* Toast */
   .toast {
@@ -65,7 +67,20 @@
     font-size: 13px; max-width: 90vw; text-align: center;
   }
 
-  /* Mobile: prevent text selection while dragging */
+  /* Sort dropdown */
+  .sort-menu {
+    position: absolute; top: calc(100% + 4px); right: 0;
+    background: white; border: 1px solid #e2e8f0; border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.12); padding: 4px; min-width: 180px; z-index: 20;
+  }
+  .sort-menu button {
+    width: 100%; text-align: left; padding: 6px 10px; border-radius: 4px;
+    font-size: 12px; color: #334155; cursor: pointer;
+  }
+  .sort-menu button:hover { background: #f1f5f9; }
+  .sort-menu button.active { background: #1e293b; color: white; font-weight: 600; }
+
+  /* Mobile */
   @media (hover: none) {
     .draggable { -webkit-user-select: none; user-select: none; }
   }
@@ -91,23 +106,20 @@
     </div>
   </header>
 
-  <!-- Local-changes banner -->
-  <div x-show="overrideCount > 0" x-cloak
-    class="bg-amber-50 border-b border-amber-200">
+  <!-- Local changes banner -->
+  <div x-show="overrideCount > 0" x-cloak class="bg-amber-50 border-b border-amber-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-2 flex items-center justify-between flex-wrap gap-2">
       <p class="text-xs text-amber-900">
         Tienes <strong x-text="overrideCount"></strong>
-        <span x-text="overrideCount === 1 ? 'movimiento local' : 'movimientos locales'"></span>
+        <span x-text="overrideCount === 1 ? 'cambio local' : 'cambios locales'"></span>
         no guardado<span x-text="overrideCount === 1 ? '' : 's'"></span> al servidor.
         Esto solo lo ves tú en este navegador.
       </p>
       <div class="flex items-center gap-2">
-        <button @click="copyOverridesForClaude()"
-          class="text-xs bg-amber-700 hover:bg-amber-800 text-white px-3 py-1 rounded font-medium">
+        <button @click="copyOverridesForClaude()" class="text-xs bg-amber-700 hover:bg-amber-800 text-white px-3 py-1 rounded font-medium">
           Copiar para pegarle a Claude
         </button>
-        <button @click="resetOverrides()"
-          class="text-xs text-amber-800 hover:text-amber-950 underline">
+        <button @click="resetOverrides()" class="text-xs text-amber-800 hover:text-amber-950 underline">
           deshacer todo
         </button>
       </div>
@@ -122,8 +134,7 @@
         <template x-for="opt in ['Todos','TX','FL']" :key="opt">
           <button @click="filters.state = opt"
             :class="filters.state === opt ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
-            class="px-3 py-1 text-xs font-medium rounded-md transition"
-            x-text="opt"></button>
+            class="px-3 py-1 text-xs font-medium rounded-md transition" x-text="opt"></button>
         </template>
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
@@ -132,8 +143,17 @@
         <template x-for="opt in ['Todas','ALTA','MEDIA','BAJA']" :key="opt">
           <button @click="filters.priority = opt"
             :class="filters.priority === opt ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
-            class="px-3 py-1 text-xs font-medium rounded-md transition"
-            x-text="opt"></button>
+            class="px-3 py-1 text-xs font-medium rounded-md transition" x-text="opt"></button>
+        </template>
+      </div>
+      <div class="h-5 w-px bg-slate-200"></div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-500 font-medium">Tamaño:</span>
+        <template x-for="opt in priceRanges" :key="opt.key">
+          <button @click="filters.priceRange = opt.key"
+            :class="filters.priceRange === opt.key ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="px-3 py-1 text-xs font-medium rounded-md transition" x-text="opt.label"
+            :title="opt.tip"></button>
         </template>
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
@@ -145,10 +165,9 @@
         </label>
         <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer">
           <input type="checkbox" x-model="filters.sbaEligible" class="rounded border-slate-300">
-          <span class="tt" data-tip="SBA (Small Business Administration): agencia del gobierno de EE.UU. que garantiza créditos para comprar negocios. Hasta 90% del precio financiado con SBA 7(a).">SBA elegible</span>
+          <span class="tt" data-tip="SBA (Small Business Administration): agencia del gobierno de EE.UU. que garantiza créditos para comprar negocios.">SBA elegible</span>
         </label>
       </div>
-      <div class="h-5 w-px bg-slate-200"></div>
       <div class="flex items-center gap-2 ml-auto">
         <span class="text-xs text-slate-500" x-text="`Mostrando ${filteredCount} de ${totalDeals}`"></span>
         <button @click="resetFilters()" class="text-xs text-slate-400 hover:text-slate-700 underline">limpiar</button>
@@ -158,27 +177,51 @@
 
   <!-- Kanban -->
   <main class="max-w-screen-2xl mx-auto px-6 py-6">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 min-h-[calc(100vh-220px)]" x-cloak>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 min-h-[calc(100vh-240px)]" x-cloak>
       <template x-for="col in columns" :key="col.key">
         <div class="kcol bg-white rounded-lg border border-slate-200 flex flex-col"
-          :class="{'drag-over': dragOverCol === col.key}"
-          @dragover.prevent="allowDrop(col.key, $event)"
-          @dragleave="dragOverCol = null"
-          @drop.prevent="dropOnCol(col.key, $event)">
+          :class="{'drag-over-empty': dragOverCol === col.key && dealsByStatus(col.key).length === 0}"
+          @dragover.prevent="allowDropEmpty(col.key, $event)"
+          @dragleave="if ($event.currentTarget === $event.target) dragOverCol = null"
+          @drop.prevent="dropOnColEnd(col.key, $event)">
+
           <!-- Column header -->
           <div class="px-3 py-2.5 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white rounded-t-lg z-10">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full" :class="col.dot"></span>
-              <h2 class="text-xs font-semibold text-slate-700 uppercase tracking-wide" x-text="col.label"></h2>
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="w-2 h-2 rounded-full shrink-0" :class="col.dot"></span>
+              <h2 class="text-xs font-semibold text-slate-700 uppercase tracking-wide truncate" x-text="col.label"></h2>
             </div>
-            <span class="text-xs text-slate-400 font-medium" x-text="dealsByStatus(col.key).length"></span>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <span class="text-xs text-slate-400 font-medium" x-text="dealsByStatus(col.key).length"></span>
+              <!-- Sort dropdown -->
+              <div class="relative" @click.outside="openSortMenu = null">
+                <button @click.stop="openSortMenu = openSortMenu === col.key ? null : col.key"
+                  class="text-slate-400 hover:text-slate-700 p-0.5 rounded"
+                  :title="`Ordenar: ${sortLabel(col.key)}`">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M6 12h12M10 18h4"/>
+                  </svg>
+                </button>
+                <div x-show="openSortMenu === col.key" x-cloak x-transition.opacity class="sort-menu">
+                  <template x-for="opt in sortOptions" :key="opt.key">
+                    <button @click="setSort(col.key, opt.key); openSortMenu = null"
+                      :class="{'active': (sortByCol[col.key] || 'score-desc') === opt.key}"
+                      x-text="opt.label"></button>
+                  </template>
+                </div>
+              </div>
+            </div>
           </div>
+
           <!-- Cards -->
           <div class="kcol-body flex-1 overflow-y-auto scrollbar-thin p-2 space-y-2 min-h-[100px]">
-            <template x-for="deal in dealsByStatus(col.key)" :key="deal.id">
+            <template x-for="(deal, idx) in dealsByStatus(col.key)" :key="deal.id">
               <div draggable="true"
                 @dragstart="dragStart(deal, $event)"
                 @dragend="dragEnd($event)"
+                @dragover.prevent.stop="dragOverCard(deal, col.key, $event)"
+                @dragleave="clearCardIndicators($event.currentTarget)"
+                @drop.prevent.stop="dropOnCard(deal, col.key, $event)"
                 @click="openDeal(deal)"
                 class="draggable bg-white border border-slate-200 rounded-md p-3 card-shadow transition group">
                 <div class="flex items-start justify-between gap-2 mb-2">
@@ -203,8 +246,7 @@
                 <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
                   <div class="flex items-center gap-1 flex-wrap">
                     <span x-show="deal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
-                      :class="priorityClass(deal.priority)"
-                      x-text="priorityLabel(deal.priority)"></span>
+                      :class="priorityClass(deal.priority)" x-text="priorityLabel(deal.priority)"></span>
                     <span x-show="deal.seller_financing" class="tt text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium"
                       data-tip="Seller Financing: el vendedor te financia parte del precio (cobra a plazos).">SF</span>
                     <span x-show="deal.sba_prequalified" class="tt text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium"
@@ -226,28 +268,24 @@
       </template>
     </div>
     <p class="text-[11px] text-slate-400 text-center mt-4">
-      💡 Arrastra las cards entre columnas para mover deals. Los movimientos se guardan en tu navegador.
-      Cuando estés listo, dale al botón "copiar para Claude" en la barra amarilla para fijarlos.
+      💡 Arrastra cards entre columnas (mueve de estado) o arriba/abajo dentro de una columna (reordena).
+      El ícono <svg class="inline" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
+      en cada columna abre opciones de ordenar.
     </p>
   </main>
 
   <!-- Detail panel -->
-  <div x-show="selectedDeal" x-cloak
-    x-transition.opacity
-    class="fixed inset-0 bg-slate-900/40 z-40"
-    @click.self="closeDeal()">
+  <div x-show="selectedDeal" x-cloak x-transition.opacity
+    class="fixed inset-0 bg-slate-900/40 z-40" @click.self="closeDeal()">
     <div x-show="selectedDeal"
       x-transition:enter="transition transform ease-out duration-200"
-      x-transition:enter-start="translate-x-full"
-      x-transition:enter-end="translate-x-0"
+      x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
       x-transition:leave="transition transform ease-in duration-150"
-      x-transition:leave-start="translate-x-0"
-      x-transition:leave-end="translate-x-full"
+      x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
       class="fixed right-0 top-0 bottom-0 w-full max-w-2xl bg-white shadow-2xl overflow-y-auto scrollbar-thin">
 
       <template x-if="selectedDeal">
         <div>
-          <!-- Detail header -->
           <div class="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-start justify-between z-10">
             <div class="flex-1 pr-4">
               <div class="flex items-center gap-2 mb-1 flex-wrap">
@@ -256,8 +294,7 @@
                   x-text="selectedDeal.state"></span>
                 <span class="text-xs text-slate-500" x-text="`${selectedDeal.business_type} · ${selectedDeal.city}`"></span>
                 <span x-show="selectedDeal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
-                  :class="priorityClass(selectedDeal.priority)"
-                  x-text="priorityLabel(selectedDeal.priority)"></span>
+                  :class="priorityClass(selectedDeal.priority)" x-text="priorityLabel(selectedDeal.priority)"></span>
               </div>
               <h2 class="text-xl font-bold text-slate-900" x-text="selectedDeal.title"></h2>
               <p class="text-xs text-slate-500 mt-1">
@@ -268,8 +305,6 @@
           </div>
 
           <div class="px-6 py-5 space-y-6">
-
-            <!-- Quick numbers -->
             <section class="grid grid-cols-3 gap-3">
               <div class="bg-slate-50 rounded-lg p-3">
                 <p class="text-[11px] text-slate-500 uppercase tracking-wide">Precio</p>
@@ -285,7 +320,6 @@
               </div>
             </section>
 
-            <!-- What is this business -->
             <section>
               <h3 class="text-sm font-bold text-slate-900 mb-2">¿Qué es este negocio?</h3>
               <div class="text-sm text-slate-700 space-y-1">
@@ -296,7 +330,6 @@
               </div>
             </section>
 
-            <!-- Financial analysis -->
             <section x-show="selectedDeal.financial">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Los números clave</h3>
               <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 mb-3 rounded-r">
@@ -320,12 +353,11 @@
               </div>
             </section>
 
-            <!-- Financing structure -->
             <section x-show="selectedDeal.financial?.suggested_structure">
               <h3 class="text-sm font-bold text-slate-900 mb-2">¿Cómo se compra sin poner todo el dinero?</h3>
               <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r">
                 <div class="flex items-center gap-1 mb-2">
-                  <template x-for="part in structureParts(selectedDeal)" :key="part.label">
+                  <template x-for="part in structureParts(selectedDeal)" :key="part.color">
                     <div class="text-xs px-2 py-1 rounded font-medium text-center" :class="part.color" :style="`flex: ${part.pct}`">
                       <strong x-text="`${part.pct}%`"></strong> <span x-html="part.labelHtml"></span>
                     </div>
@@ -341,7 +373,6 @@
               </div>
             </section>
 
-            <!-- AI Upside -->
             <section x-show="selectedDeal.strategy">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Potencial con IA</h3>
               <div class="bg-purple-50 border-l-4 border-purple-500 p-3 rounded-r mb-2">
@@ -365,7 +396,6 @@
               </ul>
             </section>
 
-            <!-- Buy thesis -->
             <section x-show="selectedDeal.strategy?.buy_thesis">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Por qué comprarlo</h3>
               <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
@@ -375,7 +405,6 @@
               </ul>
             </section>
 
-            <!-- Risks -->
             <section x-show="(selectedDeal.financial?.risk_flags?.length) || (selectedDeal.strategy?.red_flags?.length)">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Riesgos a tener en cuenta</h3>
               <ul class="text-sm text-slate-700 space-y-1.5">
@@ -388,13 +417,11 @@
               </ul>
             </section>
 
-            <!-- Discard reason -->
             <section x-show="selectedDeal.discard_reason">
               <h3 class="text-sm font-bold text-red-700 mb-2">Razón de descarte</h3>
               <p class="text-sm text-slate-700 bg-red-50 border-l-4 border-red-500 p-3 rounded-r" x-text="selectedDeal.discard_reason"></p>
             </section>
 
-            <!-- Notes -->
             <section x-show="selectedDeal.notes?.length">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Notas</h3>
               <div class="space-y-2">
@@ -407,7 +434,6 @@
               </div>
             </section>
 
-            <!-- Timeline -->
             <section x-show="selectedDeal.events?.length">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Historial</h3>
               <ul class="text-xs text-slate-600 space-y-1">
@@ -428,7 +454,6 @@
   </div>
 
   <script>
-    // ─── Glossary for tooltips ───────────────────────────────────
     const GLOSSARY = {
       'SDE':    "SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre.",
       'DSCR':   "DSCR (Debt Service Coverage Ratio): cuántas veces el negocio cubre la cuota de la deuda. Arriba de 1.25x = se paga solo con margen.",
@@ -454,11 +479,9 @@
       'SEO':    "SEO (Search Engine Optimization): técnicas para posicionar contenido alto en Google y atraer tráfico orgánico (sin pagar publicidad).",
     };
 
-    // Wrap known acronyms in <span class="tt"> for tooltip display.
     function withTips(text) {
       if (!text) return '';
       let out = String(text);
-      // Process in length-desc order so M&A doesn't get partially matched before HVAC etc.
       const keys = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
       for (const k of keys) {
         const escaped = k.replace(/[.*+?^${}()|[\]\\&]/g, '\\$&');
@@ -469,6 +492,9 @@
     }
 
     function dashboard() {
+      const savedSort = JSON.parse(localStorage.getItem('bizacq_sort_v1') || '{}');
+      const savedManual = JSON.parse(localStorage.getItem('bizacq_manual_v1') || '{}');
+
       return {
         deals: [],
         lastUpdate: '—',
@@ -476,8 +502,11 @@
         toastMsg: null,
         draggingId: null,
         dragOverCol: null,
+        openSortMenu: null,
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
-        filters: { state: 'Todos', priority: 'Todas', sellerFinancing: false, sbaEligible: false },
+        sortByCol: savedSort,
+        manualOrder: savedManual,
+        filters: { state: 'Todos', priority: 'Todas', priceRange: 'Todos', sellerFinancing: false, sbaEligible: false },
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
           { key: 'EN_ANALISIS',     label: 'En análisis',    dot: 'bg-blue-400' },
@@ -485,6 +514,22 @@
           { key: 'EN_NEGOCIACION',  label: 'En negociación', dot: 'bg-emerald-400' },
           { key: 'CIERRE',          label: 'Cierre',         dot: 'bg-purple-400' },
           { key: 'DESCARTADO',      label: 'Descartado',     dot: 'bg-red-300' },
+        ],
+        priceRanges: [
+          { key: 'Todos',  label: 'Todos',      tip: 'Sin filtro de tamaño' },
+          { key: '0-100',  label: '$0 – $100K', tip: 'Negocios chicos: $0 a $100K de precio' },
+          { key: '100-500',label: '$100K – $500K', tip: 'Tamaño medio: $100K a $500K' },
+          { key: '500+',   label: '$500K +',    tip: 'Negocios grandes: $500K en adelante' },
+        ],
+        sortOptions: [
+          { key: 'score-desc',  label: 'Score (alto → bajo)' },
+          { key: 'score-asc',   label: 'Score (bajo → alto)' },
+          { key: 'price-desc',  label: 'Precio (alto → bajo)' },
+          { key: 'price-asc',   label: 'Precio (bajo → alto)' },
+          { key: 'sde-desc',    label: 'SDE (alto → bajo)' },
+          { key: 'years-desc',  label: 'Años en operación' },
+          { key: 'recent',      label: 'Más recientes primero' },
+          { key: 'manual',      label: 'Orden manual (arrastre)' },
         ],
 
         async init() {
@@ -500,35 +545,75 @@
           }
         },
 
-        // ─── Helpers ──────────────────────────────────────
         withTips(t) { return withTips(t); },
         get totalDeals() { return this.deals.length; },
         get filteredCount() { return this.deals.filter(d => this.passesFilters(d)).length; },
-        get overrideCount() { return Object.keys(this.overrides).length; },
-        statusLabel(s) {
-          return this.columns.find(c => c.key === s)?.label || s;
+        get overrideCount() {
+          const moves = Object.keys(this.overrides).length;
+          const manuals = Object.keys(this.manualOrder).filter(k => (this.manualOrder[k] || []).length > 0).length;
+          return moves + manuals;
         },
+        statusLabel(s) { return this.columns.find(c => c.key === s)?.label || s; },
+        sortLabel(colKey) {
+          const k = this.sortByCol[colKey] || 'score-desc';
+          return this.sortOptions.find(o => o.key === k)?.label || 'Score';
+        },
+
         passesFilters(d) {
           if (this.filters.state !== 'Todos' && d.state !== this.filters.state) return false;
           if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
           if (this.filters.sellerFinancing && !d.seller_financing) return false;
           if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
+          const price = d.asking_price || 0;
+          if (this.filters.priceRange === '0-100' && price > 100_000) return false;
+          if (this.filters.priceRange === '100-500' && (price <= 100_000 || price > 500_000)) return false;
+          if (this.filters.priceRange === '500+' && price <= 500_000) return false;
           return true;
         },
+
         dealsByStatus(status) {
-          return this.deals
-            .filter(d => d.pipeline_status === status && this.passesFilters(d))
-            .sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
+          const list = this.deals.filter(d => d.pipeline_status === status && this.passesFilters(d));
+          return this.sortList(list, status);
         },
+
+        sortList(list, colKey) {
+          const mode = this.sortByCol[colKey] || 'score-desc';
+          const arr = [...list];
+          switch (mode) {
+            case 'score-asc':  return arr.sort((a, b) => (a.overall_score || 0) - (b.overall_score || 0));
+            case 'price-desc': return arr.sort((a, b) => (b.asking_price || 0) - (a.asking_price || 0));
+            case 'price-asc':  return arr.sort((a, b) => (a.asking_price || 0) - (b.asking_price || 0));
+            case 'sde-desc':   return arr.sort((a, b) => (b.reported_sde || 0) - (a.reported_sde || 0));
+            case 'years-desc': return arr.sort((a, b) => (b.years_operation || 0) - (a.years_operation || 0));
+            case 'recent':     return arr.sort((a, b) => {
+              const ax = a.events?.[0]?.created_at || '';
+              const bx = b.events?.[0]?.created_at || '';
+              return bx.localeCompare(ax);
+            });
+            case 'manual': {
+              const order = this.manualOrder[colKey] || [];
+              const pos = id => { const i = order.indexOf(id); return i === -1 ? Number.MAX_SAFE_INTEGER : i; };
+              return arr.sort((a, b) => pos(a.id) - pos(b.id));
+            }
+            case 'score-desc':
+            default:           return arr.sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
+          }
+        },
+
+        setSort(colKey, sortKey) {
+          this.sortByCol[colKey] = sortKey;
+          localStorage.setItem('bizacq_sort_v1', JSON.stringify(this.sortByCol));
+          this.toast(`Ordenando ${this.statusLabel(colKey)} por: ${this.sortOptions.find(o => o.key === sortKey).label}`);
+        },
+
         openDeal(deal) {
           if (this.draggingId) return;
           this.selectedDeal = deal;
           document.body.style.overflow = 'hidden';
         },
         closeDeal() { this.selectedDeal = null; document.body.style.overflow = ''; },
-        resetFilters() { this.filters = { state: 'Todos', priority: 'Todas', sellerFinancing: false, sbaEligible: false }; },
+        resetFilters() { this.filters = { state: 'Todos', priority: 'Todas', priceRange: 'Todos', sellerFinancing: false, sbaEligible: false }; },
 
-        // ─── Formatting ────────────────────────────────────
         fmtPrice(v) {
           if (v == null) return '—';
           if (v >= 1_000_000) return `$${(v/1_000_000).toFixed(1)}M`;
@@ -540,9 +625,7 @@
                : p === 'MEDIA' ? 'bg-amber-100 text-amber-700'
                : 'bg-slate-100 text-slate-600';
         },
-        priorityLabel(p) {
-          return p === 'ALTA' ? '🔥 alta' : p === 'MEDIA' ? '⚡ media' : '👀 baja';
-        },
+        priorityLabel(p) { return p === 'ALTA' ? '🔥 alta' : p === 'MEDIA' ? '⚡ media' : '👀 baja'; },
         scoreColor(s) {
           if (!s) return 'text-slate-400';
           if (s >= 80) return 'text-emerald-600';
@@ -569,49 +652,114 @@
         },
         dragEnd(e) {
           e.target.classList.remove('dragging');
-          // Defer reset so click handler can suppress
-          setTimeout(() => { this.draggingId = null; }, 100);
+          document.querySelectorAll('.drop-before, .drop-after').forEach(el => {
+            el.classList.remove('drop-before', 'drop-after');
+          });
+          setTimeout(() => { this.draggingId = null; }, 80);
           this.dragOverCol = null;
         },
-        allowDrop(colKey, e) {
+
+        // Drop on empty column space
+        allowDropEmpty(colKey, e) {
           if (!this.draggingId) return;
           e.dataTransfer.dropEffect = 'move';
           this.dragOverCol = colKey;
         },
-        dropOnCol(colKey, e) {
+        dropOnColEnd(colKey, e) {
           this.dragOverCol = null;
           const dealId = e.dataTransfer.getData('text/plain') || this.draggingId;
           if (!dealId) return;
-          this.moveDeal(dealId, colKey);
+          // Append to end of column
+          this.moveDeal(dealId, colKey, null, 'end');
         },
-        moveDeal(dealId, newStatus) {
-          const idx = this.deals.findIndex(d => d.id === dealId);
-          if (idx === -1) return;
-          const deal = this.deals[idx];
-          if (deal.pipeline_status === newStatus) return;
 
+        // Drop on/around a specific card → inserts before or after
+        dragOverCard(targetDeal, colKey, e) {
+          if (!this.draggingId || this.draggingId === targetDeal.id) return;
+          e.dataTransfer.dropEffect = 'move';
+          this.dragOverCol = null; // suppress column-empty highlight
+          const card = e.currentTarget;
+          const rect = card.getBoundingClientRect();
+          const before = (e.clientY - rect.top) < rect.height / 2;
+          this.clearCardIndicators(card);
+          card.classList.add(before ? 'drop-before' : 'drop-after');
+        },
+        clearCardIndicators(el) {
+          if (el?.classList) el.classList.remove('drop-before', 'drop-after');
+        },
+        dropOnCard(targetDeal, colKey, e) {
+          const card = e.currentTarget;
+          const before = card.classList.contains('drop-before');
+          this.clearCardIndicators(card);
+          const dealId = e.dataTransfer.getData('text/plain') || this.draggingId;
+          if (!dealId || dealId === targetDeal.id) return;
+          this.moveDeal(dealId, colKey, targetDeal.id, before ? 'before' : 'after');
+        },
+
+        moveDeal(dealId, newColKey, targetDealId, position) {
+          const deal = this.deals.find(d => d.id === dealId);
+          if (!deal) return;
+          const oldStatus = deal.pipeline_status;
+          const sameColumn = oldStatus === newColKey;
+
+          // If column changing, prompt for discard reason
           let reason = null;
-          if (newStatus === 'DESCARTADO') {
+          if (!sameColumn && newColKey === 'DESCARTADO') {
             reason = prompt('¿Por qué descartas este deal? (esta razón se guarda)');
             if (!reason || !reason.trim()) return;
             reason = reason.trim();
           }
 
-          const oldStatus = deal.pipeline_status;
-          deal.pipeline_status = newStatus;
-          if (reason) deal.discard_reason = reason;
+          // 1) Column transition
+          if (!sameColumn) {
+            deal.pipeline_status = newColKey;
+            if (reason) deal.discard_reason = reason;
+            this.overrides[dealId] = {
+              pipeline_status: newColKey,
+              discard_reason: reason,
+              moved_at: new Date().toISOString(),
+              previous_status: oldStatus,
+            };
+            localStorage.setItem('bizacq_overrides_v1', JSON.stringify(this.overrides));
+          }
 
-          this.overrides[dealId] = {
-            pipeline_status: newStatus,
-            discard_reason: reason,
-            moved_at: new Date().toISOString(),
-            previous_status: oldStatus,
-          };
-          localStorage.setItem('bizacq_overrides_v1', JSON.stringify(this.overrides));
-          this.toast(`"${deal.title.substring(0, 35)}${deal.title.length > 35 ? '…' : ''}" → ${this.statusLabel(newStatus)}`);
-          // Trigger Alpine reactivity
+          // 2) Update manual order for the destination column
+          // Auto-switch to manual sort whenever user drags
+          this.sortByCol[newColKey] = 'manual';
+          localStorage.setItem('bizacq_sort_v1', JSON.stringify(this.sortByCol));
+
+          // Rebuild manual order array for the column
+          const colDeals = this.deals.filter(d => d.pipeline_status === newColKey);
+          let order = (this.manualOrder[newColKey] || []).filter(id => colDeals.find(d => d.id === id));
+          // Remove dealId if already in order
+          order = order.filter(id => id !== dealId);
+          // Insert at proper position
+          if (targetDealId && position === 'before') {
+            const idx = order.indexOf(targetDealId);
+            if (idx === -1) order.unshift(dealId); else order.splice(idx, 0, dealId);
+          } else if (targetDealId && position === 'after') {
+            const idx = order.indexOf(targetDealId);
+            if (idx === -1) order.push(dealId); else order.splice(idx + 1, 0, dealId);
+          } else {
+            order.push(dealId); // end
+          }
+          // Add any missing deals to the end so order is complete
+          for (const d of colDeals) {
+            if (!order.includes(d.id)) order.push(d.id);
+          }
+          this.manualOrder[newColKey] = order;
+          localStorage.setItem('bizacq_manual_v1', JSON.stringify(this.manualOrder));
+
+          // 3) Toast
+          const shortTitle = deal.title.substring(0, 30) + (deal.title.length > 30 ? '…' : '');
+          if (!sameColumn) {
+            this.toast(`"${shortTitle}" → ${this.statusLabel(newColKey)}`);
+          } else {
+            this.toast(`"${shortTitle}" reordenado`);
+          }
           this.deals = [...this.deals];
         },
+
         applyOverrides() {
           for (const [dealId, ov] of Object.entries(this.overrides)) {
             const deal = this.deals.find(d => d.id === dealId);
@@ -620,32 +768,48 @@
             if (ov.discard_reason) deal.discard_reason = ov.discard_reason;
           }
         },
+
         resetOverrides() {
-          if (!confirm('Esto borra todos tus movimientos locales y vuelve al estado del servidor. ¿Continuar?')) return;
+          if (!confirm('Esto borra TODOS tus movimientos locales, reordenamientos manuales y preferencias de orden. ¿Continuar?')) return;
           localStorage.removeItem('bizacq_overrides_v1');
+          localStorage.removeItem('bizacq_manual_v1');
+          localStorage.removeItem('bizacq_sort_v1');
           this.overrides = {};
+          this.manualOrder = {};
+          this.sortByCol = {};
           this.init();
-          this.toast('Movimientos locales borrados — vuelto al estado original');
+          this.toast('Cambios locales borrados — vuelto al estado original');
         },
+
         copyOverridesForClaude() {
-          const lines = Object.entries(this.overrides).map(([id, ov]) => {
+          const lines = [];
+          // Column changes
+          for (const [id, ov] of Object.entries(this.overrides)) {
             const d = this.deals.find(x => x.id === id);
             const title = d?.title || id;
             const fromTo = `${ov.previous_status || '?'} → ${ov.pipeline_status}`;
             const reason = ov.discard_reason ? ` [razón: ${ov.discard_reason}]` : '';
-            return `- "${title}" (id ${id.substring(0, 8)}): ${fromTo}${reason}`;
-          }).join('\n');
-          const text = `Quiero fijar estos cambios al deals.json del proyecto BizAcq:\n\n${lines}\n\nActualiza los pipeline_status, agrega los eventos correspondientes, y commitéalo.`;
+            lines.push(`- "${title}" (id ${id.substring(0, 8)}): ${fromTo}${reason}`);
+          }
+          // Manual reorders within columns (only if non-default)
+          for (const [colKey, order] of Object.entries(this.manualOrder)) {
+            if (!order || order.length === 0) continue;
+            const colName = this.statusLabel(colKey);
+            const ordered = order.map(id => {
+              const d = this.deals.find(x => x.id === id);
+              return d?.title?.substring(0, 40) || id.substring(0, 8);
+            });
+            lines.push(`\nOrden manual en "${colName}":\n  ${ordered.map((t, i) => `${i + 1}. ${t}`).join('\n  ')}`);
+          }
+          const text = `Quiero fijar estos cambios al deals.json del proyecto BizAcq:\n\n${lines.join('\n')}\n\nActualiza los pipeline_status, agrega eventos correspondientes, persiste el orden manual como campo display_order, y commitéalo.`;
           if (navigator.clipboard?.writeText) {
             navigator.clipboard.writeText(text);
             this.toast('✓ Copiado — pégalo en tu chat con Claude');
           } else {
-            // Fallback: open prompt window
             window.prompt('Copia este texto y pégalo en tu chat con Claude:', text);
           }
         },
 
-        // ─── Toast ─────────────────────────────────────────
         toast(msg) {
           this.toastMsg = msg;
           clearTimeout(this._toastTimer);
