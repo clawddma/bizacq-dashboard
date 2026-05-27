@@ -17,7 +17,6 @@
 
   /* Tooltips on acronyms */
   .tt {
-    position: relative;
     border-bottom: 1px dotted #94a3b8;
     cursor: help;
     font-weight: inherit;
@@ -30,28 +29,29 @@
     color: #94a3b8;
     font-weight: 700;
   }
-  .tt:hover::before, .tt:focus::before, .tt.tt-active::before {
-    content: attr(data-tip);
-    position: absolute;
-    bottom: calc(100% + 6px);
-    left: 50%;
-    transform: translateX(-50%);
+  /* JS-positioned popup — never gets cut off the viewport */
+  #tt-popup {
+    position: fixed;
     background: #1e293b;
     color: white;
-    padding: 8px 10px;
+    padding: 10px 12px;
     border-radius: 6px;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
-    white-space: normal;
-    width: 240px;
-    line-height: 1.45;
-    z-index: 1000;
-    text-align: left;
+    line-height: 1.5;
+    width: max-content;
+    max-width: min(340px, calc(100vw - 24px));
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    z-index: 9999;
     pointer-events: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    box-shadow: 0 6px 18px rgba(0,0,0,.28);
+    display: none;
+    opacity: 0;
+    transition: opacity .12s ease-out;
   }
 
-  /* Drag and drop visuals */
+  /* Drag-and-drop visuals */
   .dragging { opacity: .35 !important; transform: scale(.97); cursor: grabbing !important; }
   .draggable { cursor: grab; }
   .draggable:active { cursor: grabbing; }
@@ -80,6 +80,19 @@
   .sort-menu button:hover { background: #f1f5f9; }
   .sort-menu button.active { background: #1e293b; color: white; font-weight: 600; }
 
+  /* Tab nav */
+  .tab-btn {
+    padding: 10px 16px; font-size: 13px; font-weight: 600; color: #64748b;
+    border-bottom: 2px solid transparent; cursor: pointer; transition: all .15s;
+  }
+  .tab-btn:hover { color: #1e293b; }
+  .tab-btn.active { color: #1e293b; border-bottom-color: #1e293b; }
+
+  /* Glossary cards */
+  .gl-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; }
+  .gl-term { font-size: 16px; font-weight: 700; color: #1e293b; }
+  .gl-def { font-size: 13px; color: #475569; line-height: 1.55; margin-top: 4px; }
+
   /* Mobile */
   @media (hover: none) {
     .draggable { -webkit-user-select: none; user-select: none; }
@@ -104,10 +117,16 @@
         <span><strong class="text-slate-700" x-text="totalDeals"></strong> deals totales</span>
       </div>
     </div>
+    <!-- Tab nav -->
+    <div class="max-w-screen-2xl mx-auto px-6 flex items-center gap-1">
+      <button class="tab-btn" :class="{'active': view === 'pipeline'}" @click="view = 'pipeline'">Pipeline</button>
+      <button class="tab-btn" :class="{'active': view === 'category'}" @click="view = 'category'">Por categoría</button>
+      <button class="tab-btn" :class="{'active': view === 'glossary'}" @click="view = 'glossary'">Glosario</button>
+    </div>
   </header>
 
   <!-- Local changes banner -->
-  <div x-show="overrideCount > 0" x-cloak class="bg-amber-50 border-b border-amber-200">
+  <div x-show="overrideCount > 0 && view !== 'glossary'" x-cloak class="bg-amber-50 border-b border-amber-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-2 flex items-center justify-between flex-wrap gap-2">
       <p class="text-xs text-amber-900">
         Tienes <strong x-text="overrideCount"></strong>
@@ -126,8 +145,8 @@
     </div>
   </div>
 
-  <!-- Filters bar -->
-  <div class="bg-white border-b border-slate-200">
+  <!-- Filters bar (hidden in Glossary view) -->
+  <div x-show="view !== 'glossary'" x-cloak class="bg-white border-b border-slate-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-3 flex items-center gap-4 flex-wrap">
       <div class="flex items-center gap-2">
         <span class="text-xs text-slate-500 font-medium">Estado:</span>
@@ -175,9 +194,11 @@
     </div>
   </div>
 
-  <!-- Kanban -->
-  <main class="max-w-screen-2xl mx-auto px-6 py-6">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 min-h-[calc(100vh-240px)]" x-cloak>
+  <!-- =========================================================== -->
+  <!-- VIEW: PIPELINE (Kanban)                                     -->
+  <!-- =========================================================== -->
+  <main x-show="view === 'pipeline'" x-cloak class="max-w-screen-2xl mx-auto px-6 py-6">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 min-h-[calc(100vh-280px)]">
       <template x-for="col in columns" :key="col.key">
         <div class="kcol bg-white rounded-lg border border-slate-200 flex flex-col"
           :class="{'drag-over-empty': dragOverCol === col.key && dealsByStatus(col.key).length === 0}"
@@ -185,7 +206,6 @@
           @dragleave="if ($event.currentTarget === $event.target) dragOverCol = null"
           @drop.prevent="dropOnColEnd(col.key, $event)">
 
-          <!-- Column header -->
           <div class="px-3 py-2.5 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white rounded-t-lg z-10">
             <div class="flex items-center gap-2 min-w-0">
               <span class="w-2 h-2 rounded-full shrink-0" :class="col.dot"></span>
@@ -193,7 +213,6 @@
             </div>
             <div class="flex items-center gap-1.5 shrink-0">
               <span class="text-xs text-slate-400 font-medium" x-text="dealsByStatus(col.key).length"></span>
-              <!-- Sort dropdown -->
               <div class="relative" @click.outside="openSortMenu = null">
                 <button @click.stop="openSortMenu = openSortMenu === col.key ? null : col.key"
                   class="text-slate-400 hover:text-slate-700 p-0.5 rounded"
@@ -213,9 +232,8 @@
             </div>
           </div>
 
-          <!-- Cards -->
           <div class="kcol-body flex-1 overflow-y-auto scrollbar-thin p-2 space-y-2 min-h-[100px]">
-            <template x-for="(deal, idx) in dealsByStatus(col.key)" :key="deal.id">
+            <template x-for="deal in dealsByStatus(col.key)" :key="deal.id">
               <div draggable="true"
                 @dragstart="dragStart(deal, $event)"
                 @dragend="dragEnd($event)"
@@ -230,7 +248,9 @@
                     :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
                     x-text="deal.state"></span>
                 </div>
-                <p class="text-xs text-slate-500 mb-2.5" x-text="`${deal.business_type} · ${deal.city}`"></p>
+                <p class="text-xs text-slate-500 mb-2.5">
+                  <span x-text="categoryIcon(deal.business_type) + ' ' + deal.business_type"></span> · <span x-text="deal.city"></span>
+                </p>
                 <div class="flex items-baseline gap-3 mb-2.5">
                   <div>
                     <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
@@ -274,6 +294,108 @@
     </p>
   </main>
 
+  <!-- =========================================================== -->
+  <!-- VIEW: POR CATEGORÍA                                         -->
+  <!-- =========================================================== -->
+  <main x-show="view === 'category'" x-cloak class="max-w-screen-2xl mx-auto px-6 py-6 space-y-8">
+    <template x-for="[cat, ds] in categoriesGrouped()" :key="cat">
+      <section>
+        <div class="flex items-baseline justify-between mb-3 pb-2 border-b border-slate-200">
+          <div class="flex items-baseline gap-3">
+            <h2 class="text-lg font-bold text-slate-900">
+              <span x-text="categoryIcon(cat)"></span>
+              <span x-text="cat"></span>
+            </h2>
+            <span class="text-sm text-slate-500"
+              x-text="`${ds.length} ${ds.length === 1 ? 'deal' : 'deals'} · valor total ${fmtPrice(ds.reduce((s,d) => s + (d.asking_price || 0), 0))}`"></span>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          <template x-for="deal in ds" :key="deal.id">
+            <div @click="openDeal(deal)"
+              class="bg-white border border-slate-200 rounded-lg p-3 card-shadow cursor-pointer transition group">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
+                <div class="flex items-center gap-1 shrink-0">
+                  <span class="text-xs font-bold px-1.5 py-0.5 rounded"
+                    :class="deal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
+                    x-text="deal.state"></span>
+                  <span class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
+                    :class="pipelineBadgeClass(deal.pipeline_status)"
+                    x-text="statusLabel(deal.pipeline_status)"></span>
+                </div>
+              </div>
+              <p class="text-xs text-slate-500 mb-2.5" x-text="deal.city"></p>
+              <div class="flex items-baseline gap-3 mb-2">
+                <div>
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
+                  <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
+                </div>
+                <div x-show="deal.reported_sde">
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wide">
+                    <span class="tt" data-tip="SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño.">SDE</span>
+                  </p>
+                  <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde)"></p>
+                </div>
+                <div x-show="deal.reported_sde" class="ml-auto text-right">
+                  <p class="text-[10px] text-slate-400 uppercase tracking-wide">Múltiplo</p>
+                  <p class="text-sm font-semibold text-slate-700" x-text="`${(deal.asking_price / deal.reported_sde).toFixed(1)}x`"></p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
+                <div class="flex items-center gap-1 flex-wrap">
+                  <span x-show="deal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
+                    :class="priorityClass(deal.priority)" x-text="priorityLabel(deal.priority)"></span>
+                  <span x-show="deal.seller_financing" class="tt text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium"
+                    data-tip="Seller Financing: el vendedor te financia parte del precio.">SF</span>
+                  <span x-show="deal.sba_prequalified" class="tt text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium"
+                    data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios.">SBA</span>
+                  <span x-show="deal.curated_source" title="Listado pre-validado"
+                    class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
+                </div>
+                <div x-show="deal.overall_score" class="text-right">
+                  <span class="text-base font-bold" :class="scoreColor(deal.overall_score)" x-text="Math.round(deal.overall_score)"></span>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </section>
+    </template>
+    <p x-show="categoriesGrouped().length === 0" class="text-center text-sm text-slate-400 py-12">
+      No hay deals que coincidan con los filtros activos.
+    </p>
+  </main>
+
+  <!-- =========================================================== -->
+  <!-- VIEW: GLOSARIO                                              -->
+  <!-- =========================================================== -->
+  <main x-show="view === 'glossary'" x-cloak class="max-w-screen-xl mx-auto px-6 py-6">
+    <div class="mb-6">
+      <h2 class="text-xl font-bold text-slate-900 mb-1">Glosario de términos</h2>
+      <p class="text-sm text-slate-500">Todos los acrónimos, jerga financiera, y términos de industria que aparecen en el dashboard.</p>
+      <input type="text" x-model="glossarySearch"
+        placeholder="Buscar término..."
+        class="mt-3 w-full md:w-80 px-3 py-2 text-sm border border-slate-300 rounded-md focus:outline-none focus:border-slate-900">
+    </div>
+    <template x-for="[catName, terms] in filteredGlossary()" :key="catName">
+      <section class="mb-6">
+        <h3 class="text-sm font-bold text-slate-700 uppercase tracking-wide mb-3" x-text="catName"></h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <template x-for="term in terms" :key="term">
+            <div class="gl-card">
+              <h4 class="gl-term" x-text="term"></h4>
+              <p class="gl-def" x-text="GLOSSARY[term]"></p>
+            </div>
+          </template>
+        </div>
+      </section>
+    </template>
+    <p x-show="filteredGlossary().length === 0" class="text-center text-sm text-slate-400 py-12">
+      Sin resultados para "<span x-text="glossarySearch"></span>".
+    </p>
+  </main>
+
   <!-- Detail panel -->
   <div x-show="selectedDeal" x-cloak x-transition.opacity
     class="fixed inset-0 bg-slate-900/40 z-40" @click.self="closeDeal()">
@@ -292,7 +414,10 @@
                 <span class="text-xs font-bold px-1.5 py-0.5 rounded"
                   :class="selectedDeal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
                   x-text="selectedDeal.state"></span>
-                <span class="text-xs text-slate-500" x-text="`${selectedDeal.business_type} · ${selectedDeal.city}`"></span>
+                <span class="text-xs text-slate-500">
+                  <span x-text="categoryIcon(selectedDeal.business_type)"></span>
+                  <span x-text="selectedDeal.business_type + ' · ' + selectedDeal.city"></span>
+                </span>
                 <span x-show="selectedDeal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
                   :class="priorityClass(selectedDeal.priority)" x-text="priorityLabel(selectedDeal.priority)"></span>
               </div>
@@ -454,29 +579,66 @@
   </div>
 
   <script>
+    // ─── Glossary ───────────────────────────────────────────────
     const GLOSSARY = {
-      'SDE':    "SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre.",
-      'DSCR':   "DSCR (Debt Service Coverage Ratio): cuántas veces el negocio cubre la cuota de la deuda. Arriba de 1.25x = se paga solo con margen.",
-      'SBA':    "SBA (Small Business Administration): agencia federal de EE.UU. que garantiza créditos para comprar pequeños negocios. SBA 7(a) financia hasta 90% del precio.",
-      'EBITDA': "EBITDA: ganancia operativa antes de intereses, impuestos, depreciación y amortización. Mide cuánto genera la operación pura.",
-      'IRR':    "IRR (Internal Rate of Return): retorno anual compuesto del proyecto considerando todos los flujos de caja en el tiempo.",
-      'ROI':    "ROI (Return on Investment): retorno sobre lo que invertiste, expresado como porcentaje.",
-      'LOI':    "LOI (Letter of Intent): carta de intención — primer acuerdo no vinculante con el vendedor para empezar negociación seria y due diligence.",
-      'DSO':    "DSO (Dental Service Organization): empresa que consolida consultorios dentales — paga premium por prácticas con sistemas claros.",
-      'D2C':    "D2C (Direct to Consumer): marca que vende directo al consumidor sin intermediarios (típico de e-commerce moderno).",
-      'CAC':    "CAC (Customer Acquisition Cost): cuánto te cuesta conseguir un cliente nuevo. Métrica clave en e-commerce y SaaS.",
-      'LTV':    "LTV (Lifetime Value): cuánto te genera un cliente en toda su vida útil. Sano cuando LTV/CAC > 3x.",
-      'HVAC':   "HVAC (Heating, Ventilation, Air Conditioning): empresas de calefacción, ventilación y aire acondicionado — servicio esencial, demanda estable.",
-      'TPCL':   "TPCL (Texas Pest Control License): licencia obligatoria en Texas para operar control de plagas. Barrera de entrada para nuevos competidores.",
-      'CEREC':  "CEREC: tecnología dental para hacer restauraciones cerámicas (coronas, carillas) en la consulta el mismo día, sin laboratorio externo.",
-      'CRM':    "CRM (Customer Relationship Management): software para manejar la relación con clientes — historial, comunicaciones, ventas.",
-      'PE':     "PE (Private Equity): fondos que compran empresas para mejorarlas y revenderlas en 3-7 años con utilidad.",
-      'IoT':    "IoT (Internet of Things): dispositivos físicos conectados a internet que envían datos (sensores, trampas inteligentes, equipos monitoreados).",
-      'M&A':    "M&A (Mergers & Acquisitions): fusiones y adquisiciones de empresas.",
+      'SDE':    "SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre. Es la métrica número uno para valorar pequeños negocios.",
+      'DSCR':   "DSCR (Debt Service Coverage Ratio): cuántas veces el negocio cubre la cuota de la deuda. Arriba de 1.25x = se paga solo con margen. Bancos SBA exigen mínimo 1.15x.",
+      'SBA':    "SBA (Small Business Administration): agencia federal de EE.UU. que garantiza créditos para comprar pequeños negocios. SBA 7(a) financia hasta 90% del precio con 10-25 años de plazo.",
+      'SBA 7(a)': "SBA 7(a): el programa más usado de la SBA para comprar negocios. Hasta $5M, 10-25 años, tasa Prime + 2.75-4.75%.",
+      'SBA 504':  "SBA 504: programa SBA cuando hay real estate o equipo grande en la compra. 10% equity + 40% CDC debenture + 50% banco.",
+      'EBITDA': "EBITDA (Earnings Before Interest, Taxes, Depreciation, Amortization): ganancia operativa antes de intereses, impuestos, depreciación y amortización. Mide cuánto genera la operación pura.",
+      'IRR':    "IRR (Internal Rate of Return): retorno anual compuesto del proyecto considerando todos los flujos de caja en el tiempo. Por encima del 20% se considera atractivo.",
+      'ROI':    "ROI (Return on Investment): retorno sobre lo que invertiste, expresado como porcentaje. Métrica simple pero no captura el tiempo.",
+      'LOI':    "LOI (Letter of Intent): carta de intención. Primer acuerdo NO vinculante con el vendedor para empezar negociación seria y due diligence. Típicamente 30-60 días de exclusividad.",
+      'DSO':    "DSO (Dental Service Organization): empresa que consolida consultorios dentales y paga premium por prácticas con sistemas claros. Compradores típicos: Heartland, Aspen, Pacific Dental.",
+      'D2C':    "D2C (Direct to Consumer): marca que vende directo al consumidor sin intermediarios. Típico de e-commerce moderno (Shopify, web propio).",
+      'CAC':    "CAC (Customer Acquisition Cost): cuánto te cuesta conseguir un cliente nuevo. Métrica clave en e-commerce y SaaS. Sano cuando recuperas CAC en menos de 12 meses.",
+      'LTV':    "LTV (Lifetime Value): cuánto te genera un cliente en toda su vida útil. La regla de oro es LTV/CAC > 3x.",
+      'HVAC':   "HVAC (Heating, Ventilation, Air Conditioning): empresas de calefacción, ventilación y aire acondicionado. Servicio esencial, demanda estable, sector que PE/strategics consolidan agresivamente.",
+      'TPCL':   "TPCL (Texas Pest Control License): licencia obligatoria en Texas para operar control de plagas. Es barrera de entrada — toma 6-12 meses obtenerla.",
+      'CEREC':  "CEREC: tecnología dental para hacer restauraciones cerámicas (coronas, carillas) en la consulta el mismo día, sin laboratorio externo. Equipo de $80K+ pero permite cobrar premium.",
+      'CRM':    "CRM (Customer Relationship Management): software para manejar la relación con clientes — historial, comunicaciones, ventas. Ejemplos: HubSpot, Salesforce, Pipedrive.",
+      'PE':     "PE (Private Equity): fondos que compran empresas para mejorarlas y revenderlas en 3-7 años con utilidad. Los grandes consolidadores de servicios (HVAC, plomería, dental) suelen ser PE.",
+      'IoT':    "IoT (Internet of Things): dispositivos físicos conectados a internet que envían datos (sensores, trampas inteligentes, equipos monitoreados, termostatos).",
+      'M&A':    "M&A (Mergers & Acquisitions): fusiones y adquisiciones de empresas. Es el mundo de los deals.",
       'ML':     "ML (Machine Learning): rama de IA donde el software aprende patrones de datos históricos para predecir o automatizar decisiones.",
-      'KPI':    "KPI (Key Performance Indicator): métrica clave que mide el desempeño de un negocio o área.",
-      'SaaS':   "SaaS (Software as a Service): software vendido por suscripción mensual/anual. Ingresos recurrentes, alta valoración.",
+      'KPI':    "KPI (Key Performance Indicator): métrica clave que mide el desempeño de un negocio o área. Ej: ventas mensuales, churn, NPS, CAC.",
+      'SaaS':   "SaaS (Software as a Service): software vendido por suscripción mensual/anual. Ingresos recurrentes y alta valoración (típicamente 5-15x ARR).",
       'SEO':    "SEO (Search Engine Optimization): técnicas para posicionar contenido alto en Google y atraer tráfico orgánico (sin pagar publicidad).",
+      'Seller Financing': "Seller Financing: el vendedor te financia parte del precio. Tú pagas, por ejemplo, 80% al cierre + 20% a plazos al vendedor (a 5-7 años, 6-8% interés). Reduce el cash inicial y demuestra confianza del vendedor.",
+      'Add-back': "Add-back: gasto en los EEFF que NO es operativo y se le suma de vuelta al SDE. Ejemplos: sueldo del dueño, vehículo personal, gastos familiares, eventos one-time.",
+      'Due Diligence': "Due Diligence: el proceso de revisar a fondo el negocio antes de cerrar — finanzas, contratos, demandas, equipo, clientes top. Típicamente 30-90 días.",
+      'Earnout': "Earnout: parte del precio que se paga al vendedor solo si el negocio cumple ciertas métricas post-cierre (típicamente revenue o EBITDA durante 1-3 años).",
+      'Working Capital': "Working Capital (capital de trabajo): el efectivo que el negocio necesita para operar día a día (inventario, cuentas por cobrar, pagar nómina antes de cobrar). Se ajusta en el cierre.",
+      'Multiple': "Múltiplo: el precio de compra dividido por el SDE (o EBITDA). Pequeños negocios suelen venderse entre 1.5x-4x SDE; un múltiplo de 4.5x es agresivo.",
+      'Closing': "Closing (cierre): el día en que se firma todo, transferes el dinero y eres oficialmente dueño. Pasa después del due diligence y la aprobación del financiamiento.",
+      'Recurring Revenue': "Recurring Revenue (ingreso recurrente): clientes que pagan mes a mes o tienen contratos. Es lo más valioso porque hace el negocio predecible (vale más en el exit).",
+      'Asset Sale': "Asset Sale (venta de activos): compras los activos del negocio (clientes, equipo, marca) pero NO la entidad legal. Más común en pequeños negocios — más limpio fiscalmente.",
+      'Stock Sale': "Stock Sale (venta de acciones): compras la entidad legal completa, con todos sus activos Y pasivos. Más complejo pero a veces preferido por el vendedor.",
+    };
+
+    const GLOSSARY_CATEGORIES = {
+      'Financieros básicos': ['SDE', 'EBITDA', 'Multiple', 'Add-back', 'Working Capital'],
+      'Métricas de retorno': ['DSCR', 'IRR', 'ROI'],
+      'Financiamiento': ['SBA', 'SBA 7(a)', 'SBA 504', 'Seller Financing', 'Earnout'],
+      'Proceso de compra': ['LOI', 'Due Diligence', 'Closing', 'Asset Sale', 'Stock Sale', 'Recurring Revenue'],
+      'Industrias específicas': ['HVAC', 'TPCL', 'CEREC', 'DSO', 'D2C'],
+      'Negocios digitales y métricas': ['SaaS', 'CAC', 'LTV', 'KPI'],
+      'Tecnología / IA': ['CRM', 'IoT', 'ML', 'SEO'],
+      'M&A': ['PE', 'M&A'],
+    };
+
+    // ─── Category icons ────────────────────────────────────────
+    const CATEGORY_ICONS = {
+      'HVAC': '🌡️', 'Plumbing': '🚿', 'Electrical': '⚡',
+      'Landscaping': '🌳', 'Cleaning Services': '🧽',
+      'Pest Control': '🐜', 'Pool Service': '🏊',
+      'Auto Repair': '🔧', 'Property Management': '🏢',
+      'Home Services': '🏡',
+      'Restaurant': '🍽️', 'Med Spa': '💆', 'Dental Practice': '🦷',
+      'E-commerce': '💻', 'SaaS': '☁️',
+      'Digital Marketing Agency': '📈',
+      'Insurance Agency': '🛡️', 'Accounting': '📊',
     };
 
     function withTips(text) {
@@ -491,9 +653,72 @@
       return out;
     }
 
+    // ─── JS-positioned tooltip popup (never clipped by viewport) ──
+    function initTooltipPopup() {
+      const popup = document.createElement('div');
+      popup.id = 'tt-popup';
+      document.body.appendChild(popup);
+      let current = null;
+
+      function show(target) {
+        const tip = target.dataset.tip;
+        if (!tip) return;
+        current = target;
+        popup.textContent = tip;
+        popup.style.display = 'block';
+        popup.style.opacity = '0';
+        // Force layout to measure
+        const pw = popup.offsetWidth;
+        const ph = popup.offsetHeight;
+        const rect = target.getBoundingClientRect();
+        let left = rect.left + rect.width / 2 - pw / 2;
+        let top = rect.top - ph - 8;
+        if (left < 8) left = 8;
+        if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+        if (top < 8) top = rect.bottom + 8;
+        popup.style.left = left + 'px';
+        popup.style.top = top + 'px';
+        popup.style.opacity = '1';
+      }
+      function hide() {
+        current = null;
+        popup.style.display = 'none';
+        popup.style.opacity = '0';
+      }
+
+      document.addEventListener('mouseover', e => {
+        const t = e.target.closest('.tt');
+        if (t && t !== current) show(t);
+        else if (!t && current && !popup.contains(e.target)) hide();
+      });
+      document.addEventListener('mouseout', e => {
+        const t = e.target.closest('.tt');
+        if (t === current) {
+          // Hide if mouse left target entirely
+          const related = e.relatedTarget;
+          if (!related || !related.closest || !related.closest('.tt')) hide();
+        }
+      });
+      document.addEventListener('touchstart', e => {
+        const t = e.target.closest('.tt');
+        if (t) {
+          e.preventDefault();
+          show(t);
+          clearTimeout(window._tttouch);
+          window._tttouch = setTimeout(hide, 4500);
+        } else if (current) {
+          hide();
+        }
+      }, { passive: false });
+      document.addEventListener('scroll', () => { if (current) hide(); }, true);
+    }
+    document.addEventListener('DOMContentLoaded', initTooltipPopup);
+
+    // ─── Dashboard component ─────────────────────────────────
     function dashboard() {
       const savedSort = JSON.parse(localStorage.getItem('bizacq_sort_v1') || '{}');
       const savedManual = JSON.parse(localStorage.getItem('bizacq_manual_v1') || '{}');
+      const savedView = localStorage.getItem('bizacq_view_v1') || 'pipeline';
 
       return {
         deals: [],
@@ -503,10 +728,14 @@
         draggingId: null,
         dragOverCol: null,
         openSortMenu: null,
+        view: savedView,
+        glossarySearch: '',
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort,
         manualOrder: savedManual,
         filters: { state: 'Todos', priority: 'Todas', priceRange: 'Todos', sellerFinancing: false, sbaEligible: false },
+        GLOSSARY,
+        GLOSSARY_CATEGORIES,
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
           { key: 'EN_ANALISIS',     label: 'En análisis',    dot: 'bg-blue-400' },
@@ -516,10 +745,10 @@
           { key: 'DESCARTADO',      label: 'Descartado',     dot: 'bg-red-300' },
         ],
         priceRanges: [
-          { key: 'Todos',  label: 'Todos',      tip: 'Sin filtro de tamaño' },
-          { key: '0-100',  label: '$0 – $100K', tip: 'Negocios chicos: $0 a $100K de precio' },
-          { key: '100-500',label: '$100K – $500K', tip: 'Tamaño medio: $100K a $500K' },
-          { key: '500+',   label: '$500K +',    tip: 'Negocios grandes: $500K en adelante' },
+          { key: 'Todos',  label: 'Todos',         tip: 'Sin filtro de tamaño' },
+          { key: '0-100',  label: '$0 – $100K',    tip: 'Negocios chicos' },
+          { key: '100-500',label: '$100K – $500K', tip: 'Tamaño medio' },
+          { key: '500+',   label: '$500K +',       tip: 'Negocios grandes' },
         ],
         sortOptions: [
           { key: 'score-desc',  label: 'Score (alto → bajo)' },
@@ -543,9 +772,12 @@
             console.error('Error loading deals.json', e);
             this.deals = [];
           }
+          // Persist view choice
+          this.$watch('view', v => localStorage.setItem('bizacq_view_v1', v));
         },
 
         withTips(t) { return withTips(t); },
+        categoryIcon(name) { return CATEGORY_ICONS[name] || '🏷️'; },
         get totalDeals() { return this.deals.length; },
         get filteredCount() { return this.deals.filter(d => this.passesFilters(d)).length; },
         get overrideCount() {
@@ -557,6 +789,17 @@
         sortLabel(colKey) {
           const k = this.sortByCol[colKey] || 'score-desc';
           return this.sortOptions.find(o => o.key === k)?.label || 'Score';
+        },
+        pipelineBadgeClass(s) {
+          const m = {
+            'RADAR': 'bg-slate-100 text-slate-600',
+            'EN_ANALISIS': 'bg-blue-100 text-blue-700',
+            'PARA_CONTACTAR': 'bg-amber-100 text-amber-700',
+            'EN_NEGOCIACION': 'bg-emerald-100 text-emerald-700',
+            'CIERRE': 'bg-purple-100 text-purple-700',
+            'DESCARTADO': 'bg-red-100 text-red-700',
+          };
+          return m[s] || 'bg-slate-100 text-slate-600';
         },
 
         passesFilters(d) {
@@ -598,6 +841,37 @@
             case 'score-desc':
             default:           return arr.sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
           }
+        },
+
+        // ─── Por categoría view ───────────────────────────────
+        categoriesGrouped() {
+          const map = new Map();
+          for (const d of this.deals) {
+            if (!this.passesFilters(d)) continue;
+            const cat = d.business_type || 'Sin categoría';
+            if (!map.has(cat)) map.set(cat, []);
+            map.get(cat).push(d);
+          }
+          // Sort within each: score desc; sort categories: count desc, then name
+          for (const [k, v] of map) v.sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
+          return Array.from(map.entries()).sort((a, b) => {
+            if (b[1].length !== a[1].length) return b[1].length - a[1].length;
+            return a[0].localeCompare(b[0]);
+          });
+        },
+
+        // ─── Glossary view ────────────────────────────────────
+        filteredGlossary() {
+          const q = this.glossarySearch.trim().toLowerCase();
+          const result = [];
+          for (const [cat, terms] of Object.entries(GLOSSARY_CATEGORIES)) {
+            const filtered = terms.filter(t => {
+              if (!q) return true;
+              return t.toLowerCase().includes(q) || (GLOSSARY[t] || '').toLowerCase().includes(q);
+            });
+            if (filtered.length > 0) result.push([cat, filtered]);
+          }
+          return result;
         },
 
         setSort(colKey, sortKey) {
@@ -658,8 +932,6 @@
           setTimeout(() => { this.draggingId = null; }, 80);
           this.dragOverCol = null;
         },
-
-        // Drop on empty column space
         allowDropEmpty(colKey, e) {
           if (!this.draggingId) return;
           e.dataTransfer.dropEffect = 'move';
@@ -669,15 +941,12 @@
           this.dragOverCol = null;
           const dealId = e.dataTransfer.getData('text/plain') || this.draggingId;
           if (!dealId) return;
-          // Append to end of column
           this.moveDeal(dealId, colKey, null, 'end');
         },
-
-        // Drop on/around a specific card → inserts before or after
         dragOverCard(targetDeal, colKey, e) {
           if (!this.draggingId || this.draggingId === targetDeal.id) return;
           e.dataTransfer.dropEffect = 'move';
-          this.dragOverCol = null; // suppress column-empty highlight
+          this.dragOverCol = null;
           const card = e.currentTarget;
           const rect = card.getBoundingClientRect();
           const before = (e.clientY - rect.top) < rect.height / 2;
@@ -702,7 +971,6 @@
           const oldStatus = deal.pipeline_status;
           const sameColumn = oldStatus === newColKey;
 
-          // If column changing, prompt for discard reason
           let reason = null;
           if (!sameColumn && newColKey === 'DESCARTADO') {
             reason = prompt('¿Por qué descartas este deal? (esta razón se guarda)');
@@ -710,7 +978,6 @@
             reason = reason.trim();
           }
 
-          // 1) Column transition
           if (!sameColumn) {
             deal.pipeline_status = newColKey;
             if (reason) deal.discard_reason = reason;
@@ -723,17 +990,12 @@
             localStorage.setItem('bizacq_overrides_v1', JSON.stringify(this.overrides));
           }
 
-          // 2) Update manual order for the destination column
-          // Auto-switch to manual sort whenever user drags
           this.sortByCol[newColKey] = 'manual';
           localStorage.setItem('bizacq_sort_v1', JSON.stringify(this.sortByCol));
 
-          // Rebuild manual order array for the column
           const colDeals = this.deals.filter(d => d.pipeline_status === newColKey);
           let order = (this.manualOrder[newColKey] || []).filter(id => colDeals.find(d => d.id === id));
-          // Remove dealId if already in order
           order = order.filter(id => id !== dealId);
-          // Insert at proper position
           if (targetDealId && position === 'before') {
             const idx = order.indexOf(targetDealId);
             if (idx === -1) order.unshift(dealId); else order.splice(idx, 0, dealId);
@@ -741,22 +1003,15 @@
             const idx = order.indexOf(targetDealId);
             if (idx === -1) order.push(dealId); else order.splice(idx + 1, 0, dealId);
           } else {
-            order.push(dealId); // end
+            order.push(dealId);
           }
-          // Add any missing deals to the end so order is complete
-          for (const d of colDeals) {
-            if (!order.includes(d.id)) order.push(d.id);
-          }
+          for (const d of colDeals) if (!order.includes(d.id)) order.push(d.id);
           this.manualOrder[newColKey] = order;
           localStorage.setItem('bizacq_manual_v1', JSON.stringify(this.manualOrder));
 
-          // 3) Toast
           const shortTitle = deal.title.substring(0, 30) + (deal.title.length > 30 ? '…' : '');
-          if (!sameColumn) {
-            this.toast(`"${shortTitle}" → ${this.statusLabel(newColKey)}`);
-          } else {
-            this.toast(`"${shortTitle}" reordenado`);
-          }
+          if (!sameColumn) this.toast(`"${shortTitle}" → ${this.statusLabel(newColKey)}`);
+          else this.toast(`"${shortTitle}" reordenado`);
           this.deals = [...this.deals];
         },
 
@@ -768,7 +1023,6 @@
             if (ov.discard_reason) deal.discard_reason = ov.discard_reason;
           }
         },
-
         resetOverrides() {
           if (!confirm('Esto borra TODOS tus movimientos locales, reordenamientos manuales y preferencias de orden. ¿Continuar?')) return;
           localStorage.removeItem('bizacq_overrides_v1');
@@ -780,10 +1034,8 @@
           this.init();
           this.toast('Cambios locales borrados — vuelto al estado original');
         },
-
         copyOverridesForClaude() {
           const lines = [];
-          // Column changes
           for (const [id, ov] of Object.entries(this.overrides)) {
             const d = this.deals.find(x => x.id === id);
             const title = d?.title || id;
@@ -791,7 +1043,6 @@
             const reason = ov.discard_reason ? ` [razón: ${ov.discard_reason}]` : '';
             lines.push(`- "${title}" (id ${id.substring(0, 8)}): ${fromTo}${reason}`);
           }
-          // Manual reorders within columns (only if non-default)
           for (const [colKey, order] of Object.entries(this.manualOrder)) {
             if (!order || order.length === 0) continue;
             const colName = this.statusLabel(colKey);
@@ -809,7 +1060,6 @@
             window.prompt('Copia este texto y pégalo en tu chat con Claude:', text);
           }
         },
-
         toast(msg) {
           this.toastMsg = msg;
           clearTimeout(this._toastTimer);
