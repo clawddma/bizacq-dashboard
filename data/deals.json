@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 22:30 COT",
-  "version": "0.11.0-bizscout-listing-added",
+  "last_update": "2026-05-27 22:45 COT",
+  "version": "0.11.1-bizscout-inventory-confirmed",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -5459,7 +5459,7 @@
       "seller_financing": false,
       "sba_prequalified": false,
       "curated_source": true,
-      "raw_description": "Founded March 2025 (track record 14 meses). E-commerce skincare/beauty, formulaciones naturales, dropshipping. Revenue $631K, net profit $227K (36% margen — alto para e-commerce). 47K customer base, email marketing 18% conversion. Marketing: Google Ads + Meta Ads. Listing BizScout Exclusive.",
+      "raw_description": "Founded March 2025 (track record 14 meses). E-commerce skincare/beauty, formulaciones naturales, dropshipping. Revenue $631K, net profit $227K (36% margen — alto para e-commerce). 47K customer base, email marketing 18% conversion. Marketing: Google Ads + Meta Ads. Listing BizScout Exclusive. ⚠ INVENTORY DECLARADO: $14M USD (confirmado por Daniel con seller) — ratio inventory/asking 50.7x es extraordinario. SI el inventory es real y líquido, oportunidad masiva; SI es valorado al retail/MSRP o productos próximos a vencer, alerta máxima.",
       "pipeline_status": "RADAR",
       "filter_score": 25,
       "overall_score": 80.0,
@@ -5482,13 +5482,17 @@
         "self_financing_score": 85,
         "financial_score": 75,
         "risk_flags": [
-          "⚠ MÚLTIPLO 1.22x SDE — anómalamente BAJO vs rango e-commerce típico (2.5x-4x). Investigar por qué tan barato. Razones probables: track record solo 14 meses, dropshipping (poca defensibilidad), seller necesita exit rápido. Due diligence agresivo OBLIGATORIO antes de avanzar.",
-          "Solo 14 meses de operación (founded March 2025) — sin track record completo. SBA típicamente exige 2+ años.",
-          "Dropshipping model — barrera de entrada baja, competidores pueden copiar.",
-          "Inventory listado en $13,999,997 — claro typo del listing (debería ser ~$14K). Verificar inventario real con seller.",
-          "Sin info sobre repeat purchase rate específico ni retention de los 47K clientes."
+          "🔴 INVENTORY $14M USD DECLARADO — ratio 50.7x sobre asking. ESTA ES LA VARIABLE #1 A VERIFICAR. Si es real y líquido, este deal vale $4-10M (no $276K). Si es inflado/obsoleto/no transferible, el deal vale aún menos que el asking. Sin verificar inventory NO se firma nada.",
+          "Skincare tiene SHELF LIFE 12-36 meses. A revenue $631K/año, $14M de inventory tomaría 22 años en venderse — la mayoría EXPIRA antes. Si todo es skincare físico, gran parte del inventory es obsoleto contable.",
+          "Posible explicación 1: inventario valorado al MSRP retail (típicamente 3-5x el costo). Si está valorado al retail, costo real ~$3-5M, todavía gigante.",
+          "Posible explicación 2: incluye formulaciones propias, IP, branding, customer list — NO solo physical inventory. Pedir desglose en DD.",
+          "Posible explicación 3: pre-paid orders con suppliers / drop-ship commitments. Verificar si es propiedad libre o sujeta a obligaciones.",
+          "Posible explicación 4: error contable / sandbagging del seller para inflar balance sheet. Pedir auditoría de inventory con conteo físico.",
+          "Multiple 1.22x SDE sin contar inventory es razonable. Con inventory considerado, el múltiplo efectivo es absurdamente bajo o el deal está mal estructurado.",
+          "Solo 14 meses de operación (founded March 2025) — sin track record completo.",
+          "Dropshipping model declarado — INCONSISTENTE con tener $14M de physical inventory propio. Aclarar: ¿es realmente dropshipping (sin inventory) o sí tienen warehouse con stock?"
         ],
-        "plain_summary": "Negocio nuevo (14 meses) pero con números fuertes: genera $227 mil al año con margen 36% — alto para e-commerce. Pagas SOLO 1.22 años de ganancias, anómalamente barato vs el rango típico de e-commerce. Esa anomalía es la bandera roja más grande: investiga por qué tan barato antes de avanzar."
+        "plain_summary": "Negocio nuevo (14 meses) que genera $227 mil/año con margen 36% — bueno. PERO el dato más raro es: declaran $14 MILLONES de inventario para un negocio que vende $631K/año. Eso son 22 años de stock — imposible que sea todo vendible. Lo PRIMERO que tienes que hacer en DD es VERIFICAR físicamente qué es ese inventory: si la mitad es líquido, el deal vale $4-7M (no $276K). Si todo es obsoleto, el deal vale aún menos del asking."
       },
       "strategy": {
         "buy_thesis": [
@@ -5500,6 +5504,7 @@
         "ai_upside": {
           "score": 90,
           "opportunities": [
+            "PRIMERO: VERIFICAR INVENTORY. Si hay $14M de skincare real y vendible, la estrategia es comprar + liquidar inventory + vender el shell del negocio. Retorno potencial: 10-30x en 12-24 meses.",
             "AI personalization en el journey del cliente — proyección +25% AOV en skincare premium",
             "Subscription model con AI recomendando productos según skin profile del cliente",
             "UGC + influencer automation — escalar contenido sin agencia (skincare = TikTok native)",
@@ -5511,11 +5516,11 @@
         },
         "exit_profile": "Reventa a aggregator de marcas D2C (aunque varios débiles ahora) o estratégico de skincare. Path realista a 3 años: transitionar de dropshipping → private label, crecer revenue a $2-3M, vender a 3-4x SDE.",
         "red_flags": [
-          "Dropshipping = baja defensibilidad. Aggregators y estrategicos pagan PREMIUM por brands con private label/IP, descuento por dropshipping.",
-          "Track record 14 meses = el aggregator descuenta por falta de historial. Esperar 12-18 meses post-acquisition antes de exit serio."
+          "Dropshipping declarado + $14M inventory declarado son INCOMPATIBLES. Una de las dos cosas es incorrecta. Aclarar antes de LOI.",
+          "Si el seller pide $276K por un negocio con $14M de inventory real y profit $227K/año, hay 4 explicaciones probables y todas ameritan investigación: (1) inventory inflado, (2) inventory obsoleto, (3) productos no transferibles legalmente, (4) el seller necesita exit urgente y deja valor en mesa."
         ],
         "strategic_score": 60,
-        "plain_summary": "Negocio digital con tracción real pero todavía joven y sin barrera defensible (dropshipping). Si transicionas a private label y agregas IA en el customer journey, vale entre 2.5 y 4.5 veces lo que pagas en 3 años. El precio bajo te da margen para experimentar — pero ANTES verifica los números reales del vendedor."
+        "plain_summary": "Caso extremo de \"due diligence inventory primero, todo lo demás después\". Si el inventory es real ($14M USD), pagas $276K por activos físicos de mucho más valor — operación entera secundaria. Si inflado o expira, sales del deal sin firmar. El upside con IA está en segundo plano vs la pregunta básica: ¿qué hay realmente en el warehouse?"
       },
       "legal_check": {
         "done": true,
@@ -5540,6 +5545,12 @@
         ],
         "plain_summary": "E-commerce 100% viable migratoriamente. Sin restricciones de industria, sin necesidad de presencia física, operable remotamente. Tu Delaware LLC adquiere el brand vía asset purchase. Costo legal cierre ~$15-20K (más bajo que deals con brick-and-mortar).",
         "informative_requirements": [
+          {
+            "severity": "warning",
+            "icon": "📦",
+            "title": "DD del inventory de $14M es la variable #1 — antes que financiero o legal",
+            "detail": "Pedir al seller: (1) Inventory list completo por SKU con costo unitario y fecha de adquisición, (2) Warehouse address + auditoría física, (3) Shelf life report (productos próximos a vencer), (4) Verificación que el inventory es propiedad libre del business (no colateralizado, no pre-paid order). Sin esos 4 documentos, NO LOI."
+          },
           {
             "severity": "info",
             "icon": "🏛",
@@ -5607,9 +5618,20 @@
         {
           "created_at": "2026-05-27",
           "description": "⚠ Bandera: múltiplo 1.22x SDE es anómalamente bajo para e-commerce (típico 2.5x-4x). Investigación obligatoria antes de LOI."
+        },
+        {
+          "created_at": "2026-05-27",
+          "description": "🔴 Daniel confirmó: inventory DECLARADO es $14M USD. Esto re-cataloga el deal como \"inventory-first DD case\". Verificar físicamente antes de cualquier otro paso."
         }
       ],
-      "notes": []
+      "notes": [
+        {
+          "author": "Daniel",
+          "created_at": "2026-05-27",
+          "text": "Confirmé con info del listing: inventory es $14M USD. Reportar a socio para que veamos juntos. Antes de LOI: pedir desglose detallado del inventory (por SKU, costo unitario, fecha de adquisición, fecha de expiración) + warehouse address para auditoría física."
+        }
+      ],
+      "inventory_usd": 14000000
     }
   ],
   "manual_orders": {
