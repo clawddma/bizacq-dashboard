@@ -14,13 +14,71 @@
   .card-shadow { box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04); }
   .card-shadow:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); }
   [x-cloak] { display: none !important; }
+
+  /* Tooltips on acronyms */
+  .tt {
+    position: relative;
+    border-bottom: 1px dotted #94a3b8;
+    cursor: help;
+    font-weight: inherit;
+  }
+  .tt::after {
+    content: '?';
+    font-size: 9px;
+    vertical-align: super;
+    margin-left: 1px;
+    color: #94a3b8;
+    font-weight: 700;
+  }
+  .tt:hover::before, .tt:focus::before, .tt.tt-active::before {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 400;
+    white-space: normal;
+    width: 240px;
+    line-height: 1.45;
+    z-index: 1000;
+    text-align: left;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  }
+
+  /* Drag and drop visuals */
+  .dragging { opacity: .4 !important; transform: scale(.97); cursor: grabbing !important; }
+  .draggable { cursor: grab; }
+  .draggable:active { cursor: grabbing; }
+  .kcol.drag-over .kcol-body { background-color: #eff6ff; border-radius: 4px; outline: 2px dashed #60a5fa; outline-offset: -4px; }
+
+  /* Toast */
+  .toast {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: #1e293b; color: white; padding: 10px 16px; border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25); z-index: 200;
+    font-size: 13px; max-width: 90vw; text-align: center;
+  }
+
+  /* Mobile: prevent text selection while dragging */
+  @media (hover: none) {
+    .draggable { -webkit-user-select: none; user-select: none; }
+  }
 </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen" x-data="dashboard()" x-init="init()">
 
+  <!-- Toast -->
+  <div x-show="toastMsg" x-transition class="toast" x-text="toastMsg" x-cloak></div>
+
   <!-- Header -->
   <header class="bg-white border-b border-slate-200">
-    <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between flex-wrap gap-3">
       <div>
         <h1 class="text-xl font-bold text-slate-900">BizAcq <span class="text-slate-400 font-normal">Intelligence</span></h1>
         <p class="text-xs text-slate-500 mt-0.5">Texas &amp; Florida · Negocios con caja desde el día 1, financiables solos, con upside de IA</p>
@@ -32,6 +90,29 @@
       </div>
     </div>
   </header>
+
+  <!-- Local-changes banner -->
+  <div x-show="overrideCount > 0" x-cloak
+    class="bg-amber-50 border-b border-amber-200">
+    <div class="max-w-screen-2xl mx-auto px-6 py-2 flex items-center justify-between flex-wrap gap-2">
+      <p class="text-xs text-amber-900">
+        Tienes <strong x-text="overrideCount"></strong>
+        <span x-text="overrideCount === 1 ? 'movimiento local' : 'movimientos locales'"></span>
+        no guardado<span x-text="overrideCount === 1 ? '' : 's'"></span> al servidor.
+        Esto solo lo ves tú en este navegador.
+      </p>
+      <div class="flex items-center gap-2">
+        <button @click="copyOverridesForClaude()"
+          class="text-xs bg-amber-700 hover:bg-amber-800 text-white px-3 py-1 rounded font-medium">
+          Copiar para pegarle a Claude
+        </button>
+        <button @click="resetOverrides()"
+          class="text-xs text-amber-800 hover:text-amber-950 underline">
+          deshacer todo
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Filters bar -->
   <div class="bg-white border-b border-slate-200">
@@ -60,11 +141,11 @@
         <span class="text-xs text-slate-500 font-medium">Financiamiento:</span>
         <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer">
           <input type="checkbox" x-model="filters.sellerFinancing" class="rounded border-slate-300">
-          Seller financing
+          <span class="tt" data-tip="Seller Financing: el vendedor te financia parte del precio (cobra a plazos). Reduce el cash inicial que pones de tu bolsillo.">Seller financing</span>
         </label>
         <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer">
           <input type="checkbox" x-model="filters.sbaEligible" class="rounded border-slate-300">
-          SBA elegible
+          <span class="tt" data-tip="SBA (Small Business Administration): agencia del gobierno de EE.UU. que garantiza créditos para comprar negocios. Hasta 90% del precio financiado con SBA 7(a).">SBA elegible</span>
         </label>
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
@@ -77,9 +158,13 @@
 
   <!-- Kanban -->
   <main class="max-w-screen-2xl mx-auto px-6 py-6">
-    <div class="grid grid-cols-6 gap-3 min-h-[calc(100vh-180px)]" x-cloak>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 min-h-[calc(100vh-220px)]" x-cloak>
       <template x-for="col in columns" :key="col.key">
-        <div class="bg-white rounded-lg border border-slate-200 flex flex-col">
+        <div class="kcol bg-white rounded-lg border border-slate-200 flex flex-col"
+          :class="{'drag-over': dragOverCol === col.key}"
+          @dragover.prevent="allowDrop(col.key, $event)"
+          @dragleave="dragOverCol = null"
+          @drop.prevent="dropOnCol(col.key, $event)">
           <!-- Column header -->
           <div class="px-3 py-2.5 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white rounded-t-lg z-10">
             <div class="flex items-center gap-2">
@@ -89,10 +174,13 @@
             <span class="text-xs text-slate-400 font-medium" x-text="dealsByStatus(col.key).length"></span>
           </div>
           <!-- Cards -->
-          <div class="flex-1 overflow-y-auto scrollbar-thin p-2 space-y-2">
+          <div class="kcol-body flex-1 overflow-y-auto scrollbar-thin p-2 space-y-2 min-h-[100px]">
             <template x-for="deal in dealsByStatus(col.key)" :key="deal.id">
-              <div @click="openDeal(deal)"
-                class="bg-white border border-slate-200 rounded-md p-3 cursor-pointer card-shadow transition group">
+              <div draggable="true"
+                @dragstart="dragStart(deal, $event)"
+                @dragend="dragEnd($event)"
+                @click="openDeal(deal)"
+                class="draggable bg-white border border-slate-200 rounded-md p-3 card-shadow transition group">
                 <div class="flex items-start justify-between gap-2 mb-2">
                   <h3 class="text-sm font-semibold text-slate-900 leading-tight group-hover:text-slate-700" x-text="deal.title"></h3>
                   <span class="shrink-0 text-xs font-bold px-1.5 py-0.5 rounded"
@@ -106,19 +194,21 @@
                     <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
                   </div>
                   <div x-show="deal.reported_sde">
-                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">SDE</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-wide">
+                      <span class="tt" data-tip="SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre.">SDE</span>
+                    </p>
                     <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde)"></p>
                   </div>
                 </div>
                 <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
-                  <div class="flex items-center gap-1">
+                  <div class="flex items-center gap-1 flex-wrap">
                     <span x-show="deal.priority" class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase"
                       :class="priorityClass(deal.priority)"
                       x-text="priorityLabel(deal.priority)"></span>
-                    <span x-show="deal.seller_financing" title="Seller financing"
-                      class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium">SF</span>
-                    <span x-show="deal.sba_prequalified" title="SBA elegible"
-                      class="text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium">SBA</span>
+                    <span x-show="deal.seller_financing" class="tt text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium"
+                      data-tip="Seller Financing: el vendedor te financia parte del precio (cobra a plazos).">SF</span>
+                    <span x-show="deal.sba_prequalified" class="tt text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium"
+                      data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios (hasta 90% del precio).">SBA</span>
                     <span x-show="deal.curated_source" title="Listado pre-validado"
                       class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
                   </div>
@@ -126,18 +216,22 @@
                     <span class="text-base font-bold" :class="scoreColor(deal.overall_score)" x-text="Math.round(deal.overall_score)"></span>
                   </div>
                 </div>
-                <div x-show="deal.alert" class="mt-2 text-[10px] text-red-700 bg-red-50 px-2 py-1 rounded font-medium"
-                  x-text="deal.alert"></div>
               </div>
             </template>
-            <p x-show="dealsByStatus(col.key).length === 0" class="text-center text-xs text-slate-300 py-8">vacío</p>
+            <p x-show="dealsByStatus(col.key).length === 0" class="text-center text-xs text-slate-300 py-8">
+              vacío<br><span class="text-[10px]">arrastra una card aquí</span>
+            </p>
           </div>
         </div>
       </template>
     </div>
+    <p class="text-[11px] text-slate-400 text-center mt-4">
+      💡 Arrastra las cards entre columnas para mover deals. Los movimientos se guardan en tu navegador.
+      Cuando estés listo, dale al botón "copiar para Claude" en la barra amarilla para fijarlos.
+    </p>
   </main>
 
-  <!-- Detail panel (slide-in) -->
+  <!-- Detail panel -->
   <div x-show="selectedDeal" x-cloak
     x-transition.opacity
     class="fixed inset-0 bg-slate-900/40 z-40"
@@ -156,7 +250,7 @@
           <!-- Detail header -->
           <div class="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-start justify-between z-10">
             <div class="flex-1 pr-4">
-              <div class="flex items-center gap-2 mb-1">
+              <div class="flex items-center gap-2 mb-1 flex-wrap">
                 <span class="text-xs font-bold px-1.5 py-0.5 rounded"
                   :class="selectedDeal.state === 'TX' ? 'bg-red-50 text-red-700' : 'bg-orange-50 text-orange-700'"
                   x-text="selectedDeal.state"></span>
@@ -170,7 +264,7 @@
                 <a :href="selectedDeal.source_url" target="_blank" rel="noopener" class="hover:underline" x-text="`Listing original (${selectedDeal.source}) ↗`"></a>
               </p>
             </div>
-            <button @click="closeDeal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none">×</button>
+            <button @click="closeDeal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none w-8 h-8 flex items-center justify-center">×</button>
           </div>
 
           <div class="px-6 py-5 space-y-6">
@@ -195,10 +289,10 @@
             <section>
               <h3 class="text-sm font-bold text-slate-900 mb-2">¿Qué es este negocio?</h3>
               <div class="text-sm text-slate-700 space-y-1">
-                <p><strong>Tipo:</strong> <span x-text="selectedDeal.business_type"></span></p>
+                <p><strong>Tipo:</strong> <span x-html="withTips(selectedDeal.business_type)"></span></p>
                 <p><strong>Ubicación:</strong> <span x-text="`${selectedDeal.city}, ${selectedDeal.state}`"></span></p>
                 <p x-show="selectedDeal.years_operation"><strong>Años en operación:</strong> <span x-text="selectedDeal.years_operation"></span></p>
-                <p x-show="selectedDeal.raw_description" class="text-slate-600 mt-2" x-text="selectedDeal.raw_description"></p>
+                <p x-show="selectedDeal.raw_description" class="text-slate-600 mt-2" x-html="withTips(selectedDeal.raw_description)"></p>
               </div>
             </section>
 
@@ -206,17 +300,19 @@
             <section x-show="selectedDeal.financial">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Los números clave</h3>
               <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 mb-3 rounded-r">
-                <p class="text-sm text-slate-800 leading-relaxed" x-text="selectedDeal.financial?.plain_summary"></p>
+                <p class="text-sm text-slate-800 leading-relaxed" x-html="withTips(selectedDeal.financial?.plain_summary)"></p>
               </div>
               <div class="grid grid-cols-2 gap-2 text-sm">
                 <div class="bg-slate-50 p-2 rounded">
-                  <p class="text-xs text-slate-500">Pagas <span x-text="(selectedDeal.asking_price / selectedDeal.reported_sde).toFixed(1)"></span> años de ganancias</p>
+                  <p class="text-xs text-slate-500">Pagas <strong x-text="(selectedDeal.asking_price / selectedDeal.reported_sde).toFixed(1)"></strong> años de ganancias por el negocio</p>
                 </div>
                 <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.dscr">
-                  <p class="text-xs text-slate-500">Por cada $1 de deuda, genera $<strong class="text-slate-900" x-text="selectedDeal.financial?.dscr.toFixed(2)"></strong></p>
+                  <p class="text-xs text-slate-500">Por cada $1 de deuda, genera $<strong class="text-slate-900" x-text="selectedDeal.financial?.dscr.toFixed(2)"></strong>
+                    <span class="tt text-slate-400" data-tip="DSCR (Debt Service Coverage Ratio): cuántas veces el negocio cubre la cuota de la deuda. Arriba de 1.25x = se paga solo con margen.">(DSCR)</span>
+                  </p>
                 </div>
                 <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.cash_on_cash_y1">
-                  <p class="text-xs text-slate-500">Recuperas <strong class="text-slate-900" x-text="`${(selectedDeal.financial?.cash_on_cash_y1 * 100).toFixed(0)}%`"></strong> año 1</p>
+                  <p class="text-xs text-slate-500">Recuperas <strong class="text-slate-900" x-text="`${(selectedDeal.financial?.cash_on_cash_y1 * 100).toFixed(0)}%`"></strong> año 1 de lo que pones de tu bolsillo</p>
                 </div>
                 <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.payback_years">
                   <p class="text-xs text-slate-500">Recuperas tu plata en ~<strong class="text-slate-900" x-text="`${selectedDeal.financial?.payback_years} años`"></strong></p>
@@ -230,8 +326,8 @@
               <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r">
                 <div class="flex items-center gap-1 mb-2">
                   <template x-for="part in structureParts(selectedDeal)" :key="part.label">
-                    <div class="text-xs px-2 py-1 rounded font-medium" :class="part.color" :style="`flex: ${part.pct}`">
-                      <strong x-text="`${part.pct}%`"></strong> <span x-text="part.label"></span>
+                    <div class="text-xs px-2 py-1 rounded font-medium text-center" :class="part.color" :style="`flex: ${part.pct}`">
+                      <strong x-text="`${part.pct}%`"></strong> <span x-html="part.labelHtml"></span>
                     </div>
                   </template>
                 </div>
@@ -240,7 +336,7 @@
                 </p>
                 <div class="mt-2 flex gap-2 flex-wrap text-[11px]">
                   <span x-show="selectedDeal.seller_financing" class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-medium">El vendedor te financia parte</span>
-                  <span x-show="selectedDeal.financial?.sba_eligible" class="px-2 py-0.5 bg-purple-100 text-purple-700 rounded font-medium">Califica crédito SBA</span>
+                  <span x-show="selectedDeal.financial?.sba_eligible" class="px-2 py-0.5 bg-purple-100 text-purple-700 rounded font-medium">Califica crédito <span class="tt" data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios — hasta 90% del precio.">SBA</span></span>
                 </div>
               </div>
             </section>
@@ -253,7 +349,7 @@
                   <span class="text-xs text-purple-700 font-semibold uppercase">Upside score</span>
                   <span class="text-2xl font-bold text-purple-900" x-text="Math.round(selectedDeal.strategy?.ai_upside?.score)"></span>
                 </div>
-                <p class="text-sm text-slate-800 leading-relaxed" x-text="selectedDeal.strategy?.plain_summary"></p>
+                <p class="text-sm text-slate-800 leading-relaxed" x-html="withTips(selectedDeal.strategy?.plain_summary)"></p>
                 <p class="text-xs text-purple-700 mt-2">
                   En 3 años podría valer entre
                   <strong x-text="`${selectedDeal.strategy?.ai_upside?.value_multiplier_low}x`"></strong> y
@@ -264,7 +360,7 @@
               <p class="text-xs font-semibold text-slate-700 mb-1">Oportunidades concretas:</p>
               <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
                 <template x-for="op in selectedDeal.strategy?.ai_upside?.opportunities" :key="op">
-                  <li x-text="op"></li>
+                  <li x-html="withTips(op)"></li>
                 </template>
               </ul>
             </section>
@@ -274,22 +370,28 @@
               <h3 class="text-sm font-bold text-slate-900 mb-2">Por qué comprarlo</h3>
               <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
                 <template x-for="t in selectedDeal.strategy?.buy_thesis" :key="t">
-                  <li x-text="t"></li>
+                  <li x-html="withTips(t)"></li>
                 </template>
               </ul>
             </section>
 
             <!-- Risks -->
-            <section x-show="selectedDeal.financial?.risk_flags?.length || selectedDeal.strategy?.red_flags?.length">
+            <section x-show="(selectedDeal.financial?.risk_flags?.length) || (selectedDeal.strategy?.red_flags?.length)">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Riesgos a tener en cuenta</h3>
               <ul class="text-sm text-slate-700 space-y-1.5">
                 <template x-for="r in [...(selectedDeal.financial?.risk_flags || []), ...(selectedDeal.strategy?.red_flags || [])]" :key="r">
                   <li class="flex gap-2 items-start">
                     <span class="text-red-500 mt-0.5">▸</span>
-                    <span x-text="r"></span>
+                    <span x-html="withTips(r)"></span>
                   </li>
                 </template>
               </ul>
+            </section>
+
+            <!-- Discard reason -->
+            <section x-show="selectedDeal.discard_reason">
+              <h3 class="text-sm font-bold text-red-700 mb-2">Razón de descarte</h3>
+              <p class="text-sm text-slate-700 bg-red-50 border-l-4 border-red-500 p-3 rounded-r" x-text="selectedDeal.discard_reason"></p>
             </section>
 
             <!-- Notes -->
@@ -309,15 +411,15 @@
             <section x-show="selectedDeal.events?.length">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Historial</h3>
               <ul class="text-xs text-slate-600 space-y-1">
-                <template x-for="e in selectedDeal.events" :key="e.created_at">
-                  <li class="flex gap-2"><span class="text-slate-400" x-text="e.created_at"></span><span x-text="e.description"></span></li>
+                <template x-for="e in selectedDeal.events" :key="e.created_at + e.description">
+                  <li class="flex gap-2"><span class="text-slate-400 shrink-0" x-text="e.created_at"></span><span x-html="withTips(e.description)"></span></li>
                 </template>
               </ul>
             </section>
 
             <p class="text-[11px] text-slate-400 text-center pt-4 border-t border-slate-100">
-              Para mover este deal a otro estado, agregar una nota, o descartarlo, dile a Claude:<br>
-              <span class="italic">"mueve el deal <strong x-text="selectedDeal.id?.slice(0,8)"></strong> a PARA_CONTACTAR"</span> o <span class="italic">"agrega nota: ..."</span>
+              Para agregar una nota o cambiar algo más complejo, dile a Claude:
+              <br><span class="italic">"agrega nota al deal <strong x-text="selectedDeal.id?.slice(0,8)"></strong>: …"</span>
             </p>
           </div>
         </div>
@@ -326,11 +428,55 @@
   </div>
 
   <script>
+    // ─── Glossary for tooltips ───────────────────────────────────
+    const GLOSSARY = {
+      'SDE':    "SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre.",
+      'DSCR':   "DSCR (Debt Service Coverage Ratio): cuántas veces el negocio cubre la cuota de la deuda. Arriba de 1.25x = se paga solo con margen.",
+      'SBA':    "SBA (Small Business Administration): agencia federal de EE.UU. que garantiza créditos para comprar pequeños negocios. SBA 7(a) financia hasta 90% del precio.",
+      'EBITDA': "EBITDA: ganancia operativa antes de intereses, impuestos, depreciación y amortización. Mide cuánto genera la operación pura.",
+      'IRR':    "IRR (Internal Rate of Return): retorno anual compuesto del proyecto considerando todos los flujos de caja en el tiempo.",
+      'ROI':    "ROI (Return on Investment): retorno sobre lo que invertiste, expresado como porcentaje.",
+      'LOI':    "LOI (Letter of Intent): carta de intención — primer acuerdo no vinculante con el vendedor para empezar negociación seria y due diligence.",
+      'DSO':    "DSO (Dental Service Organization): empresa que consolida consultorios dentales — paga premium por prácticas con sistemas claros.",
+      'D2C':    "D2C (Direct to Consumer): marca que vende directo al consumidor sin intermediarios (típico de e-commerce moderno).",
+      'CAC':    "CAC (Customer Acquisition Cost): cuánto te cuesta conseguir un cliente nuevo. Métrica clave en e-commerce y SaaS.",
+      'LTV':    "LTV (Lifetime Value): cuánto te genera un cliente en toda su vida útil. Sano cuando LTV/CAC > 3x.",
+      'HVAC':   "HVAC (Heating, Ventilation, Air Conditioning): empresas de calefacción, ventilación y aire acondicionado — servicio esencial, demanda estable.",
+      'TPCL':   "TPCL (Texas Pest Control License): licencia obligatoria en Texas para operar control de plagas. Barrera de entrada para nuevos competidores.",
+      'CEREC':  "CEREC: tecnología dental para hacer restauraciones cerámicas (coronas, carillas) en la consulta el mismo día, sin laboratorio externo.",
+      'CRM':    "CRM (Customer Relationship Management): software para manejar la relación con clientes — historial, comunicaciones, ventas.",
+      'PE':     "PE (Private Equity): fondos que compran empresas para mejorarlas y revenderlas en 3-7 años con utilidad.",
+      'IoT':    "IoT (Internet of Things): dispositivos físicos conectados a internet que envían datos (sensores, trampas inteligentes, equipos monitoreados).",
+      'M&A':    "M&A (Mergers & Acquisitions): fusiones y adquisiciones de empresas.",
+      'ML':     "ML (Machine Learning): rama de IA donde el software aprende patrones de datos históricos para predecir o automatizar decisiones.",
+      'KPI':    "KPI (Key Performance Indicator): métrica clave que mide el desempeño de un negocio o área.",
+      'SaaS':   "SaaS (Software as a Service): software vendido por suscripción mensual/anual. Ingresos recurrentes, alta valoración.",
+      'SEO':    "SEO (Search Engine Optimization): técnicas para posicionar contenido alto en Google y atraer tráfico orgánico (sin pagar publicidad).",
+    };
+
+    // Wrap known acronyms in <span class="tt"> for tooltip display.
+    function withTips(text) {
+      if (!text) return '';
+      let out = String(text);
+      // Process in length-desc order so M&A doesn't get partially matched before HVAC etc.
+      const keys = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
+      for (const k of keys) {
+        const escaped = k.replace(/[.*+?^${}()|[\]\\&]/g, '\\$&');
+        const re = new RegExp(`\\b${escaped}\\b`, 'g');
+        out = out.replace(re, m => `<span class="tt" data-tip="${GLOSSARY[k].replace(/"/g, '&quot;')}">${m}</span>`);
+      }
+      return out;
+    }
+
     function dashboard() {
       return {
         deals: [],
         lastUpdate: '—',
         selectedDeal: null,
+        toastMsg: null,
+        draggingId: null,
+        dragOverCol: null,
+        overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         filters: { state: 'Todos', priority: 'Todas', sellerFinancing: false, sbaEligible: false },
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
@@ -340,19 +486,28 @@
           { key: 'CIERRE',          label: 'Cierre',         dot: 'bg-purple-400' },
           { key: 'DESCARTADO',      label: 'Descartado',     dot: 'bg-red-300' },
         ],
+
         async init() {
           try {
             const res = await fetch('data/deals.json?_=' + Date.now());
             const data = await res.json();
             this.deals = data.deals || [];
             this.lastUpdate = data.last_update || '—';
+            this.applyOverrides();
           } catch (e) {
             console.error('Error loading deals.json', e);
             this.deals = [];
           }
         },
+
+        // ─── Helpers ──────────────────────────────────────
+        withTips(t) { return withTips(t); },
         get totalDeals() { return this.deals.length; },
         get filteredCount() { return this.deals.filter(d => this.passesFilters(d)).length; },
+        get overrideCount() { return Object.keys(this.overrides).length; },
+        statusLabel(s) {
+          return this.columns.find(c => c.key === s)?.label || s;
+        },
         passesFilters(d) {
           if (this.filters.state !== 'Todos' && d.state !== this.filters.state) return false;
           if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
@@ -365,9 +520,15 @@
             .filter(d => d.pipeline_status === status && this.passesFilters(d))
             .sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
         },
-        openDeal(deal) { this.selectedDeal = deal; document.body.style.overflow = 'hidden'; },
+        openDeal(deal) {
+          if (this.draggingId) return;
+          this.selectedDeal = deal;
+          document.body.style.overflow = 'hidden';
+        },
         closeDeal() { this.selectedDeal = null; document.body.style.overflow = ''; },
         resetFilters() { this.filters = { state: 'Todos', priority: 'Todas', sellerFinancing: false, sbaEligible: false }; },
+
+        // ─── Formatting ────────────────────────────────────
         fmtPrice(v) {
           if (v == null) return '—';
           if (v >= 1_000_000) return `$${(v/1_000_000).toFixed(1)}M`;
@@ -392,11 +553,103 @@
           const s = deal.financial?.suggested_structure;
           if (!s) return [];
           const parts = [];
-          if (s.equity_pct) parts.push({ label: 'tuyo', pct: s.equity_pct, color: 'bg-slate-200 text-slate-800' });
-          if (s.sba_loan_pct) parts.push({ label: 'SBA', pct: s.sba_loan_pct, color: 'bg-purple-200 text-purple-800' });
-          if (s.seller_note_pct) parts.push({ label: 'vendedor', pct: s.seller_note_pct, color: 'bg-blue-200 text-blue-800' });
-          if (s.bank_loan_pct) parts.push({ label: 'banco', pct: s.bank_loan_pct, color: 'bg-emerald-200 text-emerald-800' });
+          if (s.equity_pct) parts.push({ pct: s.equity_pct, color: 'bg-slate-200 text-slate-800', labelHtml: 'tuyo' });
+          if (s.sba_loan_pct) parts.push({ pct: s.sba_loan_pct, color: 'bg-purple-200 text-purple-800', labelHtml: '<span class="tt" data-tip="SBA: crédito federal hasta 90% del precio.">SBA</span>' });
+          if (s.seller_note_pct) parts.push({ pct: s.seller_note_pct, color: 'bg-blue-200 text-blue-800', labelHtml: 'vendedor' });
+          if (s.bank_loan_pct) parts.push({ pct: s.bank_loan_pct, color: 'bg-emerald-200 text-emerald-800', labelHtml: 'banco' });
           return parts;
+        },
+
+        // ─── Drag and drop ─────────────────────────────────
+        dragStart(deal, e) {
+          e.dataTransfer.setData('text/plain', deal.id);
+          e.dataTransfer.effectAllowed = 'move';
+          this.draggingId = deal.id;
+          e.target.classList.add('dragging');
+        },
+        dragEnd(e) {
+          e.target.classList.remove('dragging');
+          // Defer reset so click handler can suppress
+          setTimeout(() => { this.draggingId = null; }, 100);
+          this.dragOverCol = null;
+        },
+        allowDrop(colKey, e) {
+          if (!this.draggingId) return;
+          e.dataTransfer.dropEffect = 'move';
+          this.dragOverCol = colKey;
+        },
+        dropOnCol(colKey, e) {
+          this.dragOverCol = null;
+          const dealId = e.dataTransfer.getData('text/plain') || this.draggingId;
+          if (!dealId) return;
+          this.moveDeal(dealId, colKey);
+        },
+        moveDeal(dealId, newStatus) {
+          const idx = this.deals.findIndex(d => d.id === dealId);
+          if (idx === -1) return;
+          const deal = this.deals[idx];
+          if (deal.pipeline_status === newStatus) return;
+
+          let reason = null;
+          if (newStatus === 'DESCARTADO') {
+            reason = prompt('¿Por qué descartas este deal? (esta razón se guarda)');
+            if (!reason || !reason.trim()) return;
+            reason = reason.trim();
+          }
+
+          const oldStatus = deal.pipeline_status;
+          deal.pipeline_status = newStatus;
+          if (reason) deal.discard_reason = reason;
+
+          this.overrides[dealId] = {
+            pipeline_status: newStatus,
+            discard_reason: reason,
+            moved_at: new Date().toISOString(),
+            previous_status: oldStatus,
+          };
+          localStorage.setItem('bizacq_overrides_v1', JSON.stringify(this.overrides));
+          this.toast(`"${deal.title.substring(0, 35)}${deal.title.length > 35 ? '…' : ''}" → ${this.statusLabel(newStatus)}`);
+          // Trigger Alpine reactivity
+          this.deals = [...this.deals];
+        },
+        applyOverrides() {
+          for (const [dealId, ov] of Object.entries(this.overrides)) {
+            const deal = this.deals.find(d => d.id === dealId);
+            if (!deal) continue;
+            if (ov.pipeline_status) deal.pipeline_status = ov.pipeline_status;
+            if (ov.discard_reason) deal.discard_reason = ov.discard_reason;
+          }
+        },
+        resetOverrides() {
+          if (!confirm('Esto borra todos tus movimientos locales y vuelve al estado del servidor. ¿Continuar?')) return;
+          localStorage.removeItem('bizacq_overrides_v1');
+          this.overrides = {};
+          this.init();
+          this.toast('Movimientos locales borrados — vuelto al estado original');
+        },
+        copyOverridesForClaude() {
+          const lines = Object.entries(this.overrides).map(([id, ov]) => {
+            const d = this.deals.find(x => x.id === id);
+            const title = d?.title || id;
+            const fromTo = `${ov.previous_status || '?'} → ${ov.pipeline_status}`;
+            const reason = ov.discard_reason ? ` [razón: ${ov.discard_reason}]` : '';
+            return `- "${title}" (id ${id.substring(0, 8)}): ${fromTo}${reason}`;
+          }).join('\n');
+          const text = `Quiero fijar estos cambios al deals.json del proyecto BizAcq:\n\n${lines}\n\nActualiza los pipeline_status, agrega los eventos correspondientes, y commitéalo.`;
+          if (navigator.clipboard?.writeText) {
+            navigator.clipboard.writeText(text);
+            this.toast('✓ Copiado — pégalo en tu chat con Claude');
+          } else {
+            // Fallback: open prompt window
+            window.prompt('Copia este texto y pégalo en tu chat con Claude:', text);
+          }
+        },
+
+        // ─── Toast ─────────────────────────────────────────
+        toast(msg) {
+          this.toastMsg = msg;
+          clearTimeout(this._toastTimer);
+          this._toastTimer = setTimeout(() => { this.toastMsg = null; }, 3500);
         },
       };
     }

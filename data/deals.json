@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-05-27 12:30 COT",
-  "version": "0.1.0-seed",
-  "note": "Datos seed generados manualmente para validar UX. Próxima iteración: data real desde scrapers.",
+  "last_update": "2026-05-27 13:45 COT",
+  "version": "0.2.0-seed",
+  "note": "Datos seed para validar UX. Todos los deals están en RADAR — falta tu evaluación humana antes de moverlos a otras columnas. El restaurante cubano fue auto-descartado por el filtro (múltiplo > 4.5x).",
   "deals": [
     {
       "id": "a1b2c3d4-1111-4000-8000-000000000001",
@@ -19,7 +19,7 @@
       "sba_prequalified": true,
       "curated_source": false,
       "raw_description": "Empresa de HVAC con 12 años en operación, base de 1,800 clientes recurrentes con contratos de mantenimiento anual. 8 técnicos + 2 admin. Flota propia de 6 vehículos. Dueño se retira por edad — quiere transición de 6 meses.",
-      "pipeline_status": "EN_ANALISIS",
+      "pipeline_status": "RADAR",
       "filter_score": 60,
       "overall_score": 84,
       "priority": "ALTA",
@@ -72,8 +72,7 @@
         {"created_at": "2026-05-20", "description": "Encontrado en BizBuySell"},
         {"created_at": "2026-05-20", "description": "Pasó filtros automáticos → RADAR"},
         {"created_at": "2026-05-22", "description": "Análisis financiero completado (score 82)"},
-        {"created_at": "2026-05-22", "description": "Análisis estratégico completado (score 80)"},
-        {"created_at": "2026-05-23", "description": "Movido a EN_ANALISIS automáticamente (overall 84 ≥ 80)"}
+        {"created_at": "2026-05-22", "description": "Análisis estratégico completado (score 80)"}
       ],
       "notes": []
     },
@@ -93,7 +92,7 @@
       "sba_prequalified": false,
       "curated_source": true,
       "raw_description": "Med spa con 6 años en zona premium de Coral Gables. 4 cabinas, equipo de láser nuevo (2024). Base de 950 clientes activos, 35% retornan trimestralmente. Médico director con contrato a 3 años. Dueña se muda fuera del estado.",
-      "pipeline_status": "PARA_CONTACTAR",
+      "pipeline_status": "RADAR",
       "filter_score": 65,
       "overall_score": 81,
       "priority": "ALTA",
@@ -143,14 +142,10 @@
         "plain_summary": "Buen activo en mercado premium con marca real. Si modernizas el CRM y aprovechas la marca en redes, vale entre 2 y 2.8 veces lo que pagas en 3 años. La transición del médico director es el tema crítico — esa conversación tiene que pasar antes de firmar."
       },
       "events": [
-        {"created_at": "2026-05-15", "description": "Encontrado en BizScout (curated)"},
-        {"created_at": "2026-05-15", "description": "Bonus +10 filter_score por fuente curada"},
-        {"created_at": "2026-05-16", "description": "Análisis completado (overall 81)"},
-        {"created_at": "2026-05-21", "description": "Daniel movió a PARA_CONTACTAR"}
+        {"created_at": "2026-05-15", "description": "Encontrado en BizScout (fuente curada — bonus +10)"},
+        {"created_at": "2026-05-16", "description": "Análisis completado (overall 81 — ALTA)"}
       ],
-      "notes": [
-        {"author": "Daniel", "created_at": "2026-05-21 10:30", "text": "Le escribí al broker. Espera respuesta esta semana."}
-      ]
+      "notes": []
     },
     {
       "id": "a1b2c3d4-3333-4000-8000-000000000003",
@@ -220,7 +215,7 @@
       "events": [
         {"created_at": "2026-05-23", "description": "Encontrado en BizBuySell"},
         {"created_at": "2026-05-23", "description": "Pasó filtros → RADAR"},
-        {"created_at": "2026-05-24", "description": "Análisis completado automáticamente (filter_score 55, debajo del umbral 70)"}
+        {"created_at": "2026-05-24", "description": "Análisis completado (filter_score 55 — debajo de umbral 70 pero igual analizado por interés)"}
       ],
       "notes": []
     },
@@ -290,9 +285,8 @@
         "plain_summary": "Negocio defensivo con barrera regulatoria — difícil que nuevos entren rápido. Si metes tecnología en cuentas comerciales y reduces el churn con automatización, vale entre 2.2 y 3 veces lo que pagas en 3 años. El sector se está consolidando — exit a multinacional es probable."
       },
       "events": [
-        {"created_at": "2026-05-24", "description": "Encontrado en BizScout (curated)"},
-        {"created_at": "2026-05-24", "description": "Bonus +10 filter_score por fuente curada"},
-        {"created_at": "2026-05-25", "description": "Análisis completado automáticamente (filter_score 70 ≥ umbral)"}
+        {"created_at": "2026-05-24", "description": "Encontrado en BizScout (fuente curada — bonus +10)"},
+        {"created_at": "2026-05-25", "description": "Análisis completado (overall 79 — MEDIA)"}
       ],
       "notes": []
     },
@@ -343,7 +337,7 @@
       "events": [
         {"created_at": "2026-05-22", "description": "Encontrado en BizBuySell"},
         {"created_at": "2026-05-22", "description": "Pasó filtros → RADAR"},
-        {"created_at": "2026-05-23", "description": "Análisis financiero completado (score 55, debajo del umbral 55 para estrategia)"}
+        {"created_at": "2026-05-23", "description": "Análisis financiero (score 55, no se hizo estratégico por estar al límite del umbral)"}
       ],
       "notes": []
     },
@@ -363,7 +357,7 @@
       "sba_prequalified": true,
       "curated_source": false,
       "raw_description": "Consultorio dental general + cosmética. 9 años, 3 sillas, 2 higienistas, recepción. Dueño dentista que se va a docencia universitaria. Base de 2,800 pacientes activos, 70% retornan anualmente. Equipo CEREC.",
-      "pipeline_status": "EN_NEGOCIACION",
+      "pipeline_status": "RADAR",
       "filter_score": 65,
       "overall_score": 87,
       "priority": "ALTA",
@@ -414,14 +408,10 @@
       },
       "events": [
         {"created_at": "2026-05-10", "description": "Encontrado en BizBuySell"},
-        {"created_at": "2026-05-10", "description": "Análisis completado (overall 87 → prioridad ALTA, EN_ANALISIS automático)"},
-        {"created_at": "2026-05-13", "description": "Daniel movió a PARA_CONTACTAR"},
-        {"created_at": "2026-05-18", "description": "Daniel movió a EN_NEGOCIACION"}
+        {"created_at": "2026-05-10", "description": "Pasó filtros → RADAR"},
+        {"created_at": "2026-05-12", "description": "Análisis completado (overall 87 — ALTA)"}
       ],
-      "notes": [
-        {"author": "Daniel", "created_at": "2026-05-18 14:00", "text": "Primera llamada con el dueño. Está abierto a SBA + 10% seller note. Pide tour la próxima semana."},
-        {"author": "Socio", "created_at": "2026-05-20 09:15", "text": "Ya hablé con dos dentistas asociados potenciales. Uno cobra 30% revenue share, el otro 25% + cap. Hay opciones."}
-      ]
+      "notes": []
     },
     {
       "id": "a1b2c3d4-7777-4000-8000-000000000007",
@@ -448,7 +438,7 @@
       "strategy": null,
       "events": [
         {"created_at": "2026-05-19", "description": "Encontrado en BizBuySell"},
-        {"created_at": "2026-05-19", "description": "Descartado por FilterAgent: múltiplo 6.4x > 4.5x máximo"}
+        {"created_at": "2026-05-19", "description": "Descartado automáticamente: múltiplo 6.4x > 4.5x máximo"}
       ],
       "notes": []
     },
@@ -468,7 +458,7 @@
       "sba_prequalified": false,
       "curated_source": true,
       "raw_description": "Marca D2C de suplementos deportivos. 3 años, 18K clientes únicos, 32% repeat rate. Amazon (60%) + Shopify directo (40%). 3 empleados remotos. Fundadora se va a maternidad larga.",
-      "pipeline_status": "CIERRE",
+      "pipeline_status": "RADAR",
       "filter_score": 60,
       "overall_score": 82,
       "priority": "ALTA",
@@ -519,16 +509,10 @@
         "plain_summary": "Activo digital de alta calidad. Si rompes la dependencia de Amazon construyendo el canal directo y subscription, vale entre 2.8 y 4 veces lo que pagas en 3 años. Es el deal con mayor upside del pipeline — el ejemplo perfecto del modelo BizAcq."
       },
       "events": [
-        {"created_at": "2026-04-12", "description": "Encontrado en BizScout (curated)"},
-        {"created_at": "2026-04-13", "description": "Análisis completado (overall 82 → ALTA)"},
-        {"created_at": "2026-04-15", "description": "Movido a PARA_CONTACTAR"},
-        {"created_at": "2026-04-22", "description": "Movido a EN_NEGOCIACION"},
-        {"created_at": "2026-05-14", "description": "LOI firmada"},
-        {"created_at": "2026-05-26", "description": "Movido a CIERRE — closing programado para 2026-06-10"}
+        {"created_at": "2026-04-12", "description": "Encontrado en BizScout (fuente curada — bonus +10)"},
+        {"created_at": "2026-04-13", "description": "Análisis completado (overall 82 — ALTA)"}
       ],
-      "notes": [
-        {"author": "Daniel", "created_at": "2026-05-14 18:00", "text": "LOI firmada: $670K. 15% equity ($100K), 50% banco local, 35% seller note a 5 años al 6%. Closing 10 de junio. Due diligence en proceso."}
-      ]
+      "notes": []
     }
   ]
 }
