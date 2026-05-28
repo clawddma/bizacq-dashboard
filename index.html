@@ -244,6 +244,32 @@
     </div>
   </div>
 
+  <!-- KPI summary bar (OET-style) -->
+  <div x-show="view !== 'glossary'" x-cloak class="bg-slate-900 text-white">
+    <div class="max-w-screen-2xl mx-auto px-6 py-2.5 grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
+      <div>
+        <p class="text-lg md:text-xl font-bold leading-none" x-text="kpiVisible.length"></p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">deals activos</p>
+      </div>
+      <div>
+        <p class="text-lg md:text-xl font-bold leading-none text-emerald-400" x-text="fmtPrice(kpiPipelineValue)"></p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">valor pipeline</p>
+      </div>
+      <div>
+        <p class="text-lg md:text-xl font-bold leading-none text-emerald-400" x-text="fmtPrice(kpiTotalSDE)"></p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">SDE total/año</p>
+      </div>
+      <div>
+        <p class="text-lg md:text-xl font-bold leading-none text-red-400" x-text="kpiAltaCount"></p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">prioridad alta</p>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <p class="text-lg md:text-xl font-bold leading-none" :class="kpiAvgScore >= 80 ? 'text-emerald-400' : kpiAvgScore >= 60 ? 'text-amber-400' : 'text-slate-300'" x-text="kpiAvgScore || '—'"></p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">score promedio</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Filters bar -->
   <div x-show="view !== 'glossary'" x-cloak class="bg-white border-b border-slate-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-3 flex items-center gap-4 flex-wrap">
@@ -282,11 +308,29 @@
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
       <div class="flex items-center gap-2">
-        <span class="text-xs text-slate-500 font-medium">Tamaño:</span>
-        <template x-for="opt in priceRanges" :key="opt.key">
-          <button @click="filters.priceRange = opt.key"
-            :class="filters.priceRange === opt.key ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
-            class="px-3 py-1 text-xs font-medium rounded-md transition" x-text="opt.label" :title="opt.tip"></button>
+        <span class="text-xs text-slate-500 font-medium tt" data-tip="Precio de compra. Multi-select: marca varios rangos y se acumulan (ej. $0-100K + $100-500K muestra ambos).">Precio:</span>
+        <template x-for="b in priceBuckets" :key="b.key">
+          <button @click="toggleBucket('priceBuckets', b.key)"
+            :class="filters.priceBuckets.includes(b.key) ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="px-2.5 py-1 text-xs font-medium rounded-md transition" x-text="b.label"></button>
+        </template>
+      </div>
+      <div class="h-5 w-px bg-slate-200"></div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-500 font-medium tt" data-tip="SDE (lo que genera el negocio al año limpio). Multi-select acumulable.">SDE:</span>
+        <template x-for="b in sdeBuckets" :key="b.key">
+          <button @click="toggleBucket('sdeBuckets', b.key)"
+            :class="filters.sdeBuckets.includes(b.key) ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="px-2.5 py-1 text-xs font-medium rounded-md transition" x-text="b.label"></button>
+        </template>
+      </div>
+      <div class="h-5 w-px bg-slate-200"></div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-500 font-medium tt" data-tip="Múltiplo precio/SDE — cuántos años de ganancias pagas. Multi-select acumulable. <2x es barato, >4x suele ser caro.">Múltiplo:</span>
+        <template x-for="b in multipleBuckets" :key="b.key">
+          <button @click="toggleBucket('multipleBuckets', b.key)"
+            :class="filters.multipleBuckets.includes(b.key) ? 'bg-blue-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="px-2.5 py-1 text-xs font-medium rounded-md transition" x-text="b.label"></button>
         </template>
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
@@ -364,10 +408,10 @@
   </div>
 
   <!-- VIEW: PIPELINE -->
-  <main x-show="view === 'pipeline'" x-cloak class="max-w-screen-2xl mx-auto px-6 py-6">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 min-h-[calc(100vh-280px)]">
+  <main x-show="view === 'pipeline'" x-cloak class="max-w-screen-2xl mx-auto px-4 md:px-6 py-6">
+    <div class="flex lg:grid lg:grid-cols-6 gap-3 min-h-[calc(100vh-300px)] overflow-x-auto lg:overflow-visible pb-2 scrollbar-thin snap-x">
       <template x-for="col in columns" :key="col.key">
-        <div class="kcol bg-white rounded-lg border border-slate-200 flex flex-col"
+        <div class="kcol bg-white rounded-lg border border-slate-200 flex flex-col shrink-0 w-[80vw] sm:w-[300px] lg:w-auto snap-start"
           :class="{'drag-over-empty': dragOverCol === col.key && dealsByStatus(col.key).length === 0}"
           @dragover.prevent="allowDropEmpty(col.key, $event)"
           @dragleave="if ($event.currentTarget === $event.target) dragOverCol = null"
@@ -1353,7 +1397,7 @@
         GH_FILE: 'data/deals.json',
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
-        filters: { states: [], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false },
+        filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false },
         GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES, US_STATES,
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
@@ -1363,11 +1407,26 @@
           { key: 'CIERRE',          label: 'Cierre',         dot: 'bg-purple-400' },
           { key: 'DESCARTADO',      label: 'Descartado',     dot: 'bg-red-300' },
         ],
-        priceRanges: [
-          { key: 'Todos',  label: 'Todos',         tip: 'Sin filtro' },
-          { key: '0-100',  label: '$0 – $100K',    tip: 'Chicos' },
-          { key: '100-500',label: '$100K – $500K', tip: 'Medianos' },
-          { key: '500+',   label: '$500K +',       tip: 'Grandes' },
+        // Multi-select buckets — acumulables (puedes marcar varios a la vez)
+        priceBuckets: [
+          { key: 'p1', label: '$0–100K',   min: 0,        max: 100000 },
+          { key: 'p2', label: '$100–500K', min: 100000,   max: 500000 },
+          { key: 'p3', label: '$500K–1M',  min: 500000,   max: 1000000 },
+          { key: 'p4', label: '$1–3M',     min: 1000000,  max: 3000000 },
+          { key: 'p5', label: '$3M+',      min: 3000000,  max: Infinity },
+        ],
+        sdeBuckets: [
+          { key: 's1', label: '$0–75K',    min: 0,       max: 75000 },
+          { key: 's2', label: '$75–150K',  min: 75000,   max: 150000 },
+          { key: 's3', label: '$150–300K', min: 150000,  max: 300000 },
+          { key: 's4', label: '$300–500K', min: 300000,  max: 500000 },
+          { key: 's5', label: '$500K+',    min: 500000,  max: Infinity },
+        ],
+        multipleBuckets: [
+          { key: 'm1', label: '<2x',   min: 0, max: 2 },
+          { key: 'm2', label: '2–3x',  min: 2, max: 3 },
+          { key: 'm3', label: '3–4x',  min: 3, max: 4 },
+          { key: 'm4', label: '4x+',   min: 4, max: Infinity },
         ],
         sortOptions: [
           { key: 'score-desc',  label: 'Score (alto → bajo)' },
@@ -1448,29 +1507,61 @@
         superIcon(name) { return SUPER_ICONS[name] || '📁'; },
         get totalDeals() { return this.deals.length; },
         get filteredCount() { return this.deals.filter(d => this.passesFilters(d)).length; },
+        // KPI bar (estilo OET) — sobre los deals VISIBLES con filtros activos
+        get kpiVisible() { return this.deals.filter(d => this.passesFilters(d) && d.pipeline_status !== 'DESCARTADO'); },
+        get kpiPipelineValue() { return this.kpiVisible.reduce((s, d) => s + (d.asking_price || 0), 0); },
+        get kpiTotalSDE() { return this.kpiVisible.reduce((s, d) => s + (d.reported_sde || 0), 0); },
+        get kpiAltaCount() { return this.kpiVisible.filter(d => d.priority === 'ALTA').length; },
+        get kpiAvgScore() {
+          const scored = this.kpiVisible.filter(d => d.overall_score);
+          if (!scored.length) return 0;
+          return Math.round(scored.reduce((s, d) => s + d.overall_score, 0) / scored.length);
+        },
+
+        // ─── Multi-select bucket helpers ───────────────
+        toggleBucket(filterKey, bucketKey) {
+          const arr = this.filters[filterKey];
+          const i = arr.indexOf(bucketKey);
+          if (i === -1) arr.push(bucketKey); else arr.splice(i, 1);
+        },
+        bucketMatch(value, buckets, selectedKeys) {
+          if (!selectedKeys || selectedKeys.length === 0) return true; // sin filtro = todos
+          return selectedKeys.some(k => {
+            const b = buckets.find(x => x.key === k);
+            return b && value >= b.min && value < b.max;
+          });
+        },
+        // Canonical filter matcher — usado por passesFilters, hiddenByScore, dealCountByState
+        matchFilters(d, { skipScore = false, skipState = false } = {}) {
+          if (this.filters.manualOnly && !d.added_manually) return false;
+          if (!skipScore && this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO') {
+            if (!d.overall_score || d.overall_score < this.filters.minScore) return false;
+          }
+          if (!skipState && this.filters.states.length > 0 && !this.filters.states.includes(d.state)) return false;
+          if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
+          if (this.filters.sellerFinancing && !d.seller_financing) return false;
+          if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
+          if (!this.bucketMatch(d.asking_price || 0, this.priceBuckets, this.filters.priceBuckets)) return false;
+          if (!this.bucketMatch(d.reported_sde || 0, this.sdeBuckets, this.filters.sdeBuckets)) return false;
+          if (this.filters.multipleBuckets.length > 0) {
+            const mult = d.reported_sde ? (d.asking_price / d.reported_sde) : -1;
+            if (mult < 0 || !this.bucketMatch(mult, this.multipleBuckets, this.filters.multipleBuckets)) return false;
+          }
+          if (this.filters.category !== 'Todas') {
+            if (this.filters.category.startsWith('super:')) {
+              const supName = this.filters.category.substring(6);
+              const subs = SUPER_CATEGORIES[supName] || [];
+              if (!subs.includes(d.business_type)) return false;
+            } else if (d.business_type !== this.filters.category) return false;
+          }
+          return true;
+        },
         get hiddenByScore() {
           // Cuántos deals pasarían todos los filtros EXCEPTO el de score
           if (this.filters.minScore <= 0) return 0;
           return this.deals.filter(d => {
             if (d.pipeline_status === 'DESCARTADO') return false;
-            if (this.filters.states.length > 0 && !this.filters.states.includes(d.state)) return false;
-            if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
-            if (this.filters.sellerFinancing && !d.seller_financing) return false;
-            if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
-            const price = d.asking_price || 0;
-            if (this.filters.priceRange === '0-100' && price > 100_000) return false;
-            if (this.filters.priceRange === '100-500' && (price <= 100_000 || price > 500_000)) return false;
-            if (this.filters.priceRange === '500+' && price <= 500_000) return false;
-            if (this.filters.category !== 'Todas') {
-              if (this.filters.category.startsWith('super:')) {
-                const supName = this.filters.category.substring(6);
-                const subs = SUPER_CATEGORIES[supName] || [];
-                if (!subs.includes(d.business_type)) return false;
-              } else {
-                if (d.business_type !== this.filters.category) return false;
-              }
-            }
-            // Solo cuenta si el deal FALLA por score
+            if (!this.matchFilters(d, { skipScore: true })) return false;
             return !d.overall_score || d.overall_score < this.filters.minScore;
           }).length;
         },
@@ -1555,32 +1646,7 @@
           return CATEGORY_ICONS[c] + ' ' + c;
         },
 
-        passesFilters(d) {
-          // Manually-added filter: when ON, only show deals added via "+ Agregar negocio"
-          if (this.filters.manualOnly && !d.added_manually) return false;
-          // Score threshold filter (default 75). DESCARTADO deals always pass this so the column is populated.
-          if (this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO') {
-            if (!d.overall_score || d.overall_score < this.filters.minScore) return false;
-          }
-          if (this.filters.states.length > 0 && !this.filters.states.includes(d.state)) return false;
-          if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
-          if (this.filters.sellerFinancing && !d.seller_financing) return false;
-          if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
-          const price = d.asking_price || 0;
-          if (this.filters.priceRange === '0-100' && price > 100_000) return false;
-          if (this.filters.priceRange === '100-500' && (price <= 100_000 || price > 500_000)) return false;
-          if (this.filters.priceRange === '500+' && price <= 500_000) return false;
-          if (this.filters.category !== 'Todas') {
-            if (this.filters.category.startsWith('super:')) {
-              const supName = this.filters.category.substring(6);
-              const subs = SUPER_CATEGORIES[supName] || [];
-              if (!subs.includes(d.business_type)) return false;
-            } else {
-              if (d.business_type !== this.filters.category) return false;
-            }
-          }
-          return true;
-        },
+        passesFilters(d) { return this.matchFilters(d); },
 
         dealsByStatus(status) {
           const list = this.deals.filter(d => d.pipeline_status === status && this.passesFilters(d));
@@ -1719,7 +1785,7 @@
             window.prompt('Copia este pedido y pégalo a Claude:', text);
           }
         },
-        resetFilters() { this.filters = { states: [], priority: 'Todas', priceRange: 'Todos', category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false }; },
+        resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false }; },
         toggleState(code) {
           const i = this.filters.states.indexOf(code);
           if (i === -1) this.filters.states.push(code);
@@ -1736,30 +1802,8 @@
           return `${n} estados seleccionados`;
         },
         dealCountByState(code) {
-          // Contar deals de ese estado que pasan TODOS los demás filtros (excepto el del propio estado)
-          return this.deals.filter(d => {
-            if (d.state !== code) return false;
-            if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
-            if (this.filters.sellerFinancing && !d.seller_financing) return false;
-            if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
-            const price = d.asking_price || 0;
-            if (this.filters.priceRange === '0-100' && price > 100_000) return false;
-            if (this.filters.priceRange === '100-500' && (price <= 100_000 || price > 500_000)) return false;
-            if (this.filters.priceRange === '500+' && price <= 500_000) return false;
-            if (this.filters.category !== 'Todas') {
-              if (this.filters.category.startsWith('super:')) {
-                const supName = this.filters.category.substring(6);
-                const subs = SUPER_CATEGORIES[supName] || [];
-                if (!subs.includes(d.business_type)) return false;
-              } else {
-                if (d.business_type !== this.filters.category) return false;
-              }
-            }
-            if (this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO') {
-              if (!d.overall_score || d.overall_score < this.filters.minScore) return false;
-            }
-            return true;
-          }).length;
+          // Cuenta deals de ese estado que pasan TODOS los demás filtros (skipState para no auto-excluir)
+          return this.deals.filter(d => d.state === code && this.matchFilters(d, { skipState: true })).length;
         },
         stateBadgeClass(state) {
           if (state === 'TX') return 'bg-red-50 text-red-700';
