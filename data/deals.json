@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-27 23:00 COT",
-  "version": "0.12.0-manual-filter+deeplink",
+  "last_update": "2026-05-27 23:30 COT",
+  "version": "0.13.0-deep-analysis-first",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -5670,7 +5670,100 @@
         }
       ],
       "inventory_usd": 14000000,
-      "added_manually": true
+      "added_manually": true,
+      "deep_analysis": {
+        "performed_at": "2026-05-27T22:30:00Z",
+        "performed_by": "fact-checker subagent",
+        "confidence_uplift": "high",
+        "summary": "Análisis profundo cambió este deal de \"anomalía interesante por verificar\" a \"deal con red flags estructurales serios\". Sheridan WY + dropshipping + $14M inventory + anonymized listing convergen en un patrón conocido de business que requiere DD muy agresivo antes de avanzar. NO descartar todavía — pero NO firmar nada hasta resolver 12 preguntas específicas al seller.",
+        "findings": [
+          {
+            "category": "jurisdiction",
+            "status": "red_flag",
+            "icon": "🚩",
+            "title": "Wyoming = jurisdicción más anónima del país para LLCs",
+            "detail": "Wyoming permite LLCs sin disclosure de member/manager names en records públicos. Es el estado #1 para shell companies y foreign-owned drop-shippers (especialmente operadores asiáticos). En Feb 2026 el Senate de Wyoming rechazó (TABLED) un bill que habría requerido transparency adicional. Sin el nombre del business + el nombre del seller, NO HAY MANERA de verificar quién opera realmente este negocio. Esto NO es ilegal pero es bandera del perfil de operación.",
+            "source": "https://en.wikipedia.org/wiki/Wyoming_as_a_corporate_haven"
+          },
+          {
+            "category": "address_check",
+            "status": "red_flag",
+            "icon": "🚩",
+            "title": "⚠ ALERTA MÁXIMA: Sheridan 82801 es zona del shell-company hub conocido del país",
+            "detail": "30 N. Gould St., Sheridan WY 82801 — la MISMA ZIP del listing — aloja 26 commercial registered agents que representan ~300,000 LLCs (40%+ de Wyoming total). ICIJ Pandora Papers documenta millones en fraude PPP desde esa dirección. Andre Shammas se declaró culpable en Aug 2024 de $5M+ PPP fraud allí. En 2025 Sheridan County servió 13 subpoenas, 14 garnishments, 70 summons a registered agents en 30 N. Gould y 1309 Coffeen Ave. PREGUNTA CRÍTICA: ¿la entity de este deal está registrada en una de esas direcciones de mass-incorporation? Si sí, multiplica el riesgo.",
+            "source": "https://www.icij.org/investigations/pandora-papers/millions-in-covid-relief-funds-went-to-shadowy-companies-at-a-wyoming-storefront-that-hundreds-of-thousands-of-firms-used-as-an-address/"
+          },
+          {
+            "category": "demographics",
+            "status": "warning",
+            "icon": "⚠",
+            "title": "Sheridan WY es pueblo de 20K — e-commerce NO es industria local",
+            "detail": "Sheridan WY tiene 20,334 habitantes. Empleo principal: Healthcare (1,719), Educación (1,053), Construction (961). E-commerce NO aparece en top sectors. Esto NO es necesariamente malo — la mayoría de e-commerce dropshipping opera remoto desde cualquier lugar — pero confirma que \"Sheridan WY\" en el listing es solo dirección legal, NO ubicación real de operación. El seller probablemente NO vive en Sheridan.",
+            "source": "https://datausa.io/profile/geo/sheridan-wy"
+          },
+          {
+            "category": "business_model_contradiction",
+            "status": "red_flag",
+            "icon": "🚩",
+            "title": "CONTRADICCIÓN HARD: \"Dropshipping\" + \"$14M Inventory\" son MUTUALMENTE EXCLUYENTES",
+            "detail": "Por definición, dropshipping = los suppliers tienen el inventario, NO el merchant. El merchant solo procesa la orden y la pasa al supplier. Si el listing declara dropshipping Y $14M inventory propio, una de las dos es FALSA o \"inventory\" significa otra cosa (formulas, IP, brand, pre-paid orders comprometidos). Esta contradicción estructural es la pregunta #1 al broker en la primera llamada.",
+            "source": "Multiple industry references — dropshipping fraud guides"
+          },
+          {
+            "category": "industry_fraud_patterns",
+            "status": "warning",
+            "icon": "⚠",
+            "title": "Patrones típicos de fraude en dropshipping skincare aplican a este perfil",
+            "detail": "Sources de industria documentan que dropshipping skincare es high-fraud category con patrones: (1) Shopify dashboards inflados que ocultan ad spend, (2) margins reportados sin descontar shipping fees / payment processor fees / returns, (3) \"47K customers\" puede ser audience (Meta Pixel/Google) NO compradores actuales, (4) 36% margen NET es ALTO para skincare DTC (industria avg 5-15%). Cada uno requiere documento verificable: P&L auditado, Shopify analytics export, Ad accounts access.",
+            "source": "https://www.dropship.io/blog/dropshipping-scams"
+          },
+          {
+            "category": "exit_market",
+            "status": "warning",
+            "icon": "⚠",
+            "title": "Path de exit a aggregator está en crisis profunda — value_multiplier_high 4.5x irreal",
+            "detail": "Mi análisis base proyectó exit 2.5x-4.5x a aggregators. Realidad 2026: Thrasio entró en Chapter 11 bankruptcy (2024) tras raise de $3B. Razor compró Perch en marzo 2024 ($1.7B enterprise) — consolidación, NO expansion. Valuations compressed de 6-7x EBITDA peak a 3-4x actual para la mayoría de categorías. El multiplier 4.5x SOLO aplica a brands con subscription model + DTC + IP propia — este deal NO tiene ninguno. Realista: exit 2x-3x SDE en 3 años, NO 2.5-4.5x.",
+            "source": "https://techcrunch.com/2024/03/04/razor-and-perch-merge-raise-100m-on-a-1-7b-valuation-as-more-roll-ups-consolidate/"
+          },
+          {
+            "category": "verification_limit",
+            "status": "warning",
+            "icon": "🔍",
+            "title": "BizScout listing ANONYMIZED — verificación profunda bloqueada sin business name",
+            "detail": "BizScout no divulga el nombre del business hasta firma de NDA. Por lo tanto NO pude: (1) Verificar entity en Wyoming SOS (https://wyobiz.wyo.gov/ — necesita nombre exacto), (2) Search PACER para litigios del business o seller, (3) Verificar Shopify domain real, (4) Buscar reviews en Yelp/Google, (5) Cross-reference OpenCorporates. PRÓXIMO PASO OBLIGATORIO: pedir NDA + business name al broker antes de cualquier siguiente acción.",
+            "source": "https://www.bizscout.com (listing anonymized policy)"
+          },
+          {
+            "category": "regulatory",
+            "status": "verified",
+            "icon": "✓",
+            "title": "NAICS code 454110 (Electronic Shopping) es la categoría correcta",
+            "detail": "E-commerce skincare DTC opera bajo NAICS 454110 (Electronic Shopping). Esto importa para: lookup SBA loan history del sector, validar size standards SBA (cap $50M revenue), industry size benchmarks. Útil para post-fact-check si se accede al business name.",
+            "source": "https://www.naics.com/what-is-naics-454110-full-description-and-statistics/"
+          }
+        ],
+        "verified_fields": [],
+        "contradictions": [
+          "Dropshipping declarado + $14M inventory declarado son mutuamente excluyentes",
+          "$14M inventory para revenue de $631K/año implica 22 años de stock — matemáticamente imposible si los productos tienen shelf life normal de skincare (12-36 meses)",
+          "Sheridan WY como ubicación + e-commerce + 47K customer base — la dirección WY es legal-only, operación es remota anywhere",
+          "Exit multiplier 4.5x asumido vs realidad 2026 donde aggregator valuations bajaron 50% desde peak"
+        ],
+        "questions_for_seller": [
+          "⚠ #1 OBLIGATORIA: ¿Cómo coexisten \"dropshipping model\" y \"$14M inventory\"? Necesito desglose por categoría: physical inventory vs IP/brand/formulations vs pre-paid orders vs marketing assets.",
+          "#2: ¿Cuál es el legal entity name registered en Wyoming? Necesario para entity verification en SOS.",
+          "#3: ¿Cuál es la registered address de la entity? (Bandera roja si es 30 N. Gould St o 1309 Coffeen Ave Sheridan)",
+          "#4: ¿Quién es el seller individual? Nombre completo para PACER search + background check.",
+          "#5: ¿El seller es US citizen, LPR, o foreign? Afecta path SBA + audit risk + transferability de la operación.",
+          "#6: ¿BOI filing con FinCEN está al día? (Federal requirement desde 2024 para todos los LLCs)",
+          "#7: Inventory valuation: ¿está al COST o al MSRP retail? Quiero invoices originales que muestren acquisition cost.",
+          "#8: ¿Cuál es la dirección física del warehouse del inventory? Quiero auditoría de tercera parte (typical $2-5K cost).",
+          "#9: Shelf life report del inventory: ¿cuántos productos vencen en 6, 12, 24 meses?",
+          "#10: Shopify analytics export últimos 14 meses (raw exports, no dashboards reproducibles): orders, revenue, returns, refunds, COGS por mes.",
+          "#11: Google Ads + Meta Ads accounts ACCESS para verificar spend real, attribution, CAC, LTV. Sin esto, \"$631K revenue, 36% margin\" es solo claim.",
+          "#12: ¿Customer retention rate verificable (cohort analysis)? Los \"47K customers\" — ¿son compradores únicos o audience cookies?"
+        ]
+      }
     }
   ],
   "manual_orders": {
