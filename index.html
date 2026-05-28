@@ -317,10 +317,19 @@
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
       <div class="flex items-center gap-2">
-        <span class="text-xs text-slate-500 font-medium tt" data-tip="SDE (lo que genera el negocio al año limpio). Multi-select acumulable.">SDE:</span>
+        <span class="text-xs text-slate-500 font-medium tt" data-tip="SDE absoluto (lo que genera el negocio al año limpio). Responde: ¿reemplaza tu ingreso? Multi-select acumulable.">SDE $:</span>
         <template x-for="b in sdeBuckets" :key="b.key">
           <button @click="toggleBucket('sdeBuckets', b.key)"
             :class="filters.sdeBuckets.includes(b.key) ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
+            class="px-2.5 py-1 text-xs font-medium rounded-md transition" x-text="b.label"></button>
+        </template>
+      </div>
+      <div class="h-5 w-px bg-slate-200"></div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-500 font-medium tt" data-tip="Margen SDE = SDE ÷ Revenue. Calidad operativa independiente del tamaño. >35% = asset-light/digital defendible; <15% = bajo margen, vulnerable a costos. Multi-select acumulable. (Deals sin revenue no clasifican aquí.)">Margen:</span>
+        <template x-for="b in marginBuckets" :key="b.key">
+          <button @click="toggleBucket('marginBuckets', b.key)"
+            :class="filters.marginBuckets.includes(b.key) ? 'bg-teal-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'"
             class="px-2.5 py-1 text-xs font-medium rounded-md transition" x-text="b.label"></button>
         </template>
       </div>
@@ -887,6 +896,12 @@
                 <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.financial?.payback_years">
                   <p class="text-xs text-slate-500">Recuperas en ~<strong class="text-slate-900" x-text="`${selectedDeal.financial?.payback_years} años`"></strong></p>
                 </div>
+                <div class="bg-slate-50 p-2 rounded" x-show="selectedDeal.reported_revenue && selectedDeal.reported_sde">
+                  <p class="text-xs text-slate-500">Margen operativo:
+                    <strong class="text-slate-900" x-text="`${((selectedDeal.reported_sde / selectedDeal.reported_revenue) * 100).toFixed(0)}%`"></strong>
+                    <span class="tt text-slate-400" data-tip="Margen SDE = SDE ÷ Revenue. >35% = asset-light/digital; 15-25% típico de servicios con nómina; <15% = bajo margen vulnerable a costos.">(SDE/rev)</span>
+                  </p>
+                </div>
               </div>
             </section>
 
@@ -1397,7 +1412,7 @@
         GH_FILE: 'data/deals.json',
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
-        filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false },
+        filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false },
         GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES, US_STATES,
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
@@ -1421,6 +1436,13 @@
           { key: 's3', label: '$150–300K', min: 150000,  max: 300000 },
           { key: 's4', label: '$300–500K', min: 300000,  max: 500000 },
           { key: 's5', label: '$500K+',    min: 500000,  max: Infinity },
+        ],
+        // Margen SDE = SDE/Revenue (calidad operativa, independiente del tamaño)
+        marginBuckets: [
+          { key: 'mg1', label: '<15%',   min: 0,    max: 0.15 },
+          { key: 'mg2', label: '15–25%', min: 0.15, max: 0.25 },
+          { key: 'mg3', label: '25–35%', min: 0.25, max: 0.35 },
+          { key: 'mg4', label: '35%+',   min: 0.35, max: Infinity },
         ],
         multipleBuckets: [
           { key: 'm1', label: '<2x',   min: 0, max: 2 },
@@ -1543,6 +1565,10 @@
           if (this.filters.sbaEligible && !d.financial?.sba_eligible) return false;
           if (!this.bucketMatch(d.asking_price || 0, this.priceBuckets, this.filters.priceBuckets)) return false;
           if (!this.bucketMatch(d.reported_sde || 0, this.sdeBuckets, this.filters.sdeBuckets)) return false;
+          if (this.filters.marginBuckets.length > 0) {
+            const margin = (d.reported_revenue && d.reported_sde) ? (d.reported_sde / d.reported_revenue) : -1;
+            if (margin < 0 || !this.bucketMatch(margin, this.marginBuckets, this.filters.marginBuckets)) return false;
+          }
           if (this.filters.multipleBuckets.length > 0) {
             const mult = d.reported_sde ? (d.asking_price / d.reported_sde) : -1;
             if (mult < 0 || !this.bucketMatch(mult, this.multipleBuckets, this.filters.multipleBuckets)) return false;
@@ -1785,7 +1811,7 @@
             window.prompt('Copia este pedido y pégalo a Claude:', text);
           }
         },
-        resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false }; },
+        resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false }; },
         toggleState(code) {
           const i = this.filters.states.indexOf(code);
           if (i === -1) this.filters.states.push(code);
