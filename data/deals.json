@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-05-29 00:47 UTC (dashboard)",
+  "last_update": "2026-05-29 13:35 UTC (dashboard)",
   "version": "0.15.0-worker-live",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
@@ -1060,7 +1060,7 @@
       "sba_prequalified": false,
       "curated_source": false,
       "raw_description": "Restaurante cubano en Little Havana, 60 sillas + terraza, 4 años de operación. Dueño quiere vender por temas familiares.",
-      "pipeline_status": "DESCARTADO",
+      "pipeline_status": "CIERRE",
       "filter_score": 0,
       "overall_score": null,
       "priority": null,
@@ -1075,6 +1075,10 @@
         {
           "created_at": "2026-05-19",
           "description": "Descartado automáticamente: múltiplo 6.4x > 4.5x máximo"
+        },
+        {
+          "created_at": "2026-05-29",
+          "description": "Movido DESCARTADO → CIERRE (dashboard)"
         }
       ],
       "notes": [],
