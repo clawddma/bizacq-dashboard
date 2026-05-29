@@ -215,7 +215,7 @@
             <span x-show="syncStatus === 'syncing'">🔄 Sincronizando <strong x-text="overrideCount"></strong> cambios al servidor...</span>
             <span x-show="syncStatus === 'idle'"><strong x-text="overrideCount"></strong> cambios pendientes de sync</span>
             <span x-show="syncStatus === 'error'" class="text-red-700">⚠ Error sincronizando: <span x-text="syncError"></span>
-              <button @click="syncToServer()" class="underline ml-1">reintentar</button>
+              <button @click="syncNow()" class="underline ml-1">reintentar</button>
             </span>
           </span>
         </template>
@@ -227,7 +227,7 @@
           </button>
         </template>
         <template x-if="hasAutoSync() && syncStatus !== 'syncing'">
-          <button @click="syncToServer()" class="text-xs bg-blue-700 hover:bg-blue-800 text-white px-3 py-1 rounded font-medium">
+          <button @click="syncNow()" class="text-xs bg-blue-700 hover:bg-blue-800 text-white px-3 py-1 rounded font-medium">
             Sincronizar ahora
           </button>
         </template>
@@ -498,6 +498,8 @@
                       data-tip="SBA: agencia federal que garantiza créditos para comprar pequeños negocios.">SBA</span>
                     <span x-show="deal.curated_source" title="Listado pre-validado"
                       class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
+                    <span x-show="deal.pending_analysis" title="Agregado por socio — pendiente de análisis por Claude"
+                      class="text-[10px] px-1.5 py-0.5 rounded bg-orange-100 text-orange-700 font-medium animate-pulse">⏳ pendiente</span>
                     <span x-show="deal.legal_check?.done" class="tt text-[10px] px-1.5 py-0.5 rounded font-medium"
                       :class="legalBadgeClass(deal.legal_check?.feasibility)"
                       :data-tip="`Viabilidad legal: ${legalLabel(deal.legal_check?.feasibility)} — ${deal.legal_check?.plain_summary?.slice(0,160)}...`"
@@ -710,16 +712,21 @@
       <label>Notas o contexto adicional</label>
       <textarea x-model="addForm.notes" placeholder="Por qué te llama la atención, qué viste especial, fuente del lead, etc."></textarea>
 
-      <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded text-xs text-blue-900">
-        <strong>Si tienes el PDF del listing</strong> (CIM, broker package), súbelo a tu chat con Claude DESPUÉS de pegar este mensaje. Claude lo va a leer y extraer los datos directamente del PDF.
+      <div class="mt-4 p-3 rounded text-xs" :class="hasWorker() ? 'bg-emerald-50 border border-emerald-200 text-emerald-900' : 'bg-blue-50 border border-blue-200 text-blue-900'">
+        <template x-if="hasWorker()">
+          <span><strong>✓ Conectado al servidor.</strong> El lead se guarda al instante como <strong>PENDIENTE ANÁLISIS</strong> y aparece en el dashboard. Claude lo enriquece (financiero, legal, EB-5) después. Si tienes PDF del listing, súbelo a tu chat con Claude para acelerar el análisis.</span>
+        </template>
+        <template x-if="!hasWorker()">
+          <span><strong>Modo manual</strong> (servidor no conectado aún): se copia un pedido que pegas a Claude. Si tienes PDF del listing, súbelo a tu chat con Claude después de pegar.</span>
+        </template>
       </div>
 
       <div class="flex items-center justify-end gap-2 mt-5">
         <button @click="closeAddModal()" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">Cancelar</button>
-        <button @click="copyAddRequest()"
+        <button @click="submitNewDeal()"
           class="bg-slate-900 hover:bg-slate-700 text-white text-sm font-semibold px-4 py-2 rounded-md flex items-center gap-2">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          Copiar pedido para Claude
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          <span x-text="hasWorker() ? 'Agregar al dashboard' : 'Copiar pedido para Claude'"></span>
         </button>
       </div>
     </div>
@@ -1410,6 +1417,9 @@
         syncStatus: 'idle', syncError: null, _syncTimer: null,
         GH_REPO: 'clawddma/bizacq-dashboard',
         GH_FILE: 'data/deals.json',
+        // Cloudflare Worker — cuando está configurado, escrituras van por aquí (sin token en browser).
+        // Se llena tras el deploy del Worker. localStorage permite override sin re-deploy del dashboard.
+        WORKER_URL: localStorage.getItem('bizacq_worker_url') || 'https://bizacq-api.clawddma.workers.dev',
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
         filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false },
@@ -1482,6 +1492,7 @@
             this.deals = [];
           }
           this.$watch('view', v => localStorage.setItem('bizacq_view_v1', v));
+          this.checkWorker(); // detecta si el Cloudflare Worker está vivo
           // Deep link: if URL has #deal=ID, auto-open that deal
           this.$nextTick(() => {
             const m = window.location.hash.match(/deal=([a-f0-9-]+)/);
@@ -1556,7 +1567,8 @@
         // Canonical filter matcher — usado por passesFilters, hiddenByScore, dealCountByState
         matchFilters(d, { skipScore = false, skipState = false } = {}) {
           if (this.filters.manualOnly && !d.added_manually) return false;
-          if (!skipScore && this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO') {
+          // Pendientes de análisis y descartados pasan el filtro de score (no tienen score aún)
+          if (!skipScore && this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO' && !d.pending_analysis) {
             if (!d.overall_score || d.overall_score < this.filters.minScore) return false;
           }
           if (!skipState && this.filters.states.length > 0 && !this.filters.states.includes(d.state)) return false;
@@ -2064,8 +2076,54 @@
           return 'upside bajo';
         },
 
-        // ─── GitHub auto-sync ──────────────────────────
-        hasAutoSync() { return !!this.githubToken; },
+        // ─── Cloudflare Worker (vía principal de escritura) ──
+        workerOnline: false,
+        async checkWorker() {
+          if (!this.WORKER_URL) return;
+          try {
+            const r = await fetch(this.WORKER_URL + '/health', { signal: AbortSignal.timeout(5000) });
+            this.workerOnline = r.ok;
+          } catch { this.workerOnline = false; }
+        },
+        hasWorker() { return !!this.WORKER_URL && this.workerOnline; },
+
+        async syncViaWorker() {
+          // Sincroniza overrides + manual orders al Worker (que commitea a GitHub). Sin token en browser.
+          this.syncStatus = 'syncing'; this.syncError = null;
+          try {
+            // 1. Cambios de estado (overrides)
+            for (const [dealId, ov] of Object.entries(this.overrides)) {
+              const res = await fetch(this.WORKER_URL + '/update-deal', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ dealId, newStatus: ov.pipeline_status, discardReason: ov.discard_reason || '', author: 'dashboard' }),
+              });
+              if (!res.ok) throw new Error(`Worker ${res.status}: ${(await res.text()).slice(0,120)}`);
+            }
+            // 2. Manual orders
+            for (const [col, ids] of Object.entries(this.manualOrder)) {
+              if (!ids || ids.length === 0) continue;
+              const res = await fetch(this.WORKER_URL + '/update-deal', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ dealId: ids[0], manualOrder: ids, manualOrderColumn: col }),
+              });
+              if (!res.ok) throw new Error(`Worker order ${res.status}`);
+            }
+            // 3. Limpiar local (server ahora es source of truth)
+            this.overrides = {}; this.manualOrder = {};
+            localStorage.setItem('bizacq_overrides_v1', '{}');
+            localStorage.setItem('bizacq_manual_v1', '{}');
+            this.syncStatus = 'success';
+            this.toast('✓ Sincronizado al servidor (Cloudflare)');
+            setTimeout(() => { this.syncStatus = 'idle'; }, 4500);
+          } catch (e) {
+            console.error('Worker sync error', e);
+            this.syncStatus = 'error'; this.syncError = e.message;
+            this.toast('⚠ ' + e.message);
+          }
+        },
+
+        // ─── GitHub auto-sync (fallback si no hay Worker) ──
+        hasAutoSync() { return this.hasWorker() || !!this.githubToken; },
         openTokenModal() { this.tokenInput = this.githubToken; this.tokenModalOpen = true; },
         saveToken() {
           const t = this.tokenInput.trim();
@@ -2086,7 +2144,12 @@
           if (!this.hasAutoSync()) return;
           clearTimeout(this._syncTimer);
           // Debounce 800ms — agrupa múltiples drags rápidos en un solo commit
-          this._syncTimer = setTimeout(() => this.syncToServer(), 800);
+          this._syncTimer = setTimeout(() => this.syncNow(), 800);
+        },
+        syncNow() {
+          // Router: Worker primero (sin token en browser); fallback al token de GitHub
+          if (this.hasWorker()) this.syncViaWorker();
+          else if (this.githubToken) this.syncToServer();
         },
         async syncToServer() {
           if (!this.githubToken) return;
@@ -2192,6 +2255,38 @@
         closeAddModal() {
           this.addModalOpen = false;
           document.body.style.overflow = '';
+        },
+        async submitNewDeal() {
+          const f = this.addForm;
+          if (!f.listingUrl && !f.websiteUrl && !f.notes) {
+            this.toast('⚠ Pon al menos un URL o agrega notas');
+            return;
+          }
+          // VÍA WORKER: si está vivo, guarda el lead directo (aparece al instante como PENDIENTE)
+          if (this.hasWorker()) {
+            try {
+              this.toast('Guardando lead en el servidor...');
+              const res = await fetch(this.WORKER_URL + '/add-deal', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  listingUrl: f.listingUrl, websiteUrl: f.websiteUrl, category: f.category,
+                  state: f.state, askingPrice: f.askingPrice, notes: f.notes, author: 'socio',
+                }),
+              });
+              if (!res.ok) throw new Error(`Worker ${res.status}: ${(await res.text()).slice(0,120)}`);
+              const out = await res.json();
+              this.toast('✓ Lead agregado — aparece como PENDIENTE ANÁLISIS. Claude lo enriquece luego.');
+              this.closeAddModal();
+              setTimeout(() => this.init(), 1500); // recargar para ver el nuevo deal
+              return;
+            } catch (e) {
+              console.error('add-deal worker error', e);
+              this.toast('⚠ Error guardando: ' + e.message + ' — usando fallback (copiar para Claude)');
+              // cae al fallback de clipboard abajo
+            }
+          }
+          // FALLBACK: copiar pedido para pegarle a Claude
+          this.copyAddRequest();
         },
         copyAddRequest() {
           const f = this.addForm;

@@ -1,0 +1,23 @@
+name = "bizacq-api"
+main = "worker.js"
+compatibility_date = "2026-05-01"
+
+# Rutas / dominio — el Worker quedará en bizacq-api.<tu-subdominio>.workers.dev
+# (opcional) para dominio propio: workers_dev = false + route a bizacq.bellapop.co/api/*
+
+# KV namespace para rate limiting (opcional pero recomendado).
+# Crear con: npx wrangler kv namespace create RATE_KV
+# Luego pegar el id aquí:
+# [[kv_namespaces]]
+# binding = "RATE_KV"
+# id = "<KV_NAMESPACE_ID>"
+
+# Secrets (NO van aquí — se setean con wrangler secret put):
+#   npx wrangler secret put GITHUB_TOKEN
+#
+# El token debe ser un fine-grained PAT con:
+#   - Repository access: solo clawddma/bizacq-dashboard
+#   - Permissions: Contents → Read and write
+
+[observability]
+enabled = true
