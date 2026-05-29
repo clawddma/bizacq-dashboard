@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-29 13:35 UTC (dashboard)",
-  "version": "0.15.0-worker-live",
+  "last_update": "2026-05-29 09:00 COT",
+  "version": "0.16.0-martins-corrected",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -3499,132 +3499,155 @@
       "added_manually": false
     },
     {
-      "title": "Martin's Bread Route — Raleigh NC (Distribution)",
+      "title": "Martin's Bread Route — Cary NC (área metro Raleigh, listing 2275502)",
       "source": "bizbuysell",
-      "source_url": "https://www.bizbuysell.com/north-carolina/raleigh-businesses-for-sale/",
-      "source_url_kind": "category",
+      "source_url": "https://www.bizbuysell.com/business-opportunity/martin-s-bread-route-cary-nc/2275502/",
+      "source_url_kind": "listing",
       "state": "NC",
-      "city": "Raleigh",
+      "city": "Cary",
       "business_type": "Cleaning Services",
       "years_operation": 7,
-      "asking_price": 130000,
-      "reported_revenue": 387840,
-      "reported_sde": 82104,
+      "asking_price": 110000,
+      "reported_revenue": 264663,
+      "reported_sde": 54236,
       "seller_financing": true,
       "sba_prequalified": false,
       "curated_source": false,
-      "raw_description": "Martin's Bread Route Raleigh. Revenue $387,840/año, net earnings $82,104. Ruta establecida, contratos con stores. NOTA: ruta de distribución, no cleaning — pendiente categoría Distribution.",
+      "raw_description": "Martin's Bread Route en Cary NC (área metro Raleigh, 15 min del centro). 22 cuentas activas — entrega a grocery stores y variety stores. Marca conocida: pan y rollos de papa Martin's. Distributorship + territory se compran vía wholesaler independiente. Owner vende por temas familiares. DATOS VERIFICADOS contra el listing real (BizBuySell 2275502).",
       "id": "c7beb18b-003c-4ef3-8b74-c2ba141ab7ab",
       "source_url_verified": true,
       "pipeline_status": "RADAR",
-      "filter_score": 40,
-      "overall_score": 93.2,
-      "priority": "ALTA",
+      "filter_score": 35,
+      "overall_score": 62.8,
+      "priority": "MEDIA",
       "financial": {
-        "reconstructed_sde": 82104,
-        "dscr": 12.15,
-        "cash_on_cash_y1": 0.97,
-        "cash_on_cash_y3": 1.26,
-        "payback_years": 1,
-        "equity_required": 78000,
+        "reconstructed_sde": 54236,
+        "dscr": 1.85,
+        "cash_on_cash_y1": 0.41,
+        "cash_on_cash_y3": 0.48,
+        "payback_years": 2.0,
+        "equity_required": 33000,
         "sba_eligible": false,
         "suggested_structure": {
-          "equity_pct": 60,
+          "equity_pct": 30,
           "sba_loan_pct": 0,
-          "seller_note_pct": 40,
-          "estimated_monthly_debt_service": 563
+          "seller_note_pct": 0,
+          "bank_loan_pct": 70,
+          "estimated_monthly_debt_service": 1900
         },
-        "self_financing_score": 100,
-        "financial_score": 100,
-        "risk_flags": [],
-        "plain_summary": "Genera $82K/año limpio. Múltiplo 1.6x — dentro del rango para Cleaning Services. Cobertura deuda OK, payback ~1.0 años."
+        "self_financing_score": 70,
+        "financial_score": 55,
+        "risk_flags": [
+          "⚠ SDE $54K está DEBAJO del mínimo del proyecto ($75K). Solo aceptable si:",
+          "  - El cash flow recurring justifica el size (bread routes son super predecibles)",
+          "  - El payback de 2 años (uno de los mejores del pipeline) compensa el ticket chico",
+          "  - Lo ves como cash flow secundario / parking de capital, no reemplazo de ingreso",
+          "Solo 22 cuentas — pérdida de 2-3 grandes golpea fuerte el revenue",
+          "Modelo de \"Martin's wholesaler independiente\" — verificar T&C del distributorship transfer (puede requerir aprobación del fabricante)",
+          "Margen 20.5% — sano para distribution pero techo bajo"
+        ],
+        "plain_summary": "Negocio chico pero limpio: genera $54 mil al año y se paga en 2 años. Pagas 2 años de ganancias (múltiplo OK para distribution). El SDE es bajo para los criterios del proyecto ($75K mínimo) — solo tiene sentido como parking de capital o cash flow secundario, no como negocio principal."
       },
       "strategy": {
         "buy_thesis": [
-          "7 años en operación",
-          "Ubicación: Raleigh, NC"
+          "Marca conocida (Martin's) — demand drives demand (clientes piden la marca)",
+          "22 cuentas con relaciones existentes con tiendas — barrera de entrada media",
+          "Cash flow predecible — payback en 2 años, retorno cash inmediato",
+          "Bajo capex — no requiere inversión adicional significativa"
         ],
         "ai_upside": {
-          "score": 80,
+          "score": 45,
           "opportunities": [
-            "Modernizar operación con CRM/automation",
-            "Capturar leads digitales — sector Cleaning Services"
+            "Optimización de rutas con software (más cuentas en mismo tiempo)",
+            "Expansión a más cuentas en el área Cary/Raleigh (densidad disponible)",
+            "Cross-sell de productos adyacentes con Martin's y otros wholesalers"
           ],
-          "value_multiplier_low": 2,
-          "value_multiplier_high": 3
+          "value_multiplier_low": 1.5,
+          "value_multiplier_high": 2.0
         },
-        "exit_profile": "Reventa a consolidador regional de Cleaning Services o PE de la industria",
-        "red_flags": [],
-        "strategic_score": 95,
-        "plain_summary": "Negocio en Raleigh con potencial razonable. Análisis preliminar — necesita DD profundo si avanza."
+        "exit_profile": "Reventa a otro operador local o a consolidador de bread routes (mercado nicho pero existe). Multiplier limitado por size.",
+        "red_flags": [
+          "Distributorship via wholesaler independiente — Martin's puede tener veto sobre transfer",
+          "Solo 22 cuentas: concentración de riesgo si pierdes 2-3 grandes"
+        ],
+        "strategic_score": 50,
+        "plain_summary": "Negocio sólido pero pequeño. Buen para entrar al sector distribution con poco capital y recuperar rápido. Techo de exit limitado (1.5-2x). No es trade de alta multiplicación pero sí cash flow inmediato y predecible."
       },
       "legal_check": {
         "done": true,
         "feasibility": "OK",
-        "feasibility_score": 85,
+        "feasibility_score": 90,
         "sba_accessible": false,
         "e2_compatible": true,
         "industry_restrictions": null,
         "alternative_financing": [
-          "Seller financing 30-50% (clave — pedir alto)",
-          "Conventional bank 20-30% down",
-          "Equity 15-25%",
-          "Private credit si > $1M",
-          "EB-5 si camino green card"
+          "Conventional bank o community bank 70% ($77K)",
+          "Equity propia 30% ($33K — muy accesible)",
+          "Seller financing NO ofrecido típicamente en bread routes — negociar es opción"
         ],
-        "buying_structure": "Delaware LLC 50/50 entre Daniel (E-2 ES) + socio (E-2 MX). Asset Purchase.",
+        "buying_structure": "Delaware LLC (Daniel E-2 ES + socio E-2 MX). Asset Purchase del distributorship + 22 cuentas + territorio. Operable remoto o presencial.",
         "key_warnings": [],
         "next_steps": [
-          "Visa E-2 en consulado (4-12 semanas, $5K legal)",
-          "Attorney M&A: $8-15K",
-          "Delaware LLC: $500 setup"
+          "Verificar con Martin's Bakery el transfer del distributorship (aprobación previa)",
+          "Auditar las 22 cuentas: cuáles son los top 5 y % de revenue",
+          "Visa E-2 si quieren operar presencial (no obligatorio para distribution route)",
+          "Delaware LLC ($500 + $300/año)"
         ],
-        "plain_summary": "Viable. Operación vía visa E-2 (España + México sí tienen treaty). Hay 2 requisitos informativos a planear antes del LOI: socio US-LPR para SBA (opcional, depende de financiamiento), y estructura de industria si aplica. Costo legal del cierre: $25-35K.",
-        "eb5_viability": {
-          "viable": false,
-          "viability_score": 0,
-          "min_investment_required": 1050000,
-          "is_tea_likely": false,
-          "tea_evidence": "Raleigh NO en TEA típica",
-          "creates_10_jobs": "NO_CAPACITY",
-          "current_employees": 0,
-          "troubled_business": false,
-          "timeline_months": 0,
-          "total_cost_usd": 0,
-          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
-          "key_risks": [
-            "Precio $130K debajo de mínimo EB-5 $1050K."
-          ],
-          "plain_summary": "Deal muy chico ($130K) para EB-5 path solo. Considera E-2 para este + Regional Center EB-5 separado si quieres green card."
-        },
+        "plain_summary": "Viable migratoriamente. Sin restricciones. Bajo capital legal del cierre (~$10-15K) — más simple que deals con brick-and-mortar.",
+        "informative_requirements": [
+          {
+            "severity": "warning",
+            "icon": "📜",
+            "title": "Distributorship requiere aprobación de Martin's Bakery para transfer",
+            "detail": "Antes de LOI: confirmar con Martin's que el comprador (LLC delaware de ustedes) será aprobado. Sin aprobación, el deal se cae."
+          },
+          {
+            "severity": "info",
+            "icon": "💰",
+            "title": "Bajo capital — accesible incluso sin SBA",
+            "detail": "Equity $33K + bank $77K = sin necesidad de SBA. Daniel y socio pueden ejecutar con cash + un bank loan estándar (no SBA, no problemas de LPR)."
+          },
+          {
+            "severity": "info",
+            "icon": "⚠",
+            "title": "SDE debajo del mínimo del proyecto",
+            "detail": "SDE $54K vs mínimo $75K. NO bloquea pero ojo: si buscan reemplazo de ingreso pleno, este deal solo no alcanza. Mejor como cash flow complementario o entry-level."
+          }
+        ],
         "us_partner_options": {
           "viable": true,
           "min_us_partner_pct": 51,
           "unlocks_sba": false,
-          "structure_notes": "Traer socio US-LPR o citizen con 51%+ ownership desbloquea SBA. Ustedes mantienen 49% combinado. Control formal cede pero pueden negociar: profit waterfall distinto a ownership, buy-back clause cuando obtengan green card propia (vía EB-5), o estructura de roles donde el socio US sea passive investor (silent partner).",
+          "structure_notes": "Para deal de $110K no se justifica complejidad de socio US — proceder ustedes 2.",
           "downsides": [
-            "Ceden control mayoritario formal del LLC",
-            "Socio US asume responsabilidad legal como borrower principal SBA",
-            "Hay que negociar profit-share o waterfall que refleje aporte real (capital, operación, deal-finding)",
-            "Si el socio quiere salirse, complicado sin buy-back clause prearmada"
+            "Complejidad innecesaria para deal chico"
           ],
-          "ideal_us_partner_profile": "Ciudadano US o LPR con buen crédito (≥720 FICO), 5+ años en US, ideally experiencia en la industria del deal, dispuesto a profit-share minority (e.g., 25% de utilidades por 51% ownership formal), buy-back clause activable cuando ustedes obtengan green card propia",
-          "when_worth_doing": "Cuando el deal es claramente bueno (overall > 80) y la diferencia entre estructura SBA (con socio US) vs sin SBA (más equity propia) es alta. Para deals > $1M, el ahorro de cash inicial puede ser $200K-$500K, justifica negociar con socio US."
+          "ideal_us_partner_profile": "No aplicable",
+          "when_worth_doing": "NO recomendado para este deal por tamaño"
         },
         "professional_partner": {
           "needed": false,
           "profession": null,
           "state_specific": null,
-          "structure_alternative": null
+          "structure_alternative": "Distribution sin requisito profesional"
         },
-        "informative_requirements": [
-          {
-            "severity": "info",
-            "icon": "🏛",
-            "title": "Para acceder a crédito SBA: socio US-LPR o ciudadano americano requerido",
-            "detail": "Daniel (ES) y socio actual (MX) no son LPR/citizens → SBA está bloqueado a su nombre. NO es blocker del deal. Dos caminos viables: (A) Traer tercer socio con green card o ciudadanía US — debe tener ≥51% ownership para que el loan sea SBA-eligible; ustedes mantienen 49% combinado, profit-share negociable distinto al ownership, buy-back clause cuando obtengan green card propia. (B) Sin socio US, usar seller financing alto (40-60%) + conventional bank + equity propia. El deal se ejecuta por cualquiera de las dos vías."
-          }
-        ]
+        "eb5_viability": {
+          "viable": false,
+          "viability_score": 0,
+          "min_investment_required": 1050000,
+          "is_tea_likely": false,
+          "tea_evidence": "Cary NC es metro Raleigh — NO TEA",
+          "creates_10_jobs": "NO_CAPACITY",
+          "current_employees": 1,
+          "troubled_business": false,
+          "timeline_months": 0,
+          "total_cost_usd": 0,
+          "path_recommendation": "NOT_VIABLE_FOR_THIS_DEAL",
+          "key_risks": [
+            "Precio $110K MUY debajo del mínimo EB-5 $800K. 22 cuentas no escalan a 10 empleos US."
+          ],
+          "plain_summary": "No viable para EB-5. Si quieren GC vía inversión, considerar Regional Center separado y este deal vía E-2."
+        }
       },
       "events": [
         {
@@ -3634,6 +3657,14 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-29",
+          "description": "🔴 CORRECCIÓN: Daniel reportó que el URL anterior (página de categoría) llevaba a otro negocio. Verifiqué con WebSearch — el listing real es Martin's Bread Route Cary NC (2275502). Datos del snippet original ($130K/$387K/$82K) NO coinciden con ningún listing actual de Martin's en NC. Actualizado con datos VERIFICADOS del listing real Cary NC."
+        },
+        {
+          "created_at": "2026-05-29",
+          "description": "Datos verificados: asking $110K, revenue $264K, SDE $54K (debajo del mínimo proyecto $75K). Múltiplo 2.0x. Análisis recalculado con números reales."
         }
       ],
       "notes": [],
