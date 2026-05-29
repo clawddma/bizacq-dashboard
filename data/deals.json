@@ -1,6 +1,6 @@
 {
-  "last_update": "2026-05-29 00:27 UTC (dashboard)",
-  "version": "0.14.0-wellnature-added",
+  "last_update": "2026-05-28 12:00 COT",
+  "version": "0.15.0-worker-live",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
     {
@@ -5942,49 +5942,6 @@
           "text": "Este me gustó mucho. Beauty DTC en Florida con suscripción recurrente real ($100K MRR). Revisar a fondo."
         }
       ]
-    },
-    {
-      "id": "137972a9-d1e8-4f89-91d9-4f6764ee418a",
-      "source": "manual",
-      "source_url": "https://test.example/listing/999",
-      "source_url_kind": "listing",
-      "source_url_verified": false,
-      "added_manually": true,
-      "pending_analysis": true,
-      "title": "Lead pendiente — HVAC (TX)",
-      "state": "TX",
-      "city": "",
-      "business_type": "HVAC",
-      "years_operation": null,
-      "asking_price": 500000,
-      "reported_revenue": null,
-      "reported_sde": null,
-      "seller_financing": false,
-      "sba_prequalified": false,
-      "curated_source": false,
-      "raw_description": "TEST DEAL — borrar",
-      "pipeline_status": "RADAR",
-      "filter_score": null,
-      "overall_score": null,
-      "priority": null,
-      "financial": null,
-      "strategy": null,
-      "legal_check": {
-        "done": false
-      },
-      "events": [
-        {
-          "created_at": "2026-05-29",
-          "description": "Agregado por test vía dashboard (Cloudflare Worker) — PENDIENTE ANÁLISIS"
-        }
-      ],
-      "notes": [
-        {
-          "author": "test",
-          "created_at": "2026-05-29",
-          "text": "TEST DEAL — borrar"
-        }
-      ]
     }
   ],
   "manual_orders": {
@@ -6024,8 +5981,7 @@
       "e8444b88-a4f5-42ec-9c42-5baf81506347",
       "0d2efe36-7d36-4b00-a57f-4decf2026cab",
       "e0b7ff29-f9a2-4e28-b386-d6c000d67120",
-      "38f23de9-88dc-4cff-8f5b-7a35f92437fe",
-      "137972a9-d1e8-4f89-91d9-4f6764ee418a"
+      "38f23de9-88dc-4cff-8f5b-7a35f92437fe"
     ]
   },
   "data_quality": {
