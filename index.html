@@ -771,10 +771,10 @@
                 </button>
                 <button @click="requestDeepAnalysis()"
                   class="text-[11px] px-2 py-1 rounded font-medium flex items-center gap-1"
-                  :class="selectedDeal.deep_analysis ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700' : 'bg-purple-50 hover:bg-purple-100 text-purple-700'"
-                  :title="selectedDeal.deep_analysis ? 'Ya hay verificación profunda — click para refrescar' : 'Pedir a Claude verificar contra bases públicas (Census, SBA FOIA, Secretary of State, PACER, reviews)'">
+                  :class="selectedDeal.deep_analysis ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700' : (selectedDeal.deep_analysis_requested ? 'bg-orange-50 text-orange-700' : 'bg-purple-50 hover:bg-purple-100 text-purple-700')"
+                  :title="selectedDeal.deep_analysis ? 'Ya verificado — click para re-solicitar' : (selectedDeal.deep_analysis_requested ? 'Solicitado — la routine lo procesa con búsqueda web real' : 'Solicitar verificación contra bases públicas (Census, SBA FOIA, Secretary of State, PACER, reviews)')">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                  <span x-text="selectedDeal.deep_analysis ? '✓ Verificado a fondo' : '🔬 Analizar más a fondo'"></span>
+                  <span x-text="selectedDeal.deep_analysis ? '✓ Verificado a fondo' : (selectedDeal.deep_analysis_requested ? '⏳ Análisis solicitado' : '🔬 Analizar más a fondo')"></span>
                 </button>
               </div>
             </div>
@@ -1784,9 +1784,28 @@
           }
         },
 
-        requestDeepAnalysis() {
+        async requestDeepAnalysis() {
           if (!this.selectedDeal?.id) return;
           const d = this.selectedDeal;
+          // VÍA WORKER: marca el deal para que la routine lo procese (sin pegar mensaje a Claude)
+          if (this.hasWorker()) {
+            try {
+              this.toast('Solicitando análisis profundo...');
+              const res = await fetch(this.WORKER_URL + '/request-analysis', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ dealId: d.id }),
+              });
+              if (!res.ok) throw new Error(`Worker ${res.status}`);
+              d.deep_analysis_requested = true; // feedback visual inmediato
+              this.toast('✓ Análisis solicitado — la routine lo procesa con búsqueda web real (en minutos)');
+              setTimeout(() => this.init(), 1500);
+              return;
+            } catch (e) {
+              console.error('request-analysis error', e);
+              this.toast('⚠ ' + e.message + ' — usando fallback (copiar para Claude)');
+            }
+          }
+          // FALLBACK (sin Worker): copiar pedido para pegarle a Claude
           const lines = [
             'Pido análisis profundo (fact-checker subagent) del siguiente deal:',
             '',
@@ -1957,9 +1976,13 @@
           // Auto-sync trigger (debounced 2.5s — agrupa múltiples drags en un commit)
           this.triggerAutoSync();
           // AUTO-TRIGGER análisis profundo cuando deal va RADAR → EN_ANALISIS
-          if (!sameColumn && oldStatus === 'RADAR' && newColKey === 'EN_ANALISIS' && !deal.deep_analysis) {
+          if (!sameColumn && oldStatus === 'RADAR' && newColKey === 'EN_ANALISIS' && !deal.deep_analysis && !deal.deep_analysis_requested) {
             setTimeout(() => {
-              if (confirm(`¿Activar análisis profundo de "${shortTitle}"?\n\nEl fact-checker buscará en bases públicas (Census, SBA FOIA, Secretary of State, PACER, Yelp/Google). Toma ~5-10 min y sube la confianza del análisis significativamente.\n\nClick OK = se copia un pedido al clipboard que pegas a Claude. Click Cancel = sigues con el análisis base actual.`)) {
+              const viaWorker = this.hasWorker();
+              const msg = viaWorker
+                ? `¿Activar análisis profundo de "${shortTitle}"?\n\nLa routine buscará en bases públicas (Census, SBA FOIA, Secretary of State, PACER, reviews) con búsqueda web real. Toma minutos y sube la confianza del análisis.\n\nOK = se solicita y se procesa solo. Cancel = sigues con el análisis base.`
+                : `¿Activar análisis profundo de "${shortTitle}"?\n\nOK = se copia un pedido al clipboard que pegas a Claude. Cancel = sigues con el análisis base.`;
+              if (confirm(msg)) {
                 this.selectedDeal = deal;
                 this.requestDeepAnalysis();
               }

@@ -280,6 +280,26 @@ a{color:#60a5fa}</style></head><body>
         }
       }
 
+      // ── POST /request-analysis — marca el deal para que la routine lo procese ──
+      if (url.pathname === '/request-analysis') {
+        const dealId = String(body.dealId || '');
+        if (!dealId) return json({ error: 'falta dealId' }, 400, cors);
+        try {
+          const { data, sha } = await getDealsFile(env);
+          const deal = data.deals.find((d) => d.id === dealId);
+          if (!deal) return json({ error: 'deal no encontrado' }, 404, cors);
+          deal.deep_analysis_requested = true;
+          deal.deep_analysis_requested_at = new Date().toISOString();
+          deal.events = deal.events || [];
+          deal.events.push({ created_at: new Date().toISOString().slice(0, 10), description: 'Análisis profundo solicitado vía dashboard — la routine lo procesará con búsqueda web real' });
+          data.last_update = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC (dashboard)';
+          await putDealsFile(env, data, sha, `chore: fact-check solicitado — ${(deal.title || dealId).slice(0, 45)}`);
+          return json({ ok: true, id: dealId }, 200, cors);
+        } catch (e) {
+          return json({ error: String(e) }, 502, cors);
+        }
+      }
+
       return json({ error: 'endpoint no encontrado' }, 404, cors);
     }
 
