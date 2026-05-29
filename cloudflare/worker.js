@@ -127,6 +127,37 @@ export default {
 
     if (request.method === 'OPTIONS') return new Response(null, { headers: cors });
 
+    // ── GET / — página de status amigable (para cuando abres la URL en el navegador) ──
+    if (request.method === 'GET' && (url.pathname === '/' || url.pathname === '')) {
+      let dealCount = '?';
+      try {
+        const r = await fetch(`${RAW_URL}?_=${Date.now()}`);
+        const d = await r.json();
+        dealCount = (d.deals || []).length;
+      } catch {}
+      const html = `<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BizAcq API</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0f172a;color:#e2e8f0;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:24px}
+.card{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:32px;max-width:520px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+h1{margin:0 0 4px;font-size:22px}.ok{color:#34d399;font-weight:700}
+.muted{color:#94a3b8;font-size:14px;line-height:1.6}
+code{background:#0f172a;padding:2px 7px;border-radius:5px;font-size:13px;color:#a5b4fc}
+.row{display:flex;gap:8px;margin-top:8px;align-items:center}
+a{color:#60a5fa}</style></head><body>
+<div class="card">
+<h1>🟢 BizAcq API <span class="ok">activo</span></h1>
+<p class="muted">Este es el backend (Cloudflare Worker) del dashboard BizAcq. No es una página para visitar — es la API que recibe los negocios que tú y tu socio agregan.</p>
+<p class="muted"><strong>${dealCount}</strong> deals en la base de datos ahora mismo.</p>
+<div class="row"><code>GET /health</code> <span class="muted">— ping</span></div>
+<div class="row"><code>GET /deals</code> <span class="muted">— lee todos los deals</span></div>
+<div class="row"><code>POST /add-deal</code> <span class="muted">— agrega negocio (desde el dashboard)</span></div>
+<div class="row"><code>POST /update-deal</code> <span class="muted">— mueve/actualiza (desde el dashboard)</span></div>
+<p class="muted" style="margin-top:20px">👉 El dashboard está en <a href="https://clawddma.github.io/bizacq-dashboard/">clawddma.github.io/bizacq-dashboard</a></p>
+</div></body></html>`;
+      return new Response(html, { headers: { ...cors, 'Content-Type': 'text/html; charset=utf-8' } });
+    }
+
     // ── GET /health ──
     if (request.method === 'GET' && url.pathname === '/health') {
       return json({ ok: true, service: 'bizacq-api' }, 200, cors);
