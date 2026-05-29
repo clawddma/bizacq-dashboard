@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-05-28 12:00 COT",
+  "last_update": "2026-05-29 00:47 UTC (dashboard)",
   "version": "0.15.0-worker-live",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
@@ -5933,6 +5933,10 @@
         {
           "created_at": "2026-05-28",
           "description": "🔴 Bandera: discrepancia profit $750K (header) vs $390K (descripción 11 meses) — aclarar en DD"
+        },
+        {
+          "created_at": "2026-05-29",
+          "description": "Análisis profundo solicitado vía dashboard — la routine lo procesará con búsqueda web real"
         }
       ],
       "notes": [
@@ -5941,7 +5945,9 @@
           "created_at": "2026-05-28",
           "text": "Este me gustó mucho. Beauty DTC en Florida con suscripción recurrente real ($100K MRR). Revisar a fondo."
         }
-      ]
+      ],
+      "deep_analysis_requested": true,
+      "deep_analysis_requested_at": "2026-05-29T00:47:56.799Z"
     }
   ],
   "manual_orders": {
