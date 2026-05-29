@@ -51,3 +51,7 @@ screenshots/
 data/bizscout_session.json   # Playwright session cookie cache
 data/raw_listings.json       # raw scraper output, can be huge
 # Note: data/deals.json IS committed — it's the dashboard's source of truth
+
+# Cloudflare wrangler local cache (account id, etc.)
+cloudflare/.wrangler/
+.wrangler/
