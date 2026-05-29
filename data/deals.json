@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-05-28 09:00 COT",
+  "last_update": "2026-05-29 00:27 UTC (dashboard)",
   "version": "0.14.0-wellnature-added",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
@@ -381,7 +381,7 @@
       "raw_description": "Ruta de mantenimiento de piscinas con 320 clientes mensuales recurrentes en Tampa, Brandon y Riverview. 3 técnicos. Dueño operario quiere semi-retirarse.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 69.0,
+      "overall_score": 69,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 180000,
@@ -2461,7 +2461,7 @@
       "raw_description": "Commercial landscape Tampa Bay. 7 contratos mensuales B2B firmes ($47K/mes recurring). 9 años, equipo 12 técnicos + 3 trucks. Cubre Hillsborough, Pinellas, Manatee, Sarasota, Charlotte.",
       "pipeline_status": "RADAR",
       "filter_score": 55,
-      "overall_score": 74.0,
+      "overall_score": 74,
       "priority": "MEDIA",
       "financial": {
         "reconstructed_sde": 145000,
@@ -3213,7 +3213,7 @@
       "source_url_verified": true,
       "pipeline_status": "RADAR",
       "filter_score": 20,
-      "overall_score": 90.0,
+      "overall_score": 90,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 720000,
@@ -5500,7 +5500,7 @@
       "raw_description": "Founded March 2025 (track record 14 meses). E-commerce skincare/beauty, formulaciones naturales, dropshipping. Revenue $631K, net profit $227K (36% margen — alto para e-commerce). 47K customer base, email marketing 18% conversion. Marketing: Google Ads + Meta Ads. Listing BizScout Exclusive. ⚠ INVENTORY DECLARADO: $14M USD (confirmado por Daniel con seller) — ratio inventory/asking 50.7x es extraordinario. SI el inventory es real y líquido, oportunidad masiva; SI es valorado al retail/MSRP o productos próximos a vencer, alerta máxima.",
       "pipeline_status": "RADAR",
       "filter_score": 25,
-      "overall_score": 80.0,
+      "overall_score": 80,
       "priority": "ALTA",
       "financial": {
         "reconstructed_sde": 227000,
@@ -5508,14 +5508,14 @@
         "cash_on_cash_y1": 2.44,
         "cash_on_cash_y3": 2.93,
         "payback_years": 0.4,
-        "equity_required": 82800.0,
+        "equity_required": 82800,
         "sba_eligible": false,
         "suggested_structure": {
           "equity_pct": 30,
           "sba_loan_pct": 0,
           "seller_note_pct": 0,
           "bank_loan_pct": 70,
-          "estimated_monthly_debt_service": 2093.0
+          "estimated_monthly_debt_service": 2093
         },
         "self_financing_score": 85,
         "financial_score": 75,
@@ -5830,7 +5830,7 @@
             "Predecir churn de subscribers con ML y intervenir antes — cada punto de retention en $100K MRR vale ~$12K/año"
           ],
           "value_multiplier_low": 2.5,
-          "value_multiplier_high": 4.0
+          "value_multiplier_high": 4
         },
         "exit_profile": "Subscription DTC beauty con MRR real es lo que SÍ compran los aggregators sobrevivientes (Razor) y los strategics de beauty (e.l.f., Beauty pie, etc.). El MRR + email list lo hacen mucho más vendible que un dropshipping puro. Exit realista 2.5-4x SDE en 3 años SI el MRR se mantiene/crece.",
         "red_flags": [
@@ -5942,6 +5942,49 @@
           "text": "Este me gustó mucho. Beauty DTC en Florida con suscripción recurrente real ($100K MRR). Revisar a fondo."
         }
       ]
+    },
+    {
+      "id": "137972a9-d1e8-4f89-91d9-4f6764ee418a",
+      "source": "manual",
+      "source_url": "https://test.example/listing/999",
+      "source_url_kind": "listing",
+      "source_url_verified": false,
+      "added_manually": true,
+      "pending_analysis": true,
+      "title": "Lead pendiente — HVAC (TX)",
+      "state": "TX",
+      "city": "",
+      "business_type": "HVAC",
+      "years_operation": null,
+      "asking_price": 500000,
+      "reported_revenue": null,
+      "reported_sde": null,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "TEST DEAL — borrar",
+      "pipeline_status": "RADAR",
+      "filter_score": null,
+      "overall_score": null,
+      "priority": null,
+      "financial": null,
+      "strategy": null,
+      "legal_check": {
+        "done": false
+      },
+      "events": [
+        {
+          "created_at": "2026-05-29",
+          "description": "Agregado por test vía dashboard (Cloudflare Worker) — PENDIENTE ANÁLISIS"
+        }
+      ],
+      "notes": [
+        {
+          "author": "test",
+          "created_at": "2026-05-29",
+          "text": "TEST DEAL — borrar"
+        }
+      ]
     }
   ],
   "manual_orders": {
@@ -5981,7 +6024,8 @@
       "e8444b88-a4f5-42ec-9c42-5baf81506347",
       "0d2efe36-7d36-4b00-a57f-4decf2026cab",
       "e0b7ff29-f9a2-4e28-b386-d6c000d67120",
-      "38f23de9-88dc-4cff-8f5b-7a35f92437fe"
+      "38f23de9-88dc-4cff-8f5b-7a35f92437fe",
+      "137972a9-d1e8-4f89-91d9-4f6764ee418a"
     ]
   },
   "data_quality": {
