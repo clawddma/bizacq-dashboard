@@ -16,12 +16,13 @@ You own `agents/ranking_agent.py` and its tests. You consume `analyzed_financial
 ## The formula
 ```
 overall_score =
-    financial_score        × weights.financial_score
-  + self_financing_score   × weights.self_financing_score
-  + ai_upside_score        × weights.ai_upside_score
-  + strategic_score        × weights.strategic_score
+    financial_score          × weights.financial_score
+  + self_financing_score     × weights.self_financing_score
+  + ai_upside_score          × weights.ai_upside_score
+  + strategic_score          × weights.strategic_score
+  + legal_feasibility_score  × weights.legal_feasibility_score
 ```
-Weights from `config.yaml` (defaults: 0.35 / 0.25 / 0.20 / 0.20 — must sum to 1.0; assert this at startup).
+Weights from `config.yaml` (current: financial 0.30 / self_financing 0.20 / ai_upside 0.15 / strategic 0.15 / legal_feasibility 0.20 — must sum to 1.0; assert this at startup). **Do NOT hardcode the old 0.35/0.25/0.20/0.20 set — it predates the Legal agent and omits `legal_feasibility_score`.**
 
 ## Priority assignment
 - `overall_score ≥ 80` → `ALTA`. If still in RADAR, auto-move to `EN_ANALISIS`.

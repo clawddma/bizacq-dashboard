@@ -781,7 +781,47 @@
             <button @click="closeDeal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none w-8 h-8 flex items-center justify-center">×</button>
           </div>
 
-          <div class="px-6 py-5 space-y-6">
+          <!-- ════ RUTA — stage tracker + next-best-action (estilo HubSpot) ════ -->
+          <div class="bg-white border-b border-slate-200 px-6 py-3">
+            <div class="flex items-center gap-1 mb-3 overflow-x-auto scrollbar-thin">
+              <template x-for="(st, i) in stageRoute" :key="st.key">
+                <div class="flex items-center shrink-0">
+                  <button @click="jumpStage(st.key)"
+                    class="flex flex-col items-center px-2.5 py-1 rounded-md transition text-center min-w-[78px]"
+                    :class="stageState(st.key) === 'done' ? 'bg-emerald-50 hover:bg-emerald-100' : stageState(st.key) === 'current' ? 'bg-slate-900 text-white' : 'hover:bg-slate-100'">
+                    <span class="text-[10px] font-bold uppercase tracking-wide leading-tight"
+                      :class="stageState(st.key) === 'current' ? 'text-white' : stageState(st.key) === 'done' ? 'text-emerald-700' : 'text-slate-500'"
+                      x-text="(stageState(st.key) === 'done' ? '✓ ' : '') + st.label"></span>
+                  </button>
+                  <span x-show="i < stageRoute.length - 1" class="text-slate-300 mx-0.5 shrink-0">›</span>
+                </div>
+              </template>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-[11px] text-slate-500">Siguiente paso sugerido:</span>
+              <template x-for="act in nextBestActions(selectedDeal)" :key="act.label">
+                <button @click="runAction(act)" :disabled="act.disabled"
+                  class="text-xs px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition"
+                  :class="act.disabled ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : act.primary ? 'bg-slate-900 text-white hover:bg-slate-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                  x-text="act.label"></button>
+              </template>
+            </div>
+          </div>
+
+          <div class="px-6 py-5">
+            <!-- ════ TABS del record (estilo HubSpot) ════ -->
+            <div class="flex gap-1 border-b border-slate-200 mb-5 overflow-x-auto scrollbar-thin">
+              <template x-for="t in recordTabs" :key="t.key">
+                <button @click="recordTab = t.key"
+                  class="px-3 py-2 text-[13px] font-semibold border-b-2 -mb-px transition flex items-center gap-1.5 shrink-0"
+                  :class="recordTab === t.key ? 'text-slate-900 border-slate-900' : 'text-slate-400 border-transparent hover:text-slate-600'">
+                  <span x-text="t.label"></span>
+                  <span x-show="t.count && recordCount(t.key)" class="text-[10px] px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-600" x-text="recordCount(t.key)"></span>
+                </button>
+              </template>
+            </div>
+
+            <div x-show="recordTab === 'resumen'" class="space-y-6">
             <!-- Data confidence legend — collapsible -->
             <div x-data="{ legendOpen: false }" class="bg-slate-50 rounded-lg p-2 text-[11px]">
               <button @click="legendOpen = !legendOpen" class="w-full text-left text-slate-600 hover:text-slate-900 flex items-center justify-between">
@@ -1176,19 +1216,76 @@
               <h3 class="text-sm font-bold text-red-700 mb-2">Razón de descarte</h3>
               <p class="text-sm text-slate-700 bg-red-50 border-l-4 border-red-500 p-3 rounded-r" x-text="selectedDeal.discard_reason"></p>
             </section>
+            </div><!-- /resumen -->
 
-            <section x-show="selectedDeal.notes?.length">
-              <h3 class="text-sm font-bold text-slate-900 mb-2">Notas</h3>
-              <div class="space-y-2">
-                <template x-for="n in selectedDeal.notes" :key="n.created_at">
-                  <div class="bg-slate-50 p-2 rounded text-sm">
-                    <p class="text-xs text-slate-500 mb-1"><strong x-text="n.author"></strong> · <span x-text="n.created_at"></span></p>
-                    <p class="text-slate-800" x-text="n.text"></p>
+            <div x-show="recordTab === 'documentos'">
+            <!-- ════ DOCUMENTOS — repositorio del deal (estilo HubSpot) ════ -->
+            <section>
+              <h3 class="text-sm font-bold text-slate-900 mb-2 flex items-center gap-2">
+                📎 Documentos del deal
+                <span class="text-[10px] text-slate-400 font-normal">listing, financieros del broker, benchmark de mercado…</span>
+              </h3>
+              <div class="space-y-1.5 mb-2">
+                <template x-for="(doc, i) in (selectedDeal.documents || [])" :key="doc.url + i">
+                  <div class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 p-2 rounded text-sm group">
+                    <span class="text-[10px] font-bold px-1.5 py-0.5 rounded uppercase shrink-0" :class="docKindClass(doc.kind)" x-text="doc.kind"></span>
+                    <a :href="doc.url" target="_blank" rel="noopener" class="flex-1 text-blue-700 hover:underline truncate" x-text="doc.name"></a>
+                    <span class="text-[10px] text-slate-400 shrink-0" x-text="doc.added_at"></span>
+                    <button @click="removeDocument(doc)" class="text-slate-300 hover:text-red-500 text-xs opacity-0 group-hover:opacity-100 transition shrink-0" title="Quitar documento">✕</button>
                   </div>
                 </template>
+                <p x-show="!(selectedDeal.documents || []).length" class="text-xs text-slate-400 italic">Aún no hay documentos adjuntos.</p>
+              </div>
+              <div x-data="{ open: false }">
+                <button x-show="!open" @click="open = true" class="text-xs px-2.5 py-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium">+ Adjuntar documento</button>
+                <div x-show="open" x-cloak class="bg-slate-50 border border-slate-200 rounded-lg p-3 space-y-2">
+                  <div class="flex gap-2">
+                    <select x-model="docDraft.kind" class="text-xs border border-slate-300 rounded px-2 py-1.5 bg-white">
+                      <option value="listing">Listing</option>
+                      <option value="broker">Broker / financieros</option>
+                      <option value="benchmark">Benchmark mercado</option>
+                      <option value="legal">Legal</option>
+                      <option value="financiero">Financiero</option>
+                      <option value="otro">Otro</option>
+                    </select>
+                    <input x-model="docDraft.name" type="text" placeholder="Nombre (ej: P&L 2025.pdf)" class="flex-1 text-xs border border-slate-300 rounded px-2 py-1.5">
+                  </div>
+                  <input x-model="docDraft.url" type="url" placeholder="URL del documento (Drive, Dropbox, link del broker…)" class="w-full text-xs border border-slate-300 rounded px-2 py-1.5">
+                  <p class="text-[10px] text-slate-400">Por ahora se adjunta por enlace (Drive/Dropbox/broker). La subida de archivos directa llega en la siguiente fase del Worker.</p>
+                  <div class="flex gap-2">
+                    <button @click="addDocument(); open = false" :disabled="!docDraft.url" class="text-xs px-3 py-1.5 rounded bg-slate-900 text-white font-semibold disabled:opacity-40">Adjuntar</button>
+                    <button @click="open = false" class="text-xs px-3 py-1.5 rounded bg-white border border-slate-300 text-slate-600">Cancelar</button>
+                  </div>
+                </div>
               </div>
             </section>
+            </div><!-- /documentos -->
 
+            <div x-show="recordTab === 'notas'">
+            <!-- ════ NOTAS — composer inline (sin pasar por Claude) ════ -->
+            <section>
+              <h3 class="text-sm font-bold text-slate-900 mb-2">📝 Notas</h3>
+              <div class="space-y-2 mb-2">
+                <template x-for="(n, i) in (selectedDeal.notes || [])" :key="i">
+                  <div class="bg-slate-50 p-2 rounded text-sm">
+                    <p class="text-xs text-slate-500 mb-1"><strong x-text="n.author"></strong> · <span x-text="n.created_at"></span></p>
+                    <p class="text-slate-800 whitespace-pre-wrap" x-text="n.text"></p>
+                  </div>
+                </template>
+                <p x-show="!(selectedDeal.notes || []).length" class="text-xs text-slate-400 italic">Sin notas todavía.</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <textarea x-model="noteDraft" rows="2" placeholder="Escribe una nota: qué viste, qué preguntar al broker, próximo paso…" class="w-full text-sm border border-slate-300 rounded-lg px-3 py-2 resize-y"></textarea>
+                <div class="flex justify-end">
+                  <button @click="addNote()" :disabled="!noteDraft.trim() || savingNote" class="text-xs px-3 py-1.5 rounded bg-slate-900 text-white font-semibold disabled:opacity-40 flex items-center gap-1.5">
+                    <span x-text="savingNote ? 'Guardando…' : 'Agregar nota'"></span>
+                  </button>
+                </div>
+              </div>
+            </section>
+            </div><!-- /notas -->
+
+            <div x-show="recordTab === 'actividad'" class="space-y-6">
             <section x-show="selectedDeal.events?.length">
               <h3 class="text-sm font-bold text-slate-900 mb-2">Historial</h3>
               <ul class="text-xs text-slate-600 space-y-1">
@@ -1197,9 +1294,10 @@
                 </template>
               </ul>
             </section>
+            </div><!-- /actividad -->
 
             <p class="text-[11px] text-slate-400 text-center pt-4 border-t border-slate-100">
-              Para agregar nota o cambiar algo más complejo: dile a Claude "agrega nota al deal <strong x-text="selectedDeal.id?.slice(0,8)"></strong>: …"
+              Para análisis profundo o un plan de mejora: usa los botones de <strong>Siguiente paso</strong> arriba — todo se procesa sin salir del dashboard.
             </p>
           </div>
         </div>
@@ -1411,6 +1509,23 @@
         stateMenuOpen: false,
         addModalOpen: false,
         addForm: { listingUrl: '', websiteUrl: '', category: '', state: '', askingPrice: '', notes: '' },
+        // ── HubSpot-style deal record state ──
+        noteDraft: '', savingNote: false,
+        docDraft: { kind: 'broker', name: '', url: '' },
+        stageRoute: [
+          { key: 'RADAR',          label: 'Radar' },
+          { key: 'EN_ANALISIS',    label: 'En análisis' },
+          { key: 'PARA_CONTACTAR', label: 'Contactar' },
+          { key: 'EN_NEGOCIACION', label: 'Negociación' },
+          { key: 'CIERRE',         label: 'Cierre' },
+        ],
+        recordTab: 'resumen',
+        recordTabs: [
+          { key: 'resumen',    label: 'Resumen' },
+          { key: 'documentos', label: 'Documentos', count: true },
+          { key: 'notas',      label: 'Notas',      count: true },
+          { key: 'actividad',  label: 'Actividad' },
+        ],
         tokenModalOpen: false,
         tokenInput: localStorage.getItem('bizacq_gh_token_v1') || '',
         githubToken: localStorage.getItem('bizacq_gh_token_v1') || '',
@@ -1758,9 +1873,17 @@
           this.toast(`Ordenando ${this.statusLabel(colKey)} por: ${this.sortOptions.find(o => o.key === sortKey).label}`);
         },
 
+        recordCount(key) {
+          const d = this.selectedDeal;
+          if (!d) return 0;
+          if (key === 'documentos') return (d.documents || []).length;
+          if (key === 'notas') return (d.notes || []).length;
+          return 0;
+        },
         openDeal(deal) {
           if (this.draggingId) return;
           this.selectedDeal = deal;
+          this.recordTab = 'resumen';
           document.body.style.overflow = 'hidden';
           // Deep link: update URL hash so the link can be shared
           if (deal?.id) history.replaceState(null, '', '#deal=' + deal.id);
@@ -1781,6 +1904,149 @@
             this.toast('✓ Link copiado — pégalo al socio (WhatsApp, email, etc.)');
           } else {
             window.prompt('Copia este link y mándaselo al socio:', shareUrl);
+          }
+        },
+
+        // ── Ruta / stage tracker ──
+        stageState(key) {
+          const order = this.stageRoute.map(s => s.key);
+          const ci = order.indexOf(this.selectedDeal?.pipeline_status);
+          const ki = order.indexOf(key);
+          if (ci === -1) return 'future';   // DESCARTADO u otro fuera de la ruta
+          if (ki < ci) return 'done';
+          if (ki === ci) return 'current';
+          return 'future';
+        },
+        jumpStage(key) {
+          const d = this.selectedDeal;
+          if (!d || d.pipeline_status === key) return;
+          this.moveDeal(d.id, key, null, 'end');   // reusa transición + auto-sync existente
+        },
+        // ── Next-best-action ──
+        nextBestActions(deal) {
+          if (!deal) return [];
+          const s = deal.pipeline_status;
+          const acts = [];
+          const needsDeep = !deal.deep_analysis && !deal.deep_analysis_requested;
+          if (s === 'RADAR') {
+            if (needsDeep) acts.push({ label: '🔬 Verificar a fondo', primary: true, type: 'deep' });
+            acts.push({ label: '→ Pasar a En análisis', primary: !needsDeep, type: 'stage', to: 'EN_ANALISIS' });
+          } else if (s === 'EN_ANALISIS') {
+            if (needsDeep) acts.push({ label: '🔬 Verificar a fondo', primary: true, type: 'deep' });
+            acts.push({ label: '→ Pasar a Para contactar', primary: !needsDeep, type: 'stage', to: 'PARA_CONTACTAR' });
+          } else if (s === 'PARA_CONTACTAR') {
+            acts.push({ label: '→ Pasar a En negociación', primary: true, type: 'stage', to: 'EN_NEGOCIACION' });
+          } else if (s === 'EN_NEGOCIACION') {
+            acts.push({ label: deal.value_plan_requested ? '⏳ Plan de Valor solicitado' : '📋 Pedir Plan de Valor profundo', primary: !deal.value_plan_requested, disabled: !!deal.value_plan_requested, type: 'valueplan' });
+            acts.push({ label: '→ Pasar a Cierre', primary: false, type: 'stage', to: 'CIERRE' });
+          } else if (s === 'CIERRE') {
+            acts.push({ label: '✓ Deal en cierre', primary: false, disabled: true, type: 'none' });
+          } else if (s === 'DESCARTADO') {
+            acts.push({ label: '↩ Recuperar a Radar', primary: true, type: 'stage', to: 'RADAR' });
+          }
+          return acts;
+        },
+        runAction(act) {
+          if (!act || act.disabled) return;
+          if (act.type === 'deep') return this.requestDeepAnalysis();
+          if (act.type === 'stage') return this.jumpStage(act.to);
+          if (act.type === 'valueplan') return this.requestValuePlan();
+        },
+        async requestValuePlan() {
+          const d = this.selectedDeal;
+          if (!d) return;
+          if (!confirm('¿Pedir el Plan de Valor profundo (Capa 2)?\n\nGenera un roadmap de creación de valor para ESTE negocio — automatización, eficiencia operativa y expansión de múltiplo a 90 días / 12 / 36 meses, con las cifras reales de la negociación.\n\nLo produce el Arquitecto de Valor (en construcción). Por ahora queda solicitado y registrado.')) return;
+          d.value_plan_requested = true;
+          await this.persistNote('[PLAN DE VALOR SOLICITADO] Generar roadmap de creación de valor (automatización, eficiencia, modelo sin empleados, expansión de múltiplo) para este deal con cifras reales de la negociación.', 'sistema');
+          this.toast('✓ Plan de Valor solicitado — registrado en notas e historial');
+        },
+        // ── Notas (composer inline, persiste vía Worker /update-deal) ──
+        async persistNote(text, author) {
+          const d = this.selectedDeal;
+          if (!d) return false;
+          const note = { author: author || 'socio', created_at: new Date().toISOString().slice(0, 10), text };
+          d.notes = d.notes || [];
+          if (this.hasWorker()) {
+            try {
+              const res = await fetch(this.WORKER_URL + '/update-deal', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ dealId: d.id, note: text, author }),
+              });
+              if (!res.ok) throw new Error('Worker ' + res.status);
+              d.notes.push(note);
+              return true;
+            } catch (e) {
+              d.notes.push(note);
+              this.toast('⚠ ' + e.message + ' — nota guardada local, sin sincronizar');
+              return false;
+            }
+          }
+          d.notes.push(note);
+          this.toast('Nota guardada local (Worker offline)');
+          return false;
+        },
+        async addNote() {
+          const text = this.noteDraft.trim();
+          if (!text) return;
+          this.savingNote = true;
+          const ok = await this.persistNote(text, 'socio');
+          this.savingNote = false;
+          this.noteDraft = '';
+          if (ok) this.toast('✓ Nota agregada');
+        },
+        // ── Documentos (repositorio del deal, persiste vía Worker /update-deal) ──
+        docKindClass(kind) {
+          return ({
+            listing:    'bg-slate-200 text-slate-700',
+            broker:     'bg-blue-100 text-blue-700',
+            benchmark:  'bg-purple-100 text-purple-700',
+            legal:      'bg-amber-100 text-amber-700',
+            financiero: 'bg-emerald-100 text-emerald-700',
+            otro:       'bg-slate-100 text-slate-500',
+          })[kind] || 'bg-slate-100 text-slate-500';
+        },
+        async addDocument() {
+          const d = this.selectedDeal;
+          if (!d || !this.docDraft.url.trim()) return;
+          const doc = {
+            name: (this.docDraft.name || this.docDraft.url).trim(),
+            url: this.docDraft.url.trim(),
+            kind: this.docDraft.kind,
+            added_by: 'socio',
+            added_at: new Date().toISOString().slice(0, 10),
+          };
+          d.documents = d.documents || [];
+          if (this.hasWorker()) {
+            try {
+              const res = await fetch(this.WORKER_URL + '/update-deal', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ dealId: d.id, document: { name: doc.name, url: doc.url, kind: doc.kind }, author: 'socio' }),
+              });
+              if (!res.ok) throw new Error('Worker ' + res.status);
+              d.documents.push(doc);
+              this.toast('✓ Documento adjuntado');
+            } catch (e) {
+              d.documents.push(doc);
+              this.toast('⚠ ' + e.message + ' — adjuntado local, sin sincronizar');
+            }
+          } else {
+            d.documents.push(doc);
+            this.toast('Documento adjuntado local (Worker offline)');
+          }
+          this.docDraft = { kind: 'broker', name: '', url: '' };
+        },
+        async removeDocument(doc) {
+          const d = this.selectedDeal;
+          if (!d) return;
+          if (!confirm('¿Quitar "' + doc.name + '"?')) return;
+          d.documents = (d.documents || []).filter(x => x.url !== doc.url);
+          if (this.hasWorker()) {
+            try {
+              await fetch(this.WORKER_URL + '/update-deal', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ dealId: d.id, removeDocumentUrl: doc.url, author: 'socio' }),
+              });
+            } catch (e) { this.toast('⚠ no se pudo sincronizar el borrado'); }
           }
         },
 

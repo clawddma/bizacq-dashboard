@@ -266,6 +266,26 @@ a{color:#60a5fa}</style></head><body>
             deal.notes.push({ author: String(body.author || 'socio').slice(0, 50), created_at: new Date().toISOString().slice(0, 10), text: String(body.note).slice(0, 2000) });
             changes.push(`nota en ${(deal.title || dealId).slice(0, 30)}`);
           }
+          if (body.document && (body.document.url || body.document.name)) {
+            const VALID_KINDS = ['listing', 'broker', 'benchmark', 'legal', 'financiero', 'otro'];
+            const doc = {
+              name: String(body.document.name || body.document.url || 'documento').slice(0, 200),
+              url: String(body.document.url || '').slice(0, 1000),
+              kind: VALID_KINDS.includes(body.document.kind) ? body.document.kind : 'otro',
+              added_by: String(body.author || 'socio').slice(0, 50),
+              added_at: new Date().toISOString().slice(0, 10),
+            };
+            deal.documents = deal.documents || [];
+            deal.documents.push(doc);
+            deal.events = deal.events || [];
+            deal.events.push({ created_at: doc.added_at, description: `📎 Documento adjuntado (${doc.kind}): ${doc.name.slice(0, 60)}` });
+            changes.push(`doc en ${(deal.title || dealId).slice(0, 30)}`);
+          }
+          if (body.removeDocumentUrl) {
+            const before = (deal.documents || []).length;
+            deal.documents = (deal.documents || []).filter((x) => x.url !== body.removeDocumentUrl);
+            if (deal.documents.length !== before) changes.push(`doc removido en ${(deal.title || dealId).slice(0, 30)}`);
+          }
           if (Array.isArray(body.manualOrder) && body.manualOrderColumn) {
             data.manual_orders = data.manual_orders || {};
             data.manual_orders[body.manualOrderColumn] = body.manualOrder.map(String).slice(0, 500);

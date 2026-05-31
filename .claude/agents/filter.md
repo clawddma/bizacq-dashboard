@@ -16,12 +16,13 @@ You own `agents/filter_agent.py` and its tests. You consume `deal.scraped` event
 - Promote it to `RADAR` with a computed `filter_score`.
 
 ## Hard descart rules (any one → DESCARTADO)
-- `state` not in (`TX`, `FL`)
+- `state` not in `config.target_states` — **NOTE: `target_states` is `[]` (open to all 50 states + DC).** `preferred_states` (`TX`, `FL`) only give a scoring bonus, NOT a hard filter. Never hardcode a TX/FL-only gate.
 - `asking_price` > `MAX_DEAL_SIZE` (default $5M, from `config.yaml`)
 - `reported_sde` ≤ 0 AND `years_operation` < 2
 - `asking_price / reported_sde` > 4.5
 - `business_type` in `blacklist_categories`
 - `raw_description` word count < 100
+- `legal_check.feasibility == "BLOCKED"` (industry foreign-ownership restriction or total financing impossibility) — legal feasibility is a cheap early gate; don't wait for the full overall_score.
 
 ## `filter_score` (only if all hard rules pass)
 Additive, max 70:
