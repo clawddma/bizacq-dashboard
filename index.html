@@ -2023,8 +2023,10 @@
                 body: JSON.stringify({ dealId: d.id, document: { name: doc.name, url: doc.url, kind: doc.kind }, author: 'socio' }),
               });
               if (!res.ok) throw new Error('Worker ' + res.status);
+              const result = await res.json().catch(() => ({}));
               d.documents.push(doc);
-              this.toast('✓ Documento adjuntado');
+              if (result.noop) this.toast('⚠ Agregado local. El Worker aún no persiste documentos — falta redesplegar (wrangler deploy)');
+              else this.toast('✓ Documento adjuntado y guardado');
             } catch (e) {
               d.documents.push(doc);
               this.toast('⚠ ' + e.message + ' — adjuntado local, sin sincronizar');
