@@ -926,7 +926,45 @@
                 </p>
                 <p><strong>Ubicación:</strong> <span x-text="`${selectedDeal.city}, ${selectedDeal.state}`"></span></p>
                 <p x-show="selectedDeal.years_operation"><strong>Años en operación:</strong> <span x-text="selectedDeal.years_operation"></span></p>
-                <p x-show="selectedDeal.raw_description" class="text-slate-600 mt-2" x-html="withTips(selectedDeal.raw_description)"></p>
+              </div>
+
+              <!-- ════ BRIEF DE INDUSTRIA — "en qué negocio te metes" ════ -->
+              <div x-show="industryBrief(selectedDeal)" class="mt-3 bg-slate-50 border border-slate-200 rounded-lg p-3.5 space-y-3">
+                <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wide flex items-center gap-1.5">
+                  📖 En qué consiste este negocio
+                  <span class="text-[10px] font-normal text-slate-400 normal-case">(brief de la industria <span x-text="selectedDeal.business_type"></span>)</span>
+                </p>
+                <div class="text-sm text-slate-700">
+                  <p x-text="industryBrief(selectedDeal)?.what"></p>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-2.5">
+                  <div class="bg-white rounded p-2.5 border border-slate-100">
+                    <p class="text-[10px] font-bold text-emerald-700 uppercase tracking-wide mb-1">💵 Cómo gana dinero</p>
+                    <p class="text-xs text-slate-700 leading-relaxed" x-text="industryBrief(selectedDeal)?.makesMoney"></p>
+                  </div>
+                  <div class="bg-white rounded p-2.5 border border-slate-100">
+                    <p class="text-[10px] font-bold text-blue-700 uppercase tracking-wide mb-1">🔁 Qué tan recurrente es la caja</p>
+                    <p class="text-xs text-slate-700 leading-relaxed" x-text="industryBrief(selectedDeal)?.recurring"></p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 rounded p-2.5 border border-amber-100">
+                  <p class="text-[10px] font-bold text-amber-800 uppercase tracking-wide mb-1.5">🔍 Qué revisar antes de comprar (propio de esta industria)</p>
+                  <ul class="text-xs text-slate-700 space-y-1 list-disc list-inside">
+                    <template x-for="w in industryBrief(selectedDeal)?.watch || []" :key="w">
+                      <li x-text="w"></li>
+                    </template>
+                  </ul>
+                </div>
+                <div class="text-xs text-slate-600">
+                  <span class="font-bold text-purple-700">🤖 Dónde está la mejora con tecnología:</span>
+                  <span x-text="industryBrief(selectedDeal)?.aiUpside"></span>
+                </div>
+              </div>
+
+              <!-- Descripción cruda del listing (lo que dijo el broker) -->
+              <div x-show="selectedDeal.raw_description" class="mt-3">
+                <p class="text-[11px] font-bold text-slate-500 uppercase tracking-wide mb-1">📄 Lo que dice el listing (texto del vendedor)</p>
+                <p class="text-sm text-slate-600" x-html="withTips(selectedDeal.raw_description)"></p>
               </div>
             </section>
 
@@ -1425,6 +1463,180 @@
 
     // Industry valuation multiples (US small biz, 2026 market data)
     // Sources: Sundance Financial, BizBuySell market data, broker reports
+    // Brief de industria por categoría — conocimiento reutilizable para entender "en qué negocio te metes".
+    // what: qué hace · makesMoney: cómo gana dinero · recurring: qué tan predecible es la caja ·
+    // watch: a qué prestar atención antes de comprar · aiUpside: dónde está la mejora con tecnología.
+    const INDUSTRY_BRIEF = {
+      'HVAC': {
+        what: 'Instala, repara y da mantenimiento a sistemas de calefacción, ventilación y aire acondicionado en casas y comercios.',
+        makesMoney: 'Cobra por visita de reparación, por instalación de equipos nuevos (ticket alto) y por contratos de mantenimiento anual que generan ingreso recurrente.',
+        recurring: 'Media-alta: los contratos de mantenimiento y la base de clientes repetidos dan caja predecible; las instalaciones grandes son más estacionales (picos en verano/invierno).',
+        watch: ['¿Cuántos clientes tienen contrato de mantenimiento vs. trabajos sueltos?', 'Dependencia de los técnicos con licencia (si se van, ¿quién opera?)', 'Edad de la flota y de los equipos propios', 'Concentración: ¿el negocio depende de pocos clientes comerciales grandes?'],
+        aiUpside: 'Agendamiento automático, recordatorios de mantenimiento, despacho inteligente de técnicos y CRM para vender renovaciones de contrato.'
+      },
+      'Plumbing': {
+        what: 'Servicios de plomería: reparaciones, instalaciones y remodelación de tuberías y sistemas de agua en residencias y comercios.',
+        makesMoney: 'Cobra por servicio de emergencia (margen alto), instalaciones y proyectos de construcción nueva.',
+        recurring: 'Media: la reparación residencial es constante y defensiva; la obra nueva es cíclica y depende del mercado de construcción.',
+        watch: ['Mezcla emergencia/residencial (estable) vs. construcción nueva (cíclico)', 'Licencias del maestro plomero y quién las tiene', '¿Hay contratos comerciales recurrentes?', 'Antigüedad y reputación (reviews) en la zona'],
+        aiUpside: 'Reservas online, ruteo de técnicos, seguimiento de cotizaciones y recordatorios de mantenimiento preventivo.'
+      },
+      'Electrical': {
+        what: 'Contratista eléctrico: instalación y reparación de sistemas eléctricos; a veces especializado en solar o comercial.',
+        makesMoney: 'Proyectos de instalación, servicio de reparación y, cuando es solar/comercial, contratos de mayor tamaño y margen.',
+        recurring: 'Media: servicio residencial estable; los proyectos comerciales y solares son más grandes pero más irregulares.',
+        watch: ['¿Qué % es solar/comercial (mayor múltiplo) vs. residencial?', 'Licencias eléctricas y dependencia del dueño', 'Backlog de proyectos contratados', 'Exposición a incentivos solares que pueden cambiar por política'],
+        aiUpside: 'Cotización asistida, gestión de proyectos, agendamiento y generación de leads para solar.'
+      },
+      'Landscaping': {
+        what: 'Mantenimiento y diseño de jardines y áreas verdes para clientes residenciales y comerciales.',
+        makesMoney: 'Contratos recurrentes de mantenimiento (corte, poda, riego) y proyectos puntuales de diseño/instalación (margen más alto).',
+        recurring: 'Alta si es comercial con contratos anuales; estacional en climas con invierno (en FL es ingreso todo el año).',
+        watch: ['¿Comercial recurrente o residencial suelto?', 'Estacionalidad según el estado', 'Rotación de personal de campo', 'Equipos y vehículos incluidos en la venta'],
+        aiUpside: 'Rutas optimizadas, facturación recurrente automática, CRM de renovaciones y cotización por foto/satélite.'
+      },
+      'Cleaning Services': {
+        what: 'Limpieza comercial o residencial: oficinas, edificios (janitorial), o casas.',
+        makesMoney: 'Contratos B2B de limpieza recurrente (janitorial) o servicios residenciales por visita.',
+        recurring: 'Alta en janitorial B2B con contratos; más volátil en residencial.',
+        watch: ['Contratos B2B con cláusula de renovación vs. clientes sueltos', 'Rotación de personal (alta en el sector)', 'Concentración en pocos edificios/clientes', 'Márgenes reales después de nómina'],
+        aiUpside: 'Programación de turnos, control de calidad con checklists digitales, facturación automática y captación de contratos.'
+      },
+      'Pool Service': {
+        what: 'Mantenimiento de piscinas: limpieza, químicos y reparaciones, normalmente por "rutas" de casas asignadas.',
+        makesMoney: 'Cuota mensual fija por piscina (la "ruta" es un activo: N casas × cuota), más reparaciones puntuales.',
+        recurring: 'Muy alta: ingreso mensual recurrente y predecible; por eso se valora por múltiplo del ingreso MENSUAL, no del SDE.',
+        watch: ['Número de cuentas y cuota promedio', 'Densidad geográfica de la ruta (eficiencia)', 'Tasa de cancelación de cuentas', 'Estacionalidad según clima'],
+        aiUpside: 'Ruteo óptimo, cobros automáticos, app de reporte por casa y upsell de reparaciones.'
+      },
+      'Pest Control': {
+        what: 'Control de plagas: fumigación y tratamientos preventivos para casas y comercios.',
+        makesMoney: 'Contratos recurrentes (trimestrales/mensuales) de tratamiento preventivo, más servicios puntuales.',
+        recurring: 'Muy alta: súper defensivo, el cliente renueva por temor a plagas; caja muy estable.',
+        watch: ['% de ingreso bajo contrato recurrente', 'Licencias de aplicador y regulación química', 'Consolidadores (Rollins/Rentokil) compran agresivo: ¿competencia o comprador futuro?', 'Tasa de retención de clientes'],
+        aiUpside: 'Agenda automática de visitas recurrentes, recordatorios, ruteo y CRM de renovaciones.'
+      },
+      'Auto Repair': {
+        what: 'Taller mecánico: reparación y mantenimiento de vehículos.',
+        makesMoney: 'Mano de obra + venta de partes; algunos con especialización (transmisiones, diésel, vidrios) de mayor margen.',
+        recurring: 'Media: clientes repiten pero sin contrato; depende de reputación local y ubicación.',
+        watch: ['Dependencia del dueño-mecánico (¿opera sin él?)', 'Equipos y diagnóstico incluidos', 'Especialización que sostenga el margen', 'Ubicación y tráfico de la zona'],
+        aiUpside: 'Reservas online, seguimiento de servicio por SMS, recordatorios de mantenimiento y reputación/reviews.'
+      },
+      'Med Spa': {
+        what: 'Clínica estética: tratamientos como bótox, rellenos, láser y faciales. Requiere supervisión médica.',
+        makesMoney: 'Tratamientos de ticket alto, paquetes y membresías recurrentes; productos.',
+        recurring: 'Media-alta si tiene membresías y clientes recurrentes; sensible a economía (gasto discrecional).',
+        watch: ['¿Quién es el médico responsable y se queda? (requisito legal en muchos estados)', 'Membresías vs. clientes de una sola vez', 'Equipos láser propios (caros) y su antigüedad', 'Dependencia de un inyector estrella'],
+        aiUpside: 'Reservas y recordatorios, marketing de membresías, CRM de seguimiento y reactivación de clientes.'
+      },
+      'Dental Practice': {
+        what: 'Consultorio odontológico: atención dental general o especializada.',
+        makesMoney: 'Procedimientos (limpieza, ortodoncia, implantes), seguros y planes de pago.',
+        recurring: 'Alta: pacientes recurrentes y recall periódico; caja muy estable.',
+        watch: ['¿El dentista dueño se queda en transición? (clave para retener pacientes)', 'Mezcla de seguros vs. pago directo', 'Equipos y tecnología del consultorio', 'Base de pacientes activos (últimos 18 meses)'],
+        aiUpside: 'Recordatorios de citas, gestión de recall, reactivación de pacientes y reservas online.'
+      },
+      'Veterinary': {
+        what: 'Clínica veterinaria: atención médica para mascotas (general, mixta o urgencias).',
+        makesMoney: 'Consultas, cirugías, vacunas, venta de productos y, en urgencias, tickets altos.',
+        recurring: 'Alta: dueños de mascotas vuelven; sector defensivo y en crecimiento.',
+        watch: ['¿El veterinario dueño se queda? (los pacientes siguen al doctor)', 'Urgencias (margen alto) vs. general', 'Consolidadores corporativos compran agresivo el sector', 'Equipos e instalaciones'],
+        aiUpside: 'Reservas y recordatorios de vacunas, telemedicina, CRM de seguimiento y planes de salud por suscripción.'
+      },
+      'E-commerce': {
+        what: 'Marca o tienda que vende productos por internet (propia o vía Amazon/Shopify).',
+        makesMoney: 'Venta de productos online; algunos con suscripción recurrente, otros por compra única.',
+        recurring: 'Variable: suscripción = alta y predecible; compra única = depende de marketing y repetición.',
+        watch: ['¿Suscripción recurrente o compra única?', 'Dependencia de un solo canal (Amazon) o de pauta paga', 'Márgenes reales después de adquisición de cliente y devoluciones', 'Inventario incluido y su realismo (ojo con cifras infladas)', 'Concentración en pocos SKUs'],
+        aiUpside: 'Automatización de marketing, atención al cliente con IA, optimización de catálogo y retención por email.'
+      },
+      'SaaS': {
+        what: 'Software por suscripción: el cliente paga una cuota mensual/anual por usar la herramienta.',
+        makesMoney: 'Suscripciones recurrentes (MRR/ARR); el valor está en la retención.',
+        recurring: 'Muy alta: ingreso recurrente predecible; por eso paga los múltiplos más altos.',
+        watch: ['Tasa de cancelación (churn) y retención neta', 'Concentración de clientes', 'Costo de mantener el software y deuda técnica', '¿Quién mantiene el código tras la venta?'],
+        aiUpside: 'Features con IA, soporte automatizado, onboarding y reducción de churn con señales tempranas.'
+      },
+      'Digital Marketing Agency': {
+        what: 'Agencia que presta servicios de marketing digital (pauta, SEO, redes, contenido) a otras empresas.',
+        makesMoney: 'Retainers mensuales (recurrente) y proyectos puntuales.',
+        recurring: 'Media: los retainers dan base, pero la rotación de clientes y la dependencia de talento clave pesan.',
+        watch: ['% de ingreso en retainers recurrentes', 'Concentración en pocos clientes grandes', 'Dependencia del fundador para vender y retener', 'Rotación del equipo'],
+        aiUpside: 'Producción de contenido y reportes con IA, lo que sube margen drásticamente; es el sector más transformable.'
+      },
+      'Restaurant': {
+        what: 'Restaurante o bar: prepara y vende comida y bebida en local.',
+        makesMoney: 'Ventas en sitio, para llevar y delivery; bar con márgenes altos en bebidas.',
+        recurring: 'Baja: sin ingreso recurrente, depende de tráfico diario; sector de alto riesgo y bajo múltiplo.',
+        watch: ['Ubicación, términos del arriendo y años restantes', 'Dependencia del dueño/chef', 'Márgenes reales (comida + nómina suelen comerse la utilidad)', 'Reputación y reviews recientes'],
+        aiUpside: 'Reservas, pedidos online, programa de fidelidad y optimización de inventario/compras.'
+      },
+      'Retail': {
+        what: 'Tienda que vende productos al público en un local físico (o físico + online).',
+        makesMoney: 'Margen sobre productos vendidos; algunos con servicios o instalación complementaria.',
+        recurring: 'Baja-media: depende de tráfico y temporada; sin contratos recurrentes salvo servicios.',
+        watch: ['Arriendo y ubicación', 'Inventario incluido y su rotación real', 'Competencia de e-commerce en la categoría', 'Estacionalidad de las ventas'],
+        aiUpside: 'Venta omnicanal, gestión de inventario, CRM de clientes y marketing local automatizado.'
+      },
+      'Bread Route': {
+        what: 'Ruta de distribución de pan: compras el derecho exclusivo a distribuir una marca (ej. Flowers, Martin\'s) a tiendas en un territorio.',
+        makesMoney: 'Margen entre el precio mayorista y el de venta a las tiendas del territorio; ingreso por entrega.',
+        recurring: 'Alta: las tiendas reordenan constantemente; ruta protegida por territorio exclusivo.',
+        watch: ['Territorio y cuentas incluidas', '¿Financia el fabricante la compra de la ruta?', 'Tendencia de las tiendas del territorio (¿cierran?)', 'Horario exigente (madrugadas) y si requiere que tú manejes'],
+        aiUpside: 'Optimización de ruta y pedidos; limitada — es un negocio operativo de logística, no de software.'
+      },
+      'Distribution Route': {
+        what: 'Ruta de distribución (FedEx Ground, tortillas, snacks, etc.): operas la entrega de una marca/territorio bajo contrato.',
+        makesMoney: 'Pago por contrato del fabricante/franquiciador o margen de distribución; varias rutas escalan el ingreso.',
+        recurring: 'Alta: contrato continuo con volumen estable; con FedEx, ingreso atado al contrato corporativo.',
+        watch: ['Términos y renovación del contrato con el fabricante/franquiciador', 'Estado y cantidad de vehículos incluidos', 'Dependencia de conductores y rotación', 'Concentración en un solo contratante (ej. solo FedEx)'],
+        aiUpside: 'Ruteo y administración de flota; limitada — es logística operativa.'
+      },
+      'Franchise': {
+        what: 'Negocio de franquicia: operas una marca establecida (ej. UPS Store) bajo licencia, con sistema y soporte del franquiciador.',
+        makesMoney: 'Ingreso operativo del local menos regalías y fees al franquiciador.',
+        recurring: 'Media: la marca trae tráfico, pero pagas regalías y estás atado al sistema del franquiciador.',
+        watch: ['Regalías y fees (comen margen)', 'Términos del acuerdo de franquicia y renovación', 'Restricciones del franquiciador sobre cambios', 'Arriendo y ubicación'],
+        aiUpside: 'Limitada: el franquiciador define los sistemas; la mejora suele estar en eficiencia local y marketing.'
+      },
+      'Insurance Agency': {
+        what: 'Agencia de seguros: vende pólizas (auto, hogar, vida, comercial) y cobra comisión de las aseguradoras.',
+        makesMoney: 'Comisión por póliza vendida y, sobre todo, comisión de renovación recurrente del "book of business".',
+        recurring: 'Muy alta: el "book" renueva año a año; caja predecible y por eso muy apreciado.',
+        watch: ['Tasa de retención del book of business', '¿Es agencia cautiva (una sola aseguradora, ej. Allstate) o independiente?', 'Concentración en pocas pólizas grandes', 'Transferencia del book tras la venta'],
+        aiUpside: 'Cotización automatizada, gestión de renovaciones, cross-sell y atención al cliente con IA.'
+      },
+      'Accounting': {
+        what: 'Firma de contabilidad/teneduría: lleva libros, impuestos y nómina para pequeñas empresas.',
+        makesMoney: 'Honorarios recurrentes mensuales y picos en temporada de impuestos.',
+        recurring: 'Alta: los clientes se quedan por años; ingreso muy estable.',
+        watch: ['Retención de clientes y antigüedad', 'Dependencia del contador dueño y sus credenciales', 'Concentración de clientes', 'Software y procesos en uso'],
+        aiUpside: 'Automatización de teneduría y conciliaciones, lo que sube margen; sector muy transformable con IA.'
+      },
+      'Property Management': {
+        what: 'Administra propiedades en renta (residenciales o comerciales) a nombre de los dueños.',
+        makesMoney: 'Comisión mensual sobre la renta administrada, más fees por arrendamiento y servicios.',
+        recurring: 'Alta: contratos de administración recurrentes; ingreso predecible por unidad.',
+        watch: ['Número de unidades bajo administración y comisión promedio', 'Tasa de retención de propietarios', 'Concentración en pocos dueños grandes', 'Carga operativa (mantenimiento, inquilinos)'],
+        aiUpside: 'Portal de inquilinos, cobros automáticos, gestión de tickets de mantenimiento y reporting a dueños.'
+      },
+      'Home Services': {
+        what: 'Servicios para el hogar multi-oficio (varios servicios combinados de mantenimiento residencial/comercial).',
+        makesMoney: 'Servicios por visita y, cuando hay, contratos de mantenimiento recurrente.',
+        recurring: 'Media-alta según cuánto sea por contrato; multi-oficio es más valorado por consolidadores.',
+        watch: ['Mezcla de servicios y cuáles sostienen el margen', 'Contratos recurrentes vs. trabajos sueltos', 'Dependencia de técnicos con licencia', 'Flota y equipos incluidos'],
+        aiUpside: 'Agendamiento, despacho, CRM de renovaciones y cotización automatizada.'
+      },
+      'Real Estate': {
+        what: 'Negocio inmobiliario: corretaje, inversión o servicios relacionados con propiedades.',
+        makesMoney: 'Comisiones de transacción, rentas o márgenes según el modelo.',
+        recurring: 'Variable: rentas = recurrente; corretaje = transaccional y cíclico con el mercado.',
+        watch: ['Modelo exacto (corretaje vs. rentas vs. flips)', 'Dependencia del mercado y tasas de interés', 'Licencias requeridas', 'Concentración de ingresos'],
+        aiUpside: 'Generación y nurturing de leads, valuación automatizada y gestión de clientes.'
+      }
+    };
+
     const VALUATION = {
       'HVAC':                    { low: 2.5, high: 3.5, note: 'Premium con contratos recurrentes; consolidadores PE pagan 3.5-4x' },
       'Plumbing':                { low: 2.0, high: 3.0, note: 'Servicio residencial sube; nuevas construcciones más cíclico' },
@@ -1545,7 +1757,8 @@
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
         filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false },
-        GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES, US_STATES,
+        GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES, US_STATES, INDUSTRY_BRIEF,
+        industryBrief(deal) { return (deal && INDUSTRY_BRIEF[deal.business_type]) || null; },
         columns: [
           { key: 'RADAR',           label: 'Radar',          dot: 'bg-slate-400' },
           { key: 'EN_ANALISIS',     label: 'En análisis',    dot: 'bg-blue-400' },
