@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-05-29 09:00 COT",
+  "last_update": "2026-05-31 (reconciliación de categorías — Claude)",
   "version": "0.16.0-martins-corrected",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "deals": [
@@ -187,7 +187,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "a1b2c3d4-2222-4000-8000-000000000002",
@@ -361,7 +362,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "a1b2c3d4-3333-4000-8000-000000000003",
@@ -524,7 +526,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "a1b2c3d4-4444-4000-8000-000000000004",
@@ -689,7 +692,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "a1b2c3d4-5555-4000-8000-000000000005",
@@ -848,7 +852,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "a1b2c3d4-6666-4000-8000-000000000006",
@@ -1042,7 +1047,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "a1b2c3d4-7777-4000-8000-000000000007",
@@ -1148,7 +1154,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "a1b2c3d4-8888-4000-8000-000000000008",
@@ -1318,7 +1325,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0009-4000-8000-000000000009",
@@ -1476,7 +1484,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0010-4000-8000-000000000010",
@@ -1644,7 +1653,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0011-4000-8000-000000000011",
@@ -1806,7 +1816,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0012-4000-8000-000000000012",
@@ -1970,7 +1981,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0013-4000-8000-000000000013",
@@ -2138,7 +2150,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0014-4000-8000-000000000014",
@@ -2289,7 +2302,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0015-4000-8000-000000000015",
@@ -2445,7 +2459,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0016-4000-8000-000000000016",
@@ -2601,7 +2616,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0017-4000-8000-000000000017",
@@ -2752,7 +2768,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "id": "b2c3d4e5-0018-4000-8000-000000000018",
@@ -2923,7 +2940,8 @@
           }
         ]
       },
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Ice Cream Shop — Downtown Atlanta (World Cup 2026 proximity)",
@@ -2963,7 +2981,8 @@
           "description": "Descartado automáticamente: Múltiplo precio/SDE 5.0x supera el máximo 4.5x. Sobrevalorado."
         }
       ],
-      "added_manually": false
+      "added_manually": false,
+      "category_review_needed": true
     },
     {
       "title": "Bar & Restaurant — Decatur GA (Farm-to-table)",
@@ -3003,7 +3022,8 @@
           "description": "Descartado automáticamente: Múltiplo precio/SDE 5.4x supera el máximo 4.5x. Sobrevalorado."
         }
       ],
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Exterior Maintenance Company — Phoenix Metro (SBA Pre-Approved)",
@@ -3151,7 +3171,8 @@
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_review_needed": true
     },
     {
       "title": "Insurance Agency — Phoenix AZ ($6.3M premium)",
@@ -3195,7 +3216,8 @@
           "description": "Movido de DESCARTADO → RADAR (auto-sync desde dashboard)"
         }
       ],
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Auto Glass Repair — Phoenix AZ (SBA $5M cap, 16% EBITDA)",
@@ -3343,7 +3365,8 @@
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Outdoor Living Retailer — Tucson AZ (Southern Arizona)",
@@ -3352,7 +3375,7 @@
       "source_url_kind": "category",
       "state": "AZ",
       "city": "Tucson",
-      "business_type": "Restaurant",
+      "business_type": "Retail",
       "years_operation": 18,
       "asking_price": 625000,
       "reported_revenue": 850000,
@@ -3493,10 +3516,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 69.3 — MEDIA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Restaurant» → «Retail» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Restaurant",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Martin's Bread Route — Cary NC (área metro Raleigh, listing 2275502)",
@@ -3505,7 +3534,7 @@
       "source_url_kind": "listing",
       "state": "NC",
       "city": "Cary",
-      "business_type": "Cleaning Services",
+      "business_type": "Bread Route",
       "years_operation": 7,
       "asking_price": 110000,
       "reported_revenue": 264663,
@@ -3665,10 +3694,16 @@
         {
           "created_at": "2026-05-29",
           "description": "Datos verificados: asking $110K, revenue $264K, SDE $54K (debajo del mínimo proyecto $75K). Múltiplo 2.0x. Análisis recalculado con números reales."
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Cleaning Services» → «Bread Route» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Cleaning Services",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Bar & Grill — Boulder CO (Prime location)",
@@ -3822,7 +3857,8 @@
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "title": "FedEx Ground Routes — Chattanooga TN (3 routes)",
@@ -3831,7 +3867,7 @@
       "source_url_kind": "category",
       "state": "TN",
       "city": "Chattanooga",
-      "business_type": "Cleaning Services",
+      "business_type": "Distribution Route",
       "years_operation": 6,
       "asking_price": 1025000,
       "reported_revenue": 980000,
@@ -3860,9 +3896,15 @@
         {
           "created_at": "2026-05-27",
           "description": "Descartado automáticamente: Múltiplo precio/SDE 4.7x supera el máximo 4.5x. Sobrevalorado."
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Cleaning Services» → «Distribution Route» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Cleaning Services",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Flowers Bread Route — Nashville TN",
@@ -3871,7 +3913,7 @@
       "source_url_kind": "category",
       "state": "TN",
       "city": "Nashville",
-      "business_type": "Cleaning Services",
+      "business_type": "Bread Route",
       "years_operation": 4,
       "asking_price": 235000,
       "reported_revenue": 410000,
@@ -4000,10 +4042,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Cleaning Services» → «Bread Route» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Cleaning Services",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Recurring Landscaping — Buffalo NY (95% recurring)",
@@ -4150,7 +4198,8 @@
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "title": "UPS Store Franchise — Boston MA (SBA Pre-Qualified)",
@@ -4159,7 +4208,7 @@
       "source_url_kind": "category",
       "state": "MA",
       "city": "Boston",
-      "business_type": "Cleaning Services",
+      "business_type": "Franchise",
       "years_operation": 10,
       "asking_price": 380000,
       "reported_revenue": 870000,
@@ -4294,10 +4343,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 87.4 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Cleaning Services» → «Franchise» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Cleaning Services",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Mission's Tortilla Route — Boston MA",
@@ -4306,7 +4361,7 @@
       "source_url_kind": "category",
       "state": "MA",
       "city": "Boston",
-      "business_type": "Cleaning Services",
+      "business_type": "Distribution Route",
       "years_operation": 5,
       "asking_price": 150000,
       "reported_revenue": 753792,
@@ -4441,10 +4496,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Cleaning Services» → «Distribution Route» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Cleaning Services",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Martin's Bread Route — Boston MA",
@@ -4453,7 +4514,7 @@
       "source_url_kind": "category",
       "state": "MA",
       "city": "Boston",
-      "business_type": "Cleaning Services",
+      "business_type": "Bread Route",
       "years_operation": 8,
       "asking_price": 380000,
       "reported_revenue": 1061736,
@@ -4588,10 +4649,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 93.2 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Cleaning Services» → «Bread Route» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Cleaning Services",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Diesel & Heavy Truck Repair — Las Vegas NV (90% fleet recurring)",
@@ -4739,7 +4806,8 @@
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Landscape Chemical Spray — Reno NV (600+ recurring customers, 40yr)",
@@ -4886,7 +4954,8 @@
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_verified": "2026-05-31"
     },
     {
       "title": "FedEx Ground Routes — Portland OR (5 routes)",
@@ -4895,7 +4964,7 @@
       "source_url_kind": "category",
       "state": "OR",
       "city": "Portland",
-      "business_type": "Cleaning Services",
+      "business_type": "Distribution Route",
       "years_operation": 7,
       "asking_price": 625000,
       "reported_revenue": 720000,
@@ -5030,10 +5099,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 85.1 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Cleaning Services» → «Distribution Route» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Cleaning Services",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Small Animal Veterinary Practice — Naples FL (24yr establecida)",
@@ -5042,7 +5117,7 @@
       "source_url_kind": "category",
       "state": "FL",
       "city": "Naples",
-      "business_type": "Dental Practice",
+      "business_type": "Veterinary",
       "years_operation": 24,
       "asking_price": 850000,
       "reported_revenue": 1100000,
@@ -5190,10 +5265,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 85.8 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Dental Practice» → «Veterinary» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Dental Practice",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Veterinary Mixed-Animal Practice — North Central Texas (40yr)",
@@ -5202,7 +5283,7 @@
       "source_url_kind": "category",
       "state": "TX",
       "city": "Fort Worth",
-      "business_type": "Dental Practice",
+      "business_type": "Veterinary",
       "years_operation": 40,
       "asking_price": 1400000,
       "reported_revenue": 2200000,
@@ -5350,10 +5431,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 85.8 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Dental Practice» → «Veterinary» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Dental Practice",
+      "category_verified": "2026-05-31"
     },
     {
       "title": "Vet Urgent Care — Milwaukee Metro (SBA, $1.45M SDE)",
@@ -5362,7 +5449,7 @@
       "source_url_kind": "category",
       "state": "WI",
       "city": "Milwaukee",
-      "business_type": "Dental Practice",
+      "business_type": "Veterinary",
       "years_operation": 6,
       "asking_price": 4500000,
       "reported_revenue": 2500000,
@@ -5510,10 +5597,16 @@
         {
           "created_at": "2026-05-27",
           "description": "Análisis preliminar generado (overall 85.8 — ALTA)"
+        },
+        {
+          "created_at": "2026-05-31",
+          "description": "🏷️ Categoría corregida: «Dental Practice» → «Veterinary» (reconciliación categoría↔realidad — checkpoint)"
         }
       ],
       "notes": [],
-      "added_manually": false
+      "added_manually": false,
+      "category_corrected_from": "Dental Practice",
+      "category_verified": "2026-05-31"
     },
     {
       "id": "e0b7ff29-f9a2-4e28-b386-d6c000d67120",
@@ -5798,7 +5891,8 @@
           "#11: Google Ads + Meta Ads accounts ACCESS para verificar spend real, attribution, CAC, LTV. Sin esto, \"$631K revenue, 36% margin\" es solo claim.",
           "#12: ¿Customer retention rate verificable (cohort analysis)? Los \"47K customers\" — ¿son compradores únicos o audience cookies?"
         ]
-      }
+      },
+      "category_verified": "2026-05-31"
     },
     {
       "id": "38f23de9-88dc-4cff-8f5b-7a35f92437fe",
@@ -5976,7 +6070,8 @@
           "created_at": "2026-05-28",
           "text": "Este me gustó mucho. Beauty DTC en Florida con suscripción recurrente real ($100K MRR). Revisar a fondo."
         }
-      ]
+      ],
+      "category_verified": "2026-05-31"
     }
   ],
   "manual_orders": {

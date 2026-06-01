@@ -916,7 +916,14 @@
             <section>
               <h3 class="text-sm font-bold text-slate-900 mb-2">¿Qué es este negocio?</h3>
               <div class="text-sm text-slate-700 space-y-1">
-                <p><strong>Tipo:</strong> <span x-html="withTips(selectedDeal.business_type)"></span></p>
+                <p class="flex items-center gap-2 flex-wrap">
+                  <span><strong>Tipo:</strong> <span x-html="withTips(selectedDeal.business_type)"></span></span>
+                  <span x-show="selectedDeal.category_corrected_from" class="text-[10px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-medium"
+                    :title="`Categoría corregida en el checkpoint (era: ${selectedDeal.category_corrected_from})`"
+                    x-text="`🏷️ corregida (era ${selectedDeal.category_corrected_from})`"></span>
+                  <span x-show="selectedDeal.category_review_needed" class="text-[10px] px-1.5 py-0.5 rounded bg-red-100 text-red-700 font-medium" title="La categoría declarada no coincide claramente con la realidad — pendiente de revisión">⚠ categoría por revisar</span>
+                  <span x-show="selectedDeal.category_verified && !selectedDeal.category_corrected_from && !selectedDeal.category_review_needed" class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-medium" :title="`Categoría verificada ${selectedDeal.category_verified}`">✓ categoría verificada</span>
+                </p>
                 <p><strong>Ubicación:</strong> <span x-text="`${selectedDeal.city}, ${selectedDeal.state}`"></span></p>
                 <p x-show="selectedDeal.years_operation"><strong>Años en operación:</strong> <span x-text="selectedDeal.years_operation"></span></p>
                 <p x-show="selectedDeal.raw_description" class="text-slate-600 mt-2" x-html="withTips(selectedDeal.raw_description)"></p>
