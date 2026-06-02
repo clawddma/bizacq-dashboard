@@ -94,6 +94,34 @@ async function putDealsFile(env, data, sha, message) {
   return res.json();
 }
 
+// ── GitHub helpers genéricos (para cualquier archivo, no solo deals.json) ──
+async function getFile(env, path) {
+  const api = `https://api.github.com/repos/${REPO}/contents/${path}`;
+  const res = await fetch(`${api}?ref=${BRANCH}`, { headers: await ghHeaders(env) });
+  if (res.status === 404) return { data: null, sha: null }; // archivo aún no existe
+  if (!res.ok) throw new Error(`GitHub GET ${path} ${res.status}`);
+  const meta = await res.json();
+  const decoded = decodeURIComponent(escape(atob(meta.content.replace(/\n/g, ''))));
+  return { data: JSON.parse(decoded), sha: meta.sha };
+}
+
+async function putFile(env, path, data, sha, message) {
+  const api = `https://api.github.com/repos/${REPO}/contents/${path}`;
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+  const body = { message, content, branch: BRANCH };
+  if (sha) body.sha = sha; // sha solo si el archivo ya existe
+  const res = await fetch(api, {
+    method: 'PUT',
+    headers: { ...(await ghHeaders(env)), 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const t = await res.text();
+    throw new Error(`GitHub PUT ${path} ${res.status}: ${t.slice(0, 200)}`);
+  }
+  return res.json();
+}
+
 // ── UUID v4 ──
 function uuid() {
   return crypto.randomUUID();
@@ -169,6 +197,55 @@ a{color:#60a5fa}</style></head><body>
         const r = await fetch(`${RAW_URL}?_=${Date.now()}`);
         const txt = await r.text();
         return new Response(txt, { headers: { ...cors, 'Content-Type': 'application/json' } });
+      } catch (e) {
+        return json({ error: String(e) }, 502, cors);
+      }
+    }
+
+    // ── POST /checkpoint-apply — la routine nocturna remota escribe vía Worker ──
+    // El remoto NO es browser (sin Origin), se autentica con CHECKPOINT_TOKEN en header.
+    // Recibe el array `deals` ya reconciliado + una entrada de `logEntry`, y commitea ambos archivos.
+    if (request.method === 'POST' && url.pathname === '/checkpoint-apply') {
+      const auth = request.headers.get('X-Checkpoint-Token') || '';
+      if (!env.CHECKPOINT_TOKEN || auth !== env.CHECKPOINT_TOKEN) {
+        return json({ error: 'no autorizado' }, 401, cors);
+      }
+      if (!env.GITHUB_TOKEN) {
+        return json({ error: 'GITHUB_TOKEN no configurado en el Worker' }, 500, cors);
+      }
+      let body;
+      try { body = await request.json(); } catch { return json({ error: 'JSON inválido' }, 400, cors); }
+      const incoming = body.deals;
+      // Validación anti-corrupción: debe ser un array no vacío de objetos con id.
+      if (!Array.isArray(incoming) || incoming.length === 0) {
+        return json({ error: 'payload.deals debe ser un array no vacío' }, 400, cors);
+      }
+      try {
+        const { data, sha } = await getDealsFile(env);
+        const existingCount = (data.deals || []).length;
+        // Salvaguarda: no permitir que un run borre deals (cuenta no puede caer >20%).
+        if (incoming.length < existingCount * 0.8) {
+          return json({ error: `rechazado: incoming ${incoming.length} vs actual ${existingCount} (posible corrupción)` }, 409, cors);
+        }
+        if (!incoming.every((d) => d && typeof d.id === 'string')) {
+          return json({ error: 'todos los deals deben tener id string' }, 400, cors);
+        }
+        data.deals = incoming;
+        data.last_update = (body.lastUpdate ? String(body.lastUpdate).slice(0, 80) : new Date().toISOString().slice(0, 16).replace('T', ' ') + ' (checkpoint nocturno)');
+        const msg = String(body.commitMessage || 'chore: checkpoint nocturno — categorías + disponibilidad (vía Worker)').slice(0, 200);
+        await putDealsFile(env, data, sha, msg);
+
+        // Append de la entrada de log (data/checkpoint_log.json) — append-only, más reciente al inicio.
+        let logResult = 'sin logEntry';
+        if (body.logEntry && typeof body.logEntry === 'object') {
+          const { data: logData, sha: logSha } = await getFile(env, 'data/checkpoint_log.json');
+          const arr = Array.isArray(logData) ? logData : [];
+          arr.unshift(body.logEntry);
+          if (arr.length > 120) arr.length = 120; // retener ~4 meses de runs diarios
+          await putFile(env, 'data/checkpoint_log.json', arr, logSha, 'chore: checkpoint log nocturno');
+          logResult = `log actualizado (${arr.length} entradas)`;
+        }
+        return json({ ok: true, deals_persisted: incoming.length, log: logResult }, 200, cors);
       } catch (e) {
         return json({ error: String(e) }, 502, cors);
       }
