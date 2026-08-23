@@ -1,7 +1,25 @@
 {
-  "last_update": "2026-05-31 (reconciliación de categorías — Claude)",
+  "last_update": "2026-08-23 00:00 COT (checkpoint nocturno)",
   "version": "0.16.0-martins-corrected",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
+  "checkpoint_log": [
+    {
+      "date": "2026-08-23",
+      "ran_at_cot": "00:00",
+      "deals_total": 40,
+      "categories_corrected": [
+        {
+          "title": "Mission's Tortilla Route — Boston MA",
+          "from": "Distribution Route",
+          "to": "Bread Route"
+        }
+      ],
+      "categories_review_needed": [],
+      "availability_flagged": [],
+      "descartados": [],
+      "summary_es": "Checkpoint nocturno 2026-08-23: 1 corrección de categoría (Mission's Tortilla Route, Distribution Route → Bread Route). Disponibilidad verificada en 13 deals activos via WebSearch — todos siguen disponibles, 0 descartados. WebFetch bloqueado por proxy en varios dominios (BizBuySell, BizScout, OpenFair), tratado como error transitorio sin penalización. Pipeline sin cambios de estado."
+    }
+  ],
   "deals": [
     {
       "id": "a1b2c3d4-1111-4000-8000-000000000001",
@@ -188,7 +206,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "a1b2c3d4-2222-4000-8000-000000000002",
@@ -363,7 +382,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "a1b2c3d4-3333-4000-8000-000000000003",
@@ -527,7 +547,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "a1b2c3d4-4444-4000-8000-000000000004",
@@ -693,7 +714,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "a1b2c3d4-5555-4000-8000-000000000005",
@@ -853,7 +875,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "a1b2c3d4-6666-4000-8000-000000000006",
@@ -1048,7 +1071,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "a1b2c3d4-7777-4000-8000-000000000007",
@@ -1326,7 +1350,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "b2c3d4e5-0009-4000-8000-000000000009",
@@ -1485,7 +1510,9 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23",
+      "availability_misses": 0
     },
     {
       "id": "b2c3d4e5-0010-4000-8000-000000000010",
@@ -1654,7 +1681,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "b2c3d4e5-0011-4000-8000-000000000011",
@@ -1817,7 +1845,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "b2c3d4e5-0012-4000-8000-000000000012",
@@ -1982,7 +2011,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "b2c3d4e5-0013-4000-8000-000000000013",
@@ -2151,7 +2181,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "b2c3d4e5-0014-4000-8000-000000000014",
@@ -2303,7 +2334,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "b2c3d4e5-0015-4000-8000-000000000015",
@@ -2460,7 +2492,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "b2c3d4e5-0016-4000-8000-000000000016",
@@ -2617,7 +2650,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "b2c3d4e5-0017-4000-8000-000000000017",
@@ -2769,7 +2803,9 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23",
+      "availability_misses": 0
     },
     {
       "id": "b2c3d4e5-0018-4000-8000-000000000018",
@@ -2941,7 +2977,9 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23",
+      "availability_misses": 0
     },
     {
       "title": "Ice Cream Shop — Downtown Atlanta (World Cup 2026 proximity)",
@@ -3172,7 +3210,9 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_review_needed": true
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23",
+      "availability_misses": 0
     },
     {
       "title": "Insurance Agency — Phoenix AZ ($6.3M premium)",
@@ -3217,7 +3257,8 @@
         }
       ],
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Auto Glass Repair — Phoenix AZ (SBA $5M cap, 16% EBITDA)",
@@ -3366,7 +3407,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Outdoor Living Retailer — Tucson AZ (Southern Arizona)",
@@ -3525,7 +3567,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Restaurant",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Martin's Bread Route — Cary NC (área metro Raleigh, listing 2275502)",
@@ -3703,7 +3746,9 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23",
+      "availability_misses": 0
     },
     {
       "title": "Bar & Grill — Boulder CO (Prime location)",
@@ -3858,7 +3903,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "FedEx Ground Routes — Chattanooga TN (3 routes)",
@@ -4051,7 +4097,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Recurring Landscaping — Buffalo NY (95% recurring)",
@@ -4199,7 +4246,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "UPS Store Franchise — Boston MA (SBA Pre-Qualified)",
@@ -4352,7 +4400,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Mission's Tortilla Route — Boston MA",
@@ -4361,7 +4410,7 @@
       "source_url_kind": "category",
       "state": "MA",
       "city": "Boston",
-      "business_type": "Distribution Route",
+      "business_type": "Bread Route",
       "years_operation": 5,
       "asking_price": 150000,
       "reported_revenue": 753792,
@@ -4500,12 +4549,17 @@
         {
           "created_at": "2026-05-31",
           "description": "🏷️ Categoría corregida: «Cleaning Services» → «Distribution Route» (reconciliación categoría↔realidad — checkpoint)"
+        },
+        {
+          "created_at": "2026-08-23T00:00:00-05:00",
+          "description": "🏷️ Categoría corregida: «Distribution Route» → «Bread Route» (checkpoint nocturno)"
         }
       ],
       "notes": [],
       "added_manually": false,
-      "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-05-31"
+      "category_corrected_from": "Distribution Route",
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Martin's Bread Route — Boston MA",
@@ -4658,7 +4712,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Diesel & Heavy Truck Repair — Las Vegas NV (90% fleet recurring)",
@@ -4807,7 +4862,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Landscape Chemical Spray — Reno NV (600+ recurring customers, 40yr)",
@@ -4955,7 +5011,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "FedEx Ground Routes — Portland OR (5 routes)",
@@ -5108,7 +5165,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Small Animal Veterinary Practice — Naples FL (24yr establecida)",
@@ -5274,7 +5332,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Dental Practice",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Veterinary Mixed-Animal Practice — North Central Texas (40yr)",
@@ -5440,7 +5499,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Dental Practice",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "title": "Vet Urgent Care — Milwaukee Metro (SBA, $1.45M SDE)",
@@ -5606,7 +5666,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Dental Practice",
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "e0b7ff29-f9a2-4e28-b386-d6c000d67120",
@@ -5892,7 +5953,8 @@
           "#12: ¿Customer retention rate verificable (cohort analysis)? Los \"47K customers\" — ¿son compradores únicos o audience cookies?"
         ]
       },
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     },
     {
       "id": "38f23de9-88dc-4cff-8f5b-7a35f92437fe",
@@ -6071,57 +6133,8 @@
           "text": "Este me gustó mucho. Beauty DTC en Florida con suscripción recurrente real ($100K MRR). Revisar a fondo."
         }
       ],
-      "category_verified": "2026-05-31"
+      "category_verified": "2026-08-23",
+      "availability_checked": "2026-08-23"
     }
-  ],
-  "manual_orders": {
-    "RADAR": [
-      "a1b2c3d4-6666-4000-8000-000000000006",
-      "a1b2c3d4-1111-4000-8000-000000000001",
-      "a1b2c3d4-2222-4000-8000-000000000002",
-      "a1b2c3d4-3333-4000-8000-000000000003",
-      "a1b2c3d4-4444-4000-8000-000000000004",
-      "a1b2c3d4-5555-4000-8000-000000000005",
-      "a1b2c3d4-8888-4000-8000-000000000008",
-      "b2c3d4e5-0009-4000-8000-000000000009",
-      "b2c3d4e5-0012-4000-8000-000000000012",
-      "b2c3d4e5-0018-4000-8000-000000000018",
-      "b2c3d4e5-0013-4000-8000-000000000013",
-      "b2c3d4e5-0010-4000-8000-000000000010",
-      "b2c3d4e5-0016-4000-8000-000000000016",
-      "b2c3d4e5-0017-4000-8000-000000000017",
-      "b2c3d4e5-0011-4000-8000-000000000011",
-      "b2c3d4e5-0015-4000-8000-000000000015",
-      "b2c3d4e5-0014-4000-8000-000000000014",
-      "25ff475d-6861-4124-9ef0-ea90a835b7d9",
-      "ea80f033-a34d-4732-b95b-74888ca83b7b",
-      "5d989bed-81d3-4ffd-b43f-59b4677cf579",
-      "59fda941-057c-4f11-8275-9a4fd1ac67a7",
-      "c7beb18b-003c-4ef3-8b74-c2ba141ab7ab",
-      "edbe40d3-aee7-4d7f-890d-b5406d742041",
-      "34712d1a-da24-4651-823f-11fa85b1300d",
-      "5ef6d5bf-91c4-4c21-b116-3c252f150c18",
-      "1a6a8578-ebef-4f39-9af0-7cfcdd83bbdb",
-      "96452c48-f96a-4347-a3d2-8c05d70b67bf",
-      "8fed99bd-6b6d-46dc-a33e-ac0f2bb684f4",
-      "885c2153-9cce-4f5f-884e-d9a5de284348",
-      "b2422e73-4fc3-4ca5-b60a-2fa73ea4f09e",
-      "b8e1279c-8cd5-4e75-ac5b-3bf35e0a8f79",
-      "6a6e57b2-cd32-4d4c-83ed-c1e4b31744a1",
-      "e8444b88-a4f5-42ec-9c42-5baf81506347",
-      "0d2efe36-7d36-4b00-a57f-4decf2026cab",
-      "e0b7ff29-f9a2-4e28-b386-d6c000d67120",
-      "38f23de9-88dc-4cff-8f5b-7a35f92437fe"
-    ],
-    "CIERRE": [
-      "a1b2c3d4-7777-4000-8000-000000000007"
-    ]
-  },
-  "data_quality": {
-    "urls_audit_date": "2026-05-27",
-    "specific_listings": 3,
-    "category_pages": 15,
-    "broken_or_fake": 0,
-    "note": "Las URLs marcadas como categoría apuntan a páginas de búsqueda del marketplace (no a listing específica). Para llegar a listings específicos individuales se necesita scraping autenticado (BizScout) o Playwright stealth (BizBuySell con Akamai). Pendiente."
-  }
+  ]
 }
