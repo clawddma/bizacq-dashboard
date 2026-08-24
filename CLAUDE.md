@@ -225,3 +225,19 @@ Tag: `backup-2026-05-30-opus47-handover` — snapshot del proyecto al cierre de 
 ```bash
 git checkout backup-2026-05-30-opus47-handover
 ```
+
+---
+
+<!-- VIVO:BEGIN -->
+## Estado real — 2026-08-16 08:16
+
+> Regenerado cada noche por `recursos/sistema-vivo/sistema_vivo.py` leyendo el
+> disco. **No editar a mano**: lo de afuera de las marcas sí es tuyo y se respeta.
+
+- **Git** · rama `main` · **4 archivos sin commitear**
+  - último commit: `ed94b56 2026-06-01 feat: endpoint /checkpoint-apply — routine nocturna escribe vía Worker`
+- **Automatización** · ninguna: nada corre solo en este proyecto
+- **Librerías declaradas:**
+  - `requirements.txt` — 13 paquetes de Python
+- **Código** · 45 archivos · último cambio 2026-06-01 en `cloudflare/worker.js`
+<!-- VIVO:END -->
