@@ -229,15 +229,16 @@ git checkout backup-2026-05-30-opus47-handover
 ---
 
 <!-- VIVO:BEGIN -->
-## Estado real — 2026-08-16 08:16
+## Estado real — 2026-08-23 22:09
 
 > Regenerado cada noche por `recursos/sistema-vivo/sistema_vivo.py` leyendo el
 > disco. **No editar a mano**: lo de afuera de las marcas sí es tuyo y se respeta.
 
-- **Git** · rama `main` · **4 archivos sin commitear**
-  - último commit: `ed94b56 2026-06-01 feat: endpoint /checkpoint-apply — routine nocturna escribe vía Worker`
+- **Git** · rama `main` · árbol limpio
+  - último commit: `2f537b4 2026-08-23 Sincroniza trabajo local pendiente`
 - **Automatización** · ninguna: nada corre solo en este proyecto
 - **Librerías declaradas:**
   - `requirements.txt` — 13 paquetes de Python
-- **Código** · 45 archivos · último cambio 2026-06-01 en `cloudflare/worker.js`
+- **Código** · 45 archivos · último cambio 2026-08-23 en `data/deals.json`
+- ⚠️ **La documentación va 7 días detrás del código.** Lo escrito arriba de estas marcas describe una versión anterior.
 <!-- VIVO:END -->
