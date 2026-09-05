@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-09-04 00:30 COT (checkpoint nocturno)",
+  "last_update": "2026-09-05 00:30 COT (checkpoint nocturno)",
   "version": "0.16.0-martins-corrected",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "checkpoint_log": [
@@ -92,6 +92,21 @@
       ],
       "descartados": [],
       "summary_es": "Checkpoint nocturno 2026-09-04: sin correcciones de categoría (todas 40 verificadas correctas). Hallazgo crítico: Deal 8 HVAC Harris County registra PRIMER miss de disponibilidad — búsqueda web confirma que el listing fue marcado como 'found a new owner' y ya no está activo; si el próximo checkpoint confirma la baja, se moverá a DESCARTADO. Deal 28 Landscaping Buffalo NY reseteado a 0 misses (encontrado $200K landscaping con repeat clients en portales). Deals confirmados activos vía WebSearch: Martin's Bread Route Cary NC, Flowers Bread Route Nashville ($235K listing vivo), Pool Route Wesley Chapel 109 accounts, Med Spa Coral Gables, Wellnature ST Pete. WebFetch bloqueado por egress proxy (businessbroker.net, bizbuysell.com, dealstream, bizscout); Worker también bloqueado — commit directo vía GitHub MCP. 0 descartados."
+    },
+    {
+      "date": "2026-09-05",
+      "ran_at_cot": "00:30",
+      "deals_total": 40,
+      "categories_corrected": [],
+      "categories_review_needed": [],
+      "availability_flagged": [],
+      "descartados": [
+        {
+          "title": "Family-Run HVAC & Mechanical — Harris County (off-market 25yr)",
+          "reason": "Vendido — listing confirmado 'found a new owner' vía WebSearch (2do miss consecutivo)"
+        }
+      ],
+      "summary_es": "Checkpoint nocturno 2026-09-05: 0 correcciones de categoría (todas 40 verificadas correctas). 1 deal descartado: Family-Run HVAC & Mechanical Harris County movido a DESCARTADO por segundo miss consecutivo — búsqueda web confirma listing vendido ('found a new owner'). 9 deals de disponibilidad confirmados activos: Martin's Cary NC (2275502), Flowers Nashville ($235K), Pool Route Wesley Chapel (583504), Med Spa Friendswood (OF0007531), Exterior Maintenance Phoenix (BizBuySell 2480079), Allstate Plano TX, UPS Store Boston ($870K revenues), Landscaping Buffalo NY, Skincare WY. WebFetch bloqueado por egress; commit vía GitHub MCP. Pipeline: 35 activos + 4 DESCARTADO + 1 CIERRE."
     }
   ],
   "deals": [
@@ -280,8 +295,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -457,8 +472,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -623,8 +638,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -791,8 +806,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -953,8 +968,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -1150,8 +1165,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -1259,7 +1274,7 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04"
+      "category_verified": "2026-09-05"
     },
     {
       "id": "a1b2c3d4-8888-4000-8000-000000000008",
@@ -1430,8 +1445,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -1450,7 +1465,7 @@
       "sba_prequalified": true,
       "curated_source": false,
       "raw_description": "HVAC family-run con 25 años, sirviendo Harris County desde 1997. Equipo técnico 24/7, mix residencial + comercial. Dueños fundadores se retiran. SDE estimado en margen 20% sobre $3.5MM gross revenue (estándar industria HVAC madura).",
-      "pipeline_status": "RADAR",
+      "pipeline_status": "DESCARTADO",
       "filter_score": 65,
       "overall_score": 80.5,
       "priority": "ALTA",
@@ -1508,6 +1523,10 @@
         {
           "created_at": "2026-05-26",
           "description": "Análisis completado (overall 86 — ALTA)"
+        },
+        {
+          "created_at": "2026-09-05",
+          "description": "🚫 Descartado por checkpoint: listing confirmado vendido ('found a new owner') — segundo miss consecutivo (2026-09-04 + 2026-09-05)"
         }
       ],
       "notes": [],
@@ -1591,9 +1610,10 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
-      "availability_misses": 1
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
+      "availability_misses": 2,
+      "discard_reason": "Vendido o negociado — listing ya no disponible (checkpoint)"
     },
     {
       "id": "b2c3d4e5-0010-4000-8000-000000000010",
@@ -1762,8 +1782,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -1927,8 +1947,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -2094,8 +2114,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -2265,8 +2285,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -2419,8 +2439,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -2578,8 +2598,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -2737,8 +2757,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -2891,8 +2911,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -3065,8 +3085,8 @@
         ]
       },
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -3108,7 +3128,7 @@
         }
       ],
       "added_manually": false,
-      "category_verified": "2026-09-04"
+      "category_verified": "2026-09-05"
     },
     {
       "title": "Bar & Restaurant — Decatur GA (Farm-to-table)",
@@ -3149,7 +3169,7 @@
         }
       ],
       "added_manually": false,
-      "category_verified": "2026-09-04"
+      "category_verified": "2026-09-05"
     },
     {
       "title": "Exterior Maintenance Company — Phoenix Metro (SBA Pre-Approved)",
@@ -3298,8 +3318,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -3345,8 +3365,8 @@
         }
       ],
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -3496,8 +3516,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -3657,8 +3677,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Restaurant",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -3837,8 +3857,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -3994,8 +4014,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -4042,7 +4062,7 @@
       ],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-09-04"
+      "category_verified": "2026-09-05"
     },
     {
       "title": "Flowers Bread Route — Nashville TN",
@@ -4189,8 +4209,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -4339,8 +4359,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -4494,8 +4514,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -4653,8 +4673,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Distribution Route",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -4808,8 +4828,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -4959,8 +4979,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -5109,8 +5129,8 @@
       ],
       "notes": [],
       "added_manually": false,
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -5264,8 +5284,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Cleaning Services",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -5432,8 +5452,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Dental Practice",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -5600,8 +5620,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Dental Practice",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -5768,8 +5788,8 @@
       "notes": [],
       "added_manually": false,
       "category_corrected_from": "Dental Practice",
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -6056,8 +6076,8 @@
           "#12: ¿Customer retention rate verificable (cohort analysis)? Los \"47K customers\" — ¿son compradores únicos o audience cookies?"
         ]
       },
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     },
     {
@@ -6237,8 +6257,8 @@
           "text": "Este me gustó mucho. Beauty DTC en Florida con suscripción recurrente real ($100K MRR). Revisar a fondo."
         }
       ],
-      "category_verified": "2026-09-04",
-      "availability_checked": "2026-09-04",
+      "category_verified": "2026-09-05",
+      "availability_checked": "2026-09-05",
       "availability_misses": 0
     }
   ]
