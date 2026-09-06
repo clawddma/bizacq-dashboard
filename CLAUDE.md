@@ -229,16 +229,16 @@ git checkout backup-2026-05-30-opus47-handover
 ---
 
 <!-- VIVO:BEGIN -->
-## Estado real — 2026-09-03 00:30
+## Estado real — 2026-09-05 00:30
 
 > Regenerado cada noche por `recursos/sistema-vivo/sistema_vivo.py` leyendo el
 > disco. **No editar a mano**: lo de afuera de las marcas sí es tuyo y se respeta.
 
-- **Git** · rama `main` · **2 archivos sin commitear**
-  - último commit: `5ff1a00 2026-08-23 Estado vivo regenerado por sistema_vivo.py`
+- **Git** · rama `main` · **1 archivos sin commitear**
+  - último commit: `eac3e46 2026-09-03 Trabajo de la semana — 2 archivos`
 - **Automatización** · ninguna: nada corre solo en este proyecto
 - **Librerías declaradas:**
   - `requirements.txt` — 13 paquetes de Python
-- **Código** · 46 archivos · último cambio 2026-08-23 en `data/deals.json`
-- ⚠️ **La documentación va 7 días detrás del código.** Lo escrito arriba de estas marcas describe una versión anterior.
+- **Código** · 46 archivos · último cambio 2026-09-03 en `data/deals.json`
+- ⚠️ **La documentación va 18 días detrás del código.** Lo escrito arriba de estas marcas describe una versión anterior.
 <!-- VIVO:END -->
