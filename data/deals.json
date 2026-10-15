@@ -6471,6 +6471,49 @@
           "text": "Precio USD 250,000; ingresos anuales USD 303,024; ganancia anual declarada USD 113,000. El vendedor declara base de 18.000 clientes, equipos incluidos y financiación para comprador adecuado. Creado en 2025: historial corto. Riesgo: validar clientes activos, ingresos, dirección médica y permisos antes de considerar una compra. Anuncio público observado; disponibilidad pendiente de confirmación del broker. Cifras del vendedor, no auditadas. Sin recomendación ni rentabilidad proyectada."
         }
       ]
+    },
+    {
+      "id": "9e7eb4a1-ab4a-4a29-aae2-a6434f2907c2",
+      "source": "manual",
+      "source_url": "https://www.bizbuysell.com/business-opportunity/busy-popular-community-nail-salon-and-hair-skin-services/2412176/",
+      "source_url_kind": "listing",
+      "source_url_verified": false,
+      "added_manually": true,
+      "pending_analysis": true,
+      "title": "[Anuncio consultado 15/oct] Salón de belleza y uñas — Lee County",
+      "state": "FL",
+      "city": "",
+      "business_type": "Retail",
+      "years_operation": null,
+      "asking_price": 795000,
+      "reported_revenue": null,
+      "reported_sde": null,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Precio USD 795,000; ingresos anuales USD 1,251,489; ganancia anual declarada USD 339,024. El anuncio publica financiación del vendedor por USD 395.000 a 60 meses al 10%. ALERTA: el arriendo figura vencido el 31-ene-2025; confirmar renovación y cifras recientes. Requiere prueba de fondos para información adicional. Anuncio público observado; disponibilidad pendiente de confirmación del broker. Cifras del vendedor, no auditadas. Sin recomendación ni rentabilidad proyectada.",
+      "pipeline_status": "RADAR",
+      "filter_score": null,
+      "overall_score": null,
+      "priority": null,
+      "financial": null,
+      "strategy": null,
+      "legal_check": {
+        "done": false
+      },
+      "events": [
+        {
+          "created_at": "2026-10-15",
+          "description": "Agregado por Mesa · revisión puntual 15-oct vía dashboard (Cloudflare Worker) — PENDIENTE ANÁLISIS"
+        }
+      ],
+      "notes": [
+        {
+          "author": "Mesa · revisión puntual 15-oct",
+          "created_at": "2026-10-15",
+          "text": "Precio USD 795,000; ingresos anuales USD 1,251,489; ganancia anual declarada USD 339,024. El anuncio publica financiación del vendedor por USD 395.000 a 60 meses al 10%. ALERTA: el arriendo figura vencido el 31-ene-2025; confirmar renovación y cifras recientes. Requiere prueba de fondos para información adicional. Anuncio público observado; disponibilidad pendiente de confirmación del broker. Cifras del vendedor, no auditadas. Sin recomendación ni rentabilidad proyectada."
+        }
+      ]
     }
   ],
   "manual_orders": {
@@ -6484,7 +6527,8 @@
       "9faebd75-c131-4059-a9a9-967c6100684d",
       "10909ee0-284e-4c51-b1c2-cefd42614bba",
       "db0ce4bf-691b-46e0-8464-63d9462747c8",
-      "c9e05efe-4237-4545-8f8f-d3670a2e6c69"
+      "c9e05efe-4237-4545-8f8f-d3670a2e6c69",
+      "9e7eb4a1-ab4a-4a29-aae2-a6434f2907c2"
     ]
   }
 }
