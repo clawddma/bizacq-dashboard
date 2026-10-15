@@ -110,3 +110,36 @@ Axial (criterios financieros, geográficos e industriales del comprador).
 - https://guide.axial.net/docs/how-to-source-deals-via-axial
 - https://empireflippers.com/marketplace-api/
 - https://github.com/jeffsosville/dealledger/blob/main/data/public/DATA_DICTIONARY.md
+
+## Depuración y scoring preliminar · 15/oct/2026
+
+`screen-v1` en `cloudflare/worker.js` es la única fuente del score mostrado. No usa
+`overall_score` ni análisis históricos para priorizar. Los datos desconocidos suman
+cero puntos; `coverage` muestra el peso respaldado por datos disponibles, que siguen
+siendo declaraciones del portal. No equivale a confianza auditada ni probabilidad de éxito.
+
+Pesos: identidad/vigencia 15; valoración 20; trayectoria/calidad financiera 15;
+recurrencia 15; concentración 10; dependencia/transferencia 10; automatización 10;
+viabilidad de transacción 5. Hoy varios componentes carecen de evidencia y no suman.
+Los cortes de múltiplos son heurísticos iniciales, no benchmarks sectoriales calibrados.
+SDE, beneficio neto y flujo del broker conservan su definición en cada ratio.
+
+Por revalidar: sin comprobación directa publicada de los últimos 7 días, URL de
+categoría, publicación de más de 365 días o contradicción histórica detectada.
+Se preservan etapa, notas, revisión y órdenes. El Radar depurado oculta esos
+candidatos activos; la pestaña de revalidación permite investigarlos. Cierres y
+descartados conservan visibilidad histórica. No se afirma que estén vendidos o sean falsos.
+Si un catálogo completo oficial ya no contiene una oferta, se marca ausente y se
+separa para revalidar; nunca se deduce una venta del simple faltante.
+
+`POST /analyze-deal` guarda un informe preliminar con los datos disponibles y las
+preguntas de diligencia. No invoca LLM ni consulta registros legales. El endpoint
+heredado `/request-analysis` deja una solicitud manual, sin promesa de ejecución.
+`POST /screening-rebuild` requiere el token de ingesta y solo modifica derivados.
+La ingesta nocturna recalcula el score sin sustituir notas, etapas o revisiones.
+
+Pruebas: `node tests/source_sync.test.mjs`, `node tests/screening.test.mjs`,
+`python3 -m unittest tests/test_nightly_refresh.py`, `python3 tests/radar_smoke.py`.
+El último usa lecturas reales y escrituras interceptadas. La prueba en Sites usa
+exclusivamente `bizacq-isolated-qa`, marcada explícitamente como ficha técnica.
+`/qa-fixture` exige token y solo puede eliminar esa ficha cuando `is_test_record` es true.

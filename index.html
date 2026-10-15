@@ -272,13 +272,13 @@
       </div>
       <div class="col-span-2 md:col-span-1">
         <p class="text-lg md:text-xl font-bold leading-none" :class="kpiAvgScore >= 80 ? 'text-emerald-400' : kpiAvgScore >= 60 ? 'text-amber-400' : 'text-slate-300'" x-text="kpiAvgScore || '—'"></p>
-        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">score histórico</p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">score preliminar</p>
       </div>
     </div>
   </div>
 
   <section class="max-w-screen-2xl mx-auto px-4 md:px-6 py-4" x-show="view!=='glossary'" x-cloak>
-    <div class="flex flex-wrap items-center gap-2"><button @click="setQuickFilter('all')" class="radar-chip" :class="{active:quickFilter==='all'}">Todo el pipeline</button><button @click="setQuickFilter('new')" class="radar-chip" :class="{active:quickFilter==='new'}" x-text="'Nuevas sin revisar · '+radarNewCount"></button><button @click="setQuickFilter('shortlist')" class="radar-chip" :class="{active:quickFilter==='shortlist'}" x-text="'Finalistas · '+shortlistCount"></button><input type="search" x-model.debounce.200ms="searchText" aria-label="Buscar en el Radar" placeholder="Buscar negocio, industria o ciudad" class="radar-search ml-auto"><button @click="reloadDeals()" class="radar-chip" :disabled="loading" x-text="loading?'Actualizando…':'Actualizar Radar'"></button></div>
+    <div class="flex flex-wrap items-center gap-2"><button @click="setQuickFilter('all')" class="radar-chip" :class="{active:quickFilter==='all'}">Radar depurado</button><button @click="setQuickFilter('new')" class="radar-chip" :class="{active:quickFilter==='new'}" x-text="'Nuevas sin revisar · '+radarNewCount"></button><button @click="setQuickFilter('shortlist')" class="radar-chip" :class="{active:quickFilter==='shortlist'}" x-text="'Finalistas · '+shortlistCount"></button><button @click="setQuickFilter('revalidate')" class="radar-chip" :class="{active:quickFilter==='revalidate'}" x-text="'Por revalidar · '+deals.filter(d=>d.screening?.disposition==='revalidate').length"></button><input type="search" x-model.debounce.200ms="searchText" aria-label="Buscar en el Radar" placeholder="Buscar negocio, industria o ciudad" class="radar-search ml-auto"><button @click="reloadDeals()" class="radar-chip" :disabled="loading" x-text="loading?'Actualizando…':'Actualizar Radar'"></button></div>
     <p class="text-[11px] text-slate-500 mt-2">Las nuevas oportunidades ingresan a Radar. Revisar, calificar y decidir el siguiente paso desde cada tarjeta.</p>
     <p x-show="loadError" role="alert" class="text-sm text-red-700 mt-2" x-text="loadError"></p>
     <details class="mt-2 text-xs text-slate-500"><summary class="cursor-pointer">Actualización diaria · 00:00 Bogotá · ver cobertura y fuentes</summary><p class="mt-2" x-text="'Último corte: '+(listingDate(refresh.last_run?.finished_at)?.label||'No registrado')"></p><template x-for="health in refresh.last_run?.sources||[]" :key="health.source"><p class="mt-1" x-text="health.source+' · '+(health.status==='success'?'Consulta completada':health.status==='stale'?'Desactualizada; nuevas incorporaciones suspendidas':'Error de acceso')"></p></template><p class="mt-2">Empire Flippers: anuncios publicados en su API. DealLedger: referencia secundaria. Una consulta no confirma disponibilidad comercial. El proceso nocturno corre en el Mac.</p></details>
@@ -529,8 +529,8 @@
                       :data-tip="`Viabilidad legal: ${legalLabel(deal.legal_check?.feasibility)} — ${deal.legal_check?.plain_summary?.slice(0,160)}...`"
                       x-text="legalBadgeShort(deal.legal_check?.feasibility)"></span>
                   </div>
-                  <div x-show="deal.overall_score" class="text-right">
-                    <span class="text-base font-bold" :class="scoreColor(deal.overall_score)" x-text="Math.round(deal.overall_score)"></span>
+                  <div x-show="deal.screening" class="text-right">
+                    <span class="text-base font-bold" :class="scoreColor(deal.screening?.score)" x-text="deal.screening?.score+'/100'"></span><p class="text-[10px] text-slate-500" x-text="'Datos '+deal.screening?.coverage+'%'"></p>
                   </div>
                 </div>
               </div>
@@ -619,8 +619,8 @@
                       <span x-show="deal.sba_prequalified" class="text-[10px] px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-medium">SBA</span>
                       <span x-show="deal.curated_source" class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
                     </div>
-                    <div x-show="deal.overall_score" class="text-right">
-                      <span class="text-base font-bold" :class="scoreColor(deal.overall_score)" x-text="Math.round(deal.overall_score)"></span>
+                    <div x-show="deal.screening" class="text-right">
+                      <span class="text-base font-bold" :class="scoreColor(deal.screening?.score)" x-text="deal.screening?.score+'/100'"></span><p class="text-[10px] text-slate-500" x-text="'Datos '+deal.screening?.coverage+'%'"></p>
                     </div>
                   </div>
                 </div>
@@ -801,9 +801,9 @@
                 <button @click="requestDeepAnalysis()"
                   class="text-[11px] px-2 py-1 rounded font-medium flex items-center gap-1"
                   :class="selectedDeal.deep_analysis ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700' : (selectedDeal.deep_analysis_requested ? 'bg-orange-50 text-orange-700' : 'bg-purple-50 hover:bg-purple-100 text-purple-700')"
-                  :title="selectedDeal.deep_analysis ? 'Ya verificado — click para re-solicitar' : (selectedDeal.deep_analysis_requested ? 'Solicitado — la routine lo procesa con búsqueda web real' : 'Solicitar verificación contra bases públicas (Census, SBA FOIA, Secretary of State, PACER, reviews)')">
+                  title="Generar y guardar análisis preliminar con datos disponibles y preguntas de diligencia">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                  <span x-text="selectedDeal.deep_analysis ? '✓ Verificado a fondo' : (selectedDeal.deep_analysis_requested ? '⏳ Análisis solicitado' : '🔬 Analizar más a fondo')"></span>
+                  <span x-text="'Analizar oportunidad'"></span>
                 </button>
               </div>
             </div>
@@ -829,7 +829,7 @@
             <div class="flex items-center gap-2 flex-wrap">
               <span class="text-[11px] text-slate-500">Siguiente paso sugerido:</span>
               <template x-for="act in nextBestActions(selectedDeal)" :key="act.label">
-                <button @click="runAction(act)" :disabled="act.disabled"
+                <button @click="runAction(act)" :disabled="!!act.disabled"
                   class="text-xs px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition"
                   :class="act.disabled ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : act.primary ? 'bg-slate-900 text-white hover:bg-slate-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
                   x-text="act.label"></button>
@@ -896,11 +896,21 @@
                 <p class="text-2xl font-bold text-emerald-900" x-text="selectedDeal.reported_sde ? fmtPrice(selectedDeal.reported_sde) : '—'"></p>
               </div>
               <div class="bg-blue-50 rounded-lg p-3">
-                <p class="text-[11px] text-blue-700 uppercase tracking-wide">🧮 Score total</p>
-                <p class="text-2xl font-bold" :class="scoreColor(selectedDeal.overall_score)" x-text="selectedDeal.overall_score ? Math.round(selectedDeal.overall_score) : '—'"></p>
+                <p class="text-[11px] text-blue-700 uppercase tracking-wide">🧮 Score preliminar /100</p>
+                <p class="text-2xl font-bold" :class="scoreColor(selectedDeal.screening?.score)" x-text="selectedDeal.screening ? Math.round(selectedDeal.screening.score) : '—'"></p>
               </div>
             </section>
 
+            <section class="bg-white border rounded-lg p-4 text-sm" x-show="selectedDeal.screening">
+              <h3 class="font-bold">Evaluación previa · puntos respaldados /100</h3>
+              <p class="text-xs text-slate-500 mt-1" x-text="'Cobertura: '+(selectedDeal.screening?.coverage||0)+'% · Confianza '+(selectedDeal.screening?.confidence||'baja')+' · screen-v1'"></p>
+              <p class="text-xs mt-2">Los datos faltantes no suman. Un score bajo puede indicar información insuficiente. Este modelo orienta la investigación; no predice rentabilidad.</p>
+              <template x-for="f in selectedDeal.screening?.flags||[]"><p class="text-amber-800 mt-2" x-text="'⚠ '+f"></p></template>
+              <template x-for="c in selectedDeal.screening?.components||[]" :key="c.name"><div class="border-t mt-2 pt-2"><p class="font-medium" x-text="c.name+' · '+c.points+'/'+c.weight"></p><p class="text-xs text-slate-500" x-text="c.evidence"></p></div></template>
+              <h4 class="font-bold mt-4">Para debida diligencia</h4><template x-for="q in selectedDeal.screening?.questions||[]"><p class="text-xs mt-2" x-text="'• '+q"></p></template>
+              <p class="text-xs text-amber-800 mt-4" x-show="selectedDeal.financial">Los análisis financieros históricos de esta ficha están pendientes de revalidación. No se usan para el score actual.</p>
+              <div x-show="selectedDeal.preliminary_analysis" class="bg-blue-50 p-3 mt-3 rounded"><p class="font-bold">Análisis preliminar guardado</p><p x-text="selectedDeal.preliminary_analysis?.summary"></p><p class="text-xs" x-text="selectedDeal.preliminary_analysis?.performed_at"></p></div>
+            </section>
             <section x-show="selectedDeal.reported_net_profit!=null || selectedDeal.reported_cash_flow!=null" class="bg-slate-50 rounded-lg p-4 text-sm"><p class="text-xs text-slate-500">Cifras publicadas por la fuente · pendientes de conciliación</p><p x-show="selectedDeal.reported_net_profit!=null" class="mt-2">Beneficio neto anual: <strong x-text="fmtPrice(selectedDeal.reported_net_profit)"></strong></p><p x-show="selectedDeal.reported_cash_flow!=null" class="mt-2">Flujo anual declarado por el broker: <strong x-text="fmtPrice(selectedDeal.reported_cash_flow)"></strong></p><p class="text-[11px] text-slate-500 mt-2">Definición distinta del SDE histórico. No se trasladan estas cifras a ese campo ni a sus múltiplos.</p></section>
             <!-- Deep analysis section — only when fact-checker has run -->
             <section x-show="selectedDeal.deep_analysis">
@@ -1392,7 +1402,7 @@
             </div><!-- /actividad -->
 
             <p class="text-[11px] text-slate-400 text-center pt-4 border-t border-slate-100">
-              Para análisis profundo o un plan de mejora: usa los botones de <strong>Siguiente paso</strong> arriba — todo se procesa sin salir del dashboard.
+              Para análisis profundo o un plan de mejora: usa los botones de <strong>Siguiente paso</strong> arriba. La investigación externa y los planes de valor requieren revisión adicional.
             </p>
           </div>
         </div>
@@ -1814,7 +1824,7 @@
         addModalOpen: false,
         addForm: { listingUrl: '', websiteUrl: '', category: '', state: '', askingPrice: '', notes: '' },
         // ── HubSpot-style deal record state ──
-        noteDraft: '', savingNote: false,
+        noteDraft: '', savingNote: false, discardTarget:null, discardDraft:'',
         docDraft: { kind: 'broker', name: '', url: '' },
         stageRoute: [
           { key: 'RADAR',          label: 'Radar' },
@@ -1842,7 +1852,7 @@
         WORKER_URL: localStorage.getItem('bizacq_worker_url') || 'https://bizacq-api.clawddma.workers.dev',
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
-        filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false },
+        filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 0, manualOnly: false },
         GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES, US_STATES, INDUSTRY_BRIEF,
         industryBrief(deal) { return (deal && INDUSTRY_BRIEF[deal.business_type]) || null; },
         columns: [
@@ -1883,7 +1893,7 @@
         ],
         sortOptions: [
           { key: 'new-first', label: 'Nuevas sin revisar primero' },
-          { key: 'score-desc',  label: 'Score histórico (alto → bajo)' },
+          { key: 'score-desc',  label: 'Score preliminar (alto → bajo)' },
           { key: 'score-asc',   label: 'Score (bajo → alto)' },
           { key: 'price-desc',  label: 'Precio (alto → bajo)' },
           { key: 'price-asc',   label: 'Precio (bajo → alto)' },
@@ -1922,7 +1932,7 @@
           this.checkWorker(); // detecta si el Cloudflare Worker está vivo
           // Deep link: if URL has #deal=ID, auto-open that deal
           this.$nextTick(() => {
-            const m = window.location.hash.match(/deal=([a-f0-9-]+)/);
+            const m = window.location.hash.match(/deal=([^&#]+)/);
             if (m) {
               const target = this.deals.find(d => d.id === m[1]);
               if (target) {
@@ -1973,16 +1983,16 @@
         get kpiTotalSDE() { return this.kpiVisible.reduce((s, d) => s + (d.reported_sde || 0), 0); },
         get kpiAltaCount() { return this.kpiVisible.filter(d => d.priority === 'ALTA').length; },
         get kpiAvgScore() {
-          const scored = this.kpiVisible.filter(d => d.overall_score);
+          const scored = this.kpiVisible.filter(d => d.screening);
           if (!scored.length) return 0;
-          return Math.round(scored.reduce((s, d) => s + d.overall_score, 0) / scored.length);
+          return Math.round(scored.reduce((s, d) => s + d.screening?.score, 0) / scored.length);
         },
 
         reviewLabel(v) {return {pendiente:'Por evaluar',mirar:'Investigar',finalista:'Finalista',no_encaja:'No encaja'}[v]||'Por evaluar';},
         isUnreviewed(d) {return !!d.pending_analysis && !Number(d.review?.rating) && d.review?.decision!=='no_encaja';},
         enteredAt(d) {return d.events?.[0]?.created_at||'';},
         entryLabel(d) {const info=this.listingDate(this.enteredAt(d));return info?'Ingresó al Radar: '+info.label.replace(' · hora no registrada',''):'Fecha de ingreso no registrada';},
-        get radarNewCount() {return this.deals.filter(d=>d.pipeline_status==='RADAR'&&this.isUnreviewed(d)).length;},
+        get radarNewCount() {return this.deals.filter(d=>d.pipeline_status==='RADAR'&&d.screening?.disposition!=='revalidate'&&this.isUnreviewed(d)).length;},
         get shortlistCount() {return this.deals.filter(d=>d.review?.decision==='finalista').length;},
         setQuickFilter(key) {this.quickFilter=key;if(key==='new'){this.view='pipeline';this.sortByCol.RADAR='new-first';}},
         async reloadDeals(silent=false) {
@@ -2020,12 +2030,13 @@
         // Canonical filter matcher — usado por passesFilters, hiddenByScore, dealCountByState
         matchFilters(d, { skipScore = false, skipState = false } = {}) {
           if(this.searchText.trim() && ![d.title,d.city,d.state,d.business_type].some(v=>String(v||'').toLowerCase().includes(this.searchText.trim().toLowerCase())))return false;
+          if(this.quickFilter==='revalidate' ? d.screening?.disposition!=='revalidate' : (d.screening?.disposition==='revalidate'&&!['CIERRE','DESCARTADO'].includes(d.pipeline_status)))return false;
           if(this.quickFilter==='new' && (d.pipeline_status!=='RADAR'||!this.isUnreviewed(d)))return false;
           if(this.quickFilter==='shortlist' && d.review?.decision!=='finalista')return false;
           if (this.filters.manualOnly && !d.added_manually) return false;
-          // Pendientes de análisis y descartados pasan el filtro de score (no tienen score aún)
-          if (!skipScore && this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO' && !d.pending_analysis) {
-            if (!d.overall_score || d.overall_score < this.filters.minScore) return false;
+          // Todos los anuncios se filtran por el mismo score preliminar persistido.
+          if (!skipScore && this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO') {
+            if (!d.screening?.score || d.screening?.score < this.filters.minScore) return false;
           }
           if (!skipState && this.filters.states.length > 0 && !this.filters.states.includes(d.state)) return false;
           if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
@@ -2056,7 +2067,7 @@
           return this.deals.filter(d => {
             if (d.pipeline_status === 'DESCARTADO') return false;
             if (!this.matchFilters(d, { skipScore: true })) return false;
-            return !d.pending_analysis && (!d.overall_score || d.overall_score < this.filters.minScore);
+            return (!d.screening?.score || d.screening?.score < this.filters.minScore);
           }).length;
         },
         get overrideCount() {
@@ -2152,7 +2163,7 @@
           const arr = [...list];
           switch (mode) {
             case 'new-first':return arr.sort((a,b)=>Number(this.isUnreviewed(b))-Number(this.isUnreviewed(a))||this.enteredAt(b).localeCompare(this.enteredAt(a)));
-            case 'score-asc':  return arr.sort((a, b) => (a.overall_score || 0) - (b.overall_score || 0));
+            case 'score-asc':  return arr.sort((a, b) => (a.screening?.score || 0) - (b.screening?.score || 0));
             case 'price-desc': return arr.sort((a, b) => (b.asking_price || 0) - (a.asking_price || 0));
             case 'price-asc':  return arr.sort((a, b) => (a.asking_price || 0) - (b.asking_price || 0));
             case 'sde-desc':   return arr.sort((a, b) => (b.reported_sde || 0) - (a.reported_sde || 0));
@@ -2167,7 +2178,7 @@
               return arr.sort((a, b) => pos(a.id) - pos(b.id));
             }
             case 'score-desc':
-            default:           return arr.sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
+            default:           return arr.sort((a, b) => (b.screening?.score || 0) - (a.screening?.score || 0));
           }
         },
 
@@ -2180,7 +2191,7 @@
             for (const subName of subList) {
               const ds = this.deals.filter(d => d.business_type === subName && this.passesFilters(d));
               if (ds.length === 0) continue;
-              ds.sort((a, b) => (b.overall_score || 0) - (a.overall_score || 0));
+              ds.sort((a, b) => (b.screening?.score || 0) - (a.screening?.score || 0));
               subcategories.push({ name: subName, deals: ds });
               totalDeals += ds.length;
               totalValue += ds.reduce((s, d) => s + (d.asking_price || 0), 0);
@@ -2272,10 +2283,10 @@
           const acts = [];
           const needsDeep = !deal.deep_analysis && !deal.deep_analysis_requested;
           if (s === 'RADAR') {
-            if (needsDeep) acts.push({ label: '🔬 Verificar a fondo', primary: true, type: 'deep' });
+            if (needsDeep) acts.push({ label: 'Analizar oportunidad', primary: true, type: 'deep' });
             acts.push({ label: '→ Pasar a En análisis', primary: !needsDeep, type: 'stage', to: 'EN_ANALISIS' });
           } else if (s === 'EN_ANALISIS') {
-            if (needsDeep) acts.push({ label: '🔬 Verificar a fondo', primary: true, type: 'deep' });
+            if (needsDeep) acts.push({ label: 'Analizar oportunidad', primary: true, type: 'deep' });
             acts.push({ label: '→ Pasar a Para contactar', primary: !needsDeep, type: 'stage', to: 'PARA_CONTACTAR' });
           } else if (s === 'PARA_CONTACTAR') {
             acts.push({ label: '→ Pasar a En negociación', primary: true, type: 'stage', to: 'EN_NEGOCIACION' });
@@ -2287,6 +2298,7 @@
           } else if (s === 'DESCARTADO') {
             acts.push({ label: '↩ Recuperar a Radar', primary: true, type: 'stage', to: 'RADAR' });
           }
+          if(s!=='DESCARTADO')acts.push({label:'Descartar',type:'stage',to:'DESCARTADO',disabled:false});
           return acts;
         },
         runAction(act) {
@@ -2319,13 +2331,11 @@
               d.notes.push(note);
               return true;
             } catch (e) {
-              d.notes.push(note);
-              this.toast('⚠ ' + e.message + ' — nota guardada local, sin sincronizar');
+              this.toast('No se guardó la nota: '+e.message+'; el borrador se conserva');
               return false;
             }
           }
-          d.notes.push(note);
-          this.toast('Nota guardada local (Worker offline)');
+          this.toast('Sin conexión: el borrador se conserva');
           return false;
         },
         async addNote() {
@@ -2334,7 +2344,7 @@
           this.savingNote = true;
           const ok = await this.persistNote(text, 'socio');
           this.savingNote = false;
-          this.noteDraft = '';
+          if(ok)this.noteDraft = '';
           if (ok) this.toast('✓ Nota agregada');
         },
         // ── Documentos (repositorio del deal, persiste vía Worker /update-deal) ──
@@ -2396,64 +2406,12 @@
         },
 
         async requestDeepAnalysis() {
-          if (!this.selectedDeal?.id) return;
-          const d = this.selectedDeal;
-          // VÍA WORKER: marca el deal para que la routine lo procese (sin pegar mensaje a Claude)
-          if (this.hasWorker()) {
-            try {
-              this.toast('Solicitando análisis profundo...');
-              const res = await fetch(this.WORKER_URL + '/request-analysis', {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ dealId: d.id }),
-              });
-              if (!res.ok) throw new Error(`Worker ${res.status}`);
-              d.deep_analysis_requested = true; // feedback visual inmediato
-              this.toast('✓ Análisis solicitado — la routine lo procesa con búsqueda web real (en minutos)');
-              setTimeout(() => this.init(), 1500);
-              return;
-            } catch (e) {
-              console.error('request-analysis error', e);
-              this.toast('⚠ ' + e.message + ' — usando fallback (copiar para Claude)');
-            }
-          }
-          // FALLBACK (sin Worker): copiar pedido para pegarle a Claude
-          const lines = [
-            'Pido análisis profundo (fact-checker subagent) del siguiente deal:',
-            '',
-            `Deal ID: ${d.id}`,
-            `Title: ${d.title}`,
-            `Industry: ${d.business_type}`,
-            `Location: ${d.city}, ${d.state}`,
-            `Asking: $${(d.asking_price || 0).toLocaleString()}`,
-            `Source URL: ${d.source_url || '—'}`,
-            '',
-            'Por favor ejecutar fact-checker subagent con bases públicas:',
-            '1. WebSearch del business name + ciudad → existencia, website, redes',
-            '2. Secretary of State del estado → verificar entity legal active',
-            '3. SBA FOIA loan data → market activity de la industria + estado',
-            '4. Census/BLS → demographics + employment trend del county',
-            '5. PACER federal courts → litigios o bankruptcies del seller',
-            '6. Yelp/Google reviews del business → reputation actual',
-            '7. OpenCorporates cross-reference si aplica',
-            '',
-            'Output: agregar campo `deep_analysis` al deal en deals.json con:',
-            '- summary (2-3 oraciones plain Spanish)',
-            '- findings list con category/status/icon/title/detail/source',
-            '- contradictions entre listing vs realidad',
-            '- questions_for_seller (qué preguntar específicamente)',
-            '- confidence_uplift level',
-            '',
-            'Cuando termines: commit + push al repo. El dashboard mostrará la sección automáticamente.',
-          ];
-          const text = lines.join('\n');
-          if (navigator.clipboard?.writeText) {
-            navigator.clipboard.writeText(text);
-            this.toast('✓ Pedido copiado — pégalo en tu chat con Claude (el fact-checker tarda ~5-10 min)');
-          } else {
-            window.prompt('Copia este pedido y pégalo a Claude:', text);
-          }
+          const d=this.selectedDeal;if(!d)return;
+          this.toast('Generando análisis preliminar…');
+          try {const r=await fetch(this.WORKER_URL+'/analyze-deal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dealId:d.id})});const result=await r.json();if(!r.ok)throw new Error(result.error||r.status);d.screening=result.screening;d.preliminary_analysis=result.analysis;this.toast('✓ Análisis preliminar guardado; abrir Resumen para ver resultados');}catch(e){this.toast('No se guardó el análisis: '+e.message);}
         },
-        resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 75, manualOnly: false }; },
+
+        resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 0, manualOnly: false }; },
         toggleState(code) {
           const i = this.filters.states.indexOf(code);
           if (i === -1) this.filters.states.push(code);
@@ -2545,20 +2503,22 @@
           if (!dealId || dealId === targetDeal.id) return;
           this.moveDeal(dealId, colKey, targetDeal.id, before ? 'before' : 'after');
         },
-        moveDeal(dealId, newColKey, targetDealId, position) {
+        moveDeal(dealId, newColKey, targetDealId, position, discardReason=null) {
           const deal = this.deals.find(d => d.id === dealId);
           if (!deal) return;
           const oldStatus = deal.pipeline_status;
           const sameColumn = oldStatus === newColKey;
+          const allowed={RADAR:['EN_ANALISIS','DESCARTADO'],EN_ANALISIS:['RADAR','PARA_CONTACTAR','DESCARTADO'],PARA_CONTACTAR:['EN_NEGOCIACION','DESCARTADO'],EN_NEGOCIACION:['CIERRE','DESCARTADO'],CIERRE:['DESCARTADO'],DESCARTADO:['RADAR']};
+          if(!sameColumn&&!allowed[oldStatus]?.includes(newColKey)){this.toast('Pasa primero por la siguiente etapa del pipeline');return;}
           let reason = null;
           if (!sameColumn && newColKey === 'DESCARTADO') {
-            reason = prompt('¿Por qué descartas este deal?');
-            if (!reason || !reason.trim()) return;
-            reason = reason.trim();
+            if(!discardReason){this.discardTarget={dealId,newColKey,targetDealId,position};this.discardDraft='';return;}
+            reason=String(discardReason).trim();if(!reason)return;
           }
           if (!sameColumn) {
             deal.pipeline_status = newColKey;
             if (reason) deal.discard_reason = reason;
+            else delete deal.discard_reason;
             this.overrides[dealId] = {
               pipeline_status: newColKey, discard_reason: reason,
               moved_at: new Date().toISOString(), previous_status: oldStatus,
@@ -2586,20 +2546,9 @@
           this.deals = [...this.deals];
           // Auto-sync trigger (debounced 2.5s — agrupa múltiples drags en un commit)
           this.triggerAutoSync();
-          // AUTO-TRIGGER análisis profundo cuando deal va RADAR → EN_ANALISIS
-          if (!sameColumn && oldStatus === 'RADAR' && newColKey === 'EN_ANALISIS' && !deal.deep_analysis && !deal.deep_analysis_requested) {
-            setTimeout(() => {
-              const viaWorker = this.hasWorker();
-              const msg = viaWorker
-                ? `¿Activar análisis profundo de "${shortTitle}"?\n\nLa routine buscará en bases públicas (Census, SBA FOIA, Secretary of State, PACER, reviews) con búsqueda web real. Toma minutos y sube la confianza del análisis.\n\nOK = se solicita y se procesa solo. Cancel = sigues con el análisis base.`
-                : `¿Activar análisis profundo de "${shortTitle}"?\n\nOK = se copia un pedido al clipboard que pegas a Claude. Cancel = sigues con el análisis base.`;
-              if (confirm(msg)) {
-                this.selectedDeal = deal;
-                this.requestDeepAnalysis();
-              }
-            }, 600);
-          }
+
         },
+        confirmDiscard(){const t=this.discardTarget;if(!t||!this.discardDraft.trim())return;this.moveDeal(t.dealId,t.newColKey,t.targetDealId,t.position,this.discardDraft);this.discardTarget=null;this.discardDraft='';},
         applyOverrides() {
           for (const [dealId, ov] of Object.entries(this.overrides)) {
             const deal = this.deals.find(d => d.id === dealId);
@@ -2670,12 +2619,7 @@
           const labels = {published:'Anuncio publicado',broker_confirmed:'Confirmado por broker',negotiating:'En negociación',withdrawn:'Retirado'};
           const supported = validCheck && evidence?.evidence && labels[evidence.status]
             && (evidence.status !== 'broker_confirmed' || evidence.confirmation_source === 'broker');
-          let age = 'Antigüedad desconocida';
-          if (validCheck) {
-            const nowDay = new Date().toLocaleDateString('en-CA', {timeZone:'America/Bogota'});
-            const days = check.dayOnly ? Math.round((Date.parse(nowDay+'T00:00:00Z')-check.date.getTime())/86400000) : Math.floor((Date.now()-check.date.getTime())/86400000);
-            age = days <= 0 ? 'hoy' : `hace ${days} días`;
-          }
+          let age = publication ? Math.max(0,Math.floor((Date.now()-publication.date.getTime())/86400000))+' días desde publicación' : 'Publicación no informada';
           return {
             status: supported ? labels[evidence.status] : 'Sin verificar',
             publication: publication ? publication.label.replace(' · hora no registrada','') : 'No informada',
@@ -2998,5 +2942,7 @@
       };
     }
   </script>
+<div x-show="discardTarget" x-cloak class="fixed inset-0 flex items-center justify-center bg-slate-900/50 p-4" style="z-index:10000" role="dialog" aria-label="Motivo de descarte">
+<div class="bg-white rounded-xl p-6 w-full max-w-md shadow-xl"><h3 class="font-bold text-lg">Descartar oportunidad</h3><p class="text-sm text-slate-500 mt-2">El motivo queda en el historial compartido. La oportunidad se puede recuperar a Radar.</p><textarea x-model="discardDraft" aria-label="Motivo de descarte" placeholder="Explica el motivo del descarte" class="border rounded p-3 w-full mt-4" rows="3"></textarea><div class="flex gap-2 mt-3"><button @click="discardTarget=null" class="radar-chip">Cancelar</button><button @click="confirmDiscard()" :disabled="!discardDraft.trim()" class="radar-chip">Confirmar descarte</button></div></div></div>
 </body>
 </html>

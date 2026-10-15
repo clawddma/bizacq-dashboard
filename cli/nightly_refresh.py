@@ -115,7 +115,7 @@ def fetch_empire():
         monetizations=r.get('monetizations') or []
         text=json.dumps(monetizations).lower()
         category='SaaS' if 'saas' in text else 'E-commerce' if any(k in text for k in ['amazon','ecommerce','e-commerce','shopify']) else 'Digital Business'
-        listings.append(dict(source='empire_flippers',external_id=str(r['id']),source_url=f'https://empireflippers.com/listing/{number}/',title=str(r.get('public_title') or 'Negocio digital')[:500],state='',city='',business_type=category,asking_price=amount(r.get('listing_price')),reported_revenue=amount(r.get('average_annual_gross_revenue')),reported_net_profit=amount(r.get('average_annual_net_profit')),reported_cash_flow=None,raw_description=str(r.get('summary') or '')[:2000],first_seen_at=None,last_seen_at=None,published_at=r.get('first_listed_at'),broker='Empire Flippers'))
+        listings.append(dict(source='empire_flippers',external_id=str(r['id']),source_url=f'https://empireflippers.com/listing/{number}/',title=str(r.get('public_title') or 'Negocio digital')[:500],state='',city='',business_type=category,asking_price=amount(r.get('listing_price')),reported_revenue=amount(r.get('average_annual_gross_revenue')),reported_net_profit=amount(r.get('average_annual_net_profit')),reported_cash_flow=None,raw_description=str(r.get('summary') or '')[:2000],first_seen_at=None,last_seen_at=None,published_at=r.get('first_listed_at'),operating_metrics={k:r.get(k) for k in ['first_made_money_at','hours_worked_per_week','net_profit_trend_percent','net_profit_trend_percent_months','mrr','churn_percent','gross_revenue_trend_percent'] if r.get(k) is not None},broker='Empire Flippers'))
     return listings,dict(source='empire_flippers',status='success',page=pages,pages=data.get('pages'),catalog_count=data.get('count'),us_records=len(listings),coverage='complete' if pages==int(data.get('pages') or 1) else 'partial')
 
 def main():
@@ -153,6 +153,7 @@ def main():
             if not opt.fixture:
                 try:
                     official,health=fetch_empire()
+                    if health.get('coverage')=='complete':run['primary_listing_urls']=[r['source_url'] for r in official]
                     run['sources'].append(health)
                     current_urls={canonical(d.get('source_url')) for d in current['deals']}
                     official_new=[r for r in official if canonical(r['source_url']) not in current_urls]

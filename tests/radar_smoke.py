@@ -32,6 +32,15 @@ def main():
   before=page.evaluate('Alpine.$data(document.body).deals.length')
   page.evaluate("()=>{const a=Alpine.$data(document.body);a.openDeal(a.deals[0]);a.reloadDeals(true);}")
   assert page.evaluate('Alpine.$data(document.body).deals.length')==before
+  # Every live listing now has a persisted score; pending_analysis never bypasses its filter.
+  assert all('screening' in d for d in data['deals'])
+  page.evaluate("()=>{const a=Alpine.$data(document.body);a.closeDeal();a.quickFilter='all';a.filters.minScore=50;}")
+  assert page.evaluate("Alpine.$data(document.body).deals.filter(d=>Alpine.$data(document.body).passesFilters(d)&&d.pipeline_status!=='DESCARTADO').every(d=>d.screening.score>=50)")
+  page.evaluate("()=>{const a=Alpine.$data(document.body);a.filters.minScore=0;a.openDeal(a.deals.find(d=>d.pipeline_status==='RADAR'&&d.screening.disposition==='eligible'));}")
+  page.get_by_role('button',name='Descartar',exact=True).click()
+  page.get_by_placeholder('Explica el motivo del descarte').fill('QA local interceptado')
+  assert page.get_by_role('button',name='Confirmar descarte',exact=True).is_enabled()
+  page.get_by_role('button',name='Cancelar',exact=True).click()
   assert not errors,sorted(set(errors))
   print(json.dumps({'status':'PASS','facts':facts,'widths':[390,768,1440],'quick_filter':True,'search':True,'review_payload':True,'refresh_preserves_open_record':True,'js_errors':errors}))
   b.close()

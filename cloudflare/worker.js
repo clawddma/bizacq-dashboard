@@ -154,6 +154,44 @@ function sanitizeAddPayload(p) {
   return { clean };
 }
 
+// Deterministic preliminary screen. Unknown evidence earns no points; coverage is separate.
+export function screenDeal(d, now=new Date().toISOString()) {
+  const days=v=>v && Number.isFinite(Date.parse(v)) ? Math.max(0,Math.floor((Date.parse(now)-Date.parse(v))/86400000)):null;
+  const e=d.listing_evidence||{},m=d.operating_metrics||{},flags=[],unknowns=[];
+  const age=e.publication_source==='portal'?days(e.published_at):null,checked=days(e.checked_at);
+  const direct=d.source_url_kind==='listing'&&e.status==='published'&&checked!==null&&checked<=7;
+  if(d.source_url_kind!=='listing')flags.push('No hay enlace a una oferta individual identificada');
+  if(!direct)flags.push('Disponibilidad pendiente de comprobación directa reciente');
+  if(age!==null&&age>365)flags.push('Más de un año publicada: confirmar disponibilidad, precio y motivo de permanencia');
+  else if(age!==null&&age>180)flags.push('Más de seis meses publicada: revisar cambios de precio y motivo de venta');
+  if(/flowers bread route/i.test(d.title||'')&&/cleaning/i.test(JSON.stringify(d.financial||{})))flags.push('Análisis histórico inconsistente con la actividad del negocio');
+  const parts=[];
+  const add=(name,weight,points,known,evidence)=>{parts.push({name,weight,points:Math.round(Math.max(0,Math.min(weight,points))*10)/10,coverage:known,evidence});if(known<weight)unknowns.push(name);};
+  add('Identidad y vigencia',15,direct?(age!==null&&age>365?8:age!==null&&age>180?11:15):0,direct?15:0,direct?'Oferta individual marcada disponible por el portal; no equivale a confirmación del vendedor':'Falta comprobar una oferta individual disponible');
+  const basis=d.reported_net_profit>0?'Beneficio neto anual publicado':d.reported_sde>0?'SDE histórico sin conciliación':d.reported_cash_flow>0?'Flujo publicado; definición pendiente':null;
+  const earnings=d.reported_net_profit>0?d.reported_net_profit:d.reported_sde>0?d.reported_sde:d.reported_cash_flow>0?d.reported_cash_flow:null;
+  const multiple=d.asking_price>0&&earnings>0?d.asking_price/earnings:null;
+  // Value is indicative only: no debt/capex/working-capital deductions are known yet.
+  add('Valoración indicativa',20,multiple===null?0:multiple<=2?20:multiple<=3?16:multiple<=4?11:multiple<=5?6:2,multiple===null?0:20,multiple===null?'Faltan precio o utilidades anuales':multiple.toFixed(2)+'× · '+basis+'; conciliar ajustes, deuda, inventario y caja');
+  const operatingAge=days(m.first_made_money_at),trend=typeof m.net_profit_trend_percent==='number'?m.net_profit_trend_percent:null;
+  add('Calidad y trayectoria financiera',15,(operatingAge===null?0:operatingAge>=1095?5:operatingAge>=365?3:1)+(trend===null?0:trend>=0?5:trend>=-10?2:0), (operatingAge===null?0:5)+(trend===null?0:5), 'Antigüedad operativa '+(operatingAge===null?'no informada':Math.floor(operatingAge/365)+' años')+'; tendencia del beneficio '+(trend===null?'no informada':trend+'% en '+(m.net_profit_trend_percent_months||'?')+' meses')+'; faltan estados y conciliación bancaria/fiscal');
+  add('Recurrencia y retención',15,m.mrr>0?5:0,m.mrr>0?5:0,m.mrr>0?'MRR publicado: '+m.mrr+'; faltan cohortes, churn y contratos':'Faltan contratos recurrentes, retención, cohortes y churn');
+  add('Concentración y canales',10,0,0,'Faltan porcentajes por cliente, proveedor, plataforma y canal de adquisición');
+  const hours=typeof m.hours_worked_per_week==='number'?m.hours_worked_per_week:null;
+  add('Dependencia del dueño y transferencia',10,hours===null?0:hours<=10?5:hours<=25?3:1,hours===null?0:5,hours===null?'Faltan horas del dueño, equipo, procesos y transferibilidad':'Dueño: '+hours+' h/semana publicadas; falta validar sustitución, equipo y transferencia de activos');
+  add('Automatización y crecimiento',10,0,0,'Hipótesis por validar: tareas, horas, costo de implementación, adopción y demanda; no se presume aumento de ventas');
+  add('Viabilidad de la transacción',5,0,0,'Faltan deuda, capex, capital de trabajo, permisos, estructura y condiciones de compra');
+  let disposition=(!direct||(age!==null&&age>365))?'revalidate':'eligible';
+  if(flags.some(x=>x.startsWith('Análisis histórico')))disposition='revalidate';
+  const score=Math.round(parts.reduce((a,p)=>a+p.points,0)),coverage=parts.reduce((a,p)=>a+p.coverage,0);
+  return {version:'screen-v1',calculated_at:now,score,coverage,confidence:coverage>=75?'alta':coverage>=40?'media':'baja',disposition,listing_age_days:age,checked_age_days:checked,earnings_basis:basis,multiple:multiple===null?null:Math.round(multiple*100)/100,components:parts,flags,unknowns,questions:['Conciliar 24–36 meses de P&G, declaraciones fiscales y movimientos bancarios; justificar add-backs del SDE.','¿Qué clientes, proveedores y plataformas concentran ventas y margen? Solicitar porcentajes y contratos.','¿Cuánto capital de trabajo, inventario, capex y deuda exige la operación al cierre?','¿Qué tareas realiza el dueño y qué activos, permisos, contratos e IP son transferibles?','Medir tareas automatizables, costo de implantación y ahorro neto; validar crecimiento con demanda y capacidad.','Confirmar disponibilidad con el broker, motivo de venta y evolución del precio.']};
+}
+export function scoreAllDeals(data,now=new Date().toISOString()) {
+  for(const d of data.deals)d.screening=screenDeal(d,now);
+  data.screening_model={version:'screen-v1',updated_at:now,description:'Puntos respaldados sobre 100. Los datos faltantes no suman. Modelo preliminar, no predictor calibrado ni recomendación de compra.'};
+  return {total:data.deals.length,revalidate:data.deals.filter(d=>d.screening.disposition==='revalidate').length};
+}
+
 export function mergeSourceBatch(data, body) {
   const run = body.run;
   if (data.refresh?.last_run?.id === run.id) return {added:0,updated:0,noop:true};
@@ -172,6 +210,8 @@ export function mergeSourceBatch(data, body) {
     if (deal && deal.source !== source) continue; // retain manual/other-source facts
     const fields={external_id:row.external_id,source,source_url:row.source_url,source_url_kind:'listing',title:row.title,state:String(row.state||'').slice(0,2),city:String(row.city||'').slice(0,100),business_type:String(row.business_type||'Sin categoría').slice(0,100),asking_price:row.asking_price??null,reported_revenue:row.reported_revenue??null,reported_cash_flow:row.reported_cash_flow??null,reported_net_profit:row.reported_net_profit??null,raw_description:String(row.raw_description||'').slice(0,2000),source_first_seen_at:row.first_seen_at||null,source_last_seen_at:row.last_seen_at||null,source_broker:String(row.broker||'').slice(0,200),source_observation_url:'https://dealledger.org/',source_imported_at:run.finished_at};
     if(source==='empire_flippers') {
+      fields.operating_metrics={};
+      for(const key of ['first_made_money_at','hours_worked_per_week','net_profit_trend_percent','net_profit_trend_percent_months','mrr','churn_percent','gross_revenue_trend_percent'])if(row.operating_metrics?.[key]!=null)fields.operating_metrics[key]=row.operating_metrics[key];
       if(parsed.hostname!=='empireflippers.com')throw new Error('URL del portal inválida');
       fields.listing_evidence={source_url:row.source_url,checked_at:run.finished_at,status:'published',evidence:'API oficial: listing_status For Sale',publication_source:'portal',published_at:row.published_at||null,publication_evidence:row.published_at?'API oficial first_listed_at':null};
     }
@@ -188,6 +228,10 @@ export function mergeSourceBatch(data, body) {
       }
       Object.assign(deal,fields);updated++;
     }
+  }
+  if(Array.isArray(run.primary_listing_urls)&&run.sources?.some(h=>h.source==='empire_flippers'&&h.status==='success'&&h.coverage==='complete')) {
+    const active=new Set(run.primary_listing_urls);
+    for(const d of data.deals)if(d.source==='empire_flippers'&&!active.has(d.source_url)){d.listing_evidence={...d.listing_evidence,checked_at:run.finished_at,status:'not_in_current_catalog',evidence:'No aparece en el catálogo completo actual. No confirma venta ni cierre.'};}
   }
   data.refresh=data.refresh||{};
   data.refresh.schedule={time:'00:00',timezone:'America/Bogota',engine:'local',llm:false};
@@ -253,6 +297,22 @@ a{color:#60a5fa}</style></head><body>
       }
     }
 
+    // Isolated live QA record. Cannot delete or replace a real opportunity.
+    if(request.method==='POST'&&url.pathname==='/qa-fixture') {
+      if(!env.SOURCE_SYNC_TOKEN||request.headers.get('Authorization')!==`Bearer ${env.SOURCE_SYNC_TOKEN}`)return json({error:'no autorizado'},401,cors);
+      try {const body=await request.json();const {data,sha}=await getDealsFile(env);const id='bizacq-isolated-qa';
+        if(body.action==='remove')data.deals=data.deals.filter(d=>!(d.id===id&&d.is_test_record===true));
+        else if(body.action==='create'&&!data.deals.some(d=>d.id===id))data.deals.push({id,is_test_record:true,title:'PRUEBA TÉCNICA TEMPORAL — no es una oferta',source:'qa',source_url:'https://example.com/listing/qa',source_url_kind:'listing',business_type:'QA',state:'',city:'',pipeline_status:'RADAR',notes:[],events:[],documents:[],listing_evidence:{status:'published',checked_at:new Date().toISOString()},pending_analysis:true});
+        else return json({error:'acción inválida o fixture existente'},400,cors);
+        for(const k of Object.keys(data.manual_orders||{}))data.manual_orders[k]=data.manual_orders[k].filter(v=>v!==id);
+        scoreAllDeals(data);await putDealsFile(env,data,sha,'test: '+body.action+' isolated live QA fixture');return json({ok:true,id},200,cors);
+      }catch(e){return json({error:String(e)},502,cors);}
+    }
+    if(request.method==='POST'&&url.pathname==='/screening-rebuild') {
+      if(!env.SOURCE_SYNC_TOKEN||request.headers.get('Authorization')!==`Bearer ${env.SOURCE_SYNC_TOKEN}`)return json({error:'no autorizado'},401,cors);
+      try {const {data,sha}=await getDealsFile(env);const result=scoreAllDeals(data);await putDealsFile(env,data,sha,'data: screening preliminar y depuración sin modificar decisiones');return json({ok:true,...result},200,cors);}catch(e){return json({error:String(e)},502,cors);}
+    }
+
     // Bounded nightly ingestion: merge source-owned fields, never replace CRM state.
     if (request.method === 'POST' && url.pathname === '/source-sync') {
       if (!env.SOURCE_SYNC_TOKEN || request.headers.get('Authorization') !== `Bearer ${env.SOURCE_SYNC_TOKEN}`) {
@@ -264,6 +324,7 @@ a{color:#60a5fa}</style></head><body>
       try {
         const {data,sha} = await getDealsFile(env);
         const changes = mergeSourceBatch(data,body);
+        scoreAllDeals(data);
         await putDealsFile(env,data,sha,`data: actualización nocturna — ${changes.added} nuevos, ${changes.updated} actualizados`);
         return json({ok:true,...changes,total:data.deals.length,run_id:body.run.id},200,cors);
       } catch(e) { return json({error:String(e)},502,cors); }
@@ -350,7 +411,11 @@ a{color:#60a5fa}</style></head><body>
             const old = deal.pipeline_status;
             const VALID = ['RADAR', 'EN_ANALISIS', 'PARA_CONTACTAR', 'EN_NEGOCIACION', 'CIERRE', 'DESCARTADO'];
             if (!VALID.includes(body.newStatus)) return json({ error: 'status inválido' }, 400, cors);
+            const allowed={RADAR:['EN_ANALISIS','DESCARTADO'],EN_ANALISIS:['RADAR','PARA_CONTACTAR','DESCARTADO'],PARA_CONTACTAR:['EN_NEGOCIACION','DESCARTADO'],EN_NEGOCIACION:['CIERRE','DESCARTADO'],CIERRE:['DESCARTADO'],DESCARTADO:['RADAR']};
+            if(!allowed[old]?.includes(body.newStatus))return json({error:'Transición no permitida',allowed:allowed[old]},422,cors);
             deal.pipeline_status = body.newStatus;
+            if(body.newStatus==='DESCARTADO'&&!String(body.discardReason||'').trim())return json({error:'Indica el motivo del descarte'},400,cors);
+            if(body.newStatus!=='DESCARTADO')delete deal.discard_reason;
             if (body.discardReason) deal.discard_reason = String(body.discardReason).slice(0, 500);
             deal.events = deal.events || [];
             deal.events.push({ created_at: new Date().toISOString().slice(0, 10), description: `Movido ${old} → ${body.newStatus} (dashboard)` });
@@ -403,6 +468,13 @@ a{color:#60a5fa}</style></head><body>
         }
       }
 
+      if(url.pathname==='/analyze-deal') {
+        try {const {data,sha}=await getDealsFile(env);const d=data.deals.find(d=>d.id===body.dealId);if(!d)return json({error:'deal no encontrado'},404,cors);
+          d.screening=screenDeal(d);d.preliminary_analysis={performed_at:new Date().toISOString(),model:'screen-v1',summary:`Score preliminar ${d.screening.score}/100. Cobertura ${d.screening.coverage}%. ${d.screening.disposition==='revalidate'?'Revalidar el anuncio antes de avanzar.':'Solicitar documentación para diligencia.'} No incluye auditoría ni verificación legal.`,questions:d.screening.questions};
+          await putDealsFile(env,data,sha,'data: análisis preliminar — '+d.id);return json({ok:true,screening:d.screening,analysis:d.preliminary_analysis},200,cors);
+        }catch(e){return json({error:String(e)},502,cors);}
+      }
+
       // ── POST /request-analysis — marca el deal para que la routine lo procese ──
       if (url.pathname === '/request-analysis') {
         const dealId = String(body.dealId || '');
@@ -414,7 +486,7 @@ a{color:#60a5fa}</style></head><body>
           deal.deep_analysis_requested = true;
           deal.deep_analysis_requested_at = new Date().toISOString();
           deal.events = deal.events || [];
-          deal.events.push({ created_at: new Date().toISOString().slice(0, 10), description: 'Análisis profundo solicitado vía dashboard — la routine lo procesará con búsqueda web real' });
+          deal.events.push({ created_at: new Date().toISOString().slice(0, 10), description: 'Análisis profundo solicitado vía dashboard — pendiente de investigación manual, sin ejecución automática' });
           data.last_update = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC (dashboard)';
           await putDealsFile(env, data, sha, `chore: fact-check solicitado — ${(deal.title || dealId).slice(0, 45)}`);
           return json({ ok: true, id: dealId }, 200, cors);
