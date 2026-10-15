@@ -469,6 +469,15 @@
                 <p class="text-xs text-slate-500 mb-2.5">
                   <span x-text="categoryIcon(deal.business_type) + ' ' + deal.business_type"></span> · <span x-text="deal.city"></span>
                 </p>
+                <div class="listing-info text-[11px] text-slate-500 bg-slate-50 rounded p-2 my-2 leading-relaxed" style="overflow-wrap:anywhere">
+                    <p class="font-semibold text-slate-700" x-text="listingInfo(deal).status"></p>
+                    <p>Publicación original: <span x-text="listingInfo(deal).publication"></span></p>
+                    <p>Última comprobación: <span x-text="listingInfo(deal).checked"></span></p>
+                    <p x-text="'Antigüedad: ' + listingInfo(deal).age"></p>
+                    <a x-show="listingInfo(deal).url" :href="listingInfo(deal).url" target="_blank" rel="noopener noreferrer" @click.stop class="underline" x-text="listingInfo(deal).link"></a>
+                    <p x-show="!listingInfo(deal).url">Enlace original no informado</p>
+                    <p x-text="listingInfo(deal).caveat"></p>
+                  </div>
                 <div class="flex items-baseline gap-3 mb-2">
                   <div>
                     <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
@@ -558,7 +567,16 @@
                     </div>
                   </div>
                   <p class="text-xs text-slate-500 mb-2.5" x-text="deal.city"></p>
-                  <div class="flex items-baseline gap-3 mb-2">
+                  <div class="listing-info text-[11px] text-slate-500 bg-slate-50 rounded p-2 my-2 leading-relaxed" style="overflow-wrap:anywhere">
+                    <p class="font-semibold text-slate-700" x-text="listingInfo(deal).status"></p>
+                    <p>Publicación original: <span x-text="listingInfo(deal).publication"></span></p>
+                    <p>Última comprobación: <span x-text="listingInfo(deal).checked"></span></p>
+                    <p x-text="'Antigüedad: ' + listingInfo(deal).age"></p>
+                    <a x-show="listingInfo(deal).url" :href="listingInfo(deal).url" target="_blank" rel="noopener noreferrer" @click.stop class="underline" x-text="listingInfo(deal).link"></a>
+                    <p x-show="!listingInfo(deal).url">Enlace original no informado</p>
+                    <p x-text="listingInfo(deal).caveat"></p>
+                  </div>
+                <div class="flex items-baseline gap-3 mb-2">
                     <div>
                       <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
                       <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
@@ -651,13 +669,8 @@
     <section class="mt-10">
       <h3 class="text-sm font-bold text-slate-700 uppercase tracking-wide mb-3">Estado de las URLs de los deals</h3>
       <div class="bg-white rounded-lg border border-slate-200 p-4 text-sm">
-        <p class="text-slate-700 mb-3">Honestidad sobre la calidad de los enlaces:</p>
-        <ul class="space-y-2 text-slate-700">
-          <li class="flex items-baseline gap-2"><span>📄</span><div><strong>3 listings específicos verificados</strong> — HVAC Harris County 25yr, Med Spa Friendswood, Pool 109-cuentas Wesley Chapel. URLs reales con ID del listing.</div></li>
-          <li class="flex items-baseline gap-2"><span>📂</span><div><strong>15 páginas de categoría</strong> — el enlace lleva a la sección del marketplace correcta (HVAC Houston, etc.) pero NO al listing exacto del deal en el dashboard. Para llegar a listings específicos individuales necesitamos: (1) credenciales de BizScout, o (2) Playwright stealth para vencer Akamai en BizBuySell.</div></li>
-          <li class="flex items-baseline gap-2"><span>⚠</span><div><strong>0 URLs muertas</strong> — antes había 4 (404) y 8 fake (inventadas en los seeds originales). Las reemplacé con URLs reales de búsqueda de los mismos marketplaces.</div></li>
-        </ul>
-        <p class="text-xs text-slate-500 mt-3 italic">Cuando uses <strong>"+ Agregar negocio"</strong> con un URL específico, ese URL queda como <strong>📄 listing específico</strong> (porque tú lo pegas, no lo invento yo).</p>
+        <p class="text-slate-700">Cada ficha muestra su enlace original y la fecha de la última comprobación registrada. Un enlace de categoría no identifica una oferta específica; una página accesible no confirma disponibilidad ni cifras auditadas.</p>
+        <p class="text-xs text-slate-500 mt-3">Las 40 fichas históricas no se revalidaron en la revisión puntual del 15 de octubre de 2026. Sus notas, análisis y etapas se conservan como antecedentes.</p>
       </div>
     </section>
 
@@ -836,6 +849,16 @@
                 <p class="text-slate-500 italic mt-1">Click <strong>"🔬 Analizar más a fondo"</strong> para subir confianza con bases públicas reales (Census, SBA FOIA, Secretary of State, PACER, reviews).</p>
               </div>
             </div>
+
+<div class="listing-info text-[11px] text-slate-500 bg-slate-50 rounded p-2 my-2 leading-relaxed" style="overflow-wrap:anywhere">
+                    <p class="font-semibold text-slate-700" x-text="listingInfo(selectedDeal).status"></p>
+                    <p>Publicación original: <span x-text="listingInfo(selectedDeal).publication"></span></p>
+                    <p>Última comprobación: <span x-text="listingInfo(selectedDeal).checked"></span></p>
+                    <p x-text="'Antigüedad: ' + listingInfo(selectedDeal).age"></p>
+                    <a x-show="listingInfo(selectedDeal).url" :href="listingInfo(selectedDeal).url" target="_blank" rel="noopener noreferrer" @click.stop class="underline" x-text="listingInfo(selectedDeal).link"></a>
+                    <p x-show="!listingInfo(selectedDeal).url">Enlace original no informado</p>
+                    <p x-text="listingInfo(selectedDeal).caveat"></p>
+                  </div>
 
             <section class="grid grid-cols-3 gap-3">
               <div class="bg-slate-50 rounded-lg p-3">
@@ -1351,6 +1374,41 @@
   </div>
 
   <script>
+    // Observaciones documentadas en las notas; sin hora ni fecha original del portal.
+    // No se actualizan al cargar el tablero y solo aplican a esta URL exacta.
+    const LISTING_OBSERVATIONS = {
+  "9faebd75-c131-4059-a9a9-967c6100684d": {
+    "source_url": "https://www.bizbuysell.com/business-opportunity/established-digital-media-business-family-lifestyle-niche/2558427/",
+    "checked_at": "2026-10-15",
+    "status": "published",
+    "evidence": "Anuncio público observado; revisión puntual Mesa 15-oct-2026, conservada en notas."
+  },
+  "10909ee0-284e-4c51-b1c2-cefd42614bba": {
+    "source_url": "https://www.bizbuysell.com/business-opportunity/established-landscaping-business-for-sale-price-reduce-37/2500117/",
+    "checked_at": "2026-10-15",
+    "status": "published",
+    "evidence": "Anuncio público observado; revisión puntual Mesa 15-oct-2026, conservada en notas."
+  },
+  "db0ce4bf-691b-46e0-8464-63d9462747c8": {
+    "source_url": "https://www.bizbuysell.com/business-opportunity/kitchen-and-bath-remodeling/2557982/",
+    "checked_at": "2026-10-15",
+    "status": "published",
+    "evidence": "Anuncio público observado; revisión puntual Mesa 15-oct-2026, conservada en notas."
+  },
+  "c9e05efe-4237-4545-8f8f-d3670a2e6c69": {
+    "source_url": "https://www.bizbuysell.com/business-opportunity/miami-medspa-18-000-clients-growth-potential-owner-financing/2517396/",
+    "checked_at": "2026-10-15",
+    "status": "published",
+    "evidence": "Anuncio público observado; revisión puntual Mesa 15-oct-2026, conservada en notas."
+  },
+  "9e7eb4a1-ab4a-4a29-aae2-a6434f2907c2": {
+    "source_url": "https://www.bizbuysell.com/business-opportunity/busy-popular-community-nail-salon-and-hair-skin-services/2412176/",
+    "checked_at": "2026-10-15",
+    "status": "published",
+    "evidence": "Anuncio público observado; revisión puntual Mesa 15-oct-2026, conservada en notas."
+  }
+};
+
     const GLOSSARY = {
       'SDE':    "SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño. Incluye utilidad + sueldo del dueño + gastos personales que el negocio cubre.",
       'DSCR':   "DSCR (Debt Service Coverage Ratio): cuántas veces el negocio cubre la cuota de la deuda. Arriba de 1.25x = se paga solo con margen.",
@@ -2522,6 +2580,45 @@
           this.toastMsg = msg;
           clearTimeout(this._toastTimer);
           this._toastTimer = setTimeout(() => { this.toastMsg = null; }, 3500);
+        },
+
+        // Publication is supplied only by explicit portal evidence. Legacy checks
+        // and workflow stages never establish commercial availability.
+        listingDate(value) {
+          if (typeof value !== 'string') return null;
+          const dayOnly = /^\d{4}-\d{2}-\d{2}$/.test(value);
+          if (!dayOnly && !/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(value)) return null;
+          const date = new Date(dayOnly ? value + 'T00:00:00Z' : value);
+          if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0,10) !== value.slice(0,10) && dayOnly) return null;
+          const zone = dayOnly ? 'UTC' : 'America/Bogota';
+          const label = date.toLocaleDateString('es-CO', {day:'2-digit',month:'short',year:'numeric',timeZone:zone});
+          return {date, dayOnly, label: label + (dayOnly ? ' · hora no registrada' : ' · ' + date.toLocaleTimeString('es-CO', {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:zone}) + ' Bogotá')};
+        },
+        listingInfo(deal) {
+          deal = deal || {};
+          const candidate = deal.listing_evidence || LISTING_OBSERVATIONS[deal.id];
+          const evidence = candidate && candidate.source_url === deal.source_url ? candidate : null;
+          const check = this.listingDate(evidence?.checked_at || deal.availability_checked);
+          const validCheck = check && check.date.getTime() <= Date.now();
+          const publication = evidence?.publication_source === 'portal' && evidence?.publication_evidence
+            ? this.listingDate(evidence.published_at) : null;
+          const labels = {published:'Anuncio publicado',broker_confirmed:'Confirmado por broker',negotiating:'En negociación',withdrawn:'Retirado'};
+          const supported = validCheck && evidence?.evidence && labels[evidence.status]
+            && (evidence.status !== 'broker_confirmed' || evidence.confirmation_source === 'broker');
+          let age = 'Antigüedad desconocida';
+          if (validCheck) {
+            const nowDay = new Date().toLocaleDateString('en-CA', {timeZone:'America/Bogota'});
+            const days = check.dayOnly ? Math.round((Date.parse(nowDay+'T00:00:00Z')-check.date.getTime())/86400000) : Math.floor((Date.now()-check.date.getTime())/86400000);
+            age = days <= 0 ? 'hoy' : `hace ${days} días`;
+          }
+          return {
+            status: supported ? labels[evidence.status] : 'Sin verificar',
+            publication: publication ? publication.label.replace(' · hora no registrada','') : 'No informada',
+            checked: validCheck ? check.label : 'No registrada', age,
+            caveat: supported ? (evidence.status === 'published' ? 'Anuncio observado en esa fecha; disponibilidad pendiente de confirmación del broker. Cifras no auditadas.' : 'Estado documentado en esa fecha; requiere nueva confirmación para decidir. Cifras no auditadas.') : 'Ficha histórica o sin evidencia actual; disponibilidad sin confirmar.',
+            url: /^https?:\/\//i.test(deal.source_url || '') ? deal.source_url : '',
+            link: deal.source_url_kind === 'category' ? 'Enlace original · categoría, no oferta específica ↗' : 'Enlace original ↗',
+          };
         },
 
         // ─── Legal helpers ─────────────────────────────
