@@ -166,6 +166,7 @@ def main():
                 except Exception as exc:
                     run['sources'].append(dict(source='empire_flippers',status='error',error=type(exc).__name__+': '+str(exc)[:120]))
                     if opt.empire_only:raise
+            if not any(h.get('status')=='success' for h in run['sources']):raise ValueError('Ninguna fuente actual disponible; se conserva el inventario')
             if not normalized and not any(d.get('source') in ('dealledger','empire_flippers') for d in current['deals']):raise ValueError('sin anuncios válidos')
         except Exception as exc:
             normalized=[];run.update(status='error',error=type(exc).__name__+': '+str(exc)[:180],coverage='none')
