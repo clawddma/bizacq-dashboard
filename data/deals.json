@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-10-15 16:23 UTC (dashboard)",
+  "last_update": "2026-10-15 16:24 UTC (dashboard)",
   "version": "0.16.0-martins-corrected",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "checkpoint_log": [
@@ -4103,7 +4103,7 @@
       "raw_description": "Flowers Bread Route distributorship Nashville. $235K ask, company financing ~$131K down. Ruta panaderia consolidada.",
       "id": "34712d1a-da24-4651-823f-11fa85b1300d",
       "source_url_verified": true,
-      "pipeline_status": "RADAR",
+      "pipeline_status": "EN_ANALISIS",
       "filter_score": 40,
       "overall_score": 93.2,
       "priority": "ALTA",
@@ -4229,6 +4229,10 @@
         {
           "created_at": "2026-10-15",
           "description": "Análisis profundo solicitado vía dashboard — la routine lo procesará con búsqueda web real"
+        },
+        {
+          "created_at": "2026-10-15",
+          "description": "Movido RADAR → EN_ANALISIS (dashboard)"
         }
       ],
       "notes": [],
