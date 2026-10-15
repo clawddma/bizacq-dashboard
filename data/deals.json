@@ -316,7 +316,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -601,7 +601,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -875,7 +875,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -1152,7 +1152,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -1423,7 +1423,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -1728,7 +1728,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -1944,7 +1944,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2225,7 +2225,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2499,7 +2499,7 @@
       "discard_reason": "Vendido o negociado — listing ya no disponible (checkpoint)",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2777,7 +2777,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -3050,7 +3050,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -3324,7 +3324,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -3604,7 +3604,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -3865,7 +3865,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -4132,7 +4132,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -4399,7 +4399,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -4660,7 +4660,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -4941,7 +4941,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5090,7 +5090,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5239,7 +5239,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5503,7 +5503,7 @@
       "category_corrected_from": "Cleaning Services",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -5670,7 +5670,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -5928,7 +5928,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -6197,7 +6197,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -6478,7 +6478,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -6743,7 +6743,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -6897,7 +6897,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -7171,7 +7171,7 @@
       "deep_analysis_requested_at": "2026-10-15T16:23:51.216Z",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -7423,7 +7423,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -7686,7 +7686,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -7954,7 +7954,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -8210,7 +8210,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -8462,7 +8462,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -8719,7 +8719,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -8981,7 +8981,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -9256,7 +9256,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -9533,7 +9533,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -9810,7 +9810,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -10207,7 +10207,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -10495,7 +10495,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -10645,7 +10645,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -10739,14 +10739,14 @@
       "revalidation": {
         "status": "published",
         "http_status": null,
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "method": "conector web: ficha primaria pública observada hoy",
         "reason": "",
         "content_hash": null
       },
       "listing_evidence": {
         "source_url": "https://www.bizbuysell.com/business-opportunity/established-digital-media-business-family-lifestyle-niche/2558427/",
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "status": "published",
         "evidence": "Ficha individual observada en el portal o broker. Cifras declaradas, no auditadas.",
         "publication_source": null,
@@ -10754,7 +10754,7 @@
         "publication_evidence": null
       },
       "public_facts": {
-        "observed_at": "2026-10-15T19:28:26.798530+00:00",
+        "observed_at": "2026-10-15T19:29:41.776988+00:00",
         "source_url": "https://www.bizbuysell.com/business-opportunity/established-digital-media-business-family-lifestyle-niche/2558427/",
         "asking_price": 300000,
         "reported_sde": 112000,
@@ -10807,7 +10807,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 3,
         "signals_total": 7,
@@ -10903,14 +10903,14 @@
       "revalidation": {
         "status": "published",
         "http_status": null,
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "method": "conector web: ficha primaria pública observada hoy",
         "reason": "",
         "content_hash": null
       },
       "listing_evidence": {
         "source_url": "https://www.bizbuysell.com/business-opportunity/established-landscaping-business-for-sale-price-reduce-37/2500117/",
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "status": "published",
         "evidence": "Ficha individual observada en el portal o broker. Cifras declaradas, no auditadas.",
         "publication_source": null,
@@ -10918,12 +10918,12 @@
         "publication_evidence": null
       },
       "public_facts": {
-        "observed_at": "2026-10-15T19:28:26.798530+00:00",
+        "observed_at": "2026-10-15T19:29:41.776988+00:00",
         "source_url": "https://www.bizbuysell.com/business-opportunity/established-landscaping-business-for-sale-price-reduce-37/2500117/",
         "asking_price": 325000,
         "reported_sde": 144525,
         "reported_revenue": 573000,
-        "description": "Do you own a business?"
+        "description": "Established"
       }
     },
     {
@@ -10970,7 +10970,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -11121,7 +11121,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -11271,7 +11271,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -11423,7 +11423,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 73,
         "signals_available": 3,
         "signals_total": 7,
@@ -11587,7 +11587,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -11752,7 +11752,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -11881,7 +11881,7 @@
       "title": "Tax Preparation and Accounting Services with updated financials and Asking Price",
       "state": "MA",
       "city": "Middlesex County",
-      "business_type": "Other",
+      "business_type": "Professional Services",
       "asking_price": 549000,
       "reported_revenue": null,
       "reported_cash_flow": 149208,
@@ -11917,7 +11917,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 62,
         "signals_available": 2,
         "signals_total": 7,
@@ -12082,7 +12082,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 42,
         "signals_available": 2,
         "signals_total": 7,
@@ -12247,7 +12247,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 76,
         "signals_available": 3,
         "signals_total": 7,
@@ -12411,7 +12411,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 66,
         "signals_available": 3,
         "signals_total": 7,
@@ -12575,7 +12575,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 64,
         "signals_available": 3,
         "signals_total": 7,
@@ -12739,7 +12739,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -12868,7 +12868,7 @@
       "title": "Two Location Massage and Wellness Business with Loyal Membership Base",
       "state": "MA",
       "city": "",
-      "business_type": "Healthcare",
+      "business_type": "Med Spa",
       "asking_price": 948000,
       "reported_revenue": 2518523,
       "reported_cash_flow": 379000,
@@ -12904,7 +12904,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 4,
         "signals_total": 7,
@@ -13067,7 +13067,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -13194,7 +13194,7 @@
       "title": "Home Health Care Company in MA",
       "state": "MA",
       "city": "Norfolk County",
-      "business_type": "Other",
+      "business_type": "Healthcare",
       "asking_price": 995000,
       "reported_revenue": null,
       "reported_cash_flow": 393093,
@@ -13230,12 +13230,12 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
-        "score": 69,
-        "signals_available": 2,
+        "calculated_at": "2026-10-15T19:30:09.148Z",
+        "score": 84,
+        "signals_available": 3,
         "signals_total": 7,
-        "evidence_level": "limitada",
-        "confidence": "limitada",
+        "evidence_level": "intermedia",
+        "confidence": "intermedia",
         "coverage": null,
         "disposition": "eligible",
         "listing_age_days": null,
@@ -13291,10 +13291,10 @@
           {
             "name": "Afinidad con IA y procesos",
             "weight": 10,
-            "value": null,
-            "points": null,
-            "known": false,
-            "evidence": "Actividad insuficientemente clasificada para proponer un encaje.",
+            "value": 75,
+            "points": 7.5,
+            "known": true,
+            "evidence": "Hipótesis sectorial: agenda, cotización, seguimiento y coordinación operativa. No es ahorro demostrado.",
             "kind": "hipótesis sectorial"
           },
           {
@@ -13312,7 +13312,6 @@
           "Margen publicado",
           "Recurrencia declarada",
           "Delegación y transferencia",
-          "Afinidad con IA y procesos",
           "Facilidad de estructuración"
         ],
         "questions": [
@@ -13395,7 +13394,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -13560,7 +13559,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -13725,7 +13724,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 1,
         "signals_total": 7,
@@ -13890,7 +13889,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 10,
         "signals_available": 1,
         "signals_total": 7,
@@ -14055,7 +14054,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 34,
         "signals_available": 3,
         "signals_total": 7,
@@ -14219,7 +14218,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -14383,7 +14382,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 62,
         "signals_available": 2,
         "signals_total": 7,
@@ -14548,7 +14547,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -14713,7 +14712,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 4,
         "signals_total": 7,
@@ -14876,7 +14875,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 55,
         "signals_available": 1,
         "signals_total": 7,
@@ -15005,7 +15004,7 @@
       "title": "Fully Integrated Behavioral Health Practice with Experienced Client Team",
       "state": "MA",
       "city": "Essex County",
-      "business_type": "Other",
+      "business_type": "Healthcare",
       "asking_price": 1650000,
       "reported_revenue": null,
       "reported_cash_flow": null,
@@ -15041,9 +15040,9 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
-        "signals_available": 1,
+        "signals_available": 2,
         "signals_total": 7,
         "evidence_level": "limitada",
         "confidence": "limitada",
@@ -15102,10 +15101,10 @@
           {
             "name": "Afinidad con IA y procesos",
             "weight": 10,
-            "value": null,
-            "points": null,
-            "known": false,
-            "evidence": "Actividad insuficientemente clasificada para proponer un encaje.",
+            "value": 75,
+            "points": 7.5,
+            "known": true,
+            "evidence": "Hipótesis sectorial: agenda, cotización, seguimiento y coordinación operativa. No es ahorro demostrado.",
             "kind": "hipótesis sectorial"
           },
           {
@@ -15124,7 +15123,6 @@
           "Margen publicado",
           "Recurrencia declarada",
           "Delegación y transferencia",
-          "Afinidad con IA y procesos",
           "Facilidad de estructuración"
         ],
         "questions": [
@@ -15206,7 +15204,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -15370,7 +15368,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -15535,7 +15533,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -15700,7 +15698,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -15864,7 +15862,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 67,
         "signals_available": 4,
         "signals_total": 7,
@@ -16027,7 +16025,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 75,
         "signals_available": 3,
         "signals_total": 7,
@@ -16190,7 +16188,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16355,7 +16353,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16506,7 +16504,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -16669,7 +16667,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16820,7 +16818,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16971,7 +16969,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -17123,7 +17121,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -17274,7 +17272,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -17439,7 +17437,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -17603,7 +17601,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -17767,7 +17765,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -17931,7 +17929,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18096,7 +18094,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18261,7 +18259,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -18425,7 +18423,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18589,7 +18587,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18754,7 +18752,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 38,
         "signals_available": 2,
         "signals_total": 7,
@@ -18919,7 +18917,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19084,7 +19082,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -19249,7 +19247,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19413,7 +19411,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19564,7 +19562,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19727,7 +19725,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19890,7 +19888,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20053,7 +20051,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20216,7 +20214,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20379,7 +20377,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20542,7 +20540,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20705,7 +20703,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20868,7 +20866,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21031,7 +21029,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -21189,7 +21187,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -21341,7 +21339,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21504,7 +21502,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21667,7 +21665,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21830,7 +21828,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21993,7 +21991,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22156,7 +22154,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22319,7 +22317,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -22475,7 +22473,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -22627,7 +22625,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22778,7 +22776,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -22930,7 +22928,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -23082,7 +23080,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -23233,7 +23231,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -23385,7 +23383,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -23549,7 +23547,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 23,
         "signals_available": 2,
         "signals_total": 7,
@@ -23714,7 +23712,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -23866,7 +23864,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -24031,7 +24029,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -24182,7 +24180,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -24334,7 +24332,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -24449,7 +24447,7 @@
       "title": "Turnkey Profitable Digital Marketing Agency",
       "state": "CA",
       "city": "Sacramento",
-      "business_type": "Automotive",
+      "business_type": "Digital Agency",
       "asking_price": 585000,
       "reported_revenue": 321361,
       "reported_cash_flow": 183192,
@@ -24485,9 +24483,9 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
-        "score": 79,
-        "signals_available": 3,
+        "calculated_at": "2026-10-15T19:30:09.148Z",
+        "score": 80,
+        "signals_available": 4,
         "signals_total": 7,
         "evidence_level": "intermedia",
         "confidence": "intermedia",
@@ -24546,10 +24544,10 @@
           {
             "name": "Afinidad con IA y procesos",
             "weight": 10,
-            "value": null,
-            "points": null,
-            "known": false,
-            "evidence": "Actividad insuficientemente clasificada para proponer un encaje.",
+            "value": 85,
+            "points": 8.5,
+            "known": true,
+            "evidence": "Hipótesis sectorial: adquisición digital, soporte, reporting y operaciones. No es auditoría del negocio.",
             "kind": "hipótesis sectorial"
           },
           {
@@ -24566,7 +24564,6 @@
         "unknowns": [
           "Recurrencia declarada",
           "Delegación y transferencia",
-          "Afinidad con IA y procesos",
           "Facilidad de estructuración"
         ],
         "questions": [
@@ -24650,7 +24647,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 86,
         "signals_available": 3,
         "signals_total": 7,
@@ -24814,7 +24811,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 75,
         "signals_available": 4,
         "signals_total": 7,
@@ -24977,7 +24974,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -25141,7 +25138,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 39,
         "signals_available": 2,
         "signals_total": 7,
@@ -25305,7 +25302,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -25470,7 +25467,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -25635,7 +25632,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -25798,7 +25795,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -25963,7 +25960,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -26126,7 +26123,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -26290,7 +26287,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -26416,7 +26413,7 @@
       "title": "Turnkey Upscale Nail Salon",
       "state": "TX",
       "city": "Austin",
-      "business_type": "Technology",
+      "business_type": "Salon",
       "asking_price": 95000,
       "reported_revenue": 200000,
       "reported_cash_flow": null,
@@ -26452,9 +26449,9 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
-        "signals_available": 1,
+        "signals_available": 2,
         "signals_total": 7,
         "evidence_level": "limitada",
         "confidence": "limitada",
@@ -26513,10 +26510,10 @@
           {
             "name": "Afinidad con IA y procesos",
             "weight": 10,
-            "value": null,
-            "points": null,
-            "known": false,
-            "evidence": "Actividad insuficientemente clasificada para proponer un encaje.",
+            "value": 75,
+            "points": 7.5,
+            "known": true,
+            "evidence": "Hipótesis sectorial: agenda, cotización, seguimiento y coordinación operativa. No es ahorro demostrado.",
             "kind": "hipótesis sectorial"
           },
           {
@@ -26535,7 +26532,6 @@
           "Margen publicado",
           "Trayectoria operativa",
           "Recurrencia declarada",
-          "Afinidad con IA y procesos",
           "Facilidad de estructuración"
         ],
         "questions": [
@@ -26580,7 +26576,7 @@
       "title": "Semi-Absentee Luxury Salon & Blow Dry Bar | $1.5M Revenue",
       "state": "TX",
       "city": "Williamson County",
-      "business_type": "Restaurant",
+      "business_type": "Salon",
       "asking_price": 1200000,
       "reported_revenue": 1200000,
       "reported_cash_flow": 303000,
@@ -26616,7 +26612,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -26778,7 +26774,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -26943,7 +26939,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -27106,7 +27102,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -27235,7 +27231,7 @@
       "title": "2nd Gen Salon: Cosmetology Nails, Hair, IV, Massage & 3 Apts",
       "state": "KY",
       "city": "",
-      "business_type": "Restaurant",
+      "business_type": "Salon",
       "asking_price": 900000,
       "reported_revenue": null,
       "reported_cash_flow": null,
@@ -27271,7 +27267,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -27435,7 +27431,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -27600,7 +27596,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -27764,7 +27760,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -27916,7 +27912,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28067,7 +28063,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28218,7 +28214,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28369,7 +28365,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28520,7 +28516,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28671,7 +28667,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -28823,7 +28819,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -28975,7 +28971,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -29127,7 +29123,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -29279,7 +29275,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -29431,7 +29427,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -29582,7 +29578,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -29745,7 +29741,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -29908,7 +29904,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -30059,7 +30055,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30211,7 +30207,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30363,7 +30359,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30515,7 +30511,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30667,7 +30663,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -30818,7 +30814,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30970,7 +30966,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 83,
         "signals_available": 4,
         "signals_total": 7,
@@ -31134,7 +31130,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -31249,7 +31245,7 @@
       "title": "Southern Diner With Property For Sale In Florida",
       "state": "FL",
       "city": "",
-      "business_type": "Other",
+      "business_type": "Restaurant",
       "asking_price": 2300000,
       "reported_revenue": 2373600,
       "reported_cash_flow": 712711,
@@ -31285,9 +31281,9 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 80,
-        "signals_available": 5,
+        "signals_available": 6,
         "signals_total": 7,
         "evidence_level": "amplia",
         "confidence": "amplia",
@@ -31346,10 +31342,10 @@
           {
             "name": "Afinidad con IA y procesos",
             "weight": 10,
-            "value": null,
-            "points": null,
-            "known": false,
-            "evidence": "Actividad insuficientemente clasificada para proponer un encaje.",
+            "value": 75,
+            "points": 7.5,
+            "known": true,
+            "evidence": "Hipótesis sectorial: agenda, cotización, seguimiento y coordinación operativa. No es ahorro demostrado.",
             "kind": "hipótesis sectorial"
           },
           {
@@ -31364,8 +31360,7 @@
         ],
         "flags": [],
         "unknowns": [
-          "Delegación y transferencia",
-          "Afinidad con IA y procesos"
+          "Delegación y transferencia"
         ],
         "questions": [
           "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
@@ -31449,7 +31444,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 39,
         "signals_available": 4,
         "signals_total": 7,
@@ -31613,7 +31608,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -31765,7 +31760,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 3,
         "signals_total": 7,
@@ -31929,7 +31924,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -32093,7 +32088,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -32257,7 +32252,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 3,
         "signals_total": 7,
@@ -32386,7 +32381,7 @@
       "title": "Law Firm For Sale in Orlando",
       "state": "FL",
       "city": "Sand Lake",
-      "business_type": "Automotive",
+      "business_type": "Professional Services",
       "asking_price": 575000,
       "reported_revenue": 630157,
       "reported_cash_flow": 229779,
@@ -32422,7 +32417,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 3,
         "signals_total": 7,
@@ -32587,7 +32582,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -32751,7 +32746,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -32902,7 +32897,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 86,
         "signals_available": 4,
         "signals_total": 7,
@@ -33067,7 +33062,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -33219,7 +33214,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -33371,7 +33366,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -33535,7 +33530,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -33664,7 +33659,7 @@
       "title": "Florida Law Firm - Multiple Locations",
       "state": "FL",
       "city": "",
-      "business_type": "Other",
+      "business_type": "Professional Services",
       "asking_price": 5900000,
       "reported_revenue": 6045643,
       "reported_cash_flow": 2067276,
@@ -33700,7 +33695,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 4,
         "signals_total": 7,
@@ -33865,7 +33860,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -34029,7 +34024,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -34181,7 +34176,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 90,
         "signals_available": 4,
         "signals_total": 7,
@@ -34345,7 +34340,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -34508,7 +34503,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -34636,7 +34631,7 @@
       "title": "Independent Medical Home Care Business for Sale - Orlando",
       "state": "FL",
       "city": "Orlando Orlando",
-      "business_type": "Automotive",
+      "business_type": "Healthcare",
       "asking_price": 385000,
       "reported_revenue": 1002863,
       "reported_cash_flow": 104247,
@@ -34672,9 +34667,9 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
-        "score": 62,
-        "signals_available": 3,
+        "calculated_at": "2026-10-15T19:30:09.148Z",
+        "score": 63,
+        "signals_available": 4,
         "signals_total": 7,
         "evidence_level": "intermedia",
         "confidence": "intermedia",
@@ -34733,10 +34728,10 @@
           {
             "name": "Afinidad con IA y procesos",
             "weight": 10,
-            "value": null,
-            "points": null,
-            "known": false,
-            "evidence": "Actividad insuficientemente clasificada para proponer un encaje.",
+            "value": 75,
+            "points": 7.5,
+            "known": true,
+            "evidence": "Hipótesis sectorial: agenda, cotización, seguimiento y coordinación operativa. No es ahorro demostrado.",
             "kind": "hipótesis sectorial"
           },
           {
@@ -34753,7 +34748,6 @@
         "unknowns": [
           "Recurrencia declarada",
           "Delegación y transferencia",
-          "Afinidad con IA y procesos",
           "Facilidad de estructuración"
         ],
         "questions": [
@@ -34837,7 +34831,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -34994,7 +34988,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -35158,7 +35152,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -35310,7 +35304,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -35472,7 +35466,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -35626,7 +35620,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -35780,7 +35774,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": null,
         "signals_available": 5,
         "signals_total": 7,
@@ -35934,7 +35928,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 66,
         "signals_available": 5,
         "signals_total": 7,
@@ -36088,7 +36082,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -36244,7 +36238,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 67,
         "signals_available": 6,
         "signals_total": 7,
@@ -36397,7 +36391,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -36551,7 +36545,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -36705,7 +36699,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -36859,7 +36853,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -37013,7 +37007,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 78,
         "signals_available": 6,
         "signals_total": 7,
@@ -37166,7 +37160,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 74,
         "signals_available": 6,
         "signals_total": 7,
@@ -37321,7 +37315,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -37477,7 +37471,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -37631,7 +37625,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -37785,7 +37779,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -37941,7 +37935,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 80,
         "signals_available": 6,
         "signals_total": 7,
@@ -38096,7 +38090,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -38250,7 +38244,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -38404,7 +38398,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -38560,7 +38554,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 71,
         "signals_available": 5,
         "signals_total": 7,
@@ -38714,7 +38708,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -38869,7 +38863,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 74,
         "signals_available": 5,
         "signals_total": 7,
@@ -39023,7 +39017,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -39177,7 +39171,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -39333,7 +39327,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -39487,7 +39481,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -39641,7 +39635,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -39795,7 +39789,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -39948,7 +39942,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -40102,7 +40096,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -40256,7 +40250,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -40410,7 +40404,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -40564,7 +40558,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -40718,7 +40712,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -40872,7 +40866,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -41026,7 +41020,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -41180,7 +41174,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -41333,7 +41327,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -41487,7 +41481,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -41641,7 +41635,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 88,
         "signals_available": 6,
         "signals_total": 7,
@@ -41794,7 +41788,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -41948,7 +41942,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 7,
         "signals_total": 7,
@@ -42099,7 +42093,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -42253,7 +42247,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -42407,7 +42401,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 79,
         "signals_available": 6,
         "signals_total": 7,
@@ -42560,7 +42554,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -42714,7 +42708,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -42870,7 +42864,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -43024,7 +43018,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -43177,7 +43171,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -43331,7 +43325,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -43485,7 +43479,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -43638,7 +43632,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -43792,7 +43786,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -43949,7 +43943,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -44103,7 +44097,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -44257,7 +44251,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -44411,7 +44405,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -44567,7 +44561,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 91,
         "signals_available": 6,
         "signals_total": 7,
@@ -44722,7 +44716,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -44877,7 +44871,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -45033,7 +45027,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -45187,7 +45181,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -45340,7 +45334,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -45494,7 +45488,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -45648,7 +45642,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -45802,7 +45796,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -45957,7 +45951,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -46113,7 +46107,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -46266,7 +46260,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -46422,7 +46416,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -46576,7 +46570,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -46730,7 +46724,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -46886,7 +46880,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 78,
         "signals_available": 6,
         "signals_total": 7,
@@ -47041,7 +47035,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -47197,7 +47191,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -47353,7 +47347,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -47507,7 +47501,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -47663,7 +47657,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -47817,7 +47811,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -47970,7 +47964,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -48124,7 +48118,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -48278,7 +48272,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -48434,7 +48428,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -48591,7 +48585,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -48748,7 +48742,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -48902,7 +48896,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -49056,7 +49050,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -49213,7 +49207,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -49369,7 +49363,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -49526,7 +49520,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -49682,7 +49676,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 6,
         "signals_total": 7,
@@ -49835,7 +49829,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -49991,7 +49985,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -50147,7 +50141,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 6,
         "signals_total": 7,
@@ -50302,7 +50296,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -50458,7 +50452,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -50614,7 +50608,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -50770,7 +50764,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 75,
         "signals_available": 5,
         "signals_total": 7,
@@ -50924,7 +50918,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -51078,7 +51072,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -51232,7 +51226,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 90,
         "signals_available": 5,
         "signals_total": 7,
@@ -51388,7 +51382,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -51542,7 +51536,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -51696,7 +51690,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -51851,7 +51845,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -52007,7 +52001,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -52161,7 +52155,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -52315,7 +52309,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -52469,7 +52463,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -52623,7 +52617,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 6,
         "signals_total": 7,
@@ -52776,7 +52770,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -52932,7 +52926,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 89,
         "signals_available": 6,
         "signals_total": 7,
@@ -53087,7 +53081,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -53240,7 +53234,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -53396,7 +53390,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -53552,7 +53546,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 90,
         "signals_available": 5,
         "signals_total": 7,
@@ -53706,7 +53700,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -53862,7 +53856,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -54016,7 +54010,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -54172,7 +54166,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -54326,7 +54320,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -54483,7 +54477,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -54640,7 +54634,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -54794,7 +54788,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -54948,7 +54942,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -55054,8 +55048,8 @@
       "source": "bizbuysell",
       "source_url": "https://www.bizbuysell.com/business-opportunity/health-and-personal-care-amazon-fba-store/2564650/",
       "source_url_kind": "listing",
-      "title": "Do you own a business?",
-      "business_type": "Sin categoría",
+      "title": "Health & Personal Care Amazon FBA Store",
+      "business_type": "E-commerce",
       "state": "CA",
       "city": "Irvine",
       "pipeline_status": "RADAR",
@@ -55067,14 +55061,14 @@
       "revalidation": {
         "status": "published",
         "http_status": null,
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "method": "conector web: ficha primaria pública observada hoy",
         "reason": "",
         "content_hash": null
       },
       "listing_evidence": {
         "source_url": "https://www.bizbuysell.com/business-opportunity/health-and-personal-care-amazon-fba-store/2564650/",
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "status": "published",
         "evidence": "Ficha individual observada en el portal o broker. Cifras declaradas, no auditadas.",
         "publication_source": null,
@@ -55084,7 +55078,7 @@
       "asking_price": 145000,
       "reported_revenue": 786876,
       "public_facts": {
-        "observed_at": "2026-10-15T19:28:26.798530+00:00",
+        "observed_at": "2026-10-15T19:29:41.776988+00:00",
         "source_url": "https://www.bizbuysell.com/business-opportunity/health-and-personal-care-amazon-fba-store/2564650/",
         "asking_price": 145000,
         "reported_sde": 108750,
@@ -55094,9 +55088,9 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 86,
-        "signals_available": 3,
+        "signals_available": 4,
         "signals_total": 7,
         "evidence_level": "intermedia",
         "confidence": "intermedia",
@@ -55155,10 +55149,10 @@
           {
             "name": "Afinidad con IA y procesos",
             "weight": 10,
-            "value": null,
-            "points": null,
-            "known": false,
-            "evidence": "Actividad insuficientemente clasificada para proponer un encaje.",
+            "value": 85,
+            "points": 8.5,
+            "known": true,
+            "evidence": "Hipótesis sectorial: adquisición digital, soporte, reporting y operaciones. No es auditoría del negocio.",
             "kind": "hipótesis sectorial"
           },
           {
@@ -55175,7 +55169,6 @@
         "unknowns": [
           "Recurrencia declarada",
           "Delegación y transferencia",
-          "Afinidad con IA y procesos",
           "Facilidad de estructuración"
         ],
         "questions": [
@@ -55193,7 +55186,7 @@
       "source": "bizbuysell",
       "source_url": "https://www.bizbuysell.com/business-opportunity/holistic-fertility-coaching-business-60-profit-margin/2557233/",
       "source_url_kind": "listing",
-      "title": "Do you own a business?",
+      "title": "Holistic Fertility Coaching Business | 60%+ Profit Margin",
       "business_type": "Sin categoría",
       "state": "",
       "city": "",
@@ -55206,14 +55199,14 @@
       "revalidation": {
         "status": "published",
         "http_status": null,
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "method": "conector web: ficha primaria pública observada hoy",
         "reason": "",
         "content_hash": null
       },
       "listing_evidence": {
         "source_url": "https://www.bizbuysell.com/business-opportunity/holistic-fertility-coaching-business-60-profit-margin/2557233/",
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "status": "published",
         "evidence": "Ficha individual observada en el portal o broker. Cifras declaradas, no auditadas.",
         "publication_source": null,
@@ -55223,7 +55216,7 @@
       "asking_price": 380000,
       "reported_revenue": 198305,
       "public_facts": {
-        "observed_at": "2026-10-15T19:28:26.798530+00:00",
+        "observed_at": "2026-10-15T19:29:41.776988+00:00",
         "source_url": "https://www.bizbuysell.com/business-opportunity/holistic-fertility-coaching-business-60-profit-margin/2557233/",
         "asking_price": 380000,
         "reported_sde": 130899,
@@ -55233,7 +55226,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 87,
         "signals_available": 3,
         "signals_total": 7,
@@ -55345,14 +55338,14 @@
       "revalidation": {
         "status": "published",
         "http_status": null,
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "method": "conector web: ficha primaria pública observada hoy",
         "reason": "",
         "content_hash": null
       },
       "listing_evidence": {
         "source_url": "https://www.bizquest.com/business-for-sale/dallas-seo-business-119k-cash-flow-from-recurring-clients/BW2472536/",
-        "checked_at": "2026-10-15T19:28:26.798530+00:00",
+        "checked_at": "2026-10-15T19:29:41.776988+00:00",
         "status": "published",
         "evidence": "Ficha individual observada en el portal o broker. Cifras declaradas, no auditadas.",
         "publication_source": null,
@@ -55362,7 +55355,7 @@
       "asking_price": 499000,
       "reported_cash_flow": 119000,
       "public_facts": {
-        "observed_at": "2026-10-15T19:28:26.798530+00:00",
+        "observed_at": "2026-10-15T19:29:41.776988+00:00",
         "source_url": "https://www.bizquest.com/business-for-sale/dallas-seo-business-119k-cash-flow-from-recurring-clients/BW2472536/",
         "asking_price": 499000,
         "reported_cash_flow": 119000,
@@ -55370,7 +55363,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:29:17.702Z",
+        "calculated_at": "2026-10-15T19:30:09.148Z",
         "score": 61,
         "signals_available": 2,
         "signals_total": 7,
@@ -56320,13 +56313,13 @@
   },
   "screening_model": {
     "version": "screen-v2",
-    "updated_at": "2026-10-15T19:29:17.702Z",
+    "updated_at": "2026-10-15T19:30:09.148Z",
     "description": "Afinidad preliminar con información publicada; sin exigir documentos de debida diligencia."
   },
   "portal_refresh": {
-    "checked_at": "2026-10-15T19:28:26.798530+00:00",
-    "added": 3,
-    "updated": 195,
+    "checked_at": "2026-10-15T19:29:41.776988+00:00",
+    "added": 0,
+    "updated": 198,
     "summary": {
       "identity_unresolved": 56,
       "blocked": 8,
