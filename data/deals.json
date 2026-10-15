@@ -41174,7 +41174,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:32:32.065Z",
+        "calculated_at": "2026-10-15T19:32:57.547Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -41273,35 +41273,33 @@
       },
       "digital_analysis": {
         "version": "digital-v1",
-        "performed_at": "2026-10-15T19:30:39.904Z",
+        "performed_at": "2026-10-15T19:32:57.547Z",
         "status": "identity_pending",
         "website": null,
-        "website_candidates": [
+        "website_candidates": [],
+        "observations": [
           {
-            "title": "Dollar sign - Wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Dollar_sign"
+            "name": "Recurrencia",
+            "status": "El anuncio menciona suscripciones o compras repetidas; falta medir retención y churn.",
+            "evidence_url": "https://empireflippers.com/listing/94476/"
           },
           {
-            "title": "United States dollar - Wikipedia",
-            "url": "https://en.wikipedia.org/wiki/United_states_dollar"
-          },
-          {
-            "title": "$ Dollar Sign | The Money Wiki",
-            "url": "https://moneywiki.app/wiki/other/dollar-sign"
+            "name": "Logística",
+            "status": "El anuncio describe logística externalizada; validar inventario, tarifas, stock y dependencia de plataforma.",
+            "evidence_url": "https://empireflippers.com/listing/94476/"
           }
         ],
-        "observations": [],
         "opportunities": [
           {
             "area": "Ingresos",
-            "proposal": "Agente de seguimiento de leads, recuperación de carritos o reactivación de clientes, según el canal real.",
+            "proposal": "Agente de retención de suscriptores: detectar riesgo de baja, recuperar pagos fallidos y probar reactivación o venta cruzada con consentimiento.",
             "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
             "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
             "status": "hipótesis de mejora; requiere validación con la empresa"
           },
           {
             "area": "Costos y gastos",
-            "proposal": "Automatizar clasificación de soporte, reportes y conciliación operativa con revisión humana.",
+            "proposal": "Agente de inventario y conciliación entre tienda, 3PL y FBA: alertar quiebres, exceso de stock, devoluciones y diferencias; aprobar compras manualmente.",
             "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
             "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
             "status": "hipótesis de mejora; requiere validación con la empresa"
@@ -41318,12 +41316,12 @@
           {
             "url": "https://empireflippers.com/listing/94476/",
             "kind": "anuncio",
-            "checked_at": "2026-10-15T19:30:39.904Z"
+            "checked_at": "2026-10-15T19:32:57.547Z"
           },
           {
-            "url": "https://www.bing.com/search?format=rss&q=%24385.0K%20Per%20Month%20Amazon%20FBA%20Business%20in%20the%20Automotive%20Niche%20%20official%20website",
+            "url": "https://www.bing.com/search?format=rss&q=%20%20Amazon%20FBA%20Business%20in%20the%20Automotive%20Niche%20%20official%20business%20website",
             "kind": "búsqueda de identidad",
-            "checked_at": "2026-10-15T19:30:39.904Z"
+            "checked_at": "2026-10-15T19:32:57.547Z"
           }
         ],
         "limitations": [
@@ -41336,7 +41334,7 @@
         }
       },
       "preliminary_analysis": {
-        "performed_at": "2026-10-15T19:30:41.136Z",
+        "performed_at": "2026-10-15T19:32:57.873Z",
         "model": "screen-v2",
         "summary": "Afinidad preliminar 85/100. 6/7 señales públicas disponibles. Solicitar documentación para diligencia. No incluye auditoría ni verificación legal.",
         "questions": [
