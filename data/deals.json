@@ -49703,7 +49703,7 @@
       "pending_analysis": true,
       "screening": {
         "version": "screen-v1",
-        "calculated_at": "2026-10-15T19:03:45.659Z",
+        "calculated_at": "2026-10-15T19:07:12.855Z",
         "score": 15,
         "coverage": 15,
         "confidence": "baja",
@@ -49796,6 +49796,19 @@
         "next_action": "",
         "updated_at": "2026-10-15T19:06:10.961Z",
         "author": "equipo"
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-10-15T19:07:12.855Z",
+        "model": "screen-v1",
+        "summary": "Score preliminar 15/100. Cobertura 15%. Solicitar documentación para diligencia. No incluye auditoría ni verificación legal.",
+        "questions": [
+          "Conciliar 24–36 meses de P&G, declaraciones fiscales y movimientos bancarios; justificar add-backs del SDE.",
+          "¿Qué clientes, proveedores y plataformas concentran ventas y margen? Solicitar porcentajes y contratos.",
+          "¿Cuánto capital de trabajo, inventario, capex y deuda exige la operación al cierre?",
+          "¿Qué tareas realiza el dueño y qué activos, permisos, contratos e IP son transferibles?",
+          "Medir tareas automatizables, costo de implantación y ahorro neto; validar crecimiento con demanda y capacidad.",
+          "Confirmar disponibilidad con el broker, motivo de venta y evolución del precio."
+        ]
       }
     }
   ],
