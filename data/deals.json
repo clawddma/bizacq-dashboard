@@ -316,7 +316,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -417,8 +417,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516119+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800421+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -601,7 +601,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -702,8 +702,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516349+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800597+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -875,7 +875,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -977,8 +977,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516360+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800607+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -1152,7 +1152,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -1254,8 +1254,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516416+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800656+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -1423,7 +1423,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -1524,8 +1524,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516429+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800666+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -1728,7 +1728,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -1830,8 +1830,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516434+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800670+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -1944,7 +1944,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2045,8 +2045,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516494+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800749+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -2225,7 +2225,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2326,8 +2326,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516533+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800753+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -2499,7 +2499,7 @@
       "discard_reason": "Vendido o negociado — listing ya no disponible (checkpoint)",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2599,8 +2599,8 @@
       "revalidation": {
         "status": "blocked",
         "http_status": 403,
-        "checked_at": "2026-10-15T19:19:59.516538+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800757+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -2777,7 +2777,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2878,8 +2878,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516574+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800789+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -3050,7 +3050,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -3150,8 +3150,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516629+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800843+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -3324,7 +3324,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -3426,8 +3426,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516634+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800852+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -3604,7 +3604,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -3704,8 +3704,8 @@
       "revalidation": {
         "status": "blocked",
         "http_status": 403,
-        "checked_at": "2026-10-15T19:19:59.516638+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800857+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -3865,7 +3865,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -3966,8 +3966,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516662+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800879+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -4132,7 +4132,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -4233,8 +4233,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516759+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800917+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -4399,7 +4399,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -4499,8 +4499,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516766+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800923+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -4660,7 +4660,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -4760,8 +4760,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516770+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800927+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -4941,7 +4941,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5042,8 +5042,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.516798+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.800945+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -5090,7 +5090,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5191,8 +5191,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518116+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801202+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -5239,7 +5239,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5340,8 +5340,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518123+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801207+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -5503,7 +5503,7 @@
       "category_corrected_from": "Cleaning Services",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -5670,7 +5670,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -5770,8 +5770,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518161+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801217+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -5928,7 +5928,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -6029,8 +6029,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518157+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801214+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -6197,7 +6197,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -6478,7 +6478,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -6579,8 +6579,8 @@
       "revalidation": {
         "status": "blocked",
         "http_status": 403,
-        "checked_at": "2026-10-15T19:19:59.518165+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801220+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -6743,7 +6743,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -6844,8 +6844,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518186+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801239+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -6897,7 +6897,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -6997,8 +6997,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518194+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801247+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -7171,7 +7171,7 @@
       "deep_analysis_requested_at": "2026-10-15T16:23:51.216Z",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -7423,7 +7423,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -7524,8 +7524,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518198+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801250+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -7686,7 +7686,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -7788,8 +7788,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518208+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801260+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -7954,7 +7954,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -8210,7 +8210,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -8462,7 +8462,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -8562,8 +8562,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518211+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801263+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -8719,7 +8719,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -8819,8 +8819,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518214+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801266+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -8981,7 +8981,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -9081,8 +9081,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518217+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801269+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -9256,7 +9256,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -9358,8 +9358,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518220+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801272+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -9533,7 +9533,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -9635,8 +9635,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518224+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801275+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -9810,7 +9810,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -9912,8 +9912,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": null,
-        "checked_at": "2026-10-15T19:19:59.518227+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801278+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.",
         "content_hash": null
       }
@@ -10207,7 +10207,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -10307,8 +10307,8 @@
       "revalidation": {
         "status": "blocked",
         "http_status": 429,
-        "checked_at": "2026-10-15T19:19:59.518233+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801281+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -10495,7 +10495,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -10595,8 +10595,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:20:01.622295+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:50.801297+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -10645,7 +10645,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -10807,7 +10807,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 3,
         "signals_total": 7,
@@ -10970,7 +10970,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -11071,8 +11071,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:20:01.649875+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:52.958032+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -11121,7 +11121,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -11221,8 +11221,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:20:01.649899+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:52.958314+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -11271,7 +11271,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -11372,8 +11372,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:20:01.649923+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:52.958363+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -11423,7 +11423,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 73,
         "signals_available": 3,
         "signals_total": 7,
@@ -11587,7 +11587,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -11752,7 +11752,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -11917,7 +11917,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 62,
         "signals_available": 2,
         "signals_total": 7,
@@ -12082,7 +12082,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 42,
         "signals_available": 2,
         "signals_total": 7,
@@ -12247,7 +12247,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 76,
         "signals_available": 3,
         "signals_total": 7,
@@ -12411,7 +12411,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 66,
         "signals_available": 3,
         "signals_total": 7,
@@ -12575,7 +12575,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 64,
         "signals_available": 3,
         "signals_total": 7,
@@ -12739,7 +12739,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -12904,7 +12904,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 4,
         "signals_total": 7,
@@ -13067,7 +13067,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -13230,7 +13230,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -13394,7 +13394,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -13559,7 +13559,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -13724,7 +13724,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 1,
         "signals_total": 7,
@@ -13889,7 +13889,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 10,
         "signals_available": 1,
         "signals_total": 7,
@@ -14054,7 +14054,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 34,
         "signals_available": 3,
         "signals_total": 7,
@@ -14218,7 +14218,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -14382,7 +14382,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 62,
         "signals_available": 2,
         "signals_total": 7,
@@ -14547,7 +14547,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -14712,7 +14712,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 4,
         "signals_total": 7,
@@ -14875,7 +14875,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 55,
         "signals_available": 1,
         "signals_total": 7,
@@ -15040,7 +15040,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -15204,7 +15204,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -15368,7 +15368,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -15533,7 +15533,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -15698,7 +15698,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -15862,7 +15862,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 67,
         "signals_available": 4,
         "signals_total": 7,
@@ -16025,7 +16025,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 75,
         "signals_available": 3,
         "signals_total": 7,
@@ -16188,7 +16188,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16353,7 +16353,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16453,8 +16453,8 @@
       "revalidation": {
         "status": "unavailable",
         "http_status": 0,
-        "checked_at": "2026-10-15T19:21:51.709449+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:52.958401+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -16504,7 +16504,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -16667,7 +16667,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16767,8 +16767,8 @@
       "revalidation": {
         "status": "blocked",
         "http_status": 403,
-        "checked_at": "2026-10-15T19:21:53.992577+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:53.044614+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -16818,7 +16818,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16918,8 +16918,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:21:55.462880+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:53.318617+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -16969,7 +16969,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -17070,8 +17070,8 @@
       "revalidation": {
         "status": "blocked",
         "http_status": 403,
-        "checked_at": "2026-10-15T19:21:55.463029+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:53.318928+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -17121,7 +17121,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -17221,8 +17221,8 @@
       "revalidation": {
         "status": "blocked",
         "http_status": 403,
-        "checked_at": "2026-10-15T19:21:55.693300+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:53.337134+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -17272,7 +17272,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -17437,7 +17437,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -17601,7 +17601,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -17765,7 +17765,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -17929,7 +17929,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18094,7 +18094,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18259,7 +18259,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -18423,7 +18423,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18587,7 +18587,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18688,10 +18688,10 @@
       "revalidation": {
         "status": "non_operating_asset",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:05.394241+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:53.339721+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "Ficha de inmueble; no se identificó empresa operativa en venta.",
-        "content_hash": "cdf33999faee88ba762617e206d051692796d92f7ac4224b3f83e80a105aebf1"
+        "content_hash": "f4f56318a2bc1a267f819b87f72b919a2ec3ef1181ef3d2e4a19fa775b6ad893"
       },
       "listing_evidence": {
         "source_url": "https://expcommercial.com/listings/20830-keokuk-ave-lakeville-mn-203138857",
@@ -18754,7 +18754,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 38,
         "signals_available": 2,
         "signals_total": 7,
@@ -18919,7 +18919,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19084,7 +19084,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -19185,10 +19185,10 @@
       "revalidation": {
         "status": "non_operating_asset",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:07.057693+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:53.666184+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "Ficha de inmueble; no se identificó empresa operativa en venta.",
-        "content_hash": "bca7e63330836dd75038ca2ce3d2ac516880c79eb5cae0816318b790bd25a5a5"
+        "content_hash": "78247adb53cdb77aec5a5f60c3f2e84b0b4889a042a46728243fd162c34d5eda"
       },
       "listing_evidence": {
         "source_url": "https://expcommercial.com/listings/6112-county-road-166-mckinney-tx-215792595",
@@ -19251,7 +19251,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19415,7 +19415,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19515,9 +19515,9 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:09.761109+00:00",
-        "method": "lectura pública directa",
-        "reason": "El encabezado actual no coincide suficientemente con la empresa original.",
+        "checked_at": "2026-10-15T20:16:53.774843+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
+        "reason": "",
         "content_hash": "b2c78d6c4639ef56f2963f340b62c06f45e30507a52fcaf792213c8ddbfc2bc0"
       }
     },
@@ -19566,7 +19566,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19729,7 +19729,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19892,7 +19892,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20055,7 +20055,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20218,7 +20218,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20381,7 +20381,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20544,7 +20544,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20707,7 +20707,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20870,7 +20870,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21033,7 +21033,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -21134,14 +21134,14 @@
       "revalidation": {
         "status": "not_found",
         "http_status": 404,
-        "checked_at": "2026-10-15T19:22:22.990686+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:53.982509+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       },
       "listing_evidence": {
         "source_url": "https://fcbb.com/retail/san-francisco-bay-area-ca/profitable-iconic-business-commercial-property-rental-income-flexible-purchase-options-289-24642",
-        "checked_at": "2026-10-15T19:22:22.990686+00:00",
+        "checked_at": "2026-10-15T20:16:53.982509+00:00",
         "status": "not_found",
         "evidence": "La URL no está disponible (404/410); no prueba venta."
       }
@@ -21191,7 +21191,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -21292,8 +21292,8 @@
       "revalidation": {
         "status": "blocked",
         "http_status": 403,
-        "checked_at": "2026-10-15T19:22:26.540784+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:53.982823+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -21343,7 +21343,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21506,7 +21506,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21669,7 +21669,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21832,7 +21832,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21995,7 +21995,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22158,7 +22158,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22321,7 +22321,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -22420,14 +22420,14 @@
       "revalidation": {
         "status": "not_found",
         "http_status": 404,
-        "checked_at": "2026-10-15T19:22:44.842837+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:54.733217+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       },
       "listing_evidence": {
         "source_url": "https://fcbb.com/food-fast-food/las-vegas-nv/food-truck-asian-and-mexican-fusion-101-25916",
-        "checked_at": "2026-10-15T19:22:44.842837+00:00",
+        "checked_at": "2026-10-15T20:16:54.733217+00:00",
         "status": "not_found",
         "evidence": "La URL no está disponible (404/410); no prueba venta."
       }
@@ -22477,7 +22477,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -22578,8 +22578,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:22:49.168431+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:54.979744+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -22629,7 +22629,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22729,8 +22729,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:22:49.168504+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:54.979811+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -22780,7 +22780,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -22881,8 +22881,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:22:49.168542+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:54.979839+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -22932,7 +22932,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -23033,10 +23033,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:49.168576+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:54.979863+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "3db39afefee17879af44d150ed015d95771570f12e259f3d601136eb182dbbc0"
+        "content_hash": "af12becfb517c8db0989817d16259ca6ae7b5bd32c7fe21a6f94d1dfb4863f3b"
       }
     },
     {
@@ -23084,7 +23084,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -23184,10 +23184,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:50.703175+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:55.852021+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "dc2a125c9c61b410d61f5a8554a9eb229dd40d52bb72292c316527bc9b3d5fb5"
+        "content_hash": "d034a0202fea7ba2ec6036331848ecbbbc5de54faae3324c624baab12da48ec0"
       }
     },
     {
@@ -23235,7 +23235,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -23336,10 +23336,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:51.800423+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:56.087944+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "c50984c2f1e9c2462c7be8dec64d0d337a936a3c948b07d12809d1c6e32db9a8"
+        "content_hash": "1f116a163748d1357187b1a319b96d5d77b14910674b389cb2a2fc15b9ae34df"
       }
     },
     {
@@ -23387,7 +23387,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -23551,7 +23551,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 23,
         "signals_available": 2,
         "signals_total": 7,
@@ -23716,7 +23716,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -23817,8 +23817,8 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:56.514889+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:58.098679+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": "664724cdb01a88b0ee1d68b0fafa73db66f5d9030a3e389064f3bf92d24a1d6b"
       }
@@ -23868,7 +23868,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -24033,7 +24033,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -24133,10 +24133,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:57.914632+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:58.618794+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "9e5bc285be5e6fc6aba58140364527f3254563d4a17081e2046b2ffb4a49b9fa"
+        "content_hash": "a9c46281a1d44d8402cefa35dc2a78daf0f336cc2ce5f1c1b9ce38515b8b99ed"
       }
     },
     {
@@ -24184,7 +24184,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -24285,10 +24285,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:22:59.421489+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:16:58.673930+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "16bd81ffbddb1b2dc4dfe231e595b93d2739b4e63ff86ce9d2b7c5ae0551b918"
+        "content_hash": "77407b08c2026ebc7d74adec0db59714ddaacd1060982d6185eb7fb253e3b8ec"
       }
     },
     {
@@ -24336,7 +24336,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -24436,10 +24436,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:01.253062+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:00.056111+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "94d1638848e6b074c1ceb068712c8a74b56be2747626adaef9377d3670736b1d"
+        "content_hash": "0a4d8dfe64e3eb57148f8a1de6954a3df59a42f1287c9ae7b75c1ec4d16e8167"
       }
     },
     {
@@ -24487,7 +24487,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 80,
         "signals_available": 4,
         "signals_total": 7,
@@ -24651,7 +24651,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 86,
         "signals_available": 3,
         "signals_total": 7,
@@ -24815,7 +24815,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 75,
         "signals_available": 4,
         "signals_total": 7,
@@ -24978,7 +24978,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -25142,7 +25142,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 39,
         "signals_available": 2,
         "signals_total": 7,
@@ -25306,7 +25306,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -25471,7 +25471,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -25636,7 +25636,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -25799,7 +25799,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -25900,10 +25900,10 @@
       "revalidation": {
         "status": "non_operating_asset",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:06.865834+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:01.371074+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "Ficha de inmueble; no se identificó empresa operativa en venta.",
-        "content_hash": "f9b104b32705e59fd6f0ab329e103d91ce28e3f7a1ff5a51081931ca4531b9d8"
+        "content_hash": "0390c04b972d2b3042f05a279a454ecffaa699b5f99036407cd9dad0ff2d666f"
       },
       "listing_evidence": {
         "source_url": "https://expcommercial.com/listings/7-1256-w-winton-ave-hayward-ca-190939071",
@@ -25966,7 +25966,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -26129,7 +26129,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -26229,10 +26229,10 @@
       "revalidation": {
         "status": "non_operating_asset",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:07.755796+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:02.765883+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "Ficha de inmueble; no se identificó empresa operativa en venta.",
-        "content_hash": "c63484e57f75e27bc1320637c510dca6acd05f8f5f48cb6e7f38a947bbcc996e"
+        "content_hash": "d3b465687b405bbb78db1c2b64e8dc607a037ebe6210ea74c3d0bd42e7ab6be0"
       },
       "listing_evidence": {
         "source_url": "https://expcommercial.com/listings/5-avenue-of-the-duncanville-tx-222082523",
@@ -26295,7 +26295,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -26457,7 +26457,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -26620,7 +26620,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -26782,7 +26782,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -26947,7 +26947,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -27110,7 +27110,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -27275,7 +27275,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -27439,7 +27439,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -27540,10 +27540,10 @@
       "revalidation": {
         "status": "non_operating_asset",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:22.067990+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:03.219331+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "Ficha de inmueble; no se identificó empresa operativa en venta.",
-        "content_hash": "a5aa154ef50fe2dc858431d0fc85301db97e72727a097e552a2366d395e7fbfe"
+        "content_hash": "fa847f37621c7f35b426902f5970001f2d6c368d7145adc1250b99ad62cf1782"
       },
       "listing_evidence": {
         "source_url": "https://expcommercial.com/listings/163-bernham-dr-nw-cleveland-tn-221267615",
@@ -27606,7 +27606,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -27706,10 +27706,10 @@
       "revalidation": {
         "status": "non_operating_asset",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:25.226552+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:06.268370+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "Ficha de inmueble; no se identificó empresa operativa en venta.",
-        "content_hash": "bcaa352c83236bcb90a51062d9a2965a521100938fc883e4c7c38894a8847b00"
+        "content_hash": "a8a53a3b8323ff4bf9a5974f417506563a38ca493241e169c5a3712bb2574093"
       },
       "listing_evidence": {
         "source_url": "https://expcommercial.com/listings/096-ac-on-i-35-south-frontage-zoned-c-3r-i-1-1-960-sf-building-222690520",
@@ -27772,7 +27772,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -27873,10 +27873,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:29.529532+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:06.333265+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "a2e141b8b0422642aa6fc22e3a605db645d6592977715ad86baac37306fe33d8"
+        "content_hash": "67822e8fc968090f403822e266a69d443ea401fba6107bfff2292c9f2feedd47"
       }
     },
     {
@@ -27924,7 +27924,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28024,10 +28024,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:30.339390+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:06.523552+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "484dbb5750cb293db4fbf9e1d3108745446e209dbcd2eb424eee488e60d89eef"
+        "content_hash": "3a02e31034eb4a2f57be5bdd940b29f79db373403359a77527c79707147a70c2"
       }
     },
     {
@@ -28075,7 +28075,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28175,10 +28175,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:33.156174+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:07.419384+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "7f0c37f8b58a173425253fd1027e040781ea13e1858f620fe234016271e218e9"
+        "content_hash": "fb8ac1cfaadc7a05100b6eeeb16572691778145f8d589bd7016ac50fa4e78a12"
       }
     },
     {
@@ -28226,7 +28226,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28326,10 +28326,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:33.223029+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:09.665508+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "bc1c9beddf32ae570d45f387877a78e4ff729f4f05d6a09480bbe8c9af582047"
+        "content_hash": "9baab06d4d96368a969144cfb17df044f47e954b0799132caded5596e0741073"
       }
     },
     {
@@ -28377,7 +28377,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28477,10 +28477,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:36.311385+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:10.136552+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "ffb68e798ea1ed22bcf446ec34b87c7471357b0ec93bd250572938e23cc4eb4e"
+        "content_hash": "c599838e798e1b15ff02726a420371adcd5113c735d40c1c5181d86c5eeedcd6"
       }
     },
     {
@@ -28528,7 +28528,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28628,10 +28628,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:37.240047+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:10.982931+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "1823e83789e8028974107504aa2706fef9327bfbc23639d24141c26b8f6a5d1d"
+        "content_hash": "34e80bfe6db2ff4ce6aee7fdc2a26b30fdd1c23a28eb7e14c997233b43962d79"
       }
     },
     {
@@ -28679,7 +28679,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -28780,8 +28780,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:39.089295+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678341+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -28831,7 +28831,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -28932,8 +28932,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:39.089350+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678376+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -28983,7 +28983,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -29084,8 +29084,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:39.089390+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678392+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -29135,7 +29135,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -29236,8 +29236,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:39.089420+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678407+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -29287,7 +29287,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -29388,8 +29388,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:39.089504+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678419+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -29439,7 +29439,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -29539,8 +29539,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:39.089520+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678431+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -29590,7 +29590,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -29753,7 +29753,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -29916,7 +29916,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -30016,8 +30016,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:40.679530+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678444+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -30067,7 +30067,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30168,8 +30168,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:40.679583+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678457+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -30219,7 +30219,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30320,8 +30320,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:40.679599+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678469+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -30371,7 +30371,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30472,8 +30472,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:40.679640+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678481+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -30523,7 +30523,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30624,8 +30624,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:40.679684+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678492+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -30675,7 +30675,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -30775,8 +30775,8 @@
       "revalidation": {
         "status": "blocked_source",
         "http_status": null,
-        "checked_at": "2026-10-15T19:23:40.679758+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678505+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
         "content_hash": null
       }
@@ -30826,7 +30826,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30927,10 +30927,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:40.679784+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:11.678517+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "2674bef16aaacec6d90e10001ef46d8ab0933c8d394f6192fe56858c97bc3563"
+        "content_hash": "96f25fb78662fd2c9ae61f1b8ba2aa7a141cc29f76b1f0e660e07a39e040c44a"
       }
     },
     {
@@ -30978,7 +30978,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 83,
         "signals_available": 4,
         "signals_total": 7,
@@ -31142,7 +31142,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -31242,10 +31242,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:41.841473+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:12.456278+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "1248ffd525fccbc36963da355f6ac99ce194e58d24ec0493fc44ad53fda5e510"
+        "content_hash": "f8d4e638e231460dde92ccb0796ee7280ee5a564582f3c4139bb93149a1123c7"
       }
     },
     {
@@ -31293,7 +31293,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 80,
         "signals_available": 6,
         "signals_total": 7,
@@ -31456,7 +31456,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 39,
         "signals_available": 4,
         "signals_total": 7,
@@ -31620,7 +31620,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -31721,10 +31721,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:44.465275+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:12.746864+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "ab1bdc527f30c7cb4916bb6bd89bc4fe0847b6bc44d3943748cb358b1043aca1"
+        "content_hash": "2152b9e55ec428d29e2cf2ce390f293116a51641d0fccc76a878ddc0108b67f8"
       }
     },
     {
@@ -31772,7 +31772,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 3,
         "signals_total": 7,
@@ -31936,7 +31936,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -32100,7 +32100,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -32264,7 +32264,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 3,
         "signals_total": 7,
@@ -32429,7 +32429,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 3,
         "signals_total": 7,
@@ -32594,7 +32594,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -32758,7 +32758,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -32858,10 +32858,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:23:56.173041+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:12.994915+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "ded70bc1972fff56198b5a37f4b4aa7d91998c6727dea955d08ae003306ee6ec"
+        "content_hash": "56c6a8ef2d954ad9400c017bc7b14174b8b1835d2ea4f8988acaacca2815104e"
       }
     },
     {
@@ -32909,7 +32909,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 86,
         "signals_available": 4,
         "signals_total": 7,
@@ -33074,7 +33074,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -33175,10 +33175,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:24:01.110902+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:14.949158+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "d151790012710f8f07f278a676fce2f729d300fe23fe29c8524950cea29ba6a2"
+        "content_hash": "1a6a7cb381aff2d99d1084a82a7f28e32aac635218ab0d4fd253cc256ab6282d"
       }
     },
     {
@@ -33226,7 +33226,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -33327,10 +33327,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:24:03.727095+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:15.760624+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "f467cba9b4a4bb0a887cdeaa3e5c808fb95c73e6165776ec509569eae952be49"
+        "content_hash": "8b33a093ca25939ef3fd3c8f1ca5c71ab00b230b99794116ebe8a0d1c3f10401"
       }
     },
     {
@@ -33378,7 +33378,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -33542,7 +33542,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -33707,7 +33707,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 4,
         "signals_total": 7,
@@ -33872,7 +33872,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -34036,7 +34036,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -34137,10 +34137,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:24:16.101664+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:17.418555+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "c6add1eee2e68f739b09eb3b960026d465c22efebca6fcebdd7cf47df6f0536e"
+        "content_hash": "1bf9fd5ee43005e89f7b834c91c7befd4d5941ac0aa8586a3d5ee6e9fba5c495"
       }
     },
     {
@@ -34188,7 +34188,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 90,
         "signals_available": 4,
         "signals_total": 7,
@@ -34352,7 +34352,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -34515,7 +34515,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -34679,7 +34679,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 63,
         "signals_available": 4,
         "signals_total": 7,
@@ -34808,8 +34808,8 @@
       "state": "FL",
       "city": "Business Orlando",
       "business_type": "Automotive",
-      "asking_price": 1764387,
-      "reported_revenue": 1424000,
+      "asking_price": 1240000,
+      "reported_revenue": 1764387,
       "reported_cash_flow": 1764387,
       "raw_description": "Sold Vehicle Wraps Business Vehicle Wrapping Business Orlando, FL (Orange County) Vehicle Wraps Business Asking Price: $1.24M Cash Flow: N/A Gross Revenue: $1,764,387 EBITDA: $334,645 FF&E: $44,540 Inventory: $15,000 Rent: N/A Established: N/A Business Description Experience the Pinnacle of Auto Transformation with this Orlando based vehicle wrapping company referred to as “Wraps”. This has revolutionized the auto wrapping industry, offering unparalleled B2B and B2C services that have set a new standard in vehicle aesthetics. This isn't just a business; it's a success story that has evolved into a thriving opportunity. Seller has lived out of state for years and operates this business remotely. A new owner who could get involved in the community would create a bigger path to build this business. Full management team in place. EBIT, not SDE is $334,654 absentee. Franchise corporate store and Franchise wants the franchisee to live in the Central Florida area preferably. As the original a",
       "source_first_seen_at": "2026-10-06T01:52:05.882153+00:00",
@@ -34843,14 +34843,14 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
         "evidence_level": "limitada",
         "confidence": "limitada",
         "coverage": null,
-        "disposition": "revalidate",
+        "disposition": "eligible",
         "listing_age_days": null,
         "checked_age_days": 0,
         "earnings_basis": null,
@@ -34920,9 +34920,7 @@
             "kind": "publicado"
           }
         ],
-        "flags": [
-          "Disponibilidad no comprobada recientemente; revisar el intento de revalidación."
-        ],
+        "flags": [],
         "unknowns": [
           "Precio frente a ganancias",
           "Margen publicado",
@@ -34941,18 +34939,27 @@
         "explanation": "Afinidad preliminar sobre criterios públicos disponibles; pesos normalizados. No mide avance de diligencia ni probabilidad de éxito. Con menos de tres señales se limita a 69. Sin precio y ganancias no se calcula."
       },
       "revalidation": {
-        "status": "withdrawn",
+        "status": "published",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:24:28.370334+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:18.501386+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "64b3fd788567f1e43d359ccdc9e08c4445e94658edb81dbabdcacdb9fbf31ec9"
+        "content_hash": "ac32a3eecb90cbaa3388acd22651d6696105dd3c18a170a84bb10cbca08ec7cf"
       },
       "listing_evidence": {
         "source_url": "https://crowneatlantic.dealrelations.com/listings/vehicle-wrap-business?item_id=2357&from=listing_feeds",
-        "checked_at": "2026-10-15T19:24:28.370334+00:00",
-        "status": "withdrawn",
-        "evidence": "La ficha identifica el negocio como retirado o vendido."
+        "checked_at": "2026-10-15T20:17:18.501386+00:00",
+        "status": "published",
+        "evidence": "Ficha individual observada en el portal o broker. Cifras declaradas, no auditadas.",
+        "publication_source": null,
+        "published_at": null,
+        "publication_evidence": null
+      },
+      "public_facts": {
+        "observed_at": "2026-10-15T20:17:18.501386+00:00",
+        "source_url": "https://crowneatlantic.dealrelations.com/listings/vehicle-wrap-business?item_id=2357&from=listing_feeds",
+        "asking_price": 1240000,
+        "reported_revenue": 1764387
       }
     },
     {
@@ -35000,7 +35007,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -35164,7 +35171,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -35265,10 +35272,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:24:33.373507+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:19.827839+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "48859fecc033e76e77ae561333a162917983ee3bd066f0579f515a412f17f4dd"
+        "content_hash": "9933204c6ce4ff2d3700786e3266a3e6c6ece6e8fa02d30fe60786f865036c87"
       }
     },
     {
@@ -35316,7 +35323,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -35417,10 +35424,10 @@
       "revalidation": {
         "status": "identity_unresolved",
         "http_status": 200,
-        "checked_at": "2026-10-15T19:24:35.826113+00:00",
-        "method": "lectura pública directa",
+        "checked_at": "2026-10-15T20:17:22.301713+00:00",
+        "method": "segunda revalidación acotada de las 95 pendientes",
         "reason": "",
-        "content_hash": "2ecaf0d6c150a931053bcf43a29765bfac0cf114071d9426cb34f56810b154f0"
+        "content_hash": "1888b4dddc8770ab7a8fe035fba8907434512d9517e3463db465a40fb4f07768"
       }
     },
     {
@@ -35478,7 +35485,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -35632,7 +35639,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -35786,7 +35793,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": null,
         "signals_available": 5,
         "signals_total": 7,
@@ -35940,7 +35947,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 66,
         "signals_available": 5,
         "signals_total": 7,
@@ -36094,7 +36101,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -36250,7 +36257,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 67,
         "signals_available": 6,
         "signals_total": 7,
@@ -36403,7 +36410,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -36557,7 +36564,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -36711,7 +36718,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -36865,7 +36872,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -37019,7 +37026,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 78,
         "signals_available": 6,
         "signals_total": 7,
@@ -37172,7 +37179,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 74,
         "signals_available": 6,
         "signals_total": 7,
@@ -37327,7 +37334,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -37483,7 +37490,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -37637,7 +37644,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -37645,7 +37652,7 @@
         "confidence": "amplia",
         "coverage": null,
         "disposition": "eligible",
-        "listing_age_days": 260,
+        "listing_age_days": 261,
         "checked_age_days": 0,
         "earnings_basis": "beneficio neto publicado",
         "multiple": 2.69,
@@ -37791,7 +37798,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -37947,7 +37954,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 80,
         "signals_available": 6,
         "signals_total": 7,
@@ -38102,7 +38109,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -38256,7 +38263,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -38410,7 +38417,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -38566,7 +38573,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 71,
         "signals_available": 5,
         "signals_total": 7,
@@ -38720,7 +38727,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -38875,7 +38882,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 74,
         "signals_available": 5,
         "signals_total": 7,
@@ -39029,7 +39036,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -39183,7 +39190,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -39339,7 +39346,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -39493,7 +39500,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -39647,7 +39654,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -39801,7 +39808,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -39954,7 +39961,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -40108,7 +40115,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -40262,7 +40269,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -40416,7 +40423,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -40570,7 +40577,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -40724,7 +40731,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -40878,7 +40885,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -41032,7 +41039,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -41186,7 +41193,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -41413,7 +41420,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -41567,7 +41574,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -41721,7 +41728,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 88,
         "signals_available": 6,
         "signals_total": 7,
@@ -41874,7 +41881,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -42028,7 +42035,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 7,
         "signals_total": 7,
@@ -42179,7 +42186,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -42333,7 +42340,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -42487,7 +42494,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 79,
         "signals_available": 6,
         "signals_total": 7,
@@ -42640,7 +42647,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -42794,7 +42801,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -42950,7 +42957,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -43104,7 +43111,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -43257,7 +43264,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -43411,7 +43418,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -43565,7 +43572,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -43718,7 +43725,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -43872,7 +43879,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -44029,7 +44036,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -44183,7 +44190,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -44337,7 +44344,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -44491,7 +44498,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -44647,7 +44654,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 91,
         "signals_available": 6,
         "signals_total": 7,
@@ -44802,7 +44809,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -44957,7 +44964,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -45113,7 +45120,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -45267,7 +45274,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -45420,7 +45427,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -45574,7 +45581,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -45728,7 +45735,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -45882,7 +45889,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -46037,7 +46044,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -46193,7 +46200,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -46346,7 +46353,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -46502,7 +46509,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -46656,7 +46663,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -46810,7 +46817,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -46966,7 +46973,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 78,
         "signals_available": 6,
         "signals_total": 7,
@@ -47121,7 +47128,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -47277,7 +47284,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -47433,7 +47440,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -47587,7 +47594,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -47743,7 +47750,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -47897,7 +47904,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -48050,7 +48057,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -48204,7 +48211,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -48358,7 +48365,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -48514,7 +48521,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -48671,7 +48678,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -48828,7 +48835,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -48982,7 +48989,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -49136,7 +49143,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -49293,7 +49300,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -49449,7 +49456,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -49606,7 +49613,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -49762,7 +49769,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 6,
         "signals_total": 7,
@@ -49915,7 +49922,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -50071,7 +50078,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -50227,7 +50234,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 6,
         "signals_total": 7,
@@ -50382,7 +50389,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -50538,7 +50545,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -50694,7 +50701,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -50850,7 +50857,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 75,
         "signals_available": 5,
         "signals_total": 7,
@@ -51004,7 +51011,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -51158,7 +51165,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -51312,7 +51319,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 90,
         "signals_available": 5,
         "signals_total": 7,
@@ -51468,7 +51475,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -51622,7 +51629,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -51776,7 +51783,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -51931,7 +51938,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -52087,7 +52094,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -52241,7 +52248,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -52395,7 +52402,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -52549,7 +52556,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -52703,7 +52710,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 6,
         "signals_total": 7,
@@ -52856,7 +52863,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -53012,7 +53019,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 89,
         "signals_available": 6,
         "signals_total": 7,
@@ -53167,7 +53174,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -53320,7 +53327,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -53476,7 +53483,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -53632,7 +53639,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 90,
         "signals_available": 5,
         "signals_total": 7,
@@ -53786,7 +53793,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -53942,7 +53949,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -54096,7 +54103,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -54252,7 +54259,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -54406,7 +54413,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -54563,7 +54570,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -54720,7 +54727,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -54874,7 +54881,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -55028,7 +55035,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -55174,7 +55181,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 86,
         "signals_available": 4,
         "signals_total": 7,
@@ -55312,7 +55319,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 87,
         "signals_available": 3,
         "signals_total": 7,
@@ -55449,7 +55456,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:34:17.105Z",
+        "calculated_at": "2026-10-15T20:20:18.532Z",
         "score": 61,
         "signals_available": 2,
         "signals_total": 7,
@@ -56399,36 +56406,23 @@
   },
   "screening_model": {
     "version": "screen-v2",
-    "updated_at": "2026-10-15T19:34:17.105Z",
+    "updated_at": "2026-10-15T20:20:18.532Z",
     "description": "Afinidad preliminar con información publicada; sin exigir documentos de debida diligencia."
   },
   "portal_refresh": {
-    "checked_at": "2026-10-15T19:31:53.439664+00:00",
+    "checked_at": "2026-10-15T20:17:34.695632+00:00",
     "added": 0,
-    "updated": 198,
+    "updated": 95,
     "summary": {
       "identity_unresolved": 56,
       "blocked": 8,
       "blocked_source": 21,
-      "published": 103,
       "unavailable": 1,
       "non_operating_asset": 6,
       "not_found": 2,
-      "withdrawn": 1
+      "published": 1
     },
-    "sources": [
-      {
-        "source": "BizBuySell / BizQuest",
-        "status": "web_connector_observations",
-        "coverage": "partial",
-        "automatic_local_access": "403; no se declara sincronización completa"
-      },
-      {
-        "source": "brokers públicos",
-        "status": "direct_observations",
-        "coverage": "partial"
-      }
-    ],
+    "sources": [],
     "coverage": "partial"
   }
 }
