@@ -530,7 +530,7 @@
                       x-text="legalBadgeShort(deal.legal_check?.feasibility)"></span>
                   </div>
                   <div x-show="deal.screening" class="text-right">
-                    <span class="text-base font-bold" :class="scoreColor(deal.screening?.score)" x-text="deal.screening?.score+'/100'"></span><p class="text-[10px] text-slate-500" x-text="'Datos '+deal.screening?.coverage+'%'"></p>
+                    <span class="text-base font-bold" :class="scoreColor(deal.screening?.score)" x-text="(deal.screening?.score==null?'Sin score':deal.screening.score+'/100')"></span><p class="text-[10px] text-slate-500" x-text="(deal.screening?.signals_available||0)+'/'+(deal.screening?.signals_total||7)+' señales públicas'"></p>
                   </div>
                 </div>
               </div>
@@ -620,7 +620,7 @@
                       <span x-show="deal.curated_source" class="text-[10px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 font-medium">⭐</span>
                     </div>
                     <div x-show="deal.screening" class="text-right">
-                      <span class="text-base font-bold" :class="scoreColor(deal.screening?.score)" x-text="deal.screening?.score+'/100'"></span><p class="text-[10px] text-slate-500" x-text="'Datos '+deal.screening?.coverage+'%'"></p>
+                      <span class="text-base font-bold" :class="scoreColor(deal.screening?.score)" x-text="(deal.screening?.score==null?'Sin score':deal.screening.score+'/100')"></span><p class="text-[10px] text-slate-500" x-text="(deal.screening?.signals_available||0)+'/'+(deal.screening?.signals_total||7)+' señales públicas'"></p>
                     </div>
                   </div>
                 </div>
@@ -801,7 +801,7 @@
                 <button @click="requestDeepAnalysis()"
                   class="text-[11px] px-2 py-1 rounded font-medium flex items-center gap-1"
                   :class="selectedDeal.deep_analysis ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700' : (selectedDeal.deep_analysis_requested ? 'bg-orange-50 text-orange-700' : 'bg-purple-50 hover:bg-purple-100 text-purple-700')"
-                  title="Generar y guardar análisis preliminar con datos disponibles y preguntas de diligencia">
+                  title="Investigar información pública, web y palancas de ingresos y eficiencia con IA">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
                   <span x-text="'Analizar oportunidad'"></span>
                 </button>
@@ -883,7 +883,7 @@
                     <p x-text="'Antigüedad: ' + listingInfo(selectedDeal).age"></p>
                     <a x-show="listingInfo(selectedDeal).url" :href="listingInfo(selectedDeal).url" target="_blank" rel="noopener noreferrer" @click.stop class="underline" x-text="listingInfo(selectedDeal).link"></a>
                     <p x-show="!listingInfo(selectedDeal).url">Enlace original no informado</p>
-                    <p x-text="listingInfo(selectedDeal).caveat"></p>
+                    <p x-text="listingInfo(selectedDeal).caveat"></p><p x-show="selectedDeal.revalidation" class="mt-2" x-text="'Último intento de revalidación: '+(selectedDeal.revalidation?.checked_at||'—')+' · '+(({published:'Oferta observada',blocked:'Acceso bloqueado',blocked_source:'Fuente bloqueada',identity_unresolved:'Identidad por comprobar',not_found:'URL no disponible',withdrawn:'Oferta retirada',unavailable:'No se pudo comprobar'}[selectedDeal.revalidation?.status]||'Por comprobar'))+' · '+(selectedDeal.revalidation?.reason||'')"></p>
                   </div>
 
             <section class="grid grid-cols-3 gap-3">
@@ -897,16 +897,16 @@
               </div>
               <div class="bg-blue-50 rounded-lg p-3">
                 <p class="text-[11px] text-blue-700 uppercase tracking-wide">🧮 Score preliminar /100</p>
-                <p class="text-2xl font-bold" :class="scoreColor(selectedDeal.screening?.score)" x-text="selectedDeal.screening ? Math.round(selectedDeal.screening.score) : '—'"></p>
+                <p class="text-2xl font-bold" :class="scoreColor(selectedDeal.screening?.score)" x-text="selectedDeal.screening?.score!=null ? Math.round(selectedDeal.screening.score) : '—'"></p>
               </div>
             </section>
 
             <section class="bg-white border rounded-lg p-4 text-sm" x-show="selectedDeal.screening">
-              <h3 class="font-bold">Evaluación previa · puntos respaldados /100</h3>
-              <p class="text-xs text-slate-500 mt-1" x-text="'Cobertura: '+(selectedDeal.screening?.coverage||0)+'% · Confianza '+(selectedDeal.screening?.confidence||'baja')+' · screen-v1'"></p>
-              <p class="text-xs mt-2">Los datos faltantes no suman. Un score bajo puede indicar información insuficiente. Este modelo orienta la investigación; no predice rentabilidad.</p>
+              <h3 class="font-bold">Afinidad preliminar · información del anuncio</h3>
+              <p class="text-xs text-slate-500 mt-1" x-text="(selectedDeal.screening?.signals_available||0)+' de '+(selectedDeal.screening?.signals_total||7)+' señales públicas · Base '+(selectedDeal.screening?.evidence_level||'limitada')"></p>
+              <p class="text-xs mt-2">El score usa las señales públicas disponibles y normaliza sus pesos. No exige documentos de diligencia. La disponibilidad se comprueba aparte. Sin precio y ganancias publicados no se calcula.</p>
               <template x-for="f in selectedDeal.screening?.flags||[]"><p class="text-amber-800 mt-2" x-text="'⚠ '+f"></p></template>
-              <template x-for="c in selectedDeal.screening?.components||[]" :key="c.name"><div class="border-t mt-2 pt-2"><p class="font-medium" x-text="c.name+' · '+c.points+'/'+c.weight"></p><p class="text-xs text-slate-500" x-text="c.evidence"></p></div></template>
+              <template x-for="c in selectedDeal.screening?.components||[]" :key="c.name"><div class="border-t mt-2 pt-2"><p class="font-medium" x-text="c.name+' · '+(c.value==null?'No publicado':c.value+'/100')+' · Peso '+c.weight+'%'"></p><p class="text-xs text-slate-500" x-text="c.evidence"></p></div></template>
               <h4 class="font-bold mt-4">Para debida diligencia</h4><template x-for="q in selectedDeal.screening?.questions||[]"><p class="text-xs mt-2" x-text="'• '+q"></p></template>
               <p class="text-xs text-amber-800 mt-4" x-show="selectedDeal.financial">Los análisis financieros históricos de esta ficha están pendientes de revalidación. No se usan para el score actual.</p>
               <div x-show="selectedDeal.preliminary_analysis" class="bg-blue-50 p-3 mt-3 rounded"><p class="font-bold">Análisis preliminar guardado</p><p x-text="selectedDeal.preliminary_analysis?.summary"></p><p class="text-xs" x-text="selectedDeal.preliminary_analysis?.performed_at"></p></div>
@@ -1098,53 +1098,15 @@
               </ul>
             </section>
 
-            <!-- Potencial digital -->
-            <section x-show="selectedDeal.digital_presence?.audit_done">
-              <h3 class="text-sm font-bold text-slate-900 mb-2">Potencial digital del negocio</h3>
-              <div class="bg-slate-50 rounded-lg p-3 mb-2">
-                <div class="grid grid-cols-2 gap-3 mb-3">
-                  <div>
-                    <p class="text-[11px] text-slate-500 uppercase tracking-wide mb-1">Web actual</p>
-                    <div class="gauge">
-                      <span class="gauge-bar"><span class="gauge-fill" :class="auditFillClass(selectedDeal.digital_presence?.audit_score)" :style="`width: ${selectedDeal.digital_presence?.audit_score || 0}%`"></span></span>
-                      <span class="text-sm font-bold" :class="auditTextClass(selectedDeal.digital_presence?.audit_score)" x-text="`${selectedDeal.digital_presence?.audit_score}/100`"></span>
-                    </div>
-                    <p class="text-[10px] text-slate-400 mt-1" x-text="auditLabel(selectedDeal.digital_presence?.audit_score)"></p>
-                  </div>
-                  <div>
-                    <p class="text-[11px] text-slate-500 uppercase tracking-wide mb-1">Upside si modernizas</p>
-                    <div class="gauge">
-                      <span class="gauge-bar"><span class="gauge-fill bg-emerald-500" :style="`width: ${selectedDeal.digital_presence?.digital_upside_score || 0}%`"></span></span>
-                      <span class="text-sm font-bold text-emerald-700" x-text="`${selectedDeal.digital_presence?.digital_upside_score}/100`"></span>
-                    </div>
-                    <p class="text-[10px] text-slate-400 mt-1" x-text="upsideLabel(selectedDeal.digital_presence?.digital_upside_score)"></p>
-                  </div>
-                </div>
-                <p class="text-sm text-slate-700 mb-3" x-html="withTips(selectedDeal.digital_presence?.current_state)"></p>
-                <div x-show="selectedDeal.digital_presence?.website" class="text-xs mb-2">
-                  <span class="text-slate-500">Website:</span>
-                  <a :href="selectedDeal.digital_presence?.website" target="_blank" rel="noopener" class="text-blue-600 hover:underline" x-text="selectedDeal.digital_presence?.website"></a>
-                </div>
-                <div x-show="!selectedDeal.digital_presence?.website" class="text-xs mb-2 text-amber-700 font-medium">⚠ El negocio NO tiene website</div>
-                <p class="text-xs font-semibold text-slate-700 mb-1.5">Quick wins (orden de prioridad):</p>
-                <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
-                  <template x-for="qw in selectedDeal.digital_presence?.quick_wins" :key="qw">
-                    <li x-html="withTips(qw)"></li>
-                  </template>
-                </ul>
-              </div>
-            </section>
-
-            <section x-show="!selectedDeal.digital_presence?.audit_done">
-              <h3 class="text-sm font-bold text-slate-900 mb-2">Potencial digital del negocio</h3>
-              <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-900">
-                <p class="mb-2"><strong>Sin auditoría digital aún.</strong> Para evaluar el potencial digital de este negocio:</p>
-                <ol class="list-decimal list-inside text-xs space-y-1 text-amber-800">
-                  <li>Encuentra el website del negocio (busca el nombre en Google)</li>
-                  <li>Pídele a Claude: <code class="bg-amber-100 px-1 rounded">audita la web del deal <strong x-text="selectedDeal.id?.slice(0,8)"></strong> en https://...</code></li>
-                  <li>Claude analiza booking, SEO, reviews, redes — y agrega quick wins</li>
-                </ol>
-              </div>
+            <section class="bg-slate-50 border rounded-lg p-4">
+              <h3 class="font-bold text-sm">Potencial digital, ventas y eficiencia con IA</h3>
+              <template x-if="!selectedDeal.digital_analysis"><div><p class="text-sm mt-2">Analizar oportunidad busca la web del negocio, comprueba señales públicas y prepara hipótesis de crecimiento y automatización.</p><button @click="requestDeepAnalysis()" :disabled="analyzingOpportunity" class="radar-chip mt-3" x-text="analyzingOpportunity?'Investigando…':'Analizar oportunidad con auditoría digital'"></button></div></template>
+              <template x-if="selectedDeal.digital_analysis"><div class="text-sm mt-3"><p class="font-medium" x-text="selectedDeal.digital_analysis.status==='web_observed'?'Página del negocio observada':'Identidad digital pendiente de confirmar'"></p><a x-show="selectedDeal.digital_analysis.website" :href="selectedDeal.digital_analysis.website" target="_blank" rel="noopener" class="underline" x-text="selectedDeal.digital_analysis.website"></a><p class="text-xs text-slate-500" x-text="selectedDeal.digital_analysis.performed_at"></p>
+                <template x-for="o in selectedDeal.digital_analysis.observations||[]"><p class="mt-2" x-text="o.name+': '+o.status"></p></template>
+                <h4 class="font-bold mt-4">Palancas para validar</h4><template x-for="o in selectedDeal.digital_analysis.opportunities||[]"><div class="border-t pt-2 mt-2"><p class="font-semibold" x-text="o.area"></p><p x-text="o.proposal"></p><p class="text-xs mt-1" x-text="'Medir: '+o.baseline"></p><p class="text-xs" x-text="'Piloto: '+o.pilot"></p><p class="text-xs text-amber-800" x-text="o.status"></p></div></template>
+                <h4 class="font-bold mt-4">Evidencia y límites</h4><template x-for="l in selectedDeal.digital_analysis.limitations||[]"><p class="text-xs mt-2" x-text="l"></p></template><template x-for="s in selectedDeal.digital_analysis.sources||[]"><p class="text-xs mt-2"><a :href="s.url" target="_blank" rel="noopener" class="underline" x-text="s.kind+' ↗'"></a></p></template><template x-for="c in selectedDeal.digital_analysis.website_candidates||[]"><p class="text-xs mt-2"><a :href="c.url" target="_blank" rel="noopener" class="underline" x-text="'Candidato sin identidad confirmada: '+c.title"></a></p></template>
+                <p class="text-xs mt-3" x-text="'Ahorro neto: '+selectedDeal.digital_analysis.financial_method?.net_savings"></p><p class="text-xs" x-text="'Resultado incremental: '+selectedDeal.digital_analysis.financial_method?.incremental_profit"></p>
+              </div></template>
             </section>
 
             <section x-show="selectedDeal.strategy?.buy_thesis">
@@ -1824,7 +1786,7 @@
         addModalOpen: false,
         addForm: { listingUrl: '', websiteUrl: '', category: '', state: '', askingPrice: '', notes: '' },
         // ── HubSpot-style deal record state ──
-        noteDraft: '', savingNote: false, discardTarget:null, discardDraft:'',
+        noteDraft: '', savingNote: false, analyzingOpportunity:false, discardTarget:null, discardDraft:'',
         docDraft: { kind: 'broker', name: '', url: '' },
         stageRoute: [
           { key: 'RADAR',          label: 'Radar' },
@@ -1983,7 +1945,7 @@
         get kpiTotalSDE() { return this.kpiVisible.reduce((s, d) => s + (d.reported_sde || 0), 0); },
         get kpiAltaCount() { return this.kpiVisible.filter(d => d.priority === 'ALTA').length; },
         get kpiAvgScore() {
-          const scored = this.kpiVisible.filter(d => d.screening);
+          const scored = this.kpiVisible.filter(d => d.screening?.score!=null);
           if (!scored.length) return 0;
           return Math.round(scored.reduce((s, d) => s + d.screening?.score, 0) / scored.length);
         },
@@ -2406,9 +2368,9 @@
         },
 
         async requestDeepAnalysis() {
-          const d=this.selectedDeal;if(!d)return;
-          this.toast('Generando análisis preliminar…');
-          try {const r=await fetch(this.WORKER_URL+'/analyze-deal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dealId:d.id})});const result=await r.json();if(!r.ok)throw new Error(result.error||r.status);d.screening=result.screening;d.preliminary_analysis=result.analysis;this.toast('✓ Análisis preliminar guardado; abrir Resumen para ver resultados');}catch(e){this.toast('No se guardó el análisis: '+e.message);}
+          const d=this.selectedDeal;if(!d||this.analyzingOpportunity)return;this.analyzingOpportunity=true;
+          this.toast('Investigando anuncio y potencial digital…');
+          try {const r=await fetch(this.WORKER_URL+'/analyze-deal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dealId:d.id})});const result=await r.json();if(!r.ok)throw new Error(result.error||r.status);d.screening=result.screening;d.preliminary_analysis=result.analysis;d.digital_analysis=result.digital_analysis;this.recordTab='resumen';this.toast('✓ Análisis preliminar guardado; abrir Resumen para ver resultados');}catch(e){this.toast('No se guardó el análisis: '+e.message);}finally{this.analyzingOpportunity=false;}
         },
 
         resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 0, manualOnly: false }; },

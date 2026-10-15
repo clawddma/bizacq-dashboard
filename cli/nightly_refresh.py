@@ -185,6 +185,14 @@ def main():
         out=dict(bogota_day=day,run=run,ack=ack,total_verified=len(persisted['deals']))
         (RUNTIME/'last_result.json').write_text(json.dumps(out,ensure_ascii=False,indent=2))
         if run['status']=='success':receipt.write_text(json.dumps(out,ensure_ascii=False,indent=2))
+        if run['status']=='success' and not opt.empire_only:
+            import subprocess
+            try:
+                result=subprocess.run([sys.executable,str(ROOT/'cli/portal_refresh.py'),'--apply'],timeout=600,capture_output=True,text=True)
+                print(result.stdout.strip() if result.returncode==0 else 'portal_refresh: comprobar registro de intento; se conservó la actualización oficial')
+            except subprocess.TimeoutExpired:
+                (RUNTIME/'portal_error.json').write_text(json.dumps({'status':'timeout','checked_at':datetime.now(timezone.utc).isoformat()}))
+                print('portal_refresh: tiempo agotado; actualización oficial conservada')
         print(json.dumps({'status':run['status'],'added':ack.get('added'),'updated':ack.get('updated'),'total_verified':len(persisted['deals']),'run_id':run['id']},ensure_ascii=False))
         return 0 if run['status']=='success' else 1
 if __name__=='__main__':sys.exit(main())

@@ -143,3 +143,41 @@ Pruebas: `node tests/source_sync.test.mjs`, `node tests/screening.test.mjs`,
 El último usa lecturas reales y escrituras interceptadas. La prueba en Sites usa
 exclusivamente `bizacq-isolated-qa`, marcada explícitamente como ficha técnica.
 `/qa-fixture` exige token y solo puede eliminar esa ficha cuando `is_test_record` es true.
+
+## Afinidad preliminar y auditoría digital · revisión de octubre 15
+
+`screen-v2` sustituye screen-v1 para la fase de prospección. El porcentaje de
+cobertura de diligencia se retira. El score de afinidad se calcula sobre información
+pública disponible: precio/ganancias (40), margen publicado (15), años de operación
+(10), recurrencia declarada (10), delegación (10), encaje sectorial con IA/procesos
+(10; hipótesis explícita) y financiación del vendedor anunciada (5). Pesos de
+criterios desconocidos se excluyen del denominador. Se requiere precio y ganancia;
+con menos de tres señales el score no supera 69. No se presume financiación SBA,
+no se infiere SDE desde ingresos y no se fabrican retornos. Es una heurística
+revisable de prospección, distinta del ranking completo documentado en los agentes.
+
+Un anuncio antiguo publicado y observado puede ser elegible con alerta. URLs de
+categoría, identidad sin coincidencia, bloqueos y páginas no disponibles conservan
+su resultado de revalidación; no se interpretan como negocios vendidos ni provocan
+movimientos de pipeline. `/portal-sync` con token solo actualiza evidencia/cifras
+públicas y derivados. Notas, decisiones y órdenes quedan fuera de su contrato.
+
+`cli/revalidate_portals.py` realiza la revisión acotada de las fichas pendientes:
+seis conexiones máximas, una por dominio, pausa de dos segundos y sin reintentos
+en 403/429. Los bloques se registran por fuente. HTML de evidencia y resultados
+viven en `.nightly/revalidation/` (ignorado). Coincidencia de encabezado, no un 200
+solo, identifica la ficha. Las páginas relacionadas no prueban la identidad.
+`cli/portal_refresh.py` incorpora catálogos públicos accesibles y rota comprobaciones
+nocturnas; cobertura parcial explícita. BizBuySell y BizQuest devuelven 403 a la
+lectura local actual: observaciones realizadas por el conector web no equivalen a
+sincronización nocturna completa. No se emplean proxies ni se sortean CAPTCHAs.
+
+«Analizar oportunidad» ejecuta `auditDigitalOpportunity`: lee el anuncio, busca
+candidatos de identidad y audita la web cuando hay URL atribuida al negocio. Una
+coincidencia de búsqueda no confirma identidad y no se audita como si lo hiciera.
+Detecta señales HTML de SEO básico, configuración móvil, reservas/cotización,
+formularios, reseñas y redes. No prueba ranking SEO, funcionamiento de reservas,
+tráfico ni reputación. Guarda observaciones y fuentes, hipótesis de ingresos,
+automatización y control, línea base y piloto por palanca. Si la identidad es
+confidencial o la fuente bloquea la lectura, registra la limitación. Elimina el
+pedido de copiar instrucciones a Claude. No usa API paga ni LLM nocturno.

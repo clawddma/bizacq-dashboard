@@ -154,41 +154,85 @@ function sanitizeAddPayload(p) {
   return { clean };
 }
 
-// Deterministic preliminary screen. Unknown evidence earns no points; coverage is separate.
+// Preliminary acquisition affinity uses public listing information only.
+// Deep-dive evidence (tax/bank reconciliations, contracts, legal opinion) is separate.
 export function screenDeal(d, now=new Date().toISOString()) {
-  const days=v=>v && Number.isFinite(Date.parse(v)) ? Math.max(0,Math.floor((Date.parse(now)-Date.parse(v))/86400000)):null;
-  const e=d.listing_evidence||{},m=d.operating_metrics||{},flags=[],unknowns=[];
-  const age=e.publication_source==='portal'?days(e.published_at):null,checked=days(e.checked_at);
+  const ageDays=v=>v&&Number.isFinite(Date.parse(v))?Math.max(0,Math.floor((Date.parse(now)-Date.parse(v))/86400000)):null;
+  const e=d.listing_evidence||{},m=d.operating_metrics||{},facts=d.public_facts||{};
+  const checked=ageDays(e.checked_at),age=e.publication_source==='portal'?ageDays(e.published_at):null;
   const direct=d.source_url_kind==='listing'&&e.status==='published'&&checked!==null&&checked<=7;
-  if(d.source_url_kind!=='listing')flags.push('No hay enlace a una oferta individual identificada');
-  if(!direct)flags.push('Disponibilidad pendiente de comprobación directa reciente');
-  if(age!==null&&age>365)flags.push('Más de un año publicada: confirmar disponibilidad, precio y motivo de permanencia');
-  else if(age!==null&&age>180)flags.push('Más de seis meses publicada: revisar cambios de precio y motivo de venta');
-  if(/flowers bread route/i.test(d.title||'')&&/cleaning/i.test(JSON.stringify(d.financial||{})))flags.push('Análisis histórico inconsistente con la actividad del negocio');
-  const parts=[];
-  const add=(name,weight,points,known,evidence)=>{parts.push({name,weight,points:Math.round(Math.max(0,Math.min(weight,points))*10)/10,coverage:known,evidence});if(known<weight)unknowns.push(name);};
-  add('Identidad y vigencia',15,direct?(age!==null&&age>365?8:age!==null&&age>180?11:15):0,direct?15:0,direct?'Oferta individual marcada disponible por el portal; no equivale a confirmación del vendedor':'Falta comprobar una oferta individual disponible');
-  const basis=d.reported_net_profit>0?'Beneficio neto anual publicado':d.reported_sde>0?'SDE histórico sin conciliación':d.reported_cash_flow>0?'Flujo publicado; definición pendiente':null;
-  const earnings=d.reported_net_profit>0?d.reported_net_profit:d.reported_sde>0?d.reported_sde:d.reported_cash_flow>0?d.reported_cash_flow:null;
-  const multiple=d.asking_price>0&&earnings>0?d.asking_price/earnings:null;
-  // Value is indicative only: no debt/capex/working-capital deductions are known yet.
-  add('Valoración indicativa',20,multiple===null?0:multiple<=2?20:multiple<=3?16:multiple<=4?11:multiple<=5?6:2,multiple===null?0:20,multiple===null?'Faltan precio o utilidades anuales':multiple.toFixed(2)+'× · '+basis+'; conciliar ajustes, deuda, inventario y caja');
-  const operatingAge=days(m.first_made_money_at),trend=typeof m.net_profit_trend_percent==='number'?m.net_profit_trend_percent:null;
-  add('Calidad y trayectoria financiera',15,(operatingAge===null?0:operatingAge>=1095?5:operatingAge>=365?3:1)+(trend===null?0:trend>=0?5:trend>=-10?2:0), (operatingAge===null?0:5)+(trend===null?0:5), 'Antigüedad operativa '+(operatingAge===null?'no informada':Math.floor(operatingAge/365)+' años')+'; tendencia del beneficio '+(trend===null?'no informada':trend+'% en '+(m.net_profit_trend_percent_months||'?')+' meses')+'; faltan estados y conciliación bancaria/fiscal');
-  add('Recurrencia y retención',15,m.mrr>0?5:0,m.mrr>0?5:0,m.mrr>0?'MRR publicado: '+m.mrr+'; faltan cohortes, churn y contratos':'Faltan contratos recurrentes, retención, cohortes y churn');
-  add('Concentración y canales',10,0,0,'Faltan porcentajes por cliente, proveedor, plataforma y canal de adquisición');
+  const text=String(facts.description||d.raw_description||'').toLowerCase(),parts=[],flags=[],questions=[];
+  if(!direct)flags.push('Disponibilidad no comprobada recientemente; revisar el intento de revalidación.');
+  if(d.source_url_kind!=='listing')flags.push('El enlace de categoría no identifica una oportunidad concreta.');
+  if(age!==null&&age>365)flags.push('Anuncio de más de un año, aún publicado según el portal; confirmar condiciones con el vendedor.');
+  const inconsistent=/flowers bread route/i.test(d.title||'')&&/cleaning/i.test(JSON.stringify(d.financial||{}));
+  if(d.revalidation?.status==='non_operating_asset')flags.push('Ficha de inmueble: falta identificar una empresa operativa incluida en la venta.');
+  if(inconsistent)flags.push('Análisis histórico de otra actividad: no se utiliza para el score.');
+  const use=(k)=>facts[k]??(d.source==='empire_flippers'?d[k]:null);
+  const price=use('asking_price'),earnings=use('reported_sde')||use('reported_net_profit')||use('reported_cash_flow'),revenue=use('reported_revenue');
+  const basis=use('reported_sde')?'SDE publicado':use('reported_net_profit')?'beneficio neto publicado':use('reported_cash_flow')?'flujo del broker (definición por confirmar)':null;
+  const multiple=price>0&&earnings>0?price/earnings:null;
+  const add=(name,weight,value,evidence,kind='publicado')=>parts.push({name,weight,value,points:value===null?null:Math.round(value*weight)/100,known:value!==null,evidence,kind});
+  add('Precio frente a ganancias',40,multiple===null?null:multiple<=2?95:multiple<=3?85:multiple<=3.5?72:multiple<=4.5?55:multiple<=6?30:10,multiple===null?'Falta precio o ganancia anual publicada.':multiple.toFixed(2)+'× '+basis+'; sin deuda ni ajustes de diligencia.');
+  const margin=earnings>0&&revenue>0?earnings/revenue:null;
+  if(margin!==null&&margin>0.8)flags.push('Margen publicado excepcional: verificar definición, cifras y ajustes antes de contactar.');
+  add('Margen publicado',15,margin===null?null:margin>1?0:margin>=.3?90:margin>=.2?80:margin>=.1?60:35,margin===null?'El anuncio no publica ambas cifras.':(margin*100).toFixed(1)+'% sobre ingresos; base '+basis+'.');
+  const years=facts.years_operation??(m.first_made_money_at?ageDays(m.first_made_money_at)/365:null);
+  add('Trayectoria operativa',10,years===null?null:years>=5?90:years>=3?75:years>=2?60:35,years===null?'Años de operación no publicados.':Math.floor(years)+' años de operación declarados.');
+  const recurrence=/(?:recurring|subscription|monthly recurring|retainer|service contracts|repeat customers|membership)/.test(text)||m.mrr>0;
+  add('Recurrencia declarada',10,recurrence?85:null,recurrence?'El anuncio declara ingresos repetidos, suscripción o contratos; se validarán en el deep dive.':'Recurrencia no descrita; no se interpreta como ausencia.');
   const hours=typeof m.hours_worked_per_week==='number'?m.hours_worked_per_week:null;
-  add('Dependencia del dueño y transferencia',10,hours===null?0:hours<=10?5:hours<=25?3:1,hours===null?0:5,hours===null?'Faltan horas del dueño, equipo, procesos y transferibilidad':'Dueño: '+hours+' h/semana publicadas; falta validar sustitución, equipo y transferencia de activos');
-  add('Automatización y crecimiento',10,0,0,'Hipótesis por validar: tareas, horas, costo de implementación, adopción y demanda; no se presume aumento de ventas');
-  add('Viabilidad de la transacción',5,0,0,'Faltan deuda, capex, capital de trabajo, permisos, estructura y condiciones de compra');
-  let disposition=(!direct||(age!==null&&age>365))?'revalidate':'eligible';
-  if(flags.some(x=>x.startsWith('Análisis histórico')))disposition='revalidate';
-  const score=Math.round(parts.reduce((a,p)=>a+p.points,0)),coverage=parts.reduce((a,p)=>a+p.coverage,0);
-  return {version:'screen-v1',calculated_at:now,score,coverage,confidence:coverage>=75?'alta':coverage>=40?'media':'baja',disposition,listing_age_days:age,checked_age_days:checked,earnings_basis:basis,multiple:multiple===null?null:Math.round(multiple*100)/100,components:parts,flags,unknowns,questions:['Conciliar 24–36 meses de P&G, declaraciones fiscales y movimientos bancarios; justificar add-backs del SDE.','¿Qué clientes, proveedores y plataformas concentran ventas y margen? Solicitar porcentajes y contratos.','¿Cuánto capital de trabajo, inventario, capex y deuda exige la operación al cierre?','¿Qué tareas realiza el dueño y qué activos, permisos, contratos e IP son transferibles?','Medir tareas automatizables, costo de implantación y ahorro neto; validar crecimiento con demanda y capacidad.','Confirmar disponibilidad con el broker, motivo de venta y evolución del precio.']};
+  const absentee=/(?:semi.absentee|absentee.owner|management (?:team|in place)|manager (?:in place|run)|owner works|3pl|documented (?:process|procedure)|virtual employee)/.test(text);
+  add('Delegación y transferencia',10,hours!==null?(hours<=10?90:hours<=25?70:40):absentee?80:null,hours!==null?'Dueño: '+hours+' h/semana declaradas.':absentee?'Operación delegada o procesos documentados según el anuncio.':'Dedicación del dueño y equipo no descritos.');
+  const industry=String(d.business_type||'').toLowerCase();
+  const digital=/(saas|e.commerce|digital|agency|accounting|insurance)/.test(industry),service=/(hvac|plumbing|cleaning|landscap|restaurant|salon|med spa|home services|construction|repair|health)/.test(industry);
+  add('Afinidad con IA y procesos',10,digital?85:service?75:null,digital?'Hipótesis sectorial: adquisición digital, soporte, reporting y operaciones. No es auditoría del negocio.':service?'Hipótesis sectorial: agenda, cotización, seguimiento y coordinación operativa. No es ahorro demostrado.':'Actividad insuficientemente clasificada para proponer un encaje.', 'hipótesis sectorial');
+  const sellerFinance=facts.seller_financing===true||/(?:seller financ|owner financ|seller carry)/.test(text);
+  add('Facilidad de estructuración',5,sellerFinance?85:null,sellerFinance?'Financiación del vendedor anunciada; términos y elegibilidad pendientes.':'Términos de financiación no publicados. No se presume elegibilidad SBA.');
+  const known=parts.filter(p=>p.known),weight=known.reduce((s,p)=>s+p.weight,0);
+  // A score requires public price and earnings. Never turn one optional signal into a 100.
+  let score=multiple===null?null:Math.round(known.reduce((s,p)=>s+p.points,0)/weight*100);
+  if(score!==null&&known.length<3)score=Math.min(score,69);
+  const evidenceLevel=known.length>=5?'amplia':known.length>=3?'intermedia':'limitada';
+  questions.push('Confirmar disponibilidad, motivo de venta y condiciones vigentes.','Solicitar el detalle que respalda la ganancia publicada y sus ajustes.','Validar concentración de clientes/canales, recurrencia y horas reales del dueño.','Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.','Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos.');
+  return {version:'screen-v2',calculated_at:now,score,signals_available:known.length,signals_total:parts.length,evidence_level:evidenceLevel,confidence:evidenceLevel,coverage:null,disposition:direct&&!inconsistent&&d.revalidation?.status!=='non_operating_asset'?'eligible':'revalidate',listing_age_days:age,checked_age_days:checked,earnings_basis:basis,multiple:multiple===null?null:Math.round(multiple*100)/100,components:parts,flags,unknowns:parts.filter(p=>!p.known).map(p=>p.name),questions,explanation:'Afinidad preliminar sobre criterios públicos disponibles; pesos normalizados. No mide avance de diligencia ni probabilidad de éxito. Con menos de tres señales se limita a 69. Sin precio y ganancias no se calcula.'};
 }
+
+export async function auditDigitalOpportunity(d, fetcher=fetch) {
+  const now=new Date().toISOString(),observations=[],sources=[],limits=[],candidates=[];
+  const safe=value=>{try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&/^[a-z0-9-]+(?:\.[a-z0-9-]+)+$/i.test(u.hostname)&&!/(?:localhost|\.local|\.internal)$/i.test(u.hostname)&&!/^\d+(?:\.\d+)+$/.test(u.hostname)?u.href:null;}catch{return null;}};
+  const read=async url=>{const r=await fetcher(url,{redirect:'manual',signal:AbortSignal.timeout(8000),headers:{Accept:'text/html,application/xml'}});if(!r.ok)throw new Error('HTTP '+r.status);const reader=r.body.getReader();let size=0,out='';const dec=new TextDecoder();try{while(size<250000){const {done,value}=await reader.read();if(done)break;size+=value.length;out+=dec.decode(value,{stream:true});}}finally{await reader.cancel();}return out;};
+  let website=safe(d.website_url||d.digital_presence?.website||d.public_facts?.website_url||''),listing='';
+  if(safe(d.source_url))try {listing=await read(d.source_url);sources.push({url:d.source_url,kind:'anuncio',checked_at:now});
+    if(!website){const match=listing.match(/(?:business website|company website|website url)[\s\S]{0,100}?(https:\/\/[^\s"<>]+)/i);if(match)website=safe(match[1]);}
+  }catch(e){limits.push('No se pudo leer el anuncio desde el motor: '+e.message);}
+  if(!website){
+    // Search results are candidates, never proof that a marketplace's confidential business owns that domain.
+    const query=String(d.title||'').replace(/\$[\d.,]+[MK]?|per month/gi,'').slice(0,110)+' '+String(d.city||'')+' official business website';
+    const keywords=(String(d.title||'')+' '+String(d.raw_description||'').slice(0,250)).toLowerCase().match(/[a-z]{5,}/g)||[];
+    try {const searchUrl='https://www.bing.com/search?format=rss&q='+encodeURIComponent(query);const xml=await read(searchUrl);sources.push({url:searchUrl,kind:'búsqueda de identidad',checked_at:now});
+      for(const item of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)){const link=item[1].match(/<link>(.*?)<\/link>/)?.[1],title=item[1].match(/<title>(.*?)<\/title>/)?.[1];if(safe(link)&&!/(bizbuysell|bizquest|empireflippers|dealledger|bing.com|facebook.com|linkedin.com|wikipedia.org|moneywiki)/i.test(link)&&new Set(keywords.filter(k=>String(title||'').toLowerCase().includes(k))).size>=2)candidates.push({title:String(title||'').replace(/<[^>]+>/g,'').slice(0,180),url:link});if(candidates.length>=3)break;}
+    }catch(e){limits.push('Búsqueda de identidad no disponible: '+e.message);}
+    limits.push('Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial.');
+  }
+  let audited=false;
+  if(website)try {const body=await read(website);audited=true;sources.push({url:website,kind:'web del negocio',checked_at:now});
+    const checks=[['Título de página',/<title>[^<]+<\/title>/i.test(body)],['Descripción para buscadores',/<meta[^>]+name=["']description["']/i.test(body)],['Configuración móvil',/<meta[^>]+name=["']viewport["']/i.test(body)],['Señal de reserva o cotización',/(book (?:now|online)|schedule|appointment|request (?:a )?quote|calendly|reserva|cotiza)/i.test(body)],['Formulario de contacto',/<form\b/i.test(body)],['Enlaces a redes sociales',/(instagram.com|facebook.com|linkedin.com)/i.test(body)],['Señal de reseñas',/(aggregateRating|reviewCount|testimonials|customer reviews)/i.test(body)]];
+    for(const [name,found]of checks)observations.push({name,status:found?'detectada':'no detectada en la página leída',evidence_url:website});
+    limits.push('Lectura de la página pública: no mide tráfico, conversiones, posición SEO, calidad de reseñas, velocidad ni funcionamiento de reservas.');
+  }catch(e){limits.push('No se pudo auditar la web identificada: '+e.message);}
+  const kind=String(d.business_type||'').toLowerCase(),online=/saas|digital|e.commerce|agency/.test(kind);
+  const publicText=String(d.public_facts?.description||d.raw_description||'').toLowerCase();
+  const recurring=/(subscription|subscribers|recurring|membership)/.test(publicText),outsourced=/(3pl|fulfillment|amazon fba)/.test(publicText);
+  if(recurring)observations.push({name:'Recurrencia',status:'El anuncio menciona suscripciones o compras repetidas; falta medir retención y churn.',evidence_url:d.source_url});
+  if(outsourced)observations.push({name:'Logística',status:'El anuncio describe logística externalizada; validar inventario, tarifas, stock y dependencia de plataforma.',evidence_url:d.source_url});
+  const opportunities=[{area:'Ingresos',proposal:recurring?'Agente de retención de suscriptores: detectar riesgo de baja, recuperar pagos fallidos y probar reactivación o venta cruzada con consentimiento.':online?'Agente de seguimiento de leads, recuperación de carritos o reactivación de clientes, según el canal real.':'Agente de respuesta y agenda que dé seguimiento a llamadas, consultas y cotizaciones pendientes.',baseline:'Leads/mes, tasa de contacto, conversión y margen por venta.',pilot:'Comparar conversión y margen incremental frente a una línea base durante 30 días.'},{area:'Costos y gastos',proposal:outsourced?'Agente de inventario y conciliación entre tienda, 3PL y FBA: alertar quiebres, exceso de stock, devoluciones y diferencias; aprobar compras manualmente.':online?'Automatizar clasificación de soporte, reportes y conciliación operativa con revisión humana.':'Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.',baseline:'Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.',pilot:'Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.'},{area:'Capacidad y control',proposal:'Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.',baseline:'Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.',pilot:'Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.'}].map(o=>({...o,status:'hipótesis de mejora; requiere validación con la empresa'}));
+  return {version:'digital-v1',performed_at:now,status:audited?'web_observed':'identity_pending',website,website_candidates:candidates,observations,opportunities,sources,limitations:limits,financial_method:{incremental_profit:'Ventas adicionales × margen de contribución − costo comercial y herramientas.',net_savings:'Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.',valuation:'Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base.'}};
+}
+
 export function scoreAllDeals(data,now=new Date().toISOString()) {
   for(const d of data.deals)d.screening=screenDeal(d,now);
-  data.screening_model={version:'screen-v1',updated_at:now,description:'Puntos respaldados sobre 100. Los datos faltantes no suman. Modelo preliminar, no predictor calibrado ni recomendación de compra.'};
+  data.screening_model={version:'screen-v2',updated_at:now,description:'Afinidad preliminar con información publicada; sin exigir documentos de debida diligencia.'};
   return {total:data.deals.length,revalidate:data.deals.filter(d=>d.screening.disposition==='revalidate').length};
 }
 
@@ -297,6 +341,33 @@ a{color:#60a5fa}</style></head><body>
       }
     }
 
+    if(request.method==='POST'&&url.pathname==='/portal-sync') {
+      if(!env.SOURCE_SYNC_TOKEN||request.headers.get('Authorization')!==`Bearer ${env.SOURCE_SYNC_TOKEN}`)return json({error:'no autorizado'},401,cors);
+      try {const body=await request.json();if(!Array.isArray(body.records)||body.records.length>250) return json({error:'lote inválido'},400,cors);
+        const {data,sha}=await getDealsFile(env);let added=0,updated=0;const summary={};
+        for(const row of body.records){if(!row.source_url||!/^https:\/\//.test(row.source_url)||!row.checked_at)throw new Error('evidencia inválida');
+          let d=data.deals.find(d=>d.id===row.deal_id||d.source_url?.replace(/\/$/,'')===row.source_url.replace(/\/$/,''));
+          if(d&&d.source_url.replace(/\/$/,'')!==row.source_url.replace(/\/$/,''))throw new Error('identidad de origen distinta');
+          if(!d){if(row.status!=='published'||!row.title)continue;const hostname=new URL(row.source_url).hostname;d={id:uuid(),source:hostname.includes('bizbuysell')?'bizbuysell':hostname.includes('bizquest')?'bizquest':hostname.replace(/^www\./,''),source_url:row.source_url,source_url_kind:'listing',title:String(row.title).slice(0,500),business_type:String(row.business_type||'Sin categoría').slice(0,100),state:String(row.state||'').slice(0,2),city:String(row.city||'').slice(0,100),pipeline_status:'RADAR',pending_analysis:true,notes:[],events:[],documents:[],reported_sde:null};data.deals.push(d);added++;}
+          else updated++;
+          d.revalidation={status:row.status,http_status:row.http_status??null,checked_at:row.checked_at,method:String(row.method||'lectura pública directa').slice(0,100),reason:String(row.reason||'').slice(0,600),content_hash:row.content_hash||null};
+          summary[row.status]=(summary[row.status]||0)+1;
+          if(row.status==='published'){
+            if(row.title&&!d.added_manually&&['bizbuysell','bizquest'].includes(d.source))d.title=String(row.title).slice(0,500);
+            if(row.business_type&&row.business_type!=='Sin categoría'&&!d.added_manually)d.business_type=String(row.business_type).slice(0,100);
+            d.listing_evidence={source_url:d.source_url,checked_at:row.checked_at,status:'published',evidence:String(row.evidence||'Ficha individual observada en el portal o broker. Cifras declaradas, no auditadas.').slice(0,500),publication_source:d.listing_evidence?.publication_source||null,published_at:d.listing_evidence?.published_at||null,publication_evidence:d.listing_evidence?.publication_evidence||null};
+            const facts={...(d.public_facts||{}),observed_at:row.checked_at,source_url:d.source_url};
+            for(const k of ['asking_price','reported_sde','reported_net_profit','reported_cash_flow','reported_revenue','years_operation'])if(row.fields?.[k]!=null){if(!Number.isFinite(row.fields[k])||row.fields[k]<0)throw new Error('importe o años inválidos');facts[k]=row.fields[k];if(k!=='years_operation')d[k]=row.fields[k];}
+            if(row.fields?.seller_financing===true)facts.seller_financing=true;
+            if(row.description)facts.description=String(row.description).slice(0,3000);
+            d.public_facts=facts;
+          }else if(['withdrawn','not_found'].includes(row.status)){d.listing_evidence={...d.listing_evidence,source_url:d.source_url,checked_at:row.checked_at,status:row.status,evidence:row.status==='withdrawn'?'La ficha identifica el negocio como retirado o vendido.':'La URL no está disponible (404/410); no prueba venta.'};}
+        }
+        scoreAllDeals(data);data.portal_refresh={checked_at:body.checked_at||new Date().toISOString(),added,updated,summary,sources:body.sources||[],coverage:'partial'};
+        await putDealsFile(env,data,sha,'data: revalidación multifuente y ofertas públicas — '+added+' nuevas, '+updated+' comprobadas');return json({ok:true,added,updated,total:data.deals.length,summary},200,cors);
+      }catch(e){return json({error:String(e)},502,cors);}
+    }
+
     // Isolated live QA record. Cannot delete or replace a real opportunity.
     if(request.method==='POST'&&url.pathname==='/qa-fixture') {
       if(!env.SOURCE_SYNC_TOKEN||request.headers.get('Authorization')!==`Bearer ${env.SOURCE_SYNC_TOKEN}`)return json({error:'no autorizado'},401,cors);
@@ -358,6 +429,7 @@ a{color:#60a5fa}</style></head><body>
             id,
             source: 'manual',
             source_url: clean.listingUrl || clean.websiteUrl || '',
+            website_url: clean.websiteUrl || null,
             source_url_kind: 'listing',
             source_url_verified: false,
             added_manually: true,
@@ -470,8 +542,8 @@ a{color:#60a5fa}</style></head><body>
 
       if(url.pathname==='/analyze-deal') {
         try {const {data,sha}=await getDealsFile(env);const d=data.deals.find(d=>d.id===body.dealId);if(!d)return json({error:'deal no encontrado'},404,cors);
-          d.screening=screenDeal(d);d.preliminary_analysis={performed_at:new Date().toISOString(),model:'screen-v1',summary:`Score preliminar ${d.screening.score}/100. Cobertura ${d.screening.coverage}%. ${d.screening.disposition==='revalidate'?'Revalidar el anuncio antes de avanzar.':'Solicitar documentación para diligencia.'} No incluye auditoría ni verificación legal.`,questions:d.screening.questions};
-          await putDealsFile(env,data,sha,'data: análisis preliminar — '+d.id);return json({ok:true,screening:d.screening,analysis:d.preliminary_analysis},200,cors);
+          d.screening=screenDeal(d);d.digital_analysis=await auditDigitalOpportunity(d);d.preliminary_analysis={performed_at:new Date().toISOString(),model:'screen-v2',summary:`Afinidad preliminar ${d.screening.score===null?'sin calcular':d.screening.score+'/100'}. ${d.screening.signals_available}/${d.screening.signals_total} señales públicas disponibles. ${d.screening.disposition==='revalidate'?'Revalidar el anuncio antes de avanzar.':'Solicitar documentación para diligencia.'} No incluye auditoría ni verificación legal.`,questions:d.screening.questions};
+          await putDealsFile(env,data,sha,'data: análisis preliminar — '+d.id);return json({ok:true,screening:d.screening,analysis:d.preliminary_analysis,digital_analysis:d.digital_analysis},200,cors);
         }catch(e){return json({error:String(e)},502,cors);}
       }
 
