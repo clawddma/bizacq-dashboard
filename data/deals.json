@@ -49677,7 +49677,7 @@
       "business_type": "QA",
       "state": "",
       "city": "",
-      "pipeline_status": "RADAR",
+      "pipeline_status": "EN_ANALISIS",
       "notes": [
         {
           "author": "socio",
@@ -49689,6 +49689,10 @@
         {
           "created_at": "2026-10-15T19:06:10.961Z",
           "description": "Evaluación del equipo: pendiente, 4/5"
+        },
+        {
+          "created_at": "2026-10-15",
+          "description": "Movido RADAR → EN_ANALISIS (dashboard)"
         }
       ],
       "documents": [],
