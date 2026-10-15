@@ -6342,6 +6342,49 @@
           "text": "Precio USD 300,000; ingresos anuales USD 146,000; ganancia anual declarada USD 112,000. Marca local desde 2011; publicidad recurrente, boletín y comunidad. El vendedor ofrece financiación parcial. Riesgo: validar renovaciones, tráfico y trabajo del propietario; ganancias declaradas, no auditadas. Anuncio público observado; disponibilidad pendiente de confirmación del broker. Cifras del vendedor, no auditadas. Sin recomendación ni rentabilidad proyectada."
         }
       ]
+    },
+    {
+      "id": "10909ee0-284e-4c51-b1c2-cefd42614bba",
+      "source": "manual",
+      "source_url": "https://www.bizbuysell.com/business-opportunity/established-landscaping-business-for-sale-price-reduce-37/2500117/",
+      "source_url_kind": "listing",
+      "source_url_verified": false,
+      "added_manually": true,
+      "pending_analysis": true,
+      "title": "[Anuncio consultado 15/oct] Jardinería recurrente — Friendswood",
+      "state": "TX",
+      "city": "",
+      "business_type": "Landscaping",
+      "years_operation": null,
+      "asking_price": 325000,
+      "reported_revenue": null,
+      "reported_sde": null,
+      "seller_financing": false,
+      "sba_prequalified": false,
+      "curated_source": false,
+      "raw_description": "Precio USD 325,000; ingresos anuales USD 573,000; ganancia anual declarada USD 144,525. El anuncio atribuye 70% de ingresos al mantenimiento y publica cuatro empleados. Financiación del vendedor con entrada de USD 100.000 para comprador con experiencia. Riesgo: confirmar contratos, concentración y condiciones de financiación. Anuncio público observado; disponibilidad pendiente de confirmación del broker. Cifras del vendedor, no auditadas. Sin recomendación ni rentabilidad proyectada.",
+      "pipeline_status": "RADAR",
+      "filter_score": null,
+      "overall_score": null,
+      "priority": null,
+      "financial": null,
+      "strategy": null,
+      "legal_check": {
+        "done": false
+      },
+      "events": [
+        {
+          "created_at": "2026-10-15",
+          "description": "Agregado por Mesa · revisión puntual 15-oct vía dashboard (Cloudflare Worker) — PENDIENTE ANÁLISIS"
+        }
+      ],
+      "notes": [
+        {
+          "author": "Mesa · revisión puntual 15-oct",
+          "created_at": "2026-10-15",
+          "text": "Precio USD 325,000; ingresos anuales USD 573,000; ganancia anual declarada USD 144,525. El anuncio atribuye 70% de ingresos al mantenimiento y publica cuatro empleados. Financiación del vendedor con entrada de USD 100.000 para comprador con experiencia. Riesgo: confirmar contratos, concentración y condiciones de financiación. Anuncio público observado; disponibilidad pendiente de confirmación del broker. Cifras del vendedor, no auditadas. Sin recomendación ni rentabilidad proyectada."
+        }
+      ]
     }
   ],
   "manual_orders": {
@@ -6352,7 +6395,8 @@
       "34712d1a-da24-4651-823f-11fa85b1300d"
     ],
     "RADAR": [
-      "9faebd75-c131-4059-a9a9-967c6100684d"
+      "9faebd75-c131-4059-a9a9-967c6100684d",
+      "10909ee0-284e-4c51-b1c2-cefd42614bba"
     ]
   }
 }
