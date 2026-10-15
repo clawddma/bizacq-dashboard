@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>BizAcq Intelligence · Adquisiciones en Estados Unidos</title>
+<title>BizAcq Intelligence · Radar de adquisiciones en Estados Unidos</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
@@ -112,45 +112,13 @@
   .gauge-fill { display: block; height: 100%; border-radius: 3px; }
 
   @media (hover: none) { .draggable { -webkit-user-select: none; user-select: none; } }
-
-  .work-nav { overflow-x:auto; }
-  .work-nav .nav-brand { display:none; }
-  .workspace-toolbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-  .workspace-toolbar input,.workspace-toolbar select,.review-form input,.review-form select,.review-form textarea { font:inherit; font-size:16px; border:1px solid #cbd5e1; padding:10px 12px; border-radius:7px; background:white; max-width:100%; min-width:0; }
-  .workspace-toolbar input[type=search] { flex:1; min-width:180px; }
-  .discovery-table { width:100%; border-collapse:collapse; font-size:12px; }
-  .discovery-table th { text-align:left; color:#64748b; font-size:10px; letter-spacing:.04em; text-transform:uppercase; padding:12px; border-bottom:1px solid #e2e8f0; }
-  .discovery-table td { padding:14px 12px; vertical-align:top; border-bottom:1px solid #f1f5f9; }
-  .discovery-table tbody tr:hover { background:#f8fafc; }
-  .workspace-wrap { min-width:0; overflow-x:auto; }
-  .work-pill { border:1px solid #cbd5e1; border-radius:20px; padding:8px 14px; font-size:12px; background:white; }
-  .work-pill.active { background:#183e32; color:white; border-color:#183e32; }
-  .review-form label { display:block; font-size:12px; color:#475569; margin:14px 0 6px; }
-  .review-form textarea { width:100%; min-height:90px; }
-  .review-form select { width:100%; }
-  @media(min-width:1100px) {
-    body { padding-left:208px; }
-    .work-nav { position:fixed; left:0; top:0; bottom:0; width:208px; padding:26px 16px; z-index:40; display:flex; flex-direction:column; align-items:stretch; gap:8px; background:#102e25; color:#dce8e1; overflow-y:auto; }
-    .work-nav .nav-brand { display:block; font-size:21px; font-weight:700; margin-bottom:24px; padding:0 10px; }
-    .work-nav .tab-btn { text-align:left; border:0; padding:13px; border-radius:7px; color:#c9d8d0; white-space:normal; }
-    .work-nav .tab-btn.active { background:#24483b; color:white; }
-    .work-nav .nav-actions { margin: auto 0 0; display:flex; flex-direction:column; align-items:stretch; }
-    .work-nav .nav-actions button { white-space:normal; }
-  }
-  @media(max-width:767px) {
-    .discovery-table thead { display:none; }
-    .discovery-table,.discovery-table tbody,.discovery-table tr,.discovery-table td { display:block; }
-    .discovery-table tr { padding:10px 8px; border-bottom:1px solid #e2e8f0; }
-    .discovery-table td { border:0; padding:5px; }
-    .discovery-table td[data-label]::before { content:attr(data-label) ': '; color:#64748b; font-size:11px; }
-    .discovery-table .table-secondary { display:none; }
-    .work-nav { flex-wrap:wrap; padding:8px 16px; }
-    .work-nav .nav-actions { width:100%; margin-left:0; }
-    .tab-btn { font-size:12px; padding:10px; }
-    .workspace-toolbar { gap:8px; }
-    .workspace-toolbar select { flex:1; width:45%; }
-  }
-
+  .radar-chip {font-size:12px;padding:9px 12px;border:1px solid #cbd5e1;border-radius:6px;background:white;min-height:40px;}
+  .radar-chip.active {background:#1e293b;color:white;border-color:#1e293b;}
+  .radar-search {min-width:0;width:260px;max-width:100%;font-size:16px;padding:8px 10px;border:1px solid #cbd5e1;border-radius:6px;}
+  .review-form label {display:block;font-size:12px;color:#475569;margin:14px 0 6px;}
+  .review-form select,.review-form textarea {width:100%;font-size:16px;padding:10px;border:1px solid #cbd5e1;border-radius:6px;}
+  .review-form textarea {min-height:90px;}
+  @media(max-width:767px){header>div:last-child{flex-wrap:wrap;}header>div:last-child>.ml-auto{width:100%;margin-left:0;justify-content:flex-end;}header>div:first-child>div:last-child{flex-wrap:wrap;} .radar-search{width:100%;margin-left:0;} .radar-chip{min-height:44px;} input,select,textarea{font-size:16px!important;}}
 </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen" x-data="dashboard()" x-init="init()">
@@ -161,7 +129,7 @@
     <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between flex-wrap gap-3">
       <div>
         <h1 class="text-xl font-bold text-slate-900">BizAcq <span class="text-slate-400 font-normal">Intelligence</span></h1>
-        <p class="text-xs text-slate-500 mt-0.5">Adquisiciones en Estados Unidos · descubrir, comparar y construir una tesis de valor</p>
+        <p class="text-xs text-slate-500 mt-0.5">Estados Unidos · Radar de oportunidades y pipeline de adquisición</p>
       </div>
       <div class="flex items-center gap-3 text-xs text-slate-500">
         <span>Última actualización: <strong class="text-slate-700" x-text="lastUpdate"></strong></span>
@@ -169,14 +137,11 @@
         <span><strong class="text-slate-700" x-text="totalDeals"></strong> deals totales</span>
       </div>
     </div>
-    <nav class="work-nav max-w-screen-2xl mx-auto px-6 flex items-center gap-1" aria-label="Navegación principal"><p class="nav-brand">BizAcq <span class="block text-xs font-normal text-slate-400 mt-1">Acquire · Build · Hold / Exit</span></p>
-      <button class="tab-btn" :class="{active:view==='discover'}" @click="view='discover'">Descubrir</button>
-      <button class="tab-btn" :class="{active:view==='compare'}" @click="view='compare'">Comparar <span x-text="compareIds.length"></span>/4</button>
-      <button class="tab-btn" :class="{active:view==='sources'}" @click="view='sources'">Fuentes y actualización</button>
+    <div class="max-w-screen-2xl mx-auto px-6 flex items-center gap-1">
       <button class="tab-btn" :class="{'active': view === 'pipeline'}" @click="view = 'pipeline'">Pipeline</button>
       <button class="tab-btn" :class="{'active': view === 'category'}" @click="view = 'category'">Por categoría</button>
       <button class="tab-btn" :class="{'active': view === 'glossary'}" @click="view = 'glossary'">Glosario</button>
-      <div class="nav-actions ml-auto flex items-center gap-2 my-2">
+      <div class="ml-auto flex items-center gap-2 my-2">
         <button @click="openTokenModal()"
           class="text-xs px-3 py-1.5 rounded flex items-center gap-1.5 transition font-semibold"
           :class="hasAutoSync() ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100' : (overrideCount > 0 ? 'bg-red-100 text-red-800 hover:bg-red-200 ring-2 ring-red-400 animate-pulse' : 'bg-amber-100 text-amber-800 hover:bg-amber-200')"
@@ -190,7 +155,7 @@
           Agregar negocio
         </button>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- Token Modal (GitHub auto-sync setup) -->
@@ -287,7 +252,7 @@
   </div>
 
   <!-- KPI summary bar (OET-style) -->
-  <div x-show="!['glossary','sources','compare'].includes(view)" x-cloak class="bg-slate-900 text-white">
+  <div x-show="view !== 'glossary'" x-cloak class="bg-slate-900 text-white">
     <div class="max-w-screen-2xl mx-auto px-6 py-2.5 grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
       <div>
         <p class="text-lg md:text-xl font-bold leading-none" x-text="kpiVisible.length"></p>
@@ -299,7 +264,7 @@
       </div>
       <div>
         <p class="text-lg md:text-xl font-bold leading-none text-emerald-400" x-text="fmtPrice(kpiTotalSDE)"></p>
-        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">SDE declarado · histórico</p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">SDE histórico declarado</p>
       </div>
       <div>
         <p class="text-lg md:text-xl font-bold leading-none text-red-400" x-text="kpiAltaCount"></p>
@@ -307,19 +272,20 @@
       </div>
       <div class="col-span-2 md:col-span-1">
         <p class="text-lg md:text-xl font-bold leading-none" :class="kpiAvgScore >= 80 ? 'text-emerald-400' : kpiAvgScore >= 60 ? 'text-amber-400' : 'text-slate-300'" x-text="kpiAvgScore || '—'"></p>
-        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">score histórico promedio</p>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wide mt-0.5">score histórico</p>
       </div>
     </div>
   </div>
 
-  <section x-show="!['glossary','sources','compare'].includes(view)" x-cloak class="max-w-screen-2xl mx-auto px-4 md:px-6 py-5">
-    <div class="flex items-start justify-between gap-3 flex-wrap mb-4"><div><p class="text-[10px] text-slate-500 uppercase tracking-widest">Mesa de adquisiciones · Estados Unidos</p><h2 class="text-2xl font-semibold mt-1" x-text="view==='discover'?'El próximo negocio comienza aquí':view==='pipeline'?'Del descubrimiento a la adquisición':'Explorar por industria'"></h2><p class="text-xs text-slate-500 mt-2">Evaluar el negocio actual, la mejora operativa posible y la evidencia que falta.</p></div><button @click="showFilters=!showFilters" class="work-pill" x-text="showFilters?'Ocultar filtros avanzados':'Todos los filtros · precio, SDE, estado y más'"></button></div>
-    <div class="workspace-toolbar"><input type="search" aria-label="Buscar negocios" x-model.debounce.200ms="query" placeholder="Buscar por empresa, actividad, ciudad o broker…"><select aria-label="Vigencia" x-model="freshness"><option value="all">Toda la vigencia</option><option value="recent">Comprobación directa ≤ 7 días</option><option value="unverified">Sin verificación reciente</option><option value="secondary">Fuente secundaria</option></select><select aria-label="Fuente" x-model="sourceFilter"><option value="all">Todas las fuentes</option><template x-for="source in [...new Set(deals.map(d=>d.source))].sort()" :key="source"><option :value="source" x-text="source"></option></template></select></div>
-    <div class="flex flex-wrap gap-2 mt-3"><template x-for="item in [{key:'all',label:'Todas'},{key:'pending',label:'Por evaluar'},{key:'shortlist',label:'Finalistas'},{key:'changed',label:'Cambios de cifras'},{key:'reviewed',label:'Evaluadas'}]" :key="item.key"><button class="work-pill" :class="{active:focus===item.key}" @click="focus=item.key" x-text="item.label"></button></template><span class="text-xs text-slate-500 self-center ml-auto" x-text="discoveryDeals.length+' resultados · '+deals.length+' en archivo'"></span></div>
-    <div class="flex flex-wrap gap-2 items-center mt-3 text-xs"><input x-model="savedSearchName" aria-label="Nombre de búsqueda" class="border rounded px-2 py-2 text-base" placeholder="Nombre de búsqueda"><button @click="saveSearch()" class="underline">Guardar filtros en este navegador</button><template x-for="item in savedSearches" :key="item.name"><span class="inline-flex gap-1 border rounded px-2 py-1"><button @click="loadSearch(item)" x-text="item.name"></button><button @click="removeSearch(item.name)" :aria-label="'Eliminar búsqueda '+item.name">×</button></span></template></div>
+  <section class="max-w-screen-2xl mx-auto px-4 md:px-6 py-4" x-show="view!=='glossary'" x-cloak>
+    <div class="flex flex-wrap items-center gap-2"><button @click="setQuickFilter('all')" class="radar-chip" :class="{active:quickFilter==='all'}">Todo el pipeline</button><button @click="setQuickFilter('new')" class="radar-chip" :class="{active:quickFilter==='new'}" x-text="'Nuevas sin revisar · '+radarNewCount"></button><button @click="setQuickFilter('shortlist')" class="radar-chip" :class="{active:quickFilter==='shortlist'}" x-text="'Finalistas · '+shortlistCount"></button><input type="search" x-model.debounce.200ms="searchText" aria-label="Buscar en el Radar" placeholder="Buscar negocio, industria o ciudad" class="radar-search ml-auto"><button @click="reloadDeals()" class="radar-chip" :disabled="loading" x-text="loading?'Actualizando…':'Actualizar Radar'"></button></div>
+    <p class="text-[11px] text-slate-500 mt-2">Las nuevas oportunidades ingresan a Radar. Revisar, calificar y decidir el siguiente paso desde cada tarjeta.</p>
+    <p x-show="loadError" role="alert" class="text-sm text-red-700 mt-2" x-text="loadError"></p>
+    <details class="mt-2 text-xs text-slate-500"><summary class="cursor-pointer">Actualización diaria · 00:00 Bogotá · ver cobertura y fuentes</summary><p class="mt-2" x-text="'Último corte: '+(listingDate(refresh.last_run?.finished_at)?.label||'No registrado')"></p><template x-for="health in refresh.last_run?.sources||[]" :key="health.source"><p class="mt-1" x-text="health.source+' · '+(health.status==='success'?'Consulta completada':health.status==='stale'?'Desactualizada; nuevas incorporaciones suspendidas':'Error de acceso')"></p></template><p class="mt-2">Empire Flippers: anuncios publicados en su API. DealLedger: referencia secundaria. Una consulta no confirma disponibilidad comercial. El proceso nocturno corre en el Mac.</p></details>
   </section>
+
   <!-- Filters bar -->
-  <div x-show="showFilters && !['glossary','sources','compare'].includes(view)" x-cloak class="bg-white border-b border-slate-200">
+  <div x-show="view !== 'glossary'" x-cloak class="bg-white border-b border-slate-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-3 flex items-center gap-4 flex-wrap">
       <div class="flex items-center gap-2 relative" @click.outside="stateMenuOpen = false">
         <span class="text-xs text-slate-500 font-medium">Estados:</span>
@@ -464,44 +430,11 @@
     </div>
   </div>
 
-
-  <main x-show="view==='discover'" x-cloak class="max-w-screen-2xl mx-auto px-4 md:px-6 pb-8">
-    <p x-show="loadError" role="alert" class="bg-red-50 text-red-700 p-4 rounded mb-3" x-text="loadError"></p>
-    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
-      <div class="flex justify-between items-center gap-3 px-4 py-3 border-b flex-wrap"><p class="text-sm font-semibold">Bandeja de oportunidades</p><div class="flex items-center gap-2 text-xs"><label>Orden <select aria-label="Orden de oportunidades" x-model="discoverySort" class="border rounded p-2"><option value="recent">Incorporación reciente</option><option value="price-asc">Precio menor</option><option value="price-desc">Precio mayor</option><option value="rating">Calificación del equipo</option></select></label><button @click="view='compare'" class="work-pill" :disabled="!compareIds.length" x-text="'Comparar ('+compareIds.length+'/4)'"></button></div></div>
-      <div class="workspace-wrap"><table class="discovery-table"><thead><tr><th>Comparar</th><th>Negocio / ubicación</th><th>Precio USD</th><th>Flujo anual declarado</th><th>Vigencia / fuente</th><th>Evaluación</th><th>Siguiente paso</th></tr></thead><tbody><template x-for="deal in pagedDeals" :key="deal.id"><tr>
-        <td><input type="checkbox" :checked="compareIds.includes(deal.id)" @change="toggleCompare(deal.id)" :aria-label="'Comparar '+deal.title"></td>
-        <td><button @click="openDeal(deal)" class="font-semibold text-left text-slate-900 hover:underline leading-snug" x-text="cleanTitle(deal.title)"></button><p class="text-[11px] text-slate-500 mt-1" x-text="[deal.business_type,deal.city,deal.state].filter(Boolean).join(' · ')"></p><p class="text-[10px] text-slate-400 mt-1" x-text="statusLabel(deal.pipeline_status)"></p></td>
-        <td data-label="Precio" class="font-semibold" x-text="deal.asking_price==null?'No informado':fmtPrice(deal.asking_price)"></td>
-        <td data-label="Flujo"><span x-text="deal.reported_sde!=null?fmtPrice(deal.reported_sde):deal.reported_cash_flow!=null?fmtPrice(deal.reported_cash_flow):deal.reported_net_profit!=null?fmtPrice(deal.reported_net_profit):'No informado'"></span><p class="text-[10px] text-slate-400" x-text="deal.reported_sde!=null?'SDE del anuncio':deal.reported_cash_flow!=null?'Flujo del broker · definición por validar':deal.reported_net_profit!=null?'Beneficio neto del portal · no es SDE':'Cifras sin validar'"></p></td>
-        <td><span class="text-[10px] rounded px-2 py-1 bg-slate-100" x-text="listingInfo(deal).status"></span><p class="text-[10px] text-slate-500 mt-2" x-text="deal.source==='dealledger'?'DealLedger → '+(deal.source_broker||'broker'):deal.source+' · '+listingInfo(deal).age"></p><p class="text-[10px] text-slate-400" x-show="deal.source_last_seen_at" x-text="'Última observación de la fuente: '+(listingDate(deal.source_last_seen_at)?.label||'No registrada')"></p></td>
-        <td data-label="Equipo"><span x-text="deal.review?.rating?deal.review.rating+'/5':'Por calificar'"></span><p class="text-[10px] text-slate-500" x-text="reviewLabel(deal.review?.decision)"></p></td>
-        <td class="table-secondary"><button @click="openReview(deal)" class="text-xs underline">Evaluar y definir acción</button><p class="text-[11px] text-slate-500 mt-1" x-text="deal.review?.next_action||'Confirmar información del anuncio'"></p></td>
-      </tr></template></tbody></table></div>
-      <div x-show="!discoveryDeals.length" class="p-10 text-center"><p class="font-semibold">Sin coincidencias con estos filtros</p><button @click="clearWorkspaceFilters()" class="underline text-sm mt-2">Limpiar filtros</button></div>
-      <div class="flex justify-between items-center p-4 text-xs"><button @click="page=Math.max(1,page-1)" :disabled="page<=1" class="work-pill">Anterior</button><span x-text="'Página '+page+' de '+Math.max(1,Math.ceil(discoveryDeals.length/pageSize))"></span><button @click="page++" :disabled="page*pageSize>=discoveryDeals.length" class="work-pill">Siguiente</button></div>
-    </div>
-    <p class="text-[11px] text-slate-500 mt-3">Los scores antiguos son antecedentes. La calificación del equipo y la vigencia son campos separados. Una oportunidad no equivale a una recomendación de compra.</p>
-  </main>
-  <main x-show="view==='compare'" x-cloak class="max-w-screen-2xl mx-auto p-4 md:p-6">
-    <div class="flex justify-between items-center mb-5"><div><h2 class="text-2xl font-semibold">Comparar para decidir qué investigar</h2><p class="text-xs text-slate-500 mt-2">Hasta cuatro negocios. Las diferencias de definición se conservan visibles.</p></div><button class="work-pill" @click="view='discover'">Elegir negocios</button></div>
-    <p x-show="!comparedDeals.length" class="bg-white p-8 rounded border text-sm">Seleccionar negocios en Descubrir para compararlos aquí.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4"><template x-for="deal in comparedDeals" :key="deal.id"><article class="bg-white border rounded-xl p-4 min-w-0"><button class="float-right text-slate-400" @click="toggleCompare(deal.id)" :aria-label="'Quitar '+deal.title">×</button><h3 class="font-semibold leading-snug pr-3" x-text="cleanTitle(deal.title)"></h3><p class="text-xs text-slate-500 mt-2" x-text="deal.business_type+' · '+(deal.state||'Ubicación pendiente')"></p><dl class="text-xs mt-5 space-y-4"><div><dt class="text-slate-400">Precio solicitado</dt><dd class="text-xl font-semibold mt-1" x-text="deal.asking_price==null?'No informado':fmtPrice(deal.asking_price)"></dd></div><div><dt class="text-slate-400">SDE declarado / año</dt><dd x-text="deal.reported_sde==null?'No informado':fmtPrice(deal.reported_sde)"></dd></div><div><dt class="text-slate-400">Flujo del broker / año · definición por validar</dt><dd x-text="deal.reported_cash_flow==null?'No informado':fmtPrice(deal.reported_cash_flow)"></dd></div><div><dt class="text-slate-400">Estado de comprobación</dt><dd x-text="listingInfo(deal).status+' · '+listingInfo(deal).age"></dd></div><div><dt class="text-slate-400">Calificación del equipo</dt><dd x-text="deal.review?.rating?deal.review.rating+'/5 · '+reviewLabel(deal.review.decision):'Pendiente'"></dd></div><div><dt class="text-slate-400">Hipótesis de automatización</dt><dd class="mt-1 whitespace-pre-wrap" x-text="deal.review?.automation_thesis||'Por documentar y contrastar con la operación real'"></dd></div><div><dt class="text-slate-400">Siguiente acción</dt><dd x-text="deal.review?.next_action||'Confirmar información'"></dd></div></dl><button @click="openReview(deal)" class="work-pill mt-5">Abrir evaluación</button></article></template></div>
-  </main>
-  <main x-show="view==='sources'" x-cloak class="max-w-screen-2xl mx-auto p-4 md:p-6">
-    <p class="text-[10px] uppercase tracking-widest text-slate-500">Cobertura y operación</p><h2 class="text-2xl font-semibold mt-1">Un corte diario, con evidencia</h2><p class="text-sm text-slate-500 mt-2">00:00 · Bogotá · proceso local sin llamadas a modelos. El Mac debe permanecer encendido y conectado.</p>
-    <p x-show="refresh.last_success_at && Date.now()-Date.parse(refresh.last_success_at)>36*3600000" class="bg-amber-50 text-amber-800 p-3 mt-4 rounded text-sm">El último corte exitoso supera 36 horas. Revisar la ejecución local; el inventario puede estar desactualizado.</p><div class="grid md:grid-cols-3 gap-4 mt-6"><div class="bg-white border rounded-xl p-5"><p class="text-xs text-slate-500">Último intento registrado</p><p class="font-semibold mt-2" x-text="refresh.last_run?listingDate(refresh.last_run.finished_at)?.label:'Sin ejecución registrada'"></p><p class="text-xs mt-2" x-text="refresh.last_run?.status==='success'?'Fuente consultada y lote publicado':refresh.last_run?.status==='error'?'La ejecución registró un error':'Pendiente de primera ejecución'"></p><p class="text-xs text-red-600 mt-2" x-text="refresh.last_run?.error||''"></p></div><div class="bg-white border rounded-xl p-5"><p class="text-xs text-slate-500">Último lote</p><p class="text-2xl font-semibold mt-2" x-text="(refresh.last_run?.added||0)+' nuevos'"></p><p class="text-xs text-slate-500 mt-2" x-text="(refresh.last_run?.updated||0)+' anuncios existentes actualizados'"></p></div><div class="bg-white border rounded-xl p-5"><p class="text-xs text-slate-500">Cobertura del corte</p><p class="font-semibold mt-2">Parcial y acotada</p><p class="text-xs text-slate-500 mt-2" x-text="(refresh.last_run?.feed_rows||0)+' filas en la fuente · máximo 150 nuevas por día y 250 registros por lote'"></p><p class="text-xs text-slate-500 mt-2" x-text="(refresh.last_run?.quarantined||0)+' filas excluidas por controles de calidad'"></p><p class="text-xs text-slate-500 mt-2">Revisión de fichas existentes en rotación; el resto del inventario sigue sin revalidar.</p></div></div>
-    <div class="bg-white border rounded-xl p-5 mt-5"><div class="flex justify-between flex-wrap gap-3"><div><h3 class="font-semibold">Explorar portales y capturar oportunidades</h3><p class="text-xs text-slate-500 mt-2">Consulta pública según cada portal. Algunas fichas completas requieren registro o NDA; no hay suscripciones pagas conectadas.</p></div><button @click="addModalOpen=true" class="work-pill">Agregar enlace al pipeline</button></div><div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 mt-4"><template x-for="portal in portals" :key="portal.name"><a :href="portal.url" target="_blank" rel="noopener noreferrer" class="border rounded-lg p-4 hover:bg-slate-50"><p class="font-semibold text-sm" x-text="portal.name+' ↗'"></p><p class="text-xs text-slate-500 mt-1" x-text="portal.scope"></p><p class="text-[10px] text-slate-400 mt-2" x-text="portal.mode"></p></a></template></div></div>
-    <div class="bg-white border rounded-xl p-5 mt-5 space-y-4 text-sm"><h3 class="font-semibold">Alcance de la actualización automática</h3><p class="text-xs text-slate-500">DealLedger: fuente secundaria, con enlace original al broker y controles de calidad. Una observación de un tercero no confirma disponibilidad.</p><p class="text-xs text-slate-500">Empire Flippers: API oficial gratuita, anuncios cuyo país principal es Estados Unidos. Publicación original desde first_listed_at; beneficio neto separado de SDE.</p><p class="text-xs text-slate-500">BizBuySell, BizQuest y demás portales: exploración pública y captura manual disponibles. Su inventario completo no está sincronizado automáticamente.</p></div>
-    <div class="bg-white border rounded-xl p-5 mt-5"><h3 class="font-semibold text-sm mb-3">Salud de cada fuente en el último corte</h3><template x-for="source in refresh.last_run?.sources||[]" :key="source.source"><div class="text-xs py-2 border-b"><strong x-text="source.source"></strong> · <span x-text="source.status==='success'?'Consulta completada':source.status==='stale'?'Fuente desactualizada · carga suspendida':'Error de acceso'"></span><span x-show="source.pages" x-text="' · página '+source.page+' de '+source.pages+' · '+(source.coverage==='complete'?'catálogo consultado completo':'cobertura parcial')"></span><p x-show="source.last_observed_at" class="text-slate-500 mt-1" x-text="'Última observación de la fuente: '+(listingDate(source.last_observed_at)?.label||'No registrada')"></p><p class="text-red-600 mt-1" x-text="source.error||''"></p></div></template></div>
-    <div class="bg-white border rounded-xl p-5 mt-5"><h3 class="font-semibold text-sm">Historial de ejecuciones</h3><template x-for="run in refresh.history||[]" :key="run.id"><div class="flex flex-wrap gap-3 text-xs py-3 border-b"><span x-text="listingDate(run.finished_at)?.label"></span><span x-text="run.status==='success'?'Publicado':'Error'"></span><span x-text="(run.added||0)+' nuevos / '+(run.updated||0)+' actualizados'"></span></div></template></div>
-  </main>
-
   <!-- VIEW: PIPELINE -->
   <main x-show="view === 'pipeline'" x-cloak class="max-w-screen-2xl mx-auto px-4 md:px-6 py-6">
-    <div class="flex gap-3 min-h-[calc(100vh-300px)] overflow-x-auto pb-2 scrollbar-thin snap-x">
+    <div class="flex lg:grid lg:grid-cols-6 gap-3 min-h-[calc(100vh-300px)] overflow-x-auto lg:overflow-visible pb-2 scrollbar-thin snap-x">
       <template x-for="col in columns" :key="col.key">
-        <div class="kcol bg-white rounded-lg border border-slate-200 flex flex-col shrink-0 w-[80vw] sm:w-[300px] lg:w-[300px] snap-start"
+        <div class="kcol bg-white rounded-lg border border-slate-200 flex flex-col shrink-0 w-[80vw] sm:w-[300px] lg:w-auto snap-start"
           :class="{'drag-over-empty': dragOverCol === col.key && dealsByStatus(col.key).length === 0}"
           @dragover.prevent="allowDropEmpty(col.key, $event)"
           @dragleave="if ($event.currentTarget === $event.target) dragOverCol = null"
@@ -557,18 +490,19 @@
                     <p x-text="'Antigüedad: ' + listingInfo(deal).age"></p>
                     <a x-show="listingInfo(deal).url" :href="listingInfo(deal).url" target="_blank" rel="noopener noreferrer" @click.stop class="underline" x-text="listingInfo(deal).link"></a>
                     <p x-show="!listingInfo(deal).url">Enlace original no informado</p>
-                    <p x-text="listingInfo(deal).caveat"></p>
+                    <p class="text-[10px]" x-text="deal.source==='dealledger'?'Referencia secundaria · por comprobar':'Disponibilidad comercial por confirmar'"></p>
                   </div>
+                <div class="flex gap-1 flex-wrap mb-2 text-[10px]"><span x-show="isUnreviewed(deal)" class="bg-blue-50 text-blue-700 rounded px-1.5 py-0.5">Nueva · por revisar</span><span x-show="deal.review?.rating" class="bg-slate-100 text-slate-600 rounded px-1.5 py-0.5" x-text="'Equipo: '+(deal.review?.rating||0)+'/5 · '+reviewLabel(deal.review?.decision)"></span></div><p x-show="isUnreviewed(deal)" class="text-[10px] text-slate-400 mb-2" x-text="entryLabel(deal)"></p>
                 <div class="flex items-baseline gap-3 mb-2">
                   <div>
                     <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
                     <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
                   </div>
-                  <div x-show="deal.reported_sde">
+                  <div x-show="deal.reported_sde || deal.reported_net_profit || deal.reported_cash_flow">
                     <p class="text-[10px] text-slate-400 uppercase tracking-wide">
-                      <span class="tt" data-tip="SDE (Seller's Discretionary Earnings): lo que el negocio genera al año limpio para el dueño.">SDE</span>
+                      <span class="tt" data-tip="Cifra publicada por la fuente; revisar su definición." x-text="deal.reported_sde?'SDE declarado':deal.reported_net_profit?'Beneficio neto':'Flujo del broker'"></span>
                     </p>
-                    <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde)"></p>
+                    <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde??deal.reported_net_profit??deal.reported_cash_flow)"></p>
                   </div>
                 </div>
                 <!-- Multiple vs industry indicator -->
@@ -655,18 +589,19 @@
                     <p x-text="'Antigüedad: ' + listingInfo(deal).age"></p>
                     <a x-show="listingInfo(deal).url" :href="listingInfo(deal).url" target="_blank" rel="noopener noreferrer" @click.stop class="underline" x-text="listingInfo(deal).link"></a>
                     <p x-show="!listingInfo(deal).url">Enlace original no informado</p>
-                    <p x-text="listingInfo(deal).caveat"></p>
+                    <p class="text-[10px]" x-text="deal.source==='dealledger'?'Referencia secundaria · por comprobar':'Disponibilidad comercial por confirmar'"></p>
                   </div>
+                <div class="flex gap-1 flex-wrap mb-2 text-[10px]"><span x-show="isUnreviewed(deal)" class="bg-blue-50 text-blue-700 rounded px-1.5 py-0.5">Nueva · por revisar</span><span x-show="deal.review?.rating" class="bg-slate-100 text-slate-600 rounded px-1.5 py-0.5" x-text="'Equipo: '+(deal.review?.rating||0)+'/5 · '+reviewLabel(deal.review?.decision)"></span></div><p x-show="isUnreviewed(deal)" class="text-[10px] text-slate-400 mb-2" x-text="entryLabel(deal)"></p>
                 <div class="flex items-baseline gap-3 mb-2">
                     <div>
                       <p class="text-[10px] text-slate-400 uppercase tracking-wide">Precio</p>
                       <p class="text-sm font-bold text-slate-900" x-text="fmtPrice(deal.asking_price)"></p>
                     </div>
-                    <div x-show="deal.reported_sde">
+                    <div x-show="deal.reported_sde || deal.reported_net_profit || deal.reported_cash_flow">
                       <p class="text-[10px] text-slate-400 uppercase tracking-wide">
-                        <span class="tt" data-tip="SDE: lo que el negocio genera al año limpio.">SDE</span>
+                        <span class="tt" data-tip="Cifra declarada por la fuente, no auditada." x-text="deal.reported_sde?'SDE declarado':deal.reported_net_profit?'Beneficio neto':'Flujo del broker'"></span>
                       </p>
-                      <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde)"></p>
+                      <p class="text-sm font-semibold text-emerald-700" x-text="fmtPrice(deal.reported_sde??deal.reported_net_profit??deal.reported_cash_flow)"></p>
                     </div>
                     <div x-show="deal.reported_sde" class="ml-auto text-right">
                       <p class="text-[10px] text-slate-400 uppercase tracking-wide">Múltiplo</p>
@@ -915,7 +850,7 @@
               </template>
             </div>
 
-              <section x-show="recordTab==='evaluacion'" class="review-form p-6">
+                <section x-show="recordTab==='evaluacion'" class="review-form p-6">
               <p class="text-xs text-slate-500">Evaluación humana compartida. La hipótesis de mejora debe validarse con datos operativos.</p>
               <label>Calificación del equipo</label><select x-model="reviewDraft.rating"><option value="0">Sin calificar</option><option value="1">1 · Bajo interés</option><option value="2">2 · Interés limitado</option><option value="3">3 · Investigar</option><option value="4">4 · Alto interés</option><option value="5">5 · Prioridad del equipo</option></select>
               <label>Decisión de evaluación</label><select x-model="reviewDraft.decision"><option value="pendiente">Por evaluar</option><option value="mirar">Investigar</option><option value="finalista">Finalista</option><option value="no_encaja">No encaja</option></select>
@@ -949,8 +884,6 @@
                     <a x-show="listingInfo(selectedDeal).url" :href="listingInfo(selectedDeal).url" target="_blank" rel="noopener noreferrer" @click.stop class="underline" x-text="listingInfo(selectedDeal).link"></a>
                     <p x-show="!listingInfo(selectedDeal).url">Enlace original no informado</p>
                     <p x-text="listingInfo(selectedDeal).caveat"></p>
-                    <p x-show="selectedDeal.source_last_seen_at" x-text="'Observado por la fuente secundaria: '+(listingDate(selectedDeal.source_last_seen_at)?.label||'No informado')"></p>
-                    <p x-show="selectedDeal.source_first_seen_at" x-text="'Primera observación de la fuente (no publicación): '+(listingDate(selectedDeal.source_first_seen_at)?.label||'No informada')"></p>
                   </div>
 
             <section class="grid grid-cols-3 gap-3">
@@ -1870,12 +1803,10 @@
     function dashboard() {
       const savedSort = JSON.parse(localStorage.getItem('bizacq_sort_v1') || '{}');
       const savedManual = JSON.parse(localStorage.getItem('bizacq_manual_v1') || '{}');
-      const savedView = localStorage.getItem('bizacq_view_v2') || 'discover';
+      const savedView = 'pipeline'; // Radar is the entry point on each visit.
 
       return {
-        deals: [], lastUpdate: '—', selectedDeal: null, toastMsg: null, refresh:{}, loadError:'',
-        portals:[{name:'BizBuySell',url:'https://www.bizbuysell.com/',scope:'Negocios operativos en EE. UU.',mode:'Exploración y captura manual'},{name:'BizQuest',url:'https://www.bizquest.com/',scope:'Negocios, franquicias y brokers',mode:'Exploración y captura manual'},{name:'BusinessesForSale',url:'https://us.businessesforsale.com/',scope:'Negocios en Estados Unidos',mode:'Exploración y captura manual'},{name:'Empire Flippers',url:'https://empireflippers.com/marketplace/',scope:'Negocios digitales y comercio electrónico',mode:'API oficial gratuita en piloto'},{name:'Flippa',url:'https://flippa.com/',scope:'Negocios digitales, apps y contenidos',mode:'Consulta pública; detalle según acceso'},{name:'Acquire',url:'https://acquire.com/',scope:'SaaS y negocios digitales',mode:'Acceso y detalle según cuenta'},{name:'BizScout',url:'https://www.bizscout.com/',scope:'Negocios y red de brokers',mode:'Acceso según cuenta; sin sync'},{name:'Sunbelt',url:'https://www.sunbeltnetwork.com/business-search/',scope:'Red de brokers de negocios',mode:'Exploración y captura manual'},{name:'Transworld',url:'https://www.tworld.com/buy-a-business/',scope:'Red de brokers y negocios en venta',mode:'Exploración y captura manual'}],
-        showFilters:false, query:'', freshness:'all', sourceFilter:'all', focus:'all', page:1, pageSize:25, discoverySort:'recent', compareIds:[], savedSearchName:'', savedSearches:JSON.parse(localStorage.getItem('bizacq_searches_v1')||'[]'), reviewDraft:{rating:0,decision:'pendiente',automation_thesis:'',next_action:''}, savingReview:false,
+        deals: [], lastUpdate: '—', selectedDeal: null, toastMsg: null, refresh:{}, serverOrders:{}, loadError:'', loading:false, quickFilter:'all', searchText:'', reviewDraft:{rating:0,decision:'pendiente',automation_thesis:'',next_action:''}, savingReview:false,
         draggingId: null, dragOverCol: null, openSortMenu: null,
         view: savedView, glossarySearch: '',
         catMenuOpen: false,
@@ -1951,7 +1882,8 @@
           { key: 'm4', label: '4x+',   min: 4, max: Infinity },
         ],
         sortOptions: [
-          { key: 'score-desc',  label: 'Score (alto → bajo)' },
+          { key: 'new-first', label: 'Nuevas sin revisar primero' },
+          { key: 'score-desc',  label: 'Score histórico (alto → bajo)' },
           { key: 'score-asc',   label: 'Score (bajo → alto)' },
           { key: 'price-desc',  label: 'Precio (alto → bajo)' },
           { key: 'price-asc',   label: 'Precio (bajo → alto)' },
@@ -1963,11 +1895,12 @@
 
         async init() {
           try {
-            const res = await fetch('data/deals.json?_=' + Date.now());
-            if (!res.ok) throw new Error('No se pudo cargar el inventario: HTTP '+res.status);
+            const res = await fetch(this.WORKER_URL+'/deals?_='+Date.now(),{cache:'no-store'});
+            if(!res.ok)throw new Error('HTTP '+res.status);
             const data = await res.json();
-            if (!Array.isArray(data.deals)) throw new Error('Inventario inválido');
+            if(!Array.isArray(data.deals))throw new Error('Inventario inválido');
             this.refresh=data.refresh||{};
+            this.serverOrders=data.manual_orders||{};
             this.deals = data.deals || [];
             this.lastUpdate = data.last_update || '—';
             const serverOrders = data.manual_orders || {};
@@ -1976,16 +1909,16 @@
             for (const [col, ids] of Object.entries(serverOrders)) {
               if (!this.manualOrder[col] || this.manualOrder[col].length === 0) {
                 this.manualOrder[col] = ids;
-                if (!this.sortByCol[col]) this.sortByCol[col] = 'manual';
+                if (!this.sortByCol[col]) this.sortByCol[col] = col==='RADAR'?'new-first':'manual';
               }
             }
             this.applyOverrides();
           } catch (e) {
             console.error('Error loading deals.json', e);
-            this.loadError='No se pudo cargar el inventario. Recargar para reintentar; no se han modificado datos.';
+            this.loadError='No se pudo cargar el inventario compartido. Reintentar con Actualizar Radar.';
           }
-          for (const key of ['query','freshness','sourceFilter','focus','filters','discoverySort']) this.$watch(key,()=>{this.page=1;});
-          this.$watch('view', v => localStorage.setItem('bizacq_view_v2', v));
+          this.$watch('view', v => localStorage.setItem('bizacq_view_v1', v));
+          this._radarTimer=setInterval(()=>{if(!document.hidden)this.reloadDeals(true);},60000);
           this.checkWorker(); // detecta si el Cloudflare Worker está vivo
           // Deep link: if URL has #deal=ID, auto-open that deal
           this.$nextTick(() => {
@@ -2045,36 +1978,23 @@
           return Math.round(scored.reduce((s, d) => s + d.overall_score, 0) / scored.length);
         },
 
-        cleanTitle(title) { return String(title||'').replace(/^\[Anuncio consultado[^\]]*\]\s*/, ''); },
-        reviewLabel(v) { return {pendiente:'Por evaluar',mirar:'Investigar',finalista:'Finalista',no_encaja:'No encaja'}[v]||'Por evaluar'; },
-        matchWorkspace(d) {
-          const q=this.query.trim().toLowerCase();
-          if(q && ![d.title,d.business_type,d.state,d.city,d.source_broker].some(v=>String(v||'').toLowerCase().includes(q))) return false;
-          if(this.sourceFilter!=='all' && d.source!==this.sourceFilter)return false;
-          const info=this.listingInfo(d);
-          const recent=info.status!=='Sin verificar' && info.checkedAgeDays!=null && info.checkedAgeDays<=7;
-          if(this.freshness==='recent'&&!recent || this.freshness==='unverified'&&recent || this.freshness==='secondary'&&d.source!=='dealledger')return false;
-          if(this.focus==='pending'&&d.review?.rating)return false;
-          if(this.focus==='shortlist'&&d.review?.decision!=='finalista')return false;
-          if(this.focus==='reviewed'&&!d.review?.rating)return false;
-          if(this.focus==='changed'&&!d.source_changes?.length)return false;
-          return true;
+        reviewLabel(v) {return {pendiente:'Por evaluar',mirar:'Investigar',finalista:'Finalista',no_encaja:'No encaja'}[v]||'Por evaluar';},
+        isUnreviewed(d) {return !!d.pending_analysis && !Number(d.review?.rating) && d.review?.decision!=='no_encaja';},
+        enteredAt(d) {return d.events?.[0]?.created_at||'';},
+        entryLabel(d) {const info=this.listingDate(this.enteredAt(d));return info?'Ingresó al Radar: '+info.label.replace(' · hora no registrada',''):'Fecha de ingreso no registrada';},
+        get radarNewCount() {return this.deals.filter(d=>d.pipeline_status==='RADAR'&&this.isUnreviewed(d)).length;},
+        get shortlistCount() {return this.deals.filter(d=>d.review?.decision==='finalista').length;},
+        setQuickFilter(key) {this.quickFilter=key;if(key==='new'){this.view='pipeline';this.sortByCol.RADAR='new-first';}},
+        async reloadDeals(silent=false) {
+          if(this.loading)return;
+          if(this.selectedDeal||this.draggingId||this.overrideCount||this.savingReview) {if(!silent)this.toast('Cerrar la ficha y guardar los cambios antes de actualizar.');return;}
+          this.loading=true;
+          try {
+            const r=await fetch(this.WORKER_URL+'/deals?_='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(15000)});
+            if(!r.ok)throw new Error('HTTP '+r.status);const data=await r.json();if(!Array.isArray(data.deals))throw new Error('Inventario inválido');
+            this.deals=data.deals;this.refresh=data.refresh||{};this.lastUpdate=data.last_update||'—';this.serverOrders=data.manual_orders||{};this.manualOrder=JSON.parse(JSON.stringify(this.serverOrders));this.loadError='';if(!silent)this.toast('Radar actualizado con la fuente compartida.');
+          }catch(e){this.loadError='No se pudo actualizar el Radar. Se conserva la última lectura.';}finally{this.loading=false;}
         },
-        get discoveryDeals() {
-          const ds=this.deals.filter(d=>this.matchFilters(d));
-          if(this.discoverySort==='price-asc')return ds.sort((a,b)=>(a.asking_price??Infinity)-(b.asking_price??Infinity));
-          if(this.discoverySort==='price-desc')return ds.sort((a,b)=>(b.asking_price??-1)-(a.asking_price??-1));
-          if(this.discoverySort==='rating')return ds.sort((a,b)=>(b.review?.rating||0)-(a.review?.rating||0));
-          return ds.sort((a,b)=>String(b.source_imported_at||b.events?.[0]?.created_at||'').localeCompare(String(a.source_imported_at||a.events?.[0]?.created_at||'')));
-        },
-        get pagedDeals() { return this.discoveryDeals.slice((this.page-1)*this.pageSize,this.page*this.pageSize); },
-        get comparedDeals() { return this.compareIds.map(id=>this.deals.find(d=>d.id===id)).filter(Boolean); },
-        toggleCompare(id) { if(this.compareIds.includes(id))this.compareIds=this.compareIds.filter(i=>i!==id);else if(this.compareIds.length<4)this.compareIds.push(id);else this.toast('La comparación admite hasta cuatro negocios.'); },
-        clearWorkspaceFilters() {this.query='';this.freshness='all';this.sourceFilter='all';this.focus='all';this.resetFilters();},
-        saveSearch() { const name=this.savedSearchName.trim();if(!name)return this.toast('Escribir un nombre para guardar los filtros.');const item={name,filters:JSON.parse(JSON.stringify(this.filters)),query:this.query,freshness:this.freshness,sourceFilter:this.sourceFilter,focus:this.focus};this.savedSearches=[...this.savedSearches.filter(s=>s.name!==name),item].slice(-12);localStorage.setItem('bizacq_searches_v1',JSON.stringify(this.savedSearches));this.savedSearchName='';this.toast('Búsqueda guardada en este navegador.'); },
-        loadSearch(item) {this.filters=JSON.parse(JSON.stringify(item.filters));for(const k of ['query','freshness','sourceFilter','focus'])this[k]=item[k];},
-        removeSearch(name) {this.savedSearches=this.savedSearches.filter(s=>s.name!==name);localStorage.setItem('bizacq_searches_v1',JSON.stringify(this.savedSearches));},
-        openReview(deal) {this.openDeal(deal);this.recordTab='evaluacion';},
         async saveReview() {
           if(!this.selectedDeal||this.savingReview)return;
           this.savingReview=true;
@@ -2091,7 +2011,7 @@
         },
         bucketMatch(value, buckets, selectedKeys) {
           if (!selectedKeys || selectedKeys.length === 0) return true; // sin filtro = todos
-          if (value == null || !Number.isFinite(value)) return false;
+          if(value==null||!Number.isFinite(value))return false;
           return selectedKeys.some(k => {
             const b = buckets.find(x => x.key === k);
             return b && value >= b.min && value < b.max;
@@ -2099,7 +2019,9 @@
         },
         // Canonical filter matcher — usado por passesFilters, hiddenByScore, dealCountByState
         matchFilters(d, { skipScore = false, skipState = false } = {}) {
-          if (!this.matchWorkspace(d)) return false;
+          if(this.searchText.trim() && ![d.title,d.city,d.state,d.business_type].some(v=>String(v||'').toLowerCase().includes(this.searchText.trim().toLowerCase())))return false;
+          if(this.quickFilter==='new' && (d.pipeline_status!=='RADAR'||!this.isUnreviewed(d)))return false;
+          if(this.quickFilter==='shortlist' && d.review?.decision!=='finalista')return false;
           if (this.filters.manualOnly && !d.added_manually) return false;
           // Pendientes de análisis y descartados pasan el filtro de score (no tienen score aún)
           if (!skipScore && this.filters.minScore > 0 && d.pipeline_status !== 'DESCARTADO' && !d.pending_analysis) {
@@ -2134,12 +2056,12 @@
           return this.deals.filter(d => {
             if (d.pipeline_status === 'DESCARTADO') return false;
             if (!this.matchFilters(d, { skipScore: true })) return false;
-            return !d.overall_score || d.overall_score < this.filters.minScore;
+            return !d.pending_analysis && (!d.overall_score || d.overall_score < this.filters.minScore);
           }).length;
         },
         get overrideCount() {
           const moves = Object.keys(this.overrides).length;
-          const manuals = Object.keys(this.manualOrder).filter(k => (this.manualOrder[k] || []).length > 0).length;
+          const manuals=Object.keys(this.manualOrder).filter(k=>JSON.stringify(this.manualOrder[k]||[])!==JSON.stringify(this.serverOrders[k]||[])).length;
           return moves + manuals;
         },
         statusLabel(s) { return this.columns.find(c => c.key === s)?.label || s; },
@@ -2229,6 +2151,7 @@
           const mode = this.sortByCol[colKey] || 'score-desc';
           const arr = [...list];
           switch (mode) {
+            case 'new-first':return arr.sort((a,b)=>Number(this.isUnreviewed(b))-Number(this.isUnreviewed(a))||this.enteredAt(b).localeCompare(this.enteredAt(a)));
             case 'score-asc':  return arr.sort((a, b) => (a.overall_score || 0) - (b.overall_score || 0));
             case 'price-desc': return arr.sort((a, b) => (b.asking_price || 0) - (a.asking_price || 0));
             case 'price-asc':  return arr.sort((a, b) => (a.asking_price || 0) - (b.asking_price || 0));
@@ -2756,8 +2679,8 @@
           return {
             status: supported ? labels[evidence.status] : 'Sin verificar',
             publication: publication ? publication.label.replace(' · hora no registrada','') : 'No informada',
-            checked: validCheck ? check.label : 'No registrada', age, checkedAgeDays:validCheck?Math.floor((Date.now()-check.date.getTime())/86400000):null,
-            caveat: supported ? (evidence.status === 'published' ? 'Anuncio observado en esa fecha; disponibilidad pendiente de confirmación del broker. Cifras no auditadas.' : 'Estado documentado en esa fecha; requiere nueva confirmación para decidir. Cifras no auditadas.') : 'Ficha sin comprobación directa reciente; disponibilidad sin confirmar.',
+            checked: validCheck ? check.label : 'No registrada', age,
+            caveat: supported ? (evidence.status === 'published' ? 'Anuncio observado en esa fecha; disponibilidad pendiente de confirmación del broker. Cifras no auditadas.' : 'Estado documentado en esa fecha; requiere nueva confirmación para decidir. Cifras no auditadas.') : 'Ficha histórica o sin evidencia actual; disponibilidad sin confirmar.',
             url: /^https?:\/\//i.test(deal.source_url || '') ? deal.source_url : '',
             link: deal.source_url_kind === 'category' ? 'Enlace original · categoría, no oferta específica ↗' : 'Enlace original ↗',
           };
@@ -2851,7 +2774,7 @@
             }
             // 2. Manual orders
             for (const [col, ids] of Object.entries(this.manualOrder)) {
-              if (!ids || ids.length === 0) continue;
+              if (!ids || ids.length === 0 || JSON.stringify(ids)===JSON.stringify(this.serverOrders[col]||[])) continue;
               const res = await fetch(this.WORKER_URL + '/update-deal', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ dealId: ids[0], manualOrder: ids, manualOrderColumn: col }),
@@ -2859,7 +2782,8 @@
               if (!res.ok) throw new Error(`Worker order ${res.status}`);
             }
             // 3. Limpiar local (server ahora es source of truth)
-            this.overrides = {}; this.manualOrder = {};
+            this.serverOrders={...this.serverOrders,...this.manualOrder};
+            this.overrides = {};
             localStorage.setItem('bizacq_overrides_v1', '{}');
             localStorage.setItem('bizacq_manual_v1', '{}');
             this.syncStatus = 'success';

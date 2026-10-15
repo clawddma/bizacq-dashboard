@@ -29,8 +29,10 @@ const API_BASE = `https://api.github.com/repos/${REPO}/contents/${FILE}`;
 const ALLOWED_ORIGINS = [
   'https://bizacq.bellapop.co',
   'https://clawddma.github.io',
+  'https://bizacq-radar.danielmesar959464.chatgpt.site',
   'http://localhost:8000',
   'http://localhost:3000',
+  'http://127.0.0.1:8789',
 ];
 
 const WRITE_LIMIT_PER_HOUR = 30;

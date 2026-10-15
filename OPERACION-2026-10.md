@@ -12,7 +12,12 @@ nocturno lo realiza un proceso determinista local, sin llamadas a modelos.
 - Datos compartidos: `data/deals.json`, escritos por el Worker sobre GitHub.
 - Código existente: HTML + Alpine; se conservan filtros, etapas, notas, documentos,
   órdenes y análisis anteriores. No se trasladó a otra plataforma.
-- Descubrir: tabla paginada, búsqueda, filtros existentes, cuatro comparables.
+- Radar como entrada: molde original de seis columnas, tarjetas y ficha lateral; búsqueda y filtros existentes.
+- Accesos rápidos: nuevas sin revisar y finalistas. El orden manual sigue disponible.
+- Sites público: https://bizacq-radar.danielmesar959464.chatgpt.site
+- ID de Sites: appgprj_6ad1171d12448191b52a7a3eec965ddd. Paquete de despliegue en `.sites/bizacq/`; sin copia de datos.
+- Sites y GitHub Pages consultan el mismo Worker; no hay una segunda base de datos.
+- El navegador consulta cambios cada 60 segundos mientras está visible y sin una ficha abierta ni cambios pendientes. No ejecuta scraping.
 - Evaluación: calificación humana 0–5, decisión, hipótesis de automatización y siguiente
   acción compartidas mediante `/update-deal`. No equivale a mover el pipeline.
 - Búsquedas guardadas: solo en el navegador donde se crearon; no se anuncian como compartidas.
@@ -81,9 +86,11 @@ python3 cli/nightly_refresh.py
 launchctl print gui/$(id -u)/com.braindma.bizacq-refresh
 ```
 
-El smoke prueba búsqueda, vacío, búsqueda guardada, máximo cuatro comparables,
-payload de evaluación interceptado, seis vistas y ausencia de desborde de página a
-390/768/1440. La prueba de Worker verifica fusión, duplicados, idempotencia,
+El smoke actual prueba entrada por Radar, pendientes, búsqueda, ausencia de falsos
+cambios locales, payload de evaluación interceptado, conservación de una ficha abierta
+al actualizar y ausencia de desborde de página a 390/768/1440. El rediseño con tabla
+y sidebar se retiró por preferencia explícita de Daniel; se conserva la calificación
+compartida dentro de la ficha original. La prueba de Worker verifica fusión, duplicados, idempotencia,
 autorización y persistencia de evaluación con GitHub simulado. Los análisis antiguos
 no se auditaron ni se convirtieron en recomendaciones actuales.
 

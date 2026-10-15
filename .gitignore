@@ -59,3 +59,6 @@ cloudflare/.wrangler/
 # Nightly private runtime (tokens, source cache, receipts)
 .nightly/
 .nightly.env.local
+
+# Sites deployment checkout; canonical UI remains index.html
+.sites/
