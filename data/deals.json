@@ -4103,7 +4103,7 @@
       "raw_description": "Flowers Bread Route distributorship Nashville. $235K ask, company financing ~$131K down. Ruta panaderia consolidada.",
       "id": "34712d1a-da24-4651-823f-11fa85b1300d",
       "source_url_verified": true,
-      "pipeline_status": "EN_ANALISIS",
+      "pipeline_status": "PARA_CONTACTAR",
       "filter_score": 40,
       "overall_score": 93.2,
       "priority": "ALTA",
@@ -4233,6 +4233,10 @@
         {
           "created_at": "2026-10-15",
           "description": "Movido RADAR → EN_ANALISIS (dashboard)"
+        },
+        {
+          "created_at": "2026-10-15",
+          "description": "Movido EN_ANALISIS → PARA_CONTACTAR (dashboard)"
         }
       ],
       "notes": [],
