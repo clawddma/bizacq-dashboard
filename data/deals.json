@@ -6292,5 +6292,10 @@
       "availability_checked": "2026-09-06",
       "availability_misses": 0
     }
-  ]
+  ],
+  "manual_orders": {
+    "EN_ANALISIS": [
+      "34712d1a-da24-4651-823f-11fa85b1300d"
+    ]
+  }
 }
