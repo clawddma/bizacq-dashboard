@@ -41174,7 +41174,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-15T19:30:09.148Z",
+        "calculated_at": "2026-10-15T19:30:39.904Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -41270,6 +41270,82 @@
         "net_profit_trend_percent": 780,
         "net_profit_trend_percent_months": 11,
         "gross_revenue_trend_percent": 88
+      },
+      "digital_analysis": {
+        "version": "digital-v1",
+        "performed_at": "2026-10-15T19:30:39.904Z",
+        "status": "identity_pending",
+        "website": null,
+        "website_candidates": [
+          {
+            "title": "Dollar sign - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Dollar_sign"
+          },
+          {
+            "title": "United States dollar - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/United_states_dollar"
+          },
+          {
+            "title": "$ Dollar Sign | The Money Wiki",
+            "url": "https://moneywiki.app/wiki/other/dollar-sign"
+          }
+        ],
+        "observations": [],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de seguimiento de leads, recuperación de carritos o reactivación de clientes, según el canal real.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar clasificación de soporte, reportes y conciliación operativa con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://empireflippers.com/listing/94476/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-15T19:30:39.904Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=%24385.0K%20Per%20Month%20Amazon%20FBA%20Business%20in%20the%20Automotive%20Niche%20%20official%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-15T19:30:39.904Z"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "financial_method": {
+          "incremental_profit": "Ventas adicionales × margen de contribución − costo comercial y herramientas.",
+          "net_savings": "Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.",
+          "valuation": "Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base."
+        }
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-10-15T19:30:41.136Z",
+        "model": "screen-v2",
+        "summary": "Afinidad preliminar 85/100. 6/7 señales públicas disponibles. Solicitar documentación para diligencia. No incluye auditoría ni verificación legal.",
+        "questions": [
+          "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
+          "Solicitar el detalle que respalda la ganancia publicada y sus ajustes.",
+          "Validar concentración de clientes/canales, recurrencia y horas reales del dueño.",
+          "Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.",
+          "Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos."
+        ]
       }
     },
     {
