@@ -48,7 +48,7 @@ function corsHeaders(origin) {
 function json(body, status, cors) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { ...cors, 'Content-Type': 'application/json' },
+    headers: { ...cors, 'Content-Type': 'application/json', 'Cache-Control':'no-store' },
   });
 }
 
@@ -76,8 +76,14 @@ async function getDealsFile(env) {
   const res = await fetch(`${API_BASE}?ref=${BRANCH}`, { headers: await ghHeaders(env) });
   if (!res.ok) throw new Error(`GitHub GET ${res.status}`);
   const meta = await res.json();
-  const decoded = decodeURIComponent(escape(atob(meta.content.replace(/\n/g, ''))));
-  return { data: JSON.parse(decoded), sha: meta.sha };
+  if (meta.content) {
+    const decoded = decodeURIComponent(escape(atob(meta.content.replace(/\n/g, ''))));
+    return { data: JSON.parse(decoded), sha: meta.sha };
+  }
+  // GitHub omits inline content above 1 MB; retain the metadata SHA for CAS.
+  const raw = await fetch(API_BASE, {headers:{...(await ghHeaders(env)),Accept:'application/vnd.github.raw+json'}});
+  if (!raw.ok) throw new Error(`GitHub raw GET ${raw.status}`);
+  return {data:await raw.json(),sha:meta.sha};
 }
 
 async function putDealsFile(env, data, sha, message) {
@@ -146,6 +152,50 @@ function sanitizeAddPayload(p) {
   return { clean };
 }
 
+export function mergeSourceBatch(data, body) {
+  const run = body.run;
+  if (data.refresh?.last_run?.id === run.id) return {added:0,updated:0,noop:true};
+  let added=0,updated=0;
+  const seen = new Set();
+  for (const row of body.listings) {
+    if (!row || typeof row.external_id !== 'string' || !row.external_id || typeof row.title !== 'string' || !row.title.trim()) throw new Error('anuncio inválido');
+    let parsed;
+    try { parsed=new URL(row.source_url); } catch { throw new Error('URL inválida'); }
+    if (parsed.protocol !== 'https:' || row.title.length > 500 || row.external_id.length > 200) throw new Error('anuncio inválido');
+    for (const field of ['asking_price','reported_revenue','reported_cash_flow','reported_net_profit']) if (row[field] != null && (!Number.isFinite(row[field]) || row[field] < 0)) throw new Error('importe inválido');
+    if (seen.has(row.source_url)) continue;
+    seen.add(row.source_url);
+    let deal=data.deals.find(d=>String(d.source_url||'').replace(/\/$/,'')===row.source_url.replace(/\/$/,'') || (d.source==='dealledger' && d.external_id===row.external_id));
+    const source=row.source==='empire_flippers'?'empire_flippers':'dealledger';
+    if (deal && deal.source !== source) continue; // retain manual/other-source facts
+    const fields={external_id:row.external_id,source,source_url:row.source_url,source_url_kind:'listing',title:row.title,state:String(row.state||'').slice(0,2),city:String(row.city||'').slice(0,100),business_type:String(row.business_type||'Sin categoría').slice(0,100),asking_price:row.asking_price??null,reported_revenue:row.reported_revenue??null,reported_cash_flow:row.reported_cash_flow??null,reported_net_profit:row.reported_net_profit??null,raw_description:String(row.raw_description||'').slice(0,2000),source_first_seen_at:row.first_seen_at||null,source_last_seen_at:row.last_seen_at||null,source_broker:String(row.broker||'').slice(0,200),source_observation_url:'https://dealledger.org/',source_imported_at:run.finished_at};
+    if(source==='empire_flippers') {
+      if(parsed.hostname!=='empireflippers.com')throw new Error('URL del portal inválida');
+      fields.listing_evidence={source_url:row.source_url,checked_at:run.finished_at,status:'published',evidence:'API oficial: listing_status For Sale',publication_source:'portal',published_at:row.published_at||null,publication_evidence:row.published_at?'API oficial first_listed_at':null};
+    }
+    if (!deal) {
+      deal={id:uuid(),...fields,pipeline_status:'RADAR',pending_analysis:true,reported_sde:null,overall_score:null,filter_score:null,priority:null,financial:null,strategy:null,legal_check:{done:false},notes:[],events:[{created_at:run.finished_at,description:'Importado de '+source+'; pendiente de análisis y confirmación comercial.'}],documents:[],added_manually:false,source_url_verified:false,seller_financing:false,sba_prequalified:false,curated_source:false};
+      data.deals.push(deal); added++;
+    } else {
+      const diff=['asking_price','reported_revenue','reported_cash_flow','reported_net_profit'].filter(k=>deal[k]!==fields[k]);
+      if(diff.length) {
+        deal.source_changes=deal.source_changes||[];
+        deal.source_changes.unshift({at:run.finished_at,fields:Object.fromEntries(diff.map(k=>[k,{before:deal[k]??null,after:fields[k]}]))});
+        deal.source_changes=deal.source_changes.slice(0,60);
+        deal.pending_analysis=true;
+      }
+      Object.assign(deal,fields);updated++;
+    }
+  }
+  data.refresh=data.refresh||{};
+  data.refresh.schedule={time:'00:00',timezone:'America/Bogota',engine:'local',llm:false};
+  data.refresh.last_run={...run,added,updated};
+  if(run.status==='success') data.refresh.last_success_at=run.finished_at;
+  data.refresh.history=[data.refresh.last_run,...(data.refresh.history||[])].slice(0,31);
+  data.last_update=run.finished_at+' · actualización de fuentes';
+  return {added,updated};
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
@@ -194,61 +244,27 @@ a{color:#60a5fa}</style></head><body>
     // ── GET /deals ──
     if (request.method === 'GET' && url.pathname === '/deals') {
       try {
-        const r = await fetch(`${RAW_URL}?_=${Date.now()}`);
-        const txt = await r.text();
-        return new Response(txt, { headers: { ...cors, 'Content-Type': 'application/json' } });
+        const {data} = await getDealsFile(env);
+        return json(data,200,cors);
       } catch (e) {
         return json({ error: String(e) }, 502, cors);
       }
     }
 
-    // ── POST /checkpoint-apply — la routine nocturna remota escribe vía Worker ──
-    // El remoto NO es browser (sin Origin), se autentica con CHECKPOINT_TOKEN en header.
-    // Recibe el array `deals` ya reconciliado + una entrada de `logEntry`, y commitea ambos archivos.
-    if (request.method === 'POST' && url.pathname === '/checkpoint-apply') {
-      const auth = request.headers.get('X-Checkpoint-Token') || '';
-      if (!env.CHECKPOINT_TOKEN || auth !== env.CHECKPOINT_TOKEN) {
-        return json({ error: 'no autorizado' }, 401, cors);
-      }
-      if (!env.GITHUB_TOKEN) {
-        return json({ error: 'GITHUB_TOKEN no configurado en el Worker' }, 500, cors);
+    // Bounded nightly ingestion: merge source-owned fields, never replace CRM state.
+    if (request.method === 'POST' && url.pathname === '/source-sync') {
+      if (!env.SOURCE_SYNC_TOKEN || request.headers.get('Authorization') !== `Bearer ${env.SOURCE_SYNC_TOKEN}`) {
+        return json({error:'no autorizado'},401,cors);
       }
       let body;
-      try { body = await request.json(); } catch { return json({ error: 'JSON inválido' }, 400, cors); }
-      const incoming = body.deals;
-      // Validación anti-corrupción: debe ser un array no vacío de objetos con id.
-      if (!Array.isArray(incoming) || incoming.length === 0) {
-        return json({ error: 'payload.deals debe ser un array no vacío' }, 400, cors);
-      }
+      try { body = await request.json(); } catch { return json({error:'JSON inválido'},400,cors); }
+      if (!Array.isArray(body.listings) || body.listings.length > 250 || !body.run || !['dealledger','empire_flippers','open_sources'].includes(body.run.source)) return json({error:'lote inválido'},400,cors);
       try {
-        const { data, sha } = await getDealsFile(env);
-        const existingCount = (data.deals || []).length;
-        // Salvaguarda: no permitir que un run borre deals (cuenta no puede caer >20%).
-        if (incoming.length < existingCount * 0.8) {
-          return json({ error: `rechazado: incoming ${incoming.length} vs actual ${existingCount} (posible corrupción)` }, 409, cors);
-        }
-        if (!incoming.every((d) => d && typeof d.id === 'string')) {
-          return json({ error: 'todos los deals deben tener id string' }, 400, cors);
-        }
-        data.deals = incoming;
-        data.last_update = (body.lastUpdate ? String(body.lastUpdate).slice(0, 80) : new Date().toISOString().slice(0, 16).replace('T', ' ') + ' (checkpoint nocturno)');
-        const msg = String(body.commitMessage || 'chore: checkpoint nocturno — categorías + disponibilidad (vía Worker)').slice(0, 200);
-        await putDealsFile(env, data, sha, msg);
-
-        // Append de la entrada de log (data/checkpoint_log.json) — append-only, más reciente al inicio.
-        let logResult = 'sin logEntry';
-        if (body.logEntry && typeof body.logEntry === 'object') {
-          const { data: logData, sha: logSha } = await getFile(env, 'data/checkpoint_log.json');
-          const arr = Array.isArray(logData) ? logData : [];
-          arr.unshift(body.logEntry);
-          if (arr.length > 120) arr.length = 120; // retener ~4 meses de runs diarios
-          await putFile(env, 'data/checkpoint_log.json', arr, logSha, 'chore: checkpoint log nocturno');
-          logResult = `log actualizado (${arr.length} entradas)`;
-        }
-        return json({ ok: true, deals_persisted: incoming.length, log: logResult }, 200, cors);
-      } catch (e) {
-        return json({ error: String(e) }, 502, cors);
-      }
+        const {data,sha} = await getDealsFile(env);
+        const changes = mergeSourceBatch(data,body);
+        await putDealsFile(env,data,sha,`data: actualización nocturna — ${changes.added} nuevos, ${changes.updated} actualizados`);
+        return json({ok:true,...changes,total:data.deals.length,run_id:body.run.id},200,cors);
+      } catch(e) { return json({error:String(e)},502,cors); }
     }
 
     // ── POST endpoints — escritura protegida ──
@@ -337,6 +353,14 @@ a{color:#60a5fa}</style></head><body>
             deal.events = deal.events || [];
             deal.events.push({ created_at: new Date().toISOString().slice(0, 10), description: `Movido ${old} → ${body.newStatus} (dashboard)` });
             changes.push(`${(deal.title || dealId).slice(0, 30)} → ${body.newStatus}`);
+          }
+          if (body.review) {
+            const r=body.review;
+            if (![0,1,2,3,4,5].includes(Number(r.rating)) || !['pendiente','mirar','finalista','no_encaja'].includes(r.decision)) return json({error:'evaluación inválida'},400,cors);
+            deal.review={rating:Number(r.rating),decision:r.decision,automation_thesis:String(r.automation_thesis||'').slice(0,1500),next_action:String(r.next_action||'').slice(0,500),updated_at:new Date().toISOString(),author:String(body.author||'equipo').slice(0,50)};
+            deal.events=deal.events||[];
+            deal.events.push({created_at:deal.review.updated_at,description:`Evaluación del equipo: ${r.decision}, ${r.rating}/5`});
+            changes.push(`evaluación en ${(deal.title||dealId).slice(0,30)}`);
           }
           if (body.note) {
             deal.notes = deal.notes || [];

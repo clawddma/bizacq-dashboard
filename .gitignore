@@ -55,3 +55,7 @@ data/raw_listings.json       # raw scraper output, can be huge
 # Cloudflare wrangler local cache (account id, etc.)
 cloudflare/.wrangler/
 .wrangler/
+
+# Nightly private runtime (tokens, source cache, receipts)
+.nightly/
+.nightly.env.local
