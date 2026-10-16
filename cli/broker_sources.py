@@ -49,7 +49,7 @@ def catalog_refs(body,url):
 
 def offer(body,url,reference):
  parsed=parse_offer(body,url,reference['title'])
- if not parsed['match'] or parsed['withdrawn'] or re.search(r'\b(?:under contract|under loi|sale pending)\b',parsed['text'][:700],re.I):return None,'identity_or_unavailable'
+ if not parsed['match'] or parsed['withdrawn'] or parsed['pending'] or re.search(r'\b(?:under contract|under loi|sale pending)\b',parsed['text'][:700],re.I):return None,'identity_or_unavailable'
  soup=BeautifulSoup(body,'html.parser');h=soup.select_one('h1');title=h.get_text(' ',strip=True) if h else reference['title']
  if urlsplit(url).hostname=='synergybb.com':
   location=soup.select_one('i.icon-location-pin');location=location.parent.get_text(' ',strip=True) if location else ''
@@ -75,12 +75,15 @@ def offer(body,url,reference):
  OUT.mkdir(parents=True,exist_ok=True);digest=hashlib.sha256(body.encode()).hexdigest();(OUT/(digest+'.html')).write_text(body);row['content_hash']=digest
  return row,None
 
-def discover(url,cap=16):
+def discover(url,cap=16,known_urls=None):
  now=datetime.now(timezone.utc).isoformat();r=fetch(url);body=r.pop('body','');health={'url':url,'checked_at':now,'status':r['status'],'http_status':r.get('http_status'),'coverage':'partial','daily_detail_limit':cap}
  if r['status']!='fetched':return [],health
  refs=catalog_refs(body,url);health['discovered']=len(refs);rows=[];rejected={}
  if refs:
-  day=int((datetime.now(timezone.utc).timestamp()-5*3600)//86400);offset=(day*cap)%len(refs);refs=(refs[offset:]+refs[:offset])[:cap]
+  day=int((datetime.now(timezone.utc).timestamp()-5*3600)//86400);offset=(day*cap)%len(refs);refs=refs[offset:]+refs[:offset]
+  if known_urls is not None:refs=[r for r in refs if r['source_url'].rstrip('/') not in known_urls]
+  refs.sort(key=lambda r:not bool(re.search(r'retir|seller financ|owner financ|succession|established|long.standing',r['title'],re.I)))
+  refs=refs[:cap]
  for ref in refs:
   with LOCK:
    if ref['source_url'] in SEEN:continue

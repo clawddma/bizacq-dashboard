@@ -313,3 +313,37 @@ manual, motivo de descarte o análisis. Evidencia privada:
 17 pruebas Python y regresiones Node de disponibilidad, sincronización y scoring
 aprobadas; smoke a 390/768/1440 con interacción financiera, evaluación interceptada
 y cero errores JS. Sites v10, fuente ff4490127130225cef4cef829198f80c524cabbd.
+
+
+### 16/oct · Prospección por retiro, sucesión y financiación declarada
+
+`acquisitionSignals()` agrega derivados prospect-v1 exclusivamente desde título
+y descripción pública. Diferencia retiro, falta explícita de sucesor, vendedor
+que anuncia financiación, porcentaje explícito y SBA anunciado. No deduce edad
+ni generación, no interpreta retiro como descuento o falta de sucesor y no
+convierte una etiqueta SBA en aprobación del comprador. Conserva evidencia textual,
+URL y preguntas para el broker. Niega expresiones negativas y no toma un porcentaje
+de margen o cuota inicial como porcentaje del vendedor. No cambia pesos financieros.
+
+Se corrigió el filtro Seller financing: consultaba el antiguo campo raíz aunque
+la captación escribe public_facts. Ahora comparte los derivados con el detalle.
+Tesis de compra permite filtrar retiro/sucesión, retiro + vendedor, falta explícita
+de sucesor, porcentaje publicado o precio/ganancias utilizables. La ficha muestra
+motivo, términos conocidos, cifras contradictorias y evidencia desplegable.
+
+La captación prioriza títulos que declaran retiro, financiación o trayectoria y
+conserva la rotación diaria y topes. --prospect consulta hasta 4 fichas nuevas por
+catálogo especialista; excluye URLs ya existentes y nunca reemplaza CRM. La
+revalidación conserva hasta 2800 caracteres para no perder motivo de venta y
+financiación en descripciones cortadas. No genera alertas ni contacta vendedores.
+
+Carga verificada: 22 ofertas nuevas (6 retiro), 447 registros; 347 anuncios activos
+publicados, 95 pendientes activos, 4 descartados y 1 cierre. Entre activos: 39 retiro,
+52 financiación anunciada, 12 combinan ambas señales, 1 porcentaje publicado y
+4 SBA anunciado. Son declaraciones del anuncio, no verificaciones del broker.
+Comparación antes/después sin cambios en notas, revisión, documentos, etapa, orden,
+análisis o descarte. Evidencia privada .nightly/prospect-before.json y
+.nightly/prospect-verification.json. Tests/prospecting.test.mjs cubre negaciones,
+porcentajes, asesoría de retiro que no es venta por retiro y conservación CRM.
+Tests/prospecting_smoke.py valida filtros, combinación y detalle a 390/768/1440
+sin errores JS. Sites v11, fuente f22c8c60ea804ab1c0e6dfcea5dfc2f1f2347c21.

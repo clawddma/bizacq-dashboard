@@ -189,7 +189,7 @@ export function screenDeal(d, now=new Date().toISOString()) {
   const industry=String(d.business_type||'').toLowerCase();
   const digital=/(saas|e.commerce|digital|agency|accounting|insurance)/.test(industry),service=/(hvac|plumbing|cleaning|landscap|restaurant|salon|med spa|home services|construction|repair|health)/.test(industry);
   add('Afinidad con IA y procesos',10,digital?85:service?75:null,digital?'Hipótesis sectorial: adquisición digital, soporte, reporting y operaciones. No es auditoría del negocio.':service?'Hipótesis sectorial: agenda, cotización, seguimiento y coordinación operativa. No es ahorro demostrado.':'Actividad insuficientemente clasificada para proponer un encaje.', 'hipótesis sectorial');
-  const sellerFinance=facts.seller_financing===true||/(?:seller financ|owner financ|seller carry)/.test(text);
+  const sellerFinance=acquisitionSignals(d).seller_financing==='advertised';
   add('Facilidad de estructuración',5,sellerFinance?85:null,sellerFinance?'Financiación del vendedor anunciada; términos y elegibilidad pendientes.':'Términos de financiación no publicados. No se presume elegibilidad SBA.');
   const known=parts.filter(p=>p.known),weight=known.reduce((s,p)=>s+p.weight,0);
   // A score requires public price and earnings. Never turn one optional signal into a 100.
@@ -258,8 +258,36 @@ export function applyAvailabilityObservation(data,d,row,now=new Date().toISOStri
   return true;
 }
 
+// Public acquisition signals: no inferred owner age, loan approval or seller terms.
+export function acquisitionSignals(d) {
+  const facts=d.public_facts||{},text=String(facts.description||d.raw_description||''),title=String(d.title||'');
+  const primary=(title+' '+text).replace(/\s+/g,' ');
+  const excerpt=pattern=>{const m=pattern.exec(primary);return m?primary.slice(Math.max(0,m.index-55),m.index+m[0].length+150).trim():null;};
+  const reasonMatch=/(?:reason for (?:selling|sale)|motivo de venta)\s*:?\s*(.{1,240})/i.exec(primary);
+  const reason=reasonMatch?.[1]?.split(/\s+(?:Business Description|Business Details|Detailed Information|Company Overview|Franchise Overview|Support|Contact|Description|Seller Financing|Price)\s*:|\.\s+/i)[0]?.trim()||null;
+  const reasonText=reason||primary;
+  const retiring=(reason?/\b(retirement|retiring|retire|jubilaci[oó]n)\b/i.test(reason):/\b(?:(?:owner|seller|founder|partner)s?[^.]{0,30}retir(?:e|ement|ing)|retir(?:e|ement|ing)[^.]{0,30}(?:owner|seller|founder)|retirement sale|retiro del (?:dueño|propietario))\b/i.test(primary))&&!/(?:not|no) (?:due to )?retirement|not (?:planning to )?retir/i.test(reasonText);
+  const succession=/\b(?:no (?:family )?successor|without (?:a )?successor|lack of succession|no succession plan|children (?:are )?not interested|sin sucesor)\b/i.test(primary);
+  const financeNegative=/(?:no|without|not (?:offering|available))\s+(?:seller|owner) financ|(?:seller|owner) financ(?:ing)?\s*:\s*(?:no|not available)|(?:seller|owner) (?:will not|won't) financ/i.test(primary);
+  const financeMention=/\b(?:seller|owner) financ(?:ing|e)?\b|seller carry|seller (?:will|can|may) (?:carry|finance)/i.test(primary);
+  const seller=financeNegative?'not_offered':financeMention||facts.seller_financing===true?'advertised':'unknown';
+  const pctMatch=/(?:seller|owner)\s+(?:financ(?:ing|e)?|(?:will|can|may) (?:carry|finance)|carry)\s*(?::|[-–]|of|for|up to|available(?:\s+(?:at|for))?)?\s*(?:up to\s+)?(\d{1,2}(?:\.\d+)?|100)\s*%|\b(\d{1,2}(?:\.\d+)?|100)\s*%\s*(?:seller|owner) financ/i.exec(primary);
+  let sellerPercent=seller==='advertised'&&pctMatch?Number(pctMatch[1]||pctMatch[2]):null;
+  if(sellerPercent===null&&seller==='advertised'&&Number.isFinite(facts.seller_financing_percent)&&facts.seller_financing_percent>=0&&facts.seller_financing_percent<=100)sellerPercent=facts.seller_financing_percent;
+  const sellerEvidence=excerpt(/\b(?:seller|owner) financ(?:ing|e)?\b|seller carry|seller (?:will|can|may) (?:carry|finance)/i);
+  const sbaEvidence=excerpt(/\bSBA(?:\s+7\(?a\)?)?\s+(?:pre[- ]?(?:approved|qualified)|eligible|approved|available|financ\w*)|(?:eligible|qualif\w*|pre[- ]?approved)\s+(?:for\s+)?SBA\b/i);
+  const sba=!!sbaEvidence&&!/(?:not|no|without)\s+(?:eligible for\s+)?SBA|SBA\s*(?:eligible|financing)?\s*:\s*no/i.test(primary);
+  const price=facts.asking_price??(d.source==='empire_flippers'?d.asking_price:null);
+  const earnings=facts.reported_sde??facts.reported_net_profit??facts.reported_cash_flow??(d.source==='empire_flippers'?d.reported_net_profit:null);
+  const revenue=facts.reported_revenue??(d.source==='empire_flippers'?d.reported_revenue:null);
+  const conflict=revenue>0&&earnings>=revenue;
+  const financials=price>0&&earnings>0&&!conflict;
+  const termsLabel=seller==='not_offered'?'No ofrecida según el anuncio':seller==='unknown'?'No informada':sellerPercent!==null?sellerPercent+'% anunciado · sujeto a condiciones':'Anunciada · porcentaje no publicado';
+  return {version:'prospect-v1',retirement:retiring,succession_gap:succession,reason_for_sale:reason,retirement_evidence:retiring||succession?excerpt(/retirement|retiring|retire|no (?:family )?successor|without (?:a )?successor|lack of succession|no succession plan|children (?:are )?not interested|sin sucesor/i):null,seller_financing:seller,seller_percent:sellerPercent,seller_label:termsLabel,seller_evidence:sellerEvidence,sba_advertised:sba,sba_evidence:sba?sbaEvidence:null,financials_usable:financials,financial_conflict:conflict,source_url:d.source_url,questions:[...(retiring||succession?['¿Qué funciones y relaciones dependen del dueño y cuántos meses acompañaría la transición?']:[]),...(seller==='advertised'?['Confirmar porcentaje, tasa, plazo, garantías, subordinación y condiciones del pagaré del vendedor.']:[]),'Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra.']};
+}
+
 export function scoreAllDeals(data,now=new Date().toISOString()) {
-  for(const d of data.deals)d.screening=screenDeal(d,now);
+  for(const d of data.deals){d.screening=screenDeal(d,now);d.prospecting=acquisitionSignals(d);}
   data.screening_model={version:'screen-v2',updated_at:now,description:'Afinidad preliminar con información publicada; sin exigir documentos de debida diligencia.'};
   return {total:data.deals.length,revalidate:data.deals.filter(d=>d.screening.disposition==='revalidate').length};
 }

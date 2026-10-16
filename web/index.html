@@ -388,6 +388,11 @@
           </template>
         </div>
       </div>
+      <label class="flex items-center gap-2 text-xs text-slate-500">Tesis de compra:
+        <select aria-label="Tesis de compra" x-model="filters.acquisition" class="border border-slate-200 rounded-md p-1 text-xs max-w-[240px] bg-white text-slate-700">
+          <option value="all">Todas las oportunidades</option><option value="retirement">Retiro o sucesión anunciados</option><option value="retirement_financing">Retiro + vendedor financia</option><option value="succession">Sin sucesor declarado</option><option value="terms">% del vendedor publicado</option><option value="financials">Precio y ganancias utilizables</option>
+        </select>
+      </label>
       <div class="h-5 w-px bg-slate-200"></div>
       <div class="flex flex-wrap items-center gap-2">
         <span class="text-xs text-slate-500 font-medium">Financiamiento:</span>
@@ -853,6 +858,24 @@
             </section>
 
           <div x-show="recordTab === 'resumen'" class="space-y-6">
+            <section class="border border-slate-200 rounded-lg p-4 bg-slate-50" aria-label="Señales de adquisición">
+              <h3 class="text-base font-bold">Motivo de venta y financiación</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 text-xs">
+                <div><p class="text-slate-500">Retiro / sucesión</p><p class="font-semibold mt-1" x-text="selectedDeal.prospecting?.succession_gap?'Sin sucesor declarado':selectedDeal.prospecting?.retirement?'Retiro declarado':'No informado'"></p></div>
+                <div><p class="text-slate-500">Financiación del vendedor</p><p class="font-semibold mt-1" x-text="selectedDeal.prospecting?.seller_label||'No informada'"></p></div>
+                <div><p class="text-slate-500">Crédito SBA en el anuncio</p><p class="font-semibold mt-1" x-text="selectedDeal.prospecting?.sba_advertised?'El anunciante lo menciona; comprador y crédito por validar':'No anunciado'"></p></div>
+                <div><p class="text-slate-500">Cifras para preselección</p><p class="font-semibold mt-1" x-text="selectedDeal.prospecting?.financial_conflict?'Contradicción financiera: pedir aclaración':selectedDeal.prospecting?.financials_usable?'Precio y ganancia anual disponibles':'Faltan precio o ganancias utilizables'"></p></div>
+              </div>
+              <p class="text-xs text-slate-600 mt-3" x-show="selectedDeal.prospecting?.reason_for_sale" x-text="'Motivo declarado: '+(selectedDeal.prospecting?.reason_for_sale||'')"></p>
+              <details class="mt-3 text-xs"><summary class="cursor-pointer font-semibold">Evidencia y preguntas para el broker</summary><div class="mt-2 space-y-2">
+                <p x-show="selectedDeal.prospecting?.retirement_evidence" x-text="selectedDeal.prospecting?.retirement_evidence"></p>
+                <p x-show="selectedDeal.prospecting?.seller_evidence" x-text="selectedDeal.prospecting?.seller_evidence"></p>
+                <p x-show="selectedDeal.prospecting?.sba_evidence" x-text="selectedDeal.prospecting?.sba_evidence"></p>
+                <p class="text-slate-500">Retiro no prueba urgencia, falta de sucesor ni descuento. Un porcentaje anunciado puede tener condiciones. La etiqueta SBA no acredita elegibilidad del comprador.</p>
+                <template x-for="question in (selectedDeal.prospecting?.questions||[])" :key="question"><p x-text="question"></p></template>
+                <a :href="selectedDeal.source_url" target="_blank" rel="noopener" class="underline">Ver anuncio y condiciones ↗</a>
+              </div></details>
+            </section>
             <section class="economics-preview border border-slate-200 rounded-lg p-4 bg-white" aria-label="Vista financiera rápida">
               <div class="flex items-center justify-between gap-2"><h3 class="text-base font-bold text-slate-900">Números para decidir</h3><span class="text-[10px] text-slate-400">USD · preliminar</span></div>
               <p class="text-xs text-slate-500 mt-1" x-text="economics(selectedDeal).hasPublicFacts?'Cifras declaradas en el anuncio; pendientes de auditoría.':'Cifras guardadas; contrastar con el anuncio y el vendedor.'"></p>
@@ -863,7 +886,7 @@
                 <div><p class="text-xs text-slate-500">Precio / ganancia anual</p><p class="text-lg font-semibold" x-text="economics(selectedDeal).multiple===null?'No calculable':economics(selectedDeal).multiple.toFixed(2)+'×'"></p></div>
               </div>
               <div class="grid grid-cols-2 gap-3 mt-4 pt-3 border-t text-xs">
-                <div><p class="text-slate-500">Financiación del vendedor</p><p class="font-semibold mt-1" x-text="economics(selectedDeal).sellerLabel"></p></div>
+                <div><p class="text-slate-500">Financiación del vendedor</p><p class="font-semibold mt-1" x-text="selectedDeal.prospecting?.seller_label||economics(selectedDeal).sellerLabel"></p></div>
                 <div><p class="text-slate-500">Efectivo si se paga al contado</p><p class="font-semibold mt-1" x-text="econMoney(economics(selectedDeal).price)"></p><p class="text-[10px] text-slate-400">Solo precio; faltan cierre y capital de trabajo.</p></div>
               </div>
               <div class="mt-3 text-xs bg-slate-50 rounded p-3"><p class="font-semibold">Small Business / crédito SBA</p><p class="mt-1">Tamaño del negocio y elegibilidad del comprador por validar. Una etiqueta SBA en el anuncio no equivale a aprobación; el escenario no presupone crédito SBA.</p><a class="underline text-slate-500" href="https://legacy.sba.gov/document/procedural-notice-5000-876626-revised-applicant-ownership-citizenship-residency-requirements-7a-504-loans" target="_blank" rel="noopener">Reglas oficiales de propiedad y residencia ↗</a></div>
@@ -1840,7 +1863,7 @@
         WORKER_URL: localStorage.getItem('bizacq_worker_url') || 'https://bizacq-api.clawddma.workers.dev',
         overrides: JSON.parse(localStorage.getItem('bizacq_overrides_v1') || '{}'),
         sortByCol: savedSort, manualOrder: savedManual,
-        filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 0, manualOnly: false },
+        filters: { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, acquisition: 'all', minScore: 0, manualOnly: false },
         GLOSSARY, GLOSSARY_CATEGORIES, VALUATION, SUPER_CATEGORIES, US_STATES, INDUSTRY_BRIEF,
         industryBrief(deal) { return (deal && INDUSTRY_BRIEF[deal.business_type]) || null; },
         columns: [
@@ -2036,7 +2059,13 @@
           }
           if (!skipState && this.filters.states.length > 0 && !this.filters.states.includes(d.state)) return false;
           if (this.filters.priority !== 'Todas' && d.priority !== this.filters.priority) return false;
-          if (this.filters.sellerFinancing && !d.seller_financing) return false;
+          if (this.filters.sellerFinancing && d.prospecting?.seller_financing!=='advertised') return false;
+          const thesis=this.filters.acquisition||'all',p=d.prospecting||{};
+          if(thesis==='retirement'&&!p.retirement&&!p.succession_gap)return false;
+          if(thesis==='succession'&&!p.succession_gap)return false;
+          if(thesis==='terms'&&p.seller_percent==null)return false;
+          if(thesis==='retirement_financing'&&(!(p.retirement||p.succession_gap)||p.seller_financing!=='advertised'))return false;
+          if(thesis==='financials'&&!p.financials_usable)return false;
           if (this.filters.sbaEligible && !this.sbaAdvertised(d)) return false;
           if (!this.bucketMatch(d.asking_price, this.priceBuckets, this.filters.priceBuckets)) return false;
           if (!this.bucketMatch(d.reported_sde, this.sdeBuckets, this.filters.sdeBuckets)) return false;
@@ -2408,7 +2437,7 @@
           try {const r=await fetch(this.WORKER_URL+'/analyze-deal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dealId:d.id})});const result=await r.json();if(!r.ok)throw new Error(result.error||r.status);d.screening=result.screening;d.preliminary_analysis=result.analysis;d.digital_analysis=result.digital_analysis;this.recordTab='resumen';this.toast('✓ Análisis preliminar guardado; abrir Resumen para ver resultados');}catch(e){this.toast('No se guardó el análisis: '+e.message);}finally{this.analyzingOpportunity=false;}
         },
 
-        resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, minScore: 0, manualOnly: false }; },
+        resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, acquisition: 'all', minScore: 0, manualOnly: false }; },
         toggleState(code) {
           const i = this.filters.states.indexOf(code);
           if (i === -1) this.filters.states.push(code);
@@ -2595,7 +2624,7 @@
 
         // Publication is supplied only by explicit portal evidence. Legacy checks
         // and workflow stages never establish commercial availability.
-        sbaAdvertised(deal) {const text=String(deal?.public_facts?.description||deal?.raw_description||'');return /\bsba\b/i.test(text)&&!/(?:not|no|without)\s+(?:eligible for\s+)?sba/i.test(text);},
+        sbaAdvertised(deal) {return deal?.prospecting?.sba_advertised===true;},
         economics(deal) {return buildEconomics(deal||{},this.purchaseScenario);},
         econMoney(value) {return value===null?'No publicado':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(value);},
         econPct(value) {return value===null?'—':value.toFixed(1)+'%';},
