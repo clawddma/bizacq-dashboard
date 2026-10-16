@@ -406,3 +406,35 @@ Primer informe real: Roofing company active in three states,
 notas, revisión, documentos, etapas y órdenes comparados sin diferencias.
 Evidencia privada .nightly/reports-final-verification.json. Sites v13, fuente
 64d5b4c1b68d61beee3e27159328f3c22b19d9d4.
+
+
+### 16/oct · Diseño editorial bilingüe del informe
+
+Aplicado Design Partner (redesign) y el sistema Mesa a renderInvestmentReport.
+Composición editorial continua: papel marfil, verde tinta, escala tipográfica
+system UI, menor énfasis en tarjetas y métricas alineadas. Exposiciones: precio/
+ganancia frente a la mediana del Radar (muestra y alcance visibles) y composición
+del financiamiento que responde al simulador. Tablas financieras y registro
+numerado de fuentes primarias con fecha, alcance y enlaces desde el texto.
+
+Selectores superiores Español/English y Claro/Light–Oscuro/Dark. Narrativa y
+controles completos en ambos idiomas; extractos originales del anuncio y de la
+revisión digital se identifican como tales. Preferencias locales del lector y
+parámetros lang/theme; el escenario se sincroniza entre idiomas. Los controles
+no modifican reportes guardados ni CRM. La misma plantilla sirve informes
+existentes y futuros, sin migrar ni regenerar datos. Solo se despliega el Worker;
+el checkout de Sites conserva su versión porque consume este HTML del Worker.
+
+Índice lateral en lectura amplia; selector de secciones en ancho reducido.
+Verificado en 320/390/768/1440, ambos idiomas y temas, foco visible, movimiento
+reducido y texto ampliado. Texto de inputs >=16 px en móvil; tablas anchas
+con desplazamiento propio. Impresión fuerza paleta clara y conserva el idioma
+seleccionado. No se afirma certificación de accesibilidad ni prueba en un celular
+físico. tests/report_design_smoke.py valida controles, sincronización, persistencia
+y reflujo; reports_smoke.py mantiene el flujo CMS, filtros y enlace;
+investment_report.test.mjs prueba fórmulas, aislamiento del CRM y HTML empaquetado.
+
+Verificado en Sites, informe 0d2d9875-ccf5-4294-87af-0902b52c7059: English + Dark,
+50% banco -> USD 750.000 de efectivo inicial. Se restauró Español + Claro y 0%
+banco. Evidencia visual privada .nightly/report-design-*.png y captura de
+producción bizacq-editorial-production.png. Worker e4d7e7c6-3a14-4215-aaa8-10d385bafec3.

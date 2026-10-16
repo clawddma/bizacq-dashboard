@@ -18,11 +18,12 @@ with sync_playwright() as p:
  page.wait_for_function("Alpine.$data(document.body).view==='reports' && Alpine.$data(document.body).selectedReport")
  assert writes==[{'dealId':report['deal_id']}]
  frame=page.frame_locator('iframe[title="Memorando de inversión"]')
+ frame.get_by_label('Idioma / Language',exact=True).select_option('es')
  frame.get_by_role('heading',name='Deuda, efectivo y retorno del escenario',exact=True).wait_for()
  frame.get_by_label('Banco convencional (%)',exact=True).fill('50')
- assert '$750,000' in frame.locator('[data-result="equity"]').inner_text()
- frame.get_by_label('Vendedor (%)',exact=True).fill('60');assert frame.locator('#scenarioError').is_visible()
- frame.get_by_label('Vendedor (%)',exact=True).fill('20');assert not frame.locator('#scenarioError').is_visible()
+ assert '$750,000' in frame.locator('[data-lang="es"] [data-result="equity"]').inner_text()
+ frame.get_by_label('Vendedor (%)',exact=True).fill('60');assert frame.locator('[data-lang="es"] [data-error]').is_visible()
+ frame.get_by_label('Vendedor (%)',exact=True).fill('20');assert not frame.locator('[data-lang="es"] [data-error]').is_visible()
  page.get_by_label('Buscar reportes por compañía',exact=True).fill('missing-999');page.wait_for_timeout(80);assert page.evaluate('Alpine.$data(document.body).filteredReports.length')==0
  page.get_by_label('Buscar reportes por compañía',exact=True).fill('');page.get_by_label('Estado de reportes',exact=True).select_option('WV');assert page.evaluate('Alpine.$data(document.body).filteredReports.length')==1
  page.get_by_label('Indicador de reportes',exact=True).select_option('conflict');page.wait_for_timeout(80);assert page.evaluate('Alpine.$data(document.body).filteredReports.length')==0

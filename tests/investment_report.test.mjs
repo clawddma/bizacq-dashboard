@@ -7,7 +7,7 @@ const data={deals:[deal],manual_orders:{EN_ANALISIS:[deal.id]}};const before=str
 const f=reportFacts(deal);assert.equal(f.earnings,100000);assert.equal(f.sde,null);assert.equal(f.multiple,3);assert.equal(f.margin,25);
 let s=reportScenario(f,{bankPct:50,bankRate:0,bankYears:10,sellerPct:25,sellerRate:0,sellerYears:5});assert(s.valid);assert.equal(s.equity,75000);assert.equal(s.totalDebt,30000);assert.equal(s.annualCash,70000);assert(Math.abs(s.debtCapacity-(100000/1.5-15000)*10)<.01);assert.equal(s.coverage,100000/30000);
 assert(!reportScenario(f,{bankPct:80,sellerPct:30}).valid);assert(!reportScenario(f,{bankYears:0}).valid);assert(!reportScenario(f,{targetCoverage:.8}).valid);assert.equal(reportScenario({...f,conflict:true}).debtCapacity,null);assert.equal(reportScenario({...f,earnings:null}).annualCash,null);assert.equal(reportScenario(f,{uplift:10,contribution:40,savings:10000,tech:6000}).aiBenefit,20000);
-const html=renderInvestmentReport(r,deal);assert(!html.includes('<script>alert(1)</script>'));assert(html.includes('&lt;script&gt;'));assert(!html.includes('PRIVATE_SECRET'));assert(html.includes('Form 8594'));assert(html.includes('datos publicados')||html.includes('datos public'));
+const html=renderInvestmentReport(r,deal);assert(html.includes('Investment memorandum'));assert(html.includes('Memorando de inversión'));assert(html.includes('reportLanguage'));assert(html.includes('reportTheme'));assert(!html.includes('<script>alert(1)</script>'));assert(html.includes('&lt;script&gt;'));assert(!html.includes('PRIVATE_SECRET'));assert(html.includes('Form 8594'));assert(html.includes('datos publicados')||html.includes('datos public'));
 assert(renderInvestmentReport(r,{...deal,screening:{...deal.screening,disposition:'revalidate'}}).includes('información posterior'));
 const changed=structuredClone(deal);changed.public_facts.asking_price=350000;assert(renderInvestmentReport(r,changed).includes('información posterior'));const r2=saveInvestmentReport(data,changed,now);assert.equal(r2.version,2);assert.equal(r.financials.price,300000);
 // Small and mixed-basis cohorts cannot produce misleading industry medians.
@@ -23,8 +23,8 @@ const bundlePath=new URL('../cloudflare/.nightly/worker-report-build/worker.js',
 if(fs.existsSync(bundlePath)){
  const bundled=await import('data:text/javascript;base64,'+Buffer.from(fs.readFileSync(bundlePath,'utf8')).toString('base64'));
  const rendered=bundled.renderInvestmentReport(r,deal),script=rendered.match(/<script>([\s\S]*)<\/script>/)[1];
- const vm=await import('node:vm');const result={dataset:{result:'equity'},textContent:''};
- const document={querySelectorAll(selector){return selector==='[data-scenario]'?[{dataset:{scenario:'bankPct'},value:'50',addEventListener(){}}]:[result]},getElementById(){return {hidden:false}}};
- vm.runInNewContext(script,{document,Intl});assert.equal(result.textContent,'$150,000');
+ const vm=await import('node:vm');
+ const calculator=script.match(/const calculate=([\s\S]*?);let scenarioState/)[1];
+ const result=vm.runInNewContext('const __name=(fn)=>fn;const calculate='+calculator+';calculate(facts,{bankPct:50})',{facts:r.financials});assert.equal(result.equity,150000);
  console.log('PASS: production-bundled standalone HTML calculator executes with Wrangler name helpers');
 }
