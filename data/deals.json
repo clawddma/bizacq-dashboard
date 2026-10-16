@@ -80477,7 +80477,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:05:25.255Z",
+        "calculated_at": "2026-10-16T20:28:36.807Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -80587,6 +80587,74 @@
           "¿Qué funciones y relaciones dependen del dueño y cuántos meses acompañaría la transición?",
           "Confirmar porcentaje, tasa, plazo, garantías, subordinación y condiciones del pagaré del vendedor.",
           "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "digital_analysis": {
+        "version": "digital-v1",
+        "performed_at": "2026-10-16T20:28:36.084Z",
+        "status": "identity_pending",
+        "website": null,
+        "website_candidates": [
+          {
+            "title": "Westfall Roofing Company | The Roofing Contractor You Can Count On",
+            "url": "https://www.westfallroofing.com/"
+          }
+        ],
+        "observations": [],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de respuesta y agenda que dé seguimiento a llamadas, consultas y cotizaciones pendientes.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://www.biztrader.com/listing/roofing-company-active-in-three-states/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-16T20:28:36.084Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=Roofing%20company%20active%20in%20three%20states%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-16T20:28:36.084Z"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "financial_method": {
+          "incremental_profit": "Ventas adicionales × margen de contribución − costo comercial y herramientas.",
+          "net_savings": "Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.",
+          "valuation": "Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base."
+        }
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-10-16T20:28:36.807Z",
+        "model": "screen-v2",
+        "summary": "Afinidad preliminar 73/100. Información pública y escenarios; cifras pendientes de diligencia.",
+        "questions": [
+          "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
+          "Solicitar el detalle que respalda la ganancia publicada y sus ajustes.",
+          "Validar concentración de clientes/canales, recurrencia y horas reales del dueño.",
+          "Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.",
+          "Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos."
         ]
       }
     },
@@ -84743,5 +84811,162 @@
       }
     ],
     "coverage": "partial"
-  }
+  },
+  "investment_reports": [
+    {
+      "id": "0d2d9875-ccf5-4294-87af-0902b52c7059",
+      "deal_id": "977454ed-5ea1-4568-ac9d-300b4af6b5bc",
+      "version": 1,
+      "generated_at": "2026-10-16T20:28:36.807Z",
+      "title": "Roofing company active in three states",
+      "industry": "Construction",
+      "state": "WV",
+      "city": "",
+      "stage_at_generation": "RADAR",
+      "source_url": "https://www.biztrader.com/listing/roofing-company-active-in-three-states/",
+      "source_checked_at": "2026-10-16T20:00:48.230781+00:00",
+      "published_at": "2026-05-12",
+      "source_signature": "[\"Roofing company active in three states\",\"WV\",\"\",\"Construction\",\"https://www.biztrader.com/listing/roofing-company-active-in-three-states/\",{\"price\":1500000,\"revenue\":7800000,\"earnings\":500000,\"basis\":\"Flujo del broker\",\"sde\":null,\"net_profit\":null,\"cash_flow\":500000,\"ebitda\":null,\"years\":4,\"multiple\":3,\"margin\":6.41025641025641,\"conflict\":false},\"Roofing company active in three states | BizTrader Hurricane WV USA ADD FREE LISTING Login Sign Up Roofing company active in three states 2701 Main Street, Hurricane, WV, USA GET FINANCING Add to Favorite Add to Favorite Remove from favorites Remove from Favorites Share Facebook X Telegram Whatsapp Email Report Find a Business For Sale Find a Broker Sell a Business INFORMATION − + Listing ID : 2462233 Listed On May 12, 2026 View Count 1516 Listing Updated May 12, 2026 Status : ACTIVE Listing Type : Business For Sale Building & Construction Roofing Companies Listing Highlights : Distressed, Low Overhead Price : $1,500,000 Business Overview : Gross Revenue: $7,800,000 Cash Flow: $500,000 Year Established: 2022 Number of Employees: 10 Inventory Included: No Accounts Receivable Included: Yes Estimated Value Accounts Receivable Included: $300,000 Furniture, Fixtures & Equipment (FF&E) Included: No Outstanding Liabilities & Debts: Yes Total Amount of Outstanding Liabilities & Debts: $500,000 License Included: No Business Location Details : Business Location: Business Can Be Moved Property Details : Terms : Financing: Cash, SBA, Seller Financing, Lender Pre-Qualified NDA Required: No Reason for Selling: Looking to pay off existing debt and retire Company Overview : Franchise Overview : Description : For sale roofing and siding company estimated 7 million in sales across Ohio WV and Kentucky. \",\"published\",null,[]]",
+      "description": "Roofing company active in three states | BizTrader Hurricane WV USA ADD FREE LISTING Login Sign Up Roofing company active in three states 2701 Main Street, Hurricane, WV, USA GET FINANCING Add to Favorite Add to Favorite Remove from favorites Remove from Favorites Share Facebook X Telegram Whatsapp Email Report Find a Business For Sale Find a Broker Sell a Business INFORMATION − + Listing ID : 2462233 Listed On May 12, 2026 View Count 1516 Listing Updated May 12, 2026 Status : ACTIVE Listing Type : Business For Sale Building & Construction Roofing Companies Listing Highlights : Distressed, Low Overhead Price : $1,500,000 Business Overview : Gross Revenue: $7,800,000 Cash Flow: $500,000 Year Established: 2022 Number of Employees: 10 Inventory Included: No Accounts Receivable Included: Yes Estimated Value Accounts Receivable Included: $300,000 Furniture, Fixtures & Equipment (FF&E) Included: No Outstanding Liabilities & Debts: Yes Total Amount of Outstanding Liabilities & Debts: $500,000 License Included: No Business Location Details : Business Location: Business Can Be Moved Property Details : Terms : Financing: Cash, SBA, Seller Financing, Lender Pre-Qualified NDA Required: No Reason for Selling: Looking to pay off existing debt and retire Company Overview : Franchise Overview : Description : For sale roofing and siding company estimated 7 million in sales across Ohio WV and Kentucky. ",
+      "financials": {
+        "price": 1500000,
+        "revenue": 7800000,
+        "earnings": 500000,
+        "basis": "Flujo del broker",
+        "sde": null,
+        "net_profit": null,
+        "cash_flow": 500000,
+        "ebitda": null,
+        "years": 4,
+        "multiple": 3,
+        "margin": 6.41025641025641,
+        "conflict": false
+      },
+      "score": 73,
+      "flags": [],
+      "availability": "eligible",
+      "prospecting": {
+        "version": "prospect-v1",
+        "retirement": true,
+        "succession_gap": false,
+        "reason_for_sale": "Looking to pay off existing debt and retire",
+        "retirement_evidence": "ason for Selling: Looking to pay off existing debt and retire Company Overview : Franchise Overview : Description : For sale roofing and siding company estimated 7 million in sales across Ohio WV and Kentucky.",
+        "seller_financing": "advertised",
+        "seller_percent": null,
+        "seller_label": "Anunciada · porcentaje no publicado",
+        "seller_evidence": "Moved Property Details : Terms : Financing: Cash, SBA, Seller Financing, Lender Pre-Qualified NDA Required: No Reason for Selling: Looking to pay off existing debt and retire Company Overview : Franchise Overview : Descri",
+        "sba_advertised": false,
+        "sba_evidence": null,
+        "financials_usable": true,
+        "financial_conflict": false,
+        "source_url": "https://www.biztrader.com/listing/roofing-company-active-in-three-states/",
+        "questions": [
+          "¿Qué funciones y relaciones dependen del dueño y cuántos meses acompañaría la transición?",
+          "Confirmar porcentaje, tasa, plazo, garantías, subordinación y condiciones del pagaré del vendedor.",
+          "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "sector": {
+        "name": "Servicios técnicos y construcción",
+        "naics": "23 o 81 · confirmar actividad",
+        "attraction": "Demanda local, mantenimiento y contratos de servicio pueden favorecer compras repetidas. Validar recurrencia efectiva, densidad de rutas y disponibilidad de técnicos.",
+        "risks": [
+          "Dependencia del dueño para cotizar, vender o mantener la licencia.",
+          "Estacionalidad, garantías, backlog no vinculante y contratación de personal."
+        ],
+        "indicators": [
+          "Conversión de cotizaciones y ticket medio",
+          "Horas facturadas / horas disponibles",
+          "Margen por trabajo, repetición y costo de adquisición"
+        ],
+        "pilots": [
+          "Agente de respuesta, agenda y seguimiento de cotizaciones para reducir leads sin atender.",
+          "Preparación de presupuestos, coordinación de técnicos y revisión del margen por trabajo."
+        ]
+      },
+      "tax": {
+        "state": "WV",
+        "summary": "West Virginia: referencia de impuesto corporativo de 6,5%. Confirmar entidad, base imponible, deducciones y obligaciones estatales y locales.",
+        "url": "https://tax.wv.gov/business/corporateincometax/pages/corporateincometax.aspx",
+        "reviewed_at": "2026-10-16"
+      },
+      "peers": {
+        "count": 18,
+        "basis": "Flujo del broker",
+        "median_multiple": 3.670502827995703,
+        "margin_count": 14,
+        "median_margin": 21.217737462617016
+      },
+      "digital": {
+        "status": "identity_pending",
+        "website": null,
+        "observations": [],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de respuesta y agenda que dé seguimiento a llamadas, consultas y cotizaciones pendientes.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "sources": [
+          {
+            "url": "https://www.biztrader.com/listing/roofing-company-active-in-three-states/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-16T20:28:36.084Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=Roofing%20company%20active%20in%20three%20states%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-16T20:28:36.084Z"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Anuncio del negocio",
+          "url": "https://www.biztrader.com/listing/roofing-company-active-in-three-states/",
+          "as_of": "2026-10-16T20:00:48.230781+00:00"
+        },
+        {
+          "title": "Contexto fiscal estatal",
+          "url": "https://tax.wv.gov/business/corporateincometax/pages/corporateincometax.aspx",
+          "as_of": "2026-10-16"
+        },
+        {
+          "title": "BLS · indicadores por industria",
+          "url": "https://www.bls.gov/iag/",
+          "as_of": null
+        },
+        {
+          "title": "SBA · propiedad, ciudadanía y residencia",
+          "url": "https://legacy.sba.gov/document/procedural-notice-5000-876626-revised-applicant-ownership-citizenship-residency-requirements-7a-504-loans",
+          "as_of": "2026-10-16"
+        },
+        {
+          "title": "IRS · asignación del precio en compras de activos",
+          "url": "https://www.irs.gov/instructions/i8594",
+          "as_of": "2026-10-16"
+        }
+      ]
+    }
+  ]
 }
