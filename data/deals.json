@@ -73376,7 +73376,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:16:29.935Z",
+        "calculated_at": "2026-10-16T20:16:43.236Z",
         "score": 90,
         "signals_available": 4,
         "signals_total": 7,
@@ -73491,7 +73491,7 @@
       },
       "digital_analysis": {
         "version": "digital-v1",
-        "performed_at": "2026-10-16T20:16:29.935Z",
+        "performed_at": "2026-10-16T20:16:43.236Z",
         "status": "identity_pending",
         "website": null,
         "website_candidates": [
@@ -73528,12 +73528,12 @@
           {
             "url": "https://www.biztrader.com/listing/chiropractic-practice-for-sale-in-mesa-az/",
             "kind": "anuncio",
-            "checked_at": "2026-10-16T20:16:29.935Z"
+            "checked_at": "2026-10-16T20:16:43.236Z"
           },
           {
             "url": "https://www.bing.com/search?format=rss&q=Chiropractic%20Practice%20for%20Sale%20in%20Mesa%2C%20AZ%20%20official%20business%20website",
             "kind": "búsqueda de identidad",
-            "checked_at": "2026-10-16T20:16:29.935Z"
+            "checked_at": "2026-10-16T20:16:43.236Z"
           }
         ],
         "limitations": [
@@ -73546,7 +73546,7 @@
         }
       },
       "preliminary_analysis": {
-        "performed_at": "2026-10-16T20:16:30.319Z",
+        "performed_at": "2026-10-16T20:16:43.407Z",
         "model": "screen-v2",
         "summary": "Afinidad preliminar 90/100. 4/7 señales públicas disponibles. Solicitar documentación para diligencia. No incluye auditoría ni verificación legal.",
         "questions": [
