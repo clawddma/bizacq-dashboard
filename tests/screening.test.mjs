@@ -12,3 +12,8 @@ const mock=async url=>new Response(url.includes('bing.com')?'<rss/>':'<title>Exa
 const audit=await auditDigitalOpportunity({...d,website_url:'https://example.com'},mock);assert.equal(audit.status,'web_observed');assert(audit.observations.length>=6);assert(audit.opportunities.every(o=>o.status.includes('hipótesis')));
 const anonymous=await auditDigitalOpportunity(d,mock);assert.equal(anonymous.status,'identity_pending');assert.equal(anonymous.website,null);assert(anonymous.limitations.some(l=>l.includes('no demuestra')));
 console.log('PASS v2: public-only normalized affinity, limited-evidence cap, no DD penalty, old published listing eligible, CRM preservation, digital evidence vs hypotheses');
+
+assert.equal(screenDeal({...d,revalidation:{status:'blocked',checked_at:'2026-10-15T20:01:00Z'}},'2026-10-15T20:02:00Z').disposition,'revalidate');
+assert.equal(screenDeal({...d,revalidation:{status:'blocked',checked_at:'2026-10-15T19:00:00Z'}},now).disposition,'eligible');
+assert.equal(screenDeal({...d,listing_evidence:{...d.listing_evidence,source_url:'https://example.com/another-listing'}},now).disposition,'revalidate');
+console.log('PASS: newer failed verification cannot reuse old publication as current availability');

@@ -33,26 +33,29 @@ def parse_offer(body,url,title=''):
  canonical=soup.find('link',rel='canonical');canon=urljoin(url,canonical.get('href','')) if canonical else url
  target=tokens(title);overlap=max([len(target&tokens(h))/max(1,len(target)) for h in headings]+[0])
  strong=bool(target and overlap>=0.50)
- # Sold/withdrawn must concern this specific listing, not a navigation item.
- markers=re.findall(r'(?:listing status\s*:?\s*(?:sold|under contract|available|active)|business (?:has been |is )?(?:sold|no longer available)|this (?:listing|business) is no longer available|status\s*:\s*sold)',text,re.I)
- withdrawn=strong and bool(markers) and any(re.search(r'sold|no longer',v,re.I) for v in markers)
+ # Related listings and navigation cannot establish availability of this business.
+ listing_text=re.split(r'you may also be interested|related listings|similar businesses|other listings',text,flags=re.I)[0]
+ markers=re.findall(r'(?:listing status\s*:?\s*(?:sold|withdrawn|off.market|no longer available)|business (?:has been |is )?(?:sold|no longer available)|this (?:listing|business) is no longer available|status\s*:?\s*(?:sold|withdrawn|off.market|no longer available))',listing_text,re.I)
+ withdrawn=strong and bool(markers)
+ availability='sold' if withdrawn and any(re.search(r'\bsold\b',v,re.I) for v in markers) else 'withdrawn' if withdrawn else None
  fields={}
  patterns={'asking_price':r'(?:asking price|sale price|business price)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)\s*([MK]?)','reported_revenue':r'(?:gross revenue|annual revenue|annual sales|gross sales)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)\s*([MK]?)','reported_cash_flow':r'(?:cash\s*flow(?:\s*\(SDE\))?|seller.s discretionary earnings|SDE)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)\s*([MK]?)'}
  for k,p in patterns.items():
   m=re.search(p,text,re.I)
   if m:fields[k]=float(m[1].replace(',','').replace(' ',''))*({'M':1e6,'K':1e3}.get(m[2].upper(),1))
- return {'match':strong,'title_overlap':round(overlap,3),'headings':headings[:4],'canonical':canon,'text':text[:30000],'fields':fields,'withdrawn':withdrawn,'status_evidence':markers[:3]}
+ return {'match':strong,'title_overlap':round(overlap,3),'headings':headings[:4],'canonical':canon,'text':text[:30000],'fields':fields,'withdrawn':withdrawn,'availability':availability,'status_evidence':markers[:3]}
 
 def check(d):
  now=datetime.now(timezone.utc).isoformat();base={'deal_id':d['id'],'source_url':d.get('source_url'),'checked_at':now}
- if d.get('source')=='empire_flippers':return {**base,'status':'official_catalog_pending'}
+ if d.get('source')=='empire_flippers' and d.get('listing_evidence',{}).get('status')!='not_in_current_catalog':return {**base,'status':'official_catalog_pending'}
+ if d.get('revalidation',{}).get('status')=='non_operating_asset':return {**base,'status':'non_operating_asset','reason':d['revalidation'].get('reason','Ficha de inmueble, sin empresa operativa identificada.')}
  if d.get('source_url_kind')!='listing':return {**base,'status':'identity_unresolved','reason':'El enlace original es de categoría, no identifica una oferta. No se sustituye por otro negocio de nombre parecido.'}
  try:
   r=fetch(d['source_url']);body=r.pop('body','');base.update(r)
   if r['status']!='fetched':return base
   h=hashlib.sha256(body.encode()).hexdigest();OUT.mkdir(parents=True,exist_ok=True);(OUT/(h+'.html')).write_text(body)
   p=parse_offer(body,r['url'],d['title']);base.update(p);base['content_hash']=h
-  base['status']='withdrawn' if p['withdrawn'] else 'published' if p['match'] and (p['fields'] or re.search(r'(?:asking|price|inquire|request information|financial information)',p['text'],re.I)) else 'identity_unresolved'
+  base['availability_confirmed']=bool(p['match'] and p['withdrawn']);base['status']=p['availability'] if p['withdrawn'] else 'published' if p['match'] and (p['fields'] or re.search(r'(?:asking|price|inquire|request information|financial information)',p['text'],re.I)) else 'identity_unresolved'
   return base
  except Exception as e:return {**base,'status':'unavailable','reason':type(e).__name__+': '+str(e)[:120]}
 

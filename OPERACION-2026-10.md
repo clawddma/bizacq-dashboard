@@ -181,3 +181,100 @@ tráfico ni reputación. Guarda observaciones y fuentes, hipótesis de ingresos,
 automatización y control, línea base y piloto por palanca. Si la identidad es
 confidencial o la fuente bloquea la lectura, registra la limitación. Elimina el
 pedido de copiar instrucciones a Claude. No usa API paga ni LLM nocturno.
+
+## Consulta en plataforma sin alertas · 15 octubre 2026
+
+Daniel solicita consultar las ofertas en la plataforma, sin alertas ni dependencia
+operativa del correo. Se retira `mail_alerts.py` de `nightly_refresh.py`. No se
+configuran búsquedas guardadas, suscripciones de correo ni credenciales de buzón.
+El prototipo del importador queda fuera del proceso automático.
+
+Permanece la actualización local diaria a las 00:00 de Bogotá, bajo
+`com.braindma.bizacq-refresh`, mediante fuentes públicas accesibles y el catálogo
+oficial de Empire Flippers. El Mac debe estar despierto y con conexión. La ingesta
+solo modifica datos públicos y derivados: notas, decisiones, etapas, documentos y
+orden manual se conservan. Las fuentes inaccesibles o identidades no confirmadas
+se mantienen en Por revalidar; no se presentan como disponibles verificadas.
+BizBuySell y BizQuest todavía tienen cobertura automática limitada por sus bloqueos
+HTTP: el retiro del correo no resuelve ese acceso ni activa una fuente alternativa.
+
+## Vigencia automática y tarjetas · 15 octubre 2026
+
+Sites es la interfaz principal mantenida. GitHub Pages conserva otra versión de
+la interfaz y el mismo Worker/dataset; no representa otro pipeline. Un fragmento
+`#deal=UUID` abre una ficha de la misma base en cualquiera de las interfaces.
+Una pestaña que conserva JavaScript antiguo necesita recargarse tras un despliegue.
+
+Se retiran de las tarjetas los bloques repetidos de comprobación/antigüedad. Queda
+una línea sutil de publicación original cuando el portal la declara; de lo contrario,
+«Fecha no informada». No se transforma la fecha de consulta o ingreso en publicación.
+Los prefijos históricos `[Anuncio consultado ...]` se ocultan en títulos; el dato
+original y la evidencia detallada permanecen disponibles.
+
+La revisión nocturna cubre las fichas individuales activas no-Empire (tope 200,
+actualmente suficiente), en vez de rotar solo 35. Se respeta el bloqueo por dominio.
+Empire mantiene el catálogo oficial. La ausencia en un catálogo no prueba venta.
+`applyAvailabilityObservation` descarta automáticamente desde RADAR, EN_ANALISIS,
+PARA_CONTACTAR o EN_NEGOCIACION cuando la ficha individual coincidente indica
+vendido o retirado y la observación incluye el texto de evidencia. Tres observaciones
+404/410 en cortes diarios distintos descartan por enlace no disponible, sin afirmar
+venta. Repetir un corte el mismo día no suma observaciones; una ficha publicada
+reinicia el contador. Bloqueos, categorías, vejez o fallos temporales no disparan
+venta ni descarte. CIERRE conserva la decisión del equipo. Reaparecer en un portal
+no recupera automáticamente un descarte; la recuperación es manual.
+
+El movimiento conserva notas, revisión, documentos y análisis; guarda motivo, estado
+previo, fuente y evento de auditoría. No se sustituye un descarte humano existente.
+El Radar depurado sigue excluyendo fichas cuya vigencia no se pudo demostrar.
+No se garantiza cobertura total de portales bloqueados ni disponibilidad intradía.
+Pruebas: `tests/availability.test.mjs`, `tests/test_portals.py`, contratos HTTP de
+Worker, screening y smoke responsive 390/768/1440.
+
+Si una ficha Empire desaparece del catálogo completo, la rutina de portales también
+intenta leer su URL individual: solo evidencia explícita o tres 404/410 habilitan
+el descarte, nunca la ausencia aislada en la API.
+
+## Versión única y ficha financiera rápida · 16 octubre 2026
+
+La única interfaz mantenida y publicada es Sites. La fuente canónica vive en
+`web/index.html` y `web/economics.js`; `scripts/prepare_sites.py` copia solo esos
+activos a Sites. `index.html` de la raíz es un redirect con `location.replace`,
+conservando query y fragmento `#deal=UUID`. GitHub Pages publica exclusivamente la
+rama `gh-pages` con `index.html` y `404.html` de reenvío; el código, los datos y los
+scripts de main no se sirven como una segunda interfaz. Se verificó en navegador
+que el enlace original de Flowers Bread Route abre el mismo UUID en Sites.
+
+«Números para decidir» aparece al abrir cada oportunidad sin requerir análisis
+histórico. Muestra precio, ganancia anual con base SDE/neto/flujo del broker,
+ingresos y múltiplo. Prioriza hechos públicos observados sobre cifras heredadas.
+Porcentaje del vendedor: solo si está publicado; si se anuncia financiación sin
+porcentaje, se informa esa limitación. SBA se presenta como elegibilidad pendiente,
+sin asumir crédito ni aprobar al comprador por una etiqueta. Regla oficial enlazada:
+https://legacy.sba.gov/document/procedural-notice-5000-876626-revised-applicant-ownership-citizenship-residency-requirements-7a-504-loans
+
+El simulador local incluye porcentajes de vendedor y banco convencional, tasas,
+plazos, costos de cierre, capital de trabajo, sueldo de reemplazo y reserva. Calcula
+cuota amortizada, aporte, flujo, cobertura orientativa, flujo/aporte y recuperación
+simple sin crecimiento. Los valores iniciales son ejemplos editables, no ofertas;
+no se guardan en CRM ni sustituyen análisis. Datos desconocidos no se reconstruyen
+con márgenes inventados. Las estructuras y análisis legales heredados quedan bajo
+secciones históricas plegadas. `tests/economics.test.mjs` valida fórmulas y ausencias;
+`tests/redirect.test.mjs` valida reenvío de hashes y parámetros. El smoke prueba
+interacción y geometría de la ficha en 390/768/1440 y conserva el negocio original.
+
+Se corrigió la recuperación de comprobantes nocturnos: un éxito del día anterior
+ya no se reetiqueta como consulta del día actual. `current_receipt` exige fecha de
+inicio en el día de Bogotá, además del día del recibo y estado success. Se ejecutó
+una consulta nueva el 16/oct: catálogo oficial de 9 páginas, 128 ofertas US en For
+Sale; 176 comprobaciones de portales persistidas. Una comprobación fallida posterior
+a una publicación mueve la ficha a Por revalidar, sin descartarla por un bloqueo.
+
+Resultado observado tras la revisión: 328 registros, 228 anuncios activos publicados,
+95 activos sin vigencia confirmada, 4 descartados y 1 en cierre. Los 95 incluyen
+54 identidades sin resolver, 33 bloqueos, 6 inmuebles y 2 enlaces 404/410. No se
+confunden con ventas. El recuento de Por revalidar excluye terminales. Notas,
+revisiones y documentos del inventario inicial se conservaron; un movimiento manual
+RADAR→EN_ANALISIS recibido durante el trabajo se respetó. La reconstrucción final
+solo modificó derivados y preservó etapas, eventos, motivos y orden manual.
+Evidencia privada: `.nightly/oct16-final-verification.json`, run
+`cf0de634-0df4-4888-a23b-276c73af2265`; publicación y vigencia comercial son distintas.

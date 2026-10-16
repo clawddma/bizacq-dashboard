@@ -160,7 +160,9 @@ export function screenDeal(d, now=new Date().toISOString()) {
   const ageDays=v=>v&&Number.isFinite(Date.parse(v))?Math.max(0,Math.floor((Date.parse(now)-Date.parse(v))/86400000)):null;
   const e=d.listing_evidence||{},m=d.operating_metrics||{},facts=d.public_facts||{};
   const checked=ageDays(e.checked_at),age=e.publication_source==='portal'?ageDays(e.published_at):null;
-  const direct=d.source_url_kind==='listing'&&e.status==='published'&&checked!==null&&checked<=7;
+  const lastAttempt=d.revalidation||{};
+  const newerUnconfirmed=['blocked','blocked_source','unavailable','identity_unresolved','not_found','sold','withdrawn'].includes(lastAttempt.status)&&Date.parse(lastAttempt.checked_at)>Date.parse(e.checked_at);
+  const direct=d.source_url_kind==='listing'&&e.status==='published'&&checked!==null&&checked<=7&&!newerUnconfirmed&&(!e.source_url||e.source_url===d.source_url);
   const text=String(facts.description||d.raw_description||'').toLowerCase(),parts=[],flags=[],questions=[];
   if(!direct)flags.push('Disponibilidad no comprobada recientemente; revisar el intento de revalidación.');
   if(d.source_url_kind!=='listing')flags.push('El enlace de categoría no identifica una oportunidad concreta.');
@@ -228,6 +230,31 @@ export async function auditDigitalOpportunity(d, fetcher=fetch) {
   if(outsourced)observations.push({name:'Logística',status:'El anuncio describe logística externalizada; validar inventario, tarifas, stock y dependencia de plataforma.',evidence_url:d.source_url});
   const opportunities=[{area:'Ingresos',proposal:recurring?'Agente de retención de suscriptores: detectar riesgo de baja, recuperar pagos fallidos y probar reactivación o venta cruzada con consentimiento.':online?'Agente de seguimiento de leads, recuperación de carritos o reactivación de clientes, según el canal real.':'Agente de respuesta y agenda que dé seguimiento a llamadas, consultas y cotizaciones pendientes.',baseline:'Leads/mes, tasa de contacto, conversión y margen por venta.',pilot:'Comparar conversión y margen incremental frente a una línea base durante 30 días.'},{area:'Costos y gastos',proposal:outsourced?'Agente de inventario y conciliación entre tienda, 3PL y FBA: alertar quiebres, exceso de stock, devoluciones y diferencias; aprobar compras manualmente.':online?'Automatizar clasificación de soporte, reportes y conciliación operativa con revisión humana.':'Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.',baseline:'Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.',pilot:'Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.'},{area:'Capacidad y control',proposal:'Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.',baseline:'Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.',pilot:'Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.'}].map(o=>({...o,status:'hipótesis de mejora; requiere validación con la empresa'}));
   return {version:'digital-v1',performed_at:now,status:audited?'web_observed':'identity_pending',website,website_candidates:candidates,observations,opportunities,sources,limitations:limits,financial_method:{incremental_profit:'Ventas adicionales × margen de contribución − costo comercial y herramientas.',net_savings:'Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.',valuation:'Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base.'}};
+}
+
+export function applyAvailabilityObservation(data,d,row,now=new Date().toISOString()) {
+  if(d.source_url_kind!=='listing'||d.source_url!==row.source_url)return false;
+  const checked=new Date(row.checked_at),clock=new Date(now);
+  if(!Number.isFinite(checked.getTime())||checked>clock||clock-checked>7*86400000)return false;
+  const day=checked.toLocaleDateString('en-CA',{timeZone:'America/Bogota'});
+  let reason=null;
+  if(['sold','withdrawn'].includes(row.status)&&row.availability_confirmed===true&&Array.isArray(row.status_evidence)&&row.status_evidence.some(e=>typeof e==='string'&&e.length>0)){
+    reason=row.status==='sold'?'Vendido — confirmado en la ficha de origen':'Ya no está disponible — retirado en la ficha de origen';
+  }
+  if(row.status==='not_found'){
+    const prior=d.retirement_checks||{};
+    const count=prior.source_url===row.source_url?(prior.last_day===day?prior.count:(prior.count||0)+1):1;
+    d.retirement_checks={source_url:row.source_url,last_day:day,count};
+    if(count>=3)reason='Ya no está disponible en el enlace original — 404/410 en tres cortes diarios';
+  }else if(row.status==='published')delete d.retirement_checks;
+  else if(!['sold','withdrawn'].includes(row.status))delete d.retirement_checks;
+  if(!reason||!['RADAR','EN_ANALISIS','PARA_CONTACTAR','EN_NEGOCIACION'].includes(d.pipeline_status))return false;
+  const previous=d.pipeline_status;d.pipeline_status='DESCARTADO';d.discard_reason=reason;
+  d.auto_discard={at:now,previous_status:previous,source_url:row.source_url,evidence:row.status_evidence||[],reason};
+  d.events=d.events||[];d.events.push({created_at:now,event_type:'status_change',old_value:{status:previous},new_value:{status:'DESCARTADO',trigger:'auto',actor:'availability_monitor'},description:`Movido ${previous} → DESCARTADO: ${reason}`});
+  if(data.manual_orders)for(const key of Object.keys(data.manual_orders))if(Array.isArray(data.manual_orders[key]))data.manual_orders[key]=data.manual_orders[key].filter(id=>id!==d.id);
+  if(data.manual_orders&&Array.isArray(data.manual_orders.DESCARTADO))data.manual_orders.DESCARTADO.push(d.id);
+  return true;
 }
 
 export function scoreAllDeals(data,now=new Date().toISOString()) {
@@ -346,12 +373,19 @@ a{color:#60a5fa}</style></head><body>
       try {const body=await request.json();if(!Array.isArray(body.records)||body.records.length>250) return json({error:'lote inválido'},400,cors);
         const {data,sha}=await getDealsFile(env);let added=0,updated=0;const summary={};
         for(const row of body.records){if(!row.source_url||!/^https:\/\//.test(row.source_url)||!row.checked_at)throw new Error('evidencia inválida');
-          let d=data.deals.find(d=>d.id===row.deal_id||d.source_url?.replace(/\/$/,'')===row.source_url.replace(/\/$/,''));
+          let d=row.deal_id?data.deals.find(d=>d.id===row.deal_id):data.deals.find(d=>d.source_url?.replace(/\/$/,'')===row.source_url.replace(/\/$/,''));
+          if(row.deal_id&&!d)throw new Error('identificador de ficha desconocido');
           if(d&&d.source_url.replace(/\/$/,'')!==row.source_url.replace(/\/$/,''))throw new Error('identidad de origen distinta');
-          if(!d){if(row.status!=='published'||!row.title)continue;const hostname=new URL(row.source_url).hostname;d={id:uuid(),source:hostname.includes('bizbuysell')?'bizbuysell':hostname.includes('bizquest')?'bizquest':hostname.replace(/^www\./,''),source_url:row.source_url,source_url_kind:'listing',title:String(row.title).slice(0,500),business_type:String(row.business_type||'Sin categoría').slice(0,100),state:String(row.state||'').slice(0,2),city:String(row.city||'').slice(0,100),pipeline_status:'RADAR',pending_analysis:true,notes:[],events:[],documents:[],reported_sde:null};data.deals.push(d);added++;}
+          if(!d){if(!['published','email_alert'].includes(row.status)||!row.title)continue;const hostname=new URL(row.source_url).hostname;d={id:uuid(),source:hostname.includes('bizbuysell')?'bizbuysell':hostname.includes('bizquest')?'bizquest':hostname.replace(/^www\./,''),source_url:row.source_url,source_url_kind:'listing',title:String(row.title).slice(0,500),business_type:String(row.business_type||'Sin categoría').slice(0,100),state:String(row.state||'').slice(0,2),city:String(row.city||'').slice(0,100),pipeline_status:'RADAR',pending_analysis:true,notes:[],events:[],documents:[],reported_sde:null};data.deals.push(d);added++;}
           else updated++;
-          d.revalidation={status:row.status,http_status:row.http_status??null,checked_at:row.checked_at,method:String(row.method||'lectura pública directa').slice(0,100),reason:String(row.reason||'').slice(0,600),content_hash:row.content_hash||null};
+          if(row.status!=='email_alert'||!d.revalidation)d.revalidation={status:row.status,http_status:row.http_status??null,checked_at:row.checked_at,method:String(row.method||'lectura pública directa').slice(0,100),reason:String(row.reason||'').slice(0,600),content_hash:row.content_hash||null};
           summary[row.status]=(summary[row.status]||0)+1;
+          if(row.status==='email_alert'){
+            // Email is discovery evidence, never proof of current availability.
+            // A fresh direct observation is not downgraded by an incoming alert.
+            d.email_alert={received_at:row.checked_at,source_url:d.source_url,evidence:String(row.evidence||'Alerta oficial por correo; disponibilidad por confirmar.').slice(0,500)};
+            if(!d.listing_evidence)d.listing_evidence={source_url:d.source_url,checked_at:row.checked_at,status:'email_alert',evidence:d.email_alert.evidence};
+          }
           if(row.status==='published'){
             if(row.title&&!d.added_manually&&['bizbuysell','bizquest'].includes(d.source))d.title=String(row.title).slice(0,500);
             if(row.business_type&&row.business_type!=='Sin categoría'&&!d.added_manually)d.business_type=String(row.business_type).slice(0,100);
@@ -361,7 +395,8 @@ a{color:#60a5fa}</style></head><body>
             if(row.fields?.seller_financing===true)facts.seller_financing=true;
             if(row.description)facts.description=String(row.description).slice(0,3000);
             d.public_facts=facts;
-          }else if(['withdrawn','not_found'].includes(row.status)){d.listing_evidence={...d.listing_evidence,source_url:d.source_url,checked_at:row.checked_at,status:row.status,evidence:row.status==='withdrawn'?'La ficha identifica el negocio como retirado o vendido.':'La URL no está disponible (404/410); no prueba venta.'};}
+          }else if(['sold','withdrawn','not_found'].includes(row.status)){d.listing_evidence={...d.listing_evidence,source_url:d.source_url,checked_at:row.checked_at,status:row.status,evidence:['sold','withdrawn'].includes(row.status)?'La ficha identifica el negocio como retirado o vendido.':'La URL no está disponible (404/410); no prueba venta.'};}
+          applyAvailabilityObservation(data,d,row);
         }
         scoreAllDeals(data);data.portal_refresh={checked_at:body.checked_at||new Date().toISOString(),added,updated,summary,sources:body.sources||[],coverage:'partial'};
         await putDealsFile(env,data,sha,'data: revalidación multifuente y ofertas públicas — '+added+' nuevas, '+updated+' comprobadas');return json({ok:true,added,updated,total:data.deals.length,summary},200,cors);

@@ -39,6 +39,18 @@ def request_json(url, payload=None, token=None):
 
 def get_json(url):return request_json(url)
 
+def bogota_day(value):
+    try:
+        parsed=datetime.fromisoformat(str(value).replace('Z','+00:00'))
+        if parsed.tzinfo is None:return None
+        return int((parsed.timestamp()-5*3600)//86400)
+    except (ValueError,TypeError):return None
+
+def current_receipt(receipt,day):
+    run=receipt.get('run',{})
+    return receipt.get('bogota_day')==day and run.get('status')=='success' and bogota_day(run.get('started_at'))==day
+
+
 def canonical(url):
     from urllib.parse import urlsplit,urlunsplit
     p=urlsplit(str(url or ''))
@@ -128,14 +140,14 @@ def main():
         except BlockingIOError:print('skip: ejecución en curso');return 0
         now=datetime.now(timezone.utc);stamp=now.isoformat();day=(now.timestamp()-5*3600)//86400
         receipt=RUNTIME/'last_success.json'
-        if not opt.force and receipt.exists() and json.loads(receipt.read_text()).get('bogota_day')==day:print('skip: corte del día ya publicado');return 0
+        if not opt.force and receipt.exists() and current_receipt(json.loads(receipt.read_text()),day):print('skip: corte del día ya publicado');return 0
         run=dict(id=str(uuid.uuid4()),source='dealledger',started_at=stamp,finished_at=stamp,status='success',source_url=FEED)
         try:
             current=get_json(API+'/deals')
             prior_path=RUNTIME/'last_attempt.json'
             if not opt.force and prior_path.exists():
                 prior=json.loads(prior_path.read_text()).get('run',{})
-                if prior.get('status')=='success' and current.get('refresh',{}).get('last_run',{}).get('id')==prior.get('id'):
+                if prior.get('status')=='success' and bogota_day(prior.get('started_at'))==day and current.get('refresh',{}).get('last_run',{}).get('id')==prior.get('id'):
                     receipt.write_text(json.dumps(dict(bogota_day=day,run=prior,total_verified=len(current['deals']),recovered=True)))
                     print(json.dumps({'status':'recovered','total_verified':len(current['deals']),'run_id':prior['id']}));return 0
 

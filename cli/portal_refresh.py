@@ -1,5 +1,6 @@
 """Free public broker intake + bounded direct revalidation. Explicitly reports blocked portals."""
 import json,sys,uuid,re
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime,timezone
 from pathlib import Path
 from urllib.parse import urljoin,urlparse
@@ -34,11 +35,13 @@ def main():
  for url in CATALOGS:
   try:found,h=discover(url);rows+=found;health.append(h)
   except Exception as e:health.append({'url':url,'status':'unavailable','error':str(e)[:100]})
- # Rotate primary observations; HTTP 403/429 stop that source for the run.
- candidates=[d for d in current['deals'] if d.get('source')!='empire_flippers' and d.get('source_url_kind')=='listing']
+ # Review every active individual listing nightly; blocked domains stop for the run.
+ candidates=[d for d in current['deals'] if (d.get('source')!='empire_flippers' or d.get('listing_evidence',{}).get('status')=='not_in_current_catalog') and d.get('source_url_kind')=='listing' and d.get('pipeline_status') not in ('CIERRE','DESCARTADO')]
  candidates.sort(key=lambda d:d.get('revalidation',{}).get('checked_at',''))
- for d in candidates[:35]:
-  r=check(d);rows.append({'deal_id':d['id'],'source_url':d['source_url'],'status':r['status'],'http_status':r.get('http_status'),'checked_at':r['checked_at'],'reason':r.get('reason',''),'fields':r.get('fields',{}),'description':' '.join(r.get('text','').split()[:130]) if r.get('match') else '', 'content_hash':r.get('content_hash')})
+ with ThreadPoolExecutor(max_workers=6) as pool:
+  observations=list(pool.map(check,candidates[:200]))
+ for d,r in zip(candidates[:200],observations):
+  rows.append({'deal_id':d['id'],'source_url':d['source_url'],'status':r['status'],'http_status':r.get('http_status'),'checked_at':r['checked_at'],'reason':r.get('reason',''),'fields':r.get('fields',{}),'description':' '.join(r.get('text','').split()[:130]) if r.get('match') else '', 'content_hash':r.get('content_hash'),'availability_confirmed':r.get('availability_confirmed',False),'status_evidence':r.get('status_evidence',[])})
  payload={'records':rows,'sources':health,'checked_at':datetime.now(timezone.utc).isoformat()};(ROOT/'.nightly/portal_last_attempt.json').write_text(json.dumps(payload))
  if '--apply' not in sys.argv:print(json.dumps({'dry_run':True,'records':len(rows),'sources':health}));return
  token=json.loads((ROOT/'.nightly.env.local').read_text())['SOURCE_SYNC_TOKEN'];ack=request_json(API+'/portal-sync',payload,token);print(json.dumps(ack))

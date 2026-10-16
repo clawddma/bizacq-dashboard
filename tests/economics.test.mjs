@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+const source=await readFile(new URL('../web/economics.js',import.meta.url),'utf8');
+const model=new Function(source+';return buildEconomics;')();
+const deal={source:'empire_flippers',asking_price:500000,reported_net_profit:150000,reported_revenue:600000};
+let x=model(deal);assert.equal(x.basis,'Beneficio neto declarado');assert.equal(x.multiple,500000/150000);assert.equal(x.totalCash,500000);assert.equal(x.monthlyDebt,0);assert.equal(x.annualCash,150000);assert.equal(x.dscr,null);assert.equal(x.cashOnCash,30);assert.equal(x.sellerPercent,null);
+x=model(deal,{sellerPct:40,sellerRate:8,sellerYears:5,closingCosts:20000,workingCapital:30000,managerMonthly:1000,reserveMonthly:500});
+assert.equal(x.totalCash,350000);assert.ok(Math.abs(x.monthlyDebt-4055.27885768277)<1e-6);assert.ok(Math.abs(x.annualCash-(132000-12*x.monthlyDebt))<1e-6);assert.ok(Math.abs(x.dscr-(132000/(12*x.monthlyDebt)))<1e-10);
+x=model(deal,{sellerPct:40,sellerRate:0});assert.ok(Math.abs(x.monthlyDebt-200000/60)<1e-8);
+x=model(deal,{sellerPct:80,bankPct:30});assert.equal(x.valid,false);assert.equal(x.monthlyDebt,null);assert.equal(x.annualCash,null);
+x=model({asking_price:200000,reported_revenue:1000000,financial:{reconstructed_sde:900000,suggested_structure:{seller_note_pct:40}}});assert.equal(x.profit,null);assert.equal(x.multiple,null);assert.equal(x.annualCash,null);assert.equal(x.sellerPercent,null);
+x=model({...deal,reported_sde:999999,public_facts:{observed_at:'2026-10-16',asking_price:400000,reported_cash_flow:100000,seller_financing:true}});assert.equal(x.profit,100000);assert.equal(x.basis,'Flujo declarado por el broker');assert.equal(x.sellerLabel,'Anunciada · porcentaje no publicado');
+x=model(deal,{sellerPct:100});assert.equal(x.totalCash,0);assert.equal(x.cashOnCash,null);
+x=model(deal,{managerMonthly:20000});assert.ok(x.annualCash<0);assert.equal(x.payback,null);
+console.log('PASS: amortization, zero interest, source priority, basis, equity, cash flow, DSCR, missing facts, invalid leverage, losses and no historical financing assumptions');

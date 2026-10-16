@@ -16,4 +16,7 @@ class NightlyTests(unittest.TestCase):
  def test_preserves_crm(self):
   import copy
   row=self.row();current={'deals':[{'id':'saved','source':'dealledger','external_id':'1','source_url':row['url'],'pipeline_status':'EN_NEGOCIACION','notes':[{'text':'preserve'}]}]};before=copy.deepcopy(current);batch,c=m.build_batch([row],current);self.assertEqual(current,before);self.assertEqual(c['existing_checked'],1)
+ def test_previous_day_is_not_recovered_as_new(self):
+  today=m.bogota_day('2026-10-16T05:00:00Z');old={'bogota_day':today,'run':{'status':'success','started_at':'2026-10-15T19:00:00Z'}}
+  self.assertFalse(m.current_receipt(old,today));old['run']['started_at']='2026-10-16T05:00:01Z';self.assertTrue(m.current_receipt(old,today))
 if __name__=='__main__':unittest.main()

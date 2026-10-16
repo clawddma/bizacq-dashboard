@@ -22,3 +22,21 @@ globalThis.fetch=async (url,options={})=>{
 const reviewResponse=await worker.fetch(new Request('https://example.com/update-deal',{method:'POST',headers:{Origin:'https://clawddma.github.io','Content-Type':'application/json'},body:JSON.stringify({dealId:'old',review:{rating:4,decision:'finalista',automation_thesis:'Measure workflow',next_action:'Request current information'},author:'QA'})}),{GITHUB_TOKEN:'fixture'});
 assert.equal(reviewResponse.status,200);assert.equal(stored.deals[0].review.rating,4);assert.deepEqual(stored.deals[0].notes,old.notes);assert.equal(stored.deals[0].pipeline_status,'EN_NEGOCIACION');assert.deepEqual(stored.manual_orders,{RADAR:['old']});globalThis.fetch=originalFetch;
 console.log('PASS: HTTP review contract persists rating while preserving CRM facts');
+
+// Official email alerts cannot overwrite CRM or fresh direct evidence.
+globalThis.fetch=async (url,options={})=>{
+ if(options.method==='PUT'){stored=JSON.parse(Buffer.from(JSON.parse(options.body).content,'base64').toString('utf8'));return Response.json({commit:{sha:'fixture'}});}
+ return Response.json({sha:'fixture',content:Buffer.from(JSON.stringify({deals:[{...structuredClone(old),revalidation:{status:'non_operating_asset'},listing_evidence:{status:'published',checked_at:new Date().toISOString()}}],manual_orders:{RADAR:['old']}})).toString('base64')});
+};
+const alerts=await worker.fetch(new Request('https://example.com/portal-sync',{method:'POST',headers:{Authorization:'Bearer fixture'},body:JSON.stringify({records:[{source_url:old.source_url,title:'Do not replace',status:'email_alert',checked_at:new Date().toISOString()},{source_url:'https://www.bizquest.com/business-for-sale/example/BW1234567/',title:'Official new alert',status:'email_alert',checked_at:new Date().toISOString()}]})}),{GITHUB_TOKEN:'fixture',SOURCE_SYNC_TOKEN:'fixture'});
+assert.equal(alerts.status,200);assert.equal(stored.deals.length,2);assert.deepEqual(stored.deals[0].notes,old.notes);assert.deepEqual(stored.deals[0].review,old.review);assert.equal(stored.deals[0].pipeline_status,old.pipeline_status);assert.equal(stored.deals[0].revalidation.status,'non_operating_asset');assert.equal(stored.deals[0].listing_evidence.status,'published');assert.equal(stored.deals[1].screening.disposition,'revalidate');assert.equal(stored.deals[1].pipeline_status,'RADAR');assert.deepEqual(stored.manual_orders,{RADAR:['old']});globalThis.fetch=originalFetch;
+console.log('PASS: email discovery preserves CRM, source evidence and asset exclusions');
+
+// Legacy category URLs can repeat: an explicit deal ID must win over URL matching.
+globalThis.fetch=async (url,options={})=>{
+ if(options.method==='PUT'){stored=JSON.parse(Buffer.from(JSON.parse(options.body).content,'base64').toString('utf8'));return Response.json({commit:{sha:'fixture'}});}
+ return Response.json({sha:'fixture',content:Buffer.from(JSON.stringify({deals:[structuredClone(old),{...structuredClone(old),id:'second'}]})).toString('base64')});
+};
+const exact=await worker.fetch(new Request('https://example.com/portal-sync',{method:'POST',headers:{Authorization:'Bearer fixture'},body:JSON.stringify({records:[{deal_id:'second',source_url:old.source_url,status:'identity_unresolved',checked_at:new Date().toISOString()}]})}),{GITHUB_TOKEN:'fixture',SOURCE_SYNC_TOKEN:'fixture'});
+assert.equal(exact.status,200);assert.equal(stored.deals[0].revalidation,undefined);assert.equal(stored.deals[1].revalidation.status,'identity_unresolved');globalThis.fetch=originalFetch;
+console.log('PASS: explicit deal ID wins for repeated legacy source URLs');
