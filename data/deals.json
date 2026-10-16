@@ -35686,7 +35686,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T19:26:04.259Z",
+        "calculated_at": "2026-10-16T19:34:07.504Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -35783,6 +35783,75 @@
         "net_profit_trend_percent": -10,
         "net_profit_trend_percent_months": 12,
         "gross_revenue_trend_percent": 29
+      },
+      "digital_analysis": {
+        "version": "digital-v1",
+        "performed_at": "2026-10-16T19:34:07.504Z",
+        "status": "identity_pending",
+        "website": null,
+        "website_candidates": [],
+        "observations": [
+          {
+            "name": "Recurrencia",
+            "status": "El anuncio menciona suscripciones o compras repetidas; falta medir retención y churn.",
+            "evidence_url": "https://empireflippers.com/listing/97790/"
+          }
+        ],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de retención de suscriptores: detectar riesgo de baja, recuperar pagos fallidos y probar reactivación o venta cruzada con consentimiento.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar clasificación de soporte, reportes y conciliación operativa con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://empireflippers.com/listing/97790/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-16T19:34:07.504Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=%20%20Info%20Product%20Business%20in%20the%20Hobbies%20Niche%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-16T19:34:07.504Z"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "financial_method": {
+          "incremental_profit": "Ventas adicionales × margen de contribución − costo comercial y herramientas.",
+          "net_savings": "Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.",
+          "valuation": "Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base."
+        }
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-10-16T19:34:07.924Z",
+        "model": "screen-v2",
+        "summary": "Afinidad preliminar 92/100. 5/7 señales públicas disponibles. Solicitar documentación para diligencia. No incluye auditoría ni verificación legal.",
+        "questions": [
+          "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
+          "Solicitar el detalle que respalda la ganancia publicada y sus ajustes.",
+          "Validar concentración de clientes/canales, recurrencia y horas reales del dueño.",
+          "Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.",
+          "Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos."
+        ]
       }
     },
     {
