@@ -369,7 +369,7 @@
         </button>
         <div x-show="catMenuOpen" x-cloak x-transition.opacity class="cat-menu">
           <button @click="filters.category = 'Todas'; catMenuOpen = false" :class="{'active': filters.category === 'Todas'}">Todas las categorías</button>
-          <template x-for="(sub, sup) in SUPER_CATEGORIES" :key="sup">
+          <template x-for="(sub, sup) in categoryGroups" :key="sup">
             <div>
               <div class="sup">
                 <button @click="filters.category = 'super:' + sup; catMenuOpen = false"
@@ -389,7 +389,7 @@
         </div>
       </div>
       <div class="h-5 w-px bg-slate-200"></div>
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
         <span class="text-xs text-slate-500 font-medium">Financiamiento:</span>
         <label class="flex items-center gap-1 text-xs text-slate-600 cursor-pointer">
           <input type="checkbox" x-model="filters.sellerFinancing" class="rounded border-slate-300">
@@ -707,7 +707,7 @@
           <label>Categoría sugerida</label>
           <select x-model="addForm.category">
             <option value="">Auto-detectar</option>
-            <template x-for="(subs, sup) in SUPER_CATEGORIES" :key="sup">
+            <template x-for="(subs, sup) in categoryGroups" :key="sup">
               <optgroup :label="sup">
                 <template x-for="b in subs" :key="b">
                   <option :value="b" x-text="b"></option>
@@ -1499,14 +1499,18 @@
     const SUPER_CATEGORIES = {
       'Servicios del hogar': ['HVAC', 'Plumbing', 'Electrical', 'Landscaping', 'Cleaning Services', 'Pool Service', 'Pest Control', 'Property Management', 'Home Services'],
       'Automotriz': ['Auto Repair'],
-      'Salud y belleza': ['Med Spa', 'Dental Practice'],
+      'Salud y belleza': ['Med Spa', 'Dental Practice', 'Medical Practice', 'Home Healthcare', 'Veterinary', 'Healthcare', 'Salon'],
       'Hospitalidad y alimentos': ['Restaurant'],
-      'Digital': ['E-commerce', 'SaaS', 'Digital Marketing Agency'],
-      'Servicios profesionales': ['Insurance Agency', 'Accounting'],
+      'Digital': ['E-commerce', 'SaaS', 'Digital Marketing Agency', 'Digital Agency', 'Digital Business', 'Technology'],
+      'Servicios profesionales': ['Insurance Agency', 'Accounting', 'Business Services', 'Consulting', 'Staffing'],
+      'Industria y construcción': ['Manufacturing', 'Construction', 'Distribution', 'Wholesale'],
+      'Transporte y rutas': ['Transportation', 'Logistics', 'Bread Route', 'Distribution Route'],
+      'Comercio y franquicias': ['Retail', 'Franchise', 'Vending', 'Laundromat'],
     };
     const SUPER_ICONS = {
       'Servicios del hogar': '🏠', 'Automotriz': '🚗', 'Salud y belleza': '💆',
       'Hospitalidad y alimentos': '🍽️', 'Digital': '💻', 'Servicios profesionales': '📋',
+      'Industria y construcción': '🏭', 'Transporte y rutas': '🚚', 'Comercio y franquicias': '🏪', 'Otras actividades': '📁',
     };
 
     const CATEGORY_ICONS = {
@@ -1977,6 +1981,13 @@
         enteredAt(d) {return d.events?.[0]?.created_at||'';},
         entryLabel(d) {const info=this.listingDate(this.enteredAt(d));return info?'Ingresó al Radar: '+info.label.replace(' · hora no registrada',''):'Fecha de ingreso no registrada';},
         get radarNewCount() {return this.deals.filter(d=>d.pipeline_status==='RADAR'&&d.screening?.disposition!=='revalidate'&&this.isUnreviewed(d)).length;},
+        get categoryGroups() {
+          const groups=Object.fromEntries(Object.entries(SUPER_CATEGORIES).map(([key,values])=>[key,[...values]]));
+          const known=new Set(Object.values(groups).flat());
+          const extras=[...new Set(this.deals.map(d=>d.business_type||'Sin categoría').filter(name=>!known.has(name)))].sort();
+          if(extras.length)groups['Otras actividades']=extras;
+          return groups;
+        },
         get pendingActiveCount() {return this.deals.filter(d=>d.screening?.disposition==='revalidate'&&!['CIERRE','DESCARTADO'].includes(d.pipeline_status)).length;},
         get shortlistCount() {return this.deals.filter(d=>d.review?.decision==='finalista').length;},
         setQuickFilter(key) {this.quickFilter=key;if(key==='new'){this.view='pipeline';this.sortByCol.RADAR='new-first';}},
@@ -2040,7 +2051,7 @@
           if (this.filters.category !== 'Todas') {
             if (this.filters.category.startsWith('super:')) {
               const supName = this.filters.category.substring(6);
-              const subs = SUPER_CATEGORIES[supName] || [];
+              const subs = this.categoryGroups[supName] || [];
               if (!subs.includes(d.business_type)) return false;
             } else if (d.business_type !== this.filters.category) return false;
           }
@@ -2170,7 +2181,7 @@
         // Por categoría view — grouped by super then sub
         categoriesBySuper() {
           const result = [];
-          for (const [supName, subList] of Object.entries(SUPER_CATEGORIES)) {
+          for (const [supName, subList] of Object.entries(this.categoryGroups)) {
             const subcategories = [];
             let totalDeals = 0, totalValue = 0;
             for (const subName of subList) {
@@ -2184,7 +2195,7 @@
             if (subcategories.length > 0) result.push({ name: supName, subcategories, totalDeals, totalValue });
           }
           // Also include uncategorized
-          const allCategorized = Object.values(SUPER_CATEGORIES).flat();
+          const allCategorized = Object.values(this.categoryGroups).flat();
           const uncats = this.deals.filter(d => !allCategorized.includes(d.business_type) && this.passesFilters(d));
           if (uncats.length > 0) {
             const byType = {};

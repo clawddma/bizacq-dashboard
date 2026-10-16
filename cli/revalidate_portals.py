@@ -34,16 +34,17 @@ def parse_offer(body,url,title=''):
  target=tokens(title);overlap=max([len(target&tokens(h))/max(1,len(target)) for h in headings]+[0])
  strong=bool(target and overlap>=0.50)
  # Related listings and navigation cannot establish availability of this business.
- listing_text=re.split(r'you may also be interested|related listings|similar businesses|other listings',text,flags=re.I)[0]
- markers=re.findall(r'(?:listing status\s*:?\s*(?:sold|withdrawn|off.market|no longer available)|business (?:has been |is )?(?:sold|no longer available)|this (?:listing|business) is no longer available|status\s*:?\s*(?:sold|withdrawn|off.market|no longer available))',listing_text,re.I)
+ listing_text=re.split(r'you may also be interested|related listings|similar businesses|other listings|listings you may be interested|listing broker|contact listing owner',text,flags=re.I)[0]
+ markers=re.findall(r'(?:listing status\s*:?\s*(?:sold|withdrawn|off.market|no longer available)|(?:business|company) (?:has been |was |is )?(?:sold|no longer available)|this (?:listing|business) is no longer available|status\s*:?\s*(?:sold|withdrawn|off.market|no longer available))',listing_text,re.I)
  withdrawn=strong and bool(markers)
  availability='sold' if withdrawn and any(re.search(r'\bsold\b',v,re.I) for v in markers) else 'withdrawn' if withdrawn else None
+ pending=strong and bool(re.search(r'\b(?:under contract|under (?:an? )?LOI|sale pending|status\s*:\s*pending)\b',listing_text[:1500],re.I))
  fields={}
- patterns={'asking_price':r'(?:asking price|sale price|business price)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)\s*([MK]?)','reported_revenue':r'(?:gross revenue|annual revenue|annual sales|gross sales)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)\s*([MK]?)','reported_cash_flow':r'(?:cash\s*flow(?:\s*\(SDE\))?|seller.s discretionary earnings|SDE)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)\s*([MK]?)'}
+ patterns={'asking_price':r'(?:asking price|sale price|business price|\bprice)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)(?:\s*([MK])\b)?','reported_revenue':r'(?:gross revenue|annual revenue|annual sales|gross sales)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)(?:\s*([MK])\b)?','reported_cash_flow':r'(?:(?:net\s+)?cash\s*flow(?:\s*\(SDE\))?|seller.s discretionary earnings|SDE)\s*:?\s*\$\s*([0-9]+(?:,\s*[0-9]{3})*(?:\.[0-9]+)?)(?:\s*([MK])\b)?'}
  for k,p in patterns.items():
-  m=re.search(p,text,re.I)
-  if m:fields[k]=float(m[1].replace(',','').replace(' ',''))*({'M':1e6,'K':1e3}.get(m[2].upper(),1))
- return {'match':strong,'title_overlap':round(overlap,3),'headings':headings[:4],'canonical':canon,'text':text[:30000],'fields':fields,'withdrawn':withdrawn,'availability':availability,'status_evidence':markers[:3]}
+  m=re.search(p,listing_text,re.I)
+  if m:fields[k]=float(m[1].replace(',','').replace(' ',''))*({'M':1e6,'K':1e3}.get((m[2] or '').upper(),1))
+ return {'match':strong,'title_overlap':round(overlap,3),'headings':headings[:4],'canonical':canon,'text':listing_text[:30000],'fields':fields,'withdrawn':withdrawn,'pending':pending,'availability':availability,'status_evidence':markers[:3]}
 
 def check(d):
  now=datetime.now(timezone.utc).isoformat();base={'deal_id':d['id'],'source_url':d.get('source_url'),'checked_at':now}
@@ -55,7 +56,7 @@ def check(d):
   if r['status']!='fetched':return base
   h=hashlib.sha256(body.encode()).hexdigest();OUT.mkdir(parents=True,exist_ok=True);(OUT/(h+'.html')).write_text(body)
   p=parse_offer(body,r['url'],d['title']);base.update(p);base['content_hash']=h
-  base['availability_confirmed']=bool(p['match'] and p['withdrawn']);base['status']=p['availability'] if p['withdrawn'] else 'published' if p['match'] and (p['fields'] or re.search(r'(?:asking|price|inquire|request information|financial information)',p['text'],re.I)) else 'identity_unresolved'
+  base['availability_confirmed']=bool(p['match'] and p['withdrawn']);base['status']=p['availability'] if p['withdrawn'] else 'unavailable' if p['pending'] else 'published' if p['match'] and (p['fields'] or re.search(r'(?:asking|price|inquire|request information|financial information)',p['text'],re.I)) else 'identity_unresolved'
   return base
  except Exception as e:return {**base,'status':'unavailable','reason':type(e).__name__+': '+str(e)[:120]}
 

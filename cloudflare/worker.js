@@ -194,6 +194,7 @@ export function screenDeal(d, now=new Date().toISOString()) {
   const known=parts.filter(p=>p.known),weight=known.reduce((s,p)=>s+p.weight,0);
   // A score requires public price and earnings. Never turn one optional signal into a 100.
   let score=multiple===null?null:Math.round(known.reduce((s,p)=>s+p.points,0)/weight*100);
+  if(revenue>0&&earnings>=revenue){score=null;flags.push('Ganancia igual o superior a ingresos: cifras inconsistentes; score suspendido hasta aclarar con el broker.');}
   if(score!==null&&known.length<3)score=Math.min(score,69);
   const evidenceLevel=known.length>=5?'amplia':known.length>=3?'intermedia':'limitada';
   questions.push('Confirmar disponibilidad, motivo de venta y condiciones vigentes.','Solicitar el detalle que respalda la ganancia publicada y sus ajustes.','Validar concentración de clientes/canales, recurrencia y horas reales del dueño.','Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.','Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos.');
@@ -376,7 +377,7 @@ a{color:#60a5fa}</style></head><body>
           let d=row.deal_id?data.deals.find(d=>d.id===row.deal_id):data.deals.find(d=>d.source_url?.replace(/\/$/,'')===row.source_url.replace(/\/$/,''));
           if(row.deal_id&&!d)throw new Error('identificador de ficha desconocido');
           if(d&&d.source_url.replace(/\/$/,'')!==row.source_url.replace(/\/$/,''))throw new Error('identidad de origen distinta');
-          if(!d){if(!['published','email_alert'].includes(row.status)||!row.title)continue;const hostname=new URL(row.source_url).hostname;d={id:uuid(),source:hostname.includes('bizbuysell')?'bizbuysell':hostname.includes('bizquest')?'bizquest':hostname.replace(/^www\./,''),source_url:row.source_url,source_url_kind:'listing',title:String(row.title).slice(0,500),business_type:String(row.business_type||'Sin categoría').slice(0,100),state:String(row.state||'').slice(0,2),city:String(row.city||'').slice(0,100),pipeline_status:'RADAR',pending_analysis:true,notes:[],events:[],documents:[],reported_sde:null};data.deals.push(d);added++;}
+          if(!d){if(!['published','email_alert'].includes(row.status)||!row.title)continue;const hostname=new URL(row.source_url).hostname;d={id:uuid(),source:hostname.includes('bizbuysell')?'bizbuysell':hostname.includes('bizquest')?'bizquest':hostname.replace(/^www\./,''),source_url:row.source_url,source_url_kind:'listing',title:String(row.title).slice(0,500),business_type:String(row.business_type||'Sin categoría').slice(0,100),state:String(row.state||'').slice(0,2),city:String(row.city||'').slice(0,100),pipeline_status:'RADAR',pending_analysis:true,created_at:row.checked_at,source_imported_at:row.checked_at,notes:[],events:[{created_at:row.checked_at,description:'Nueva oferta pública incorporada al Radar.'}],documents:[],reported_sde:null};data.deals.push(d);added++;}
           else updated++;
           if(row.status!=='email_alert'||!d.revalidation)d.revalidation={status:row.status,http_status:row.http_status??null,checked_at:row.checked_at,method:String(row.method||'lectura pública directa').slice(0,100),reason:String(row.reason||'').slice(0,600),content_hash:row.content_hash||null};
           summary[row.status]=(summary[row.status]||0)+1;
@@ -389,7 +390,9 @@ a{color:#60a5fa}</style></head><body>
           if(row.status==='published'){
             if(row.title&&!d.added_manually&&['bizbuysell','bizquest'].includes(d.source))d.title=String(row.title).slice(0,500);
             if(row.business_type&&row.business_type!=='Sin categoría'&&!d.added_manually)d.business_type=String(row.business_type).slice(0,100);
+            if(row.source_category&&!d.added_manually)d.category_evidence={source_label:String(row.source_category).slice(0,300),method:String(row.category_method||'categoría del portal').slice(0,200),checked_at:row.checked_at};
             d.listing_evidence={source_url:d.source_url,checked_at:row.checked_at,status:'published',evidence:String(row.evidence||'Ficha individual observada en el portal o broker. Cifras declaradas, no auditadas.').slice(0,500),publication_source:d.listing_evidence?.publication_source||null,published_at:d.listing_evidence?.published_at||null,publication_evidence:d.listing_evidence?.publication_evidence||null};
+            if(row.publication_evidence&&/^\d{4}-\d{2}-\d{2}$/.test(row.published_at||'')&&Number.isFinite(Date.parse(row.published_at))&&Date.parse(row.published_at)<=Date.now())Object.assign(d.listing_evidence,{publication_source:'portal',published_at:row.published_at,publication_evidence:String(row.publication_evidence).slice(0,300)});
             const facts={...(d.public_facts||{}),observed_at:row.checked_at,source_url:d.source_url};
             for(const k of ['asking_price','reported_sde','reported_net_profit','reported_cash_flow','reported_revenue','years_operation'])if(row.fields?.[k]!=null){if(!Number.isFinite(row.fields[k])||row.fields[k]<0)throw new Error('importe o años inválidos');facts[k]=row.fields[k];if(k!=='years_operation')d[k]=row.fields[k];}
             if(row.fields?.seller_financing===true)facts.seller_financing=true;

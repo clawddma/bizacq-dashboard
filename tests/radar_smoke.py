@@ -34,7 +34,7 @@ def main():
    page.set_viewport_size({'width':width,'height':1000})
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),('financial modal',width)
   page.get_by_label('Vendedor financia (%)',exact=True).fill('90')
-  assert page.get_by_text('Las deudas no pueden superar el 100% del precio.',exact=False).is_visible()
+  page.get_by_text('Las deudas no pueden superar el 100% del precio.',exact=False).wait_for(state='visible')
   page.get_by_label('Vendedor financia (%)',exact=True).fill('30')
   page.get_by_role('button',name='Evaluación',exact=True).click()
   page.locator('.review-form select').first.select_option('4')

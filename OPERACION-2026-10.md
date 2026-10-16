@@ -278,3 +278,38 @@ RADAR→EN_ANALISIS recibido durante el trabajo se respetó. La reconstrucción 
 solo modificó derivados y preservó etapas, eventos, motivos y orden manual.
 Evidencia privada: `.nightly/oct16-final-verification.json`, run
 `cf0de634-0df4-4888-a23b-276c73af2265`; publicación y vigencia comercial son distintas.
+
+
+### 16/oct · Fuentes gratuitas y categorías ampliadas
+
+Se incorporaron Synergy Business Brokers y BizTrader por fichas individuales
+públicas, sin registro, NDA ni API de pago. `cli/broker_sources.py` valida identidad,
+ubicación de EE. UU., categoría y cifras de la ficha principal. Excluye tarjetas
+PENDING, ofertas bajo contrato/LOI y ubicaciones internacionales o indeterminadas;
+no toma precios ni estados de negocios relacionados ni de la oficina del broker.
+Las fechas provienen de Listed On cuando existe; consultar un anuncio no cambia
+su fecha de publicación. Límite de 16 fichas por catálogo/día con rotación diaria,
+2 segundos entre solicitudes de un mismo dominio y cobertura parcial explícita.
+
+El proceso nocturno existente llama portal_refresh.py después del catálogo oficial.
+La captación se persiste antes de revalidar el inventario anterior. No genera
+alertas. En esta carga se observaron 107 fichas, 97 nuevas y 10 ya existentes.
+BizBuySell y BizQuest devolvieron 403; no se declara cobertura completa de ellos.
+FCBB y Murphy se exploraron, pero no se incorporaron como conectores.
+
+La UI admite industria/construcción, transporte/rutas, comercio/franquicias y las
+actividades restantes del inventario. Filtro, vista por categoría y alta manual
+usan el mismo conjunto; ninguna actividad nueva desaparece por una lista fija.
+Se corrigió el desbordamiento de la fila de financiamiento a 390 px.
+
+Verificación en API: 425 registros, 97 nuevos (13 Synergy, 84 BizTrader); 325
+anuncios activos publicados, 95 pendientes de revalidar, 4 descartados y 1 cierre.
+65 nuevos con score; 29 carecen de cifras necesarias y 3 publican ganancias
+iguales o superiores a los ingresos. Estos 3 quedan visibles con score suspendido
+y motivo explícito, sin alterar las cifras declaradas ni inferir correcciones.
+Comparación por ID: cero cambios en notas, revisión, documentos, etapa, orden
+manual, motivo de descarte o análisis. Evidencia privada:
+`.nightly/expansion-verification.json` y `.nightly/portal_last_result.json`.
+17 pruebas Python y regresiones Node de disponibilidad, sincronización y scoring
+aprobadas; smoke a 390/768/1440 con interacción financiera, evaluación interceptada
+y cero errores JS. Sites v10, fuente ff4490127130225cef4cef829198f80c524cabbd.

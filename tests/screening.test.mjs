@@ -17,3 +17,6 @@ assert.equal(screenDeal({...d,revalidation:{status:'blocked',checked_at:'2026-10
 assert.equal(screenDeal({...d,revalidation:{status:'blocked',checked_at:'2026-10-15T19:00:00Z'}},now).disposition,'eligible');
 assert.equal(screenDeal({...d,listing_evidence:{...d.listing_evidence,source_url:'https://example.com/another-listing'}},now).disposition,'revalidate');
 console.log('PASS: newer failed verification cannot reuse old publication as current availability');
+
+for(const reported_net_profit of [400000,500000]) {const result=screenDeal({...d,reported_net_profit},now);assert.equal(result.score,null);assert(result.flags.some(f=>f.includes('score suspendido')));assert.equal(result.disposition,'eligible');}
+console.log('PASS: contradictory public earnings suspend scoring without changing availability or CRM');
