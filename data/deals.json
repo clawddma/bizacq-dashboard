@@ -73376,7 +73376,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:05:25.255Z",
+        "calculated_at": "2026-10-16T20:16:29.935Z",
         "score": 90,
         "signals_available": 4,
         "signals_total": 7,
@@ -73487,6 +73487,74 @@
           "¿Qué funciones y relaciones dependen del dueño y cuántos meses acompañaría la transición?",
           "Confirmar porcentaje, tasa, plazo, garantías, subordinación y condiciones del pagaré del vendedor.",
           "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "digital_analysis": {
+        "version": "digital-v1",
+        "performed_at": "2026-10-16T20:16:29.935Z",
+        "status": "identity_pending",
+        "website": null,
+        "website_candidates": [
+          {
+            "title": "Welcome To Our Practice in Vienna | MyChiropractic Doctor",
+            "url": "https://www.drtaheridc.com/"
+          }
+        ],
+        "observations": [],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de respuesta y agenda que dé seguimiento a llamadas, consultas y cotizaciones pendientes.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://www.biztrader.com/listing/chiropractic-practice-for-sale-in-mesa-az/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-16T20:16:29.935Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=Chiropractic%20Practice%20for%20Sale%20in%20Mesa%2C%20AZ%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-16T20:16:29.935Z"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "financial_method": {
+          "incremental_profit": "Ventas adicionales × margen de contribución − costo comercial y herramientas.",
+          "net_savings": "Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.",
+          "valuation": "Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base."
+        }
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-10-16T20:16:30.319Z",
+        "model": "screen-v2",
+        "summary": "Afinidad preliminar 90/100. 4/7 señales públicas disponibles. Solicitar documentación para diligencia. No incluye auditoría ni verificación legal.",
+        "questions": [
+          "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
+          "Solicitar el detalle que respalda la ganancia publicada y sus ajustes.",
+          "Validar concentración de clientes/canales, recurrencia y horas reales del dueño.",
+          "Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.",
+          "Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos."
         ]
       }
     },
