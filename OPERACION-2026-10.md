@@ -347,3 +347,62 @@ análisis o descarte. Evidencia privada .nightly/prospect-before.json y
 porcentajes, asesoría de retiro que no es venta por retiro y conservación CRM.
 Tests/prospecting_smoke.py valida filtros, combinación y detalle a 390/768/1440
 sin errores JS. Sites v11, fuente f22c8c60ea804ab1c0e6dfcea5dfc2f1f2347c21.
+
+
+### 16/oct · CMS de reportes de inversión
+
+El botón Analizar oportunidad conserva la auditoría digital y construye un
+memorando HTML de diez secciones: tesis, compañía, industria, financials, compra
+y deuda, small business, taxes, IA/tecnología, diligencia y fuentes. Se extiende
+el Worker existente; no se añaden APIs pagas ni llamadas LLM. Cifras públicas,
+cálculos, escenarios e hipótesis permanecen separados. No se reconstruyen
+utilidades desde márgenes supuestos ni se usan análisis históricos como fuentes.
+
+Los reportes se guardan en `data.investment_reports`, con UUID, compañía, versión,
+fecha, fuentes y fotografía financiera. La misma fuente y auditoría observada
+reutilizan el informe; cambios materiales producen versión nueva. No se copian
+notas, evaluaciones ni documentos privados del CRM. GET /investment-report?id=UUID
+renderiza HTML autónomo con estilos y simulador incorporados; &download=1 entrega
+el archivo. Sites/#report=UUID abre el informe guardado. La lectura compara fuente
+y disponibilidad actuales y avisa si existe información posterior; conserva
+las versiones históricas. Las etapas terminales se señalan en la lectura.
+
+POST /analyze-deal vuelve a leer la base después de la investigación externa,
+valida que la fuente no haya cambiado y persiste sobre el SHA reciente. Evita
+perder decisiones recibidas mientras se investigaba; un conflicto CAS se informa.
+La generación no modifica etapa, notas, revisión, documentos ni orden.
+
+El CMS mantiene navegación lateral desde 1280 px y navegación inferior debajo
+de ese ancho. Reportes tiene filtros propios por compañía, industria, estado,
+etapa, score y margen/múltiplo/financiación/retiro/contradicciones. Su estado no
+modifica filtros del Radar. Abrir una oportunidad permite moverla con el mismo
+pipeline existente. El navegador puede descargar HTML e imprimir o guardar PDF.
+
+La deuda usa amortización mensual, cobertura objetivo, servicio existente,
+reemplazo del dueño, capex, capital de trabajo e impuestos explícitos. Capacidad
+es un techo matemático, no aprobación; cifras contradictorias suspenden el
+cálculo. Escenarios interactivos son locales y no sustituyen el informe guardado.
+La hipótesis IA calcula contribución incremental y ahorro efectivo menos costos
+de implementación/operación, sin atribuir ahorros no observados. Se incluyen
+planes de medición 30/60/90. Comparables: anuncios de igual categoría y base de
+ganancias, activos y no contradictorios; mínimo cinco para mediana. No son
+transacciones cerradas ni un benchmark representativo de toda la industria.
+
+Contexto fiscal específico verificado para FL, TX, CA y WV; los demás estados
+remiten a autoridades oficiales y señalan tasa pendiente. No se estima impuesto
+efectivo sin entidad y base fiscal. SBA se contrasta con la política vigente de
+propiedad/ciudadanía; el simulador usa banco convencional y vendedor. Referencias
+normativas consultadas 16/oct/2026 y fechadas como tales en cada informe.
+
+Pruebas: investment_report.test.mjs (fórmulas, versiones, desconocidos, no fuga
+de CRM, HTML escapado, muestra mínima y ejecución del HTML tras empaquetado
+Wrangler); reports_smoke.py (flujo completo interceptado, filtros, simulador,
+enlace persistido y 390/768/1440). Regresión Radar y sincronización/disponibilidad
+aprobadas. La prueba real detectó __name en funciones serializadas por Wrangler;
+el HTML autónomo incorpora el ayudante y se probó contra el bundle de producción.
+
+Primer informe real: Roofing company active in three states,
+0d2d9875-ccf5-4294-87af-0902b52c7059. Inventario conservado: 447 registros;
+notas, revisión, documentos, etapas y órdenes comparados sin diferencias.
+Evidencia privada .nightly/reports-final-verification.json. Sites v13, fuente
+64d5b4c1b68d61beee3e27159328f3c22b19d9d4.

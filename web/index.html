@@ -119,6 +119,9 @@
   .review-form select,.review-form textarea {width:100%;font-size:16px;padding:10px;border:1px solid #cbd5e1;border-radius:6px;}
   .review-form textarea {min-height:90px;}
   @media(max-width:767px){header>div:last-child{flex-wrap:wrap;}header>div:last-child>.ml-auto{width:100%;margin-left:0;justify-content:flex-end;}header>div:first-child>div:last-child{flex-wrap:wrap;} .radar-search{width:100%;margin-left:0;} .radar-chip{min-height:44px;} input,select,textarea{font-size:16px!important;}}
+
+.cms-nav{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;justify-content:space-around;gap:3px;background:#0d2e28;color:#dbe9e3;padding:8px 6px calc(8px + env(safe-area-inset-bottom));border-top:1px solid #2e5748}.cms-nav button{padding:9px 6px;border-radius:7px;font-size:11px;white-space:nowrap}.cms-nav button span{display:block;font-size:18px;line-height:1.1;margin-bottom:4px}.cms-nav button.active{background:#2a5244;color:#fff}.cms-brand{display:none}body{padding-bottom:84px}@media(min-width:1280px){body{padding-left:178px;padding-bottom:0}.cms-nav{top:0;bottom:0;right:auto;width:178px;display:flex;flex-direction:column;justify-content:flex-start;gap:7px;padding:30px 14px;border:0}.cms-brand{display:block;font-size:23px;line-height:1.3;margin:0 8px 30px}.cms-brand small{font-size:9px;letter-spacing:2px;color:#8db3a1}.cms-nav button{text-align:left;font-size:13px;padding:12px}.cms-nav button span{display:inline;margin-right:6px;font-size:16px}}@media(max-width:600px){header .ml-auto{flex-wrap:wrap}.modal-box{padding-bottom:80px}}
+
 </style>
 <script src="economics.js"></script>
 <style>.economics-preview label{min-width:0}.economics-preview input{min-width:0;box-sizing:border-box;font-size:16px}</style>
@@ -127,6 +130,14 @@
 
   <div x-show="toastMsg" x-transition class="toast" x-text="toastMsg" x-cloak></div>
 
+
+  <nav class="cms-nav" aria-label="Navegación principal">
+    <span class="cms-brand">BizAcq<br><small>ADQUISICIONES</small></span>
+    <button @click="navigate('pipeline')" :class="{'active':view==='pipeline'}"><span aria-hidden="true">◫</span> Pipeline</button>
+    <button @click="navigate('category')" :class="{'active':view==='category'}"><span aria-hidden="true">▦</span> Por categoría</button>
+    <button @click="navigate('reports')" :class="{'active':view==='reports'}"><span aria-hidden="true">▤</span> Reportes</button>
+    <button @click="navigate('glossary')" :class="{'active':view==='glossary'}"><span aria-hidden="true">▧</span> Glosario</button>
+  </nav>
   <header class="bg-white border-b border-slate-200">
     <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between flex-wrap gap-3">
       <div>
@@ -140,9 +151,6 @@
       </div>
     </div>
     <div class="max-w-screen-2xl mx-auto px-6 flex items-center gap-1">
-      <button class="tab-btn" :class="{'active': view === 'pipeline'}" @click="view = 'pipeline'">Pipeline</button>
-      <button class="tab-btn" :class="{'active': view === 'category'}" @click="view = 'category'">Por categoría</button>
-      <button class="tab-btn" :class="{'active': view === 'glossary'}" @click="view = 'glossary'">Glosario</button>
       <div class="ml-auto flex items-center gap-2 my-2">
         <button @click="openTokenModal()"
           class="text-xs px-3 py-1.5 rounded flex items-center gap-1.5 transition font-semibold"
@@ -253,6 +261,7 @@
     </div>
   </div>
 
+  <div x-show="view==='pipeline'||view==='category'">
   <!-- KPI summary bar (OET-style) -->
   <div x-show="view !== 'glossary'" x-cloak class="bg-slate-900 text-white">
     <div class="max-w-screen-2xl mx-auto px-6 py-2.5 grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
@@ -436,6 +445,33 @@
       </div>
     </div>
   </div>
+
+  </div>
+  <main x-show="view==='reports'" x-cloak class="max-w-screen-2xl mx-auto px-4 md:px-6 py-6" aria-label="Biblioteca de reportes">
+    <div class="flex flex-wrap items-end justify-between gap-3 mb-5"><div><p class="text-xs uppercase tracking-widest text-emerald-800">Comité de inversión</p><h2 class="text-2xl font-bold mt-1">Reportes de adquisición</h2><p class="text-sm text-slate-500 mt-2">Tesis, números, estructura de compra y plan de mejora. Cada informe conserva su versión y sus fuentes.</p></div><button @click="navigate('pipeline')" class="radar-chip">Explorar oportunidades</button></div>
+    <div class="bg-white border border-slate-200 rounded-lg p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 mb-5">
+      <label class="text-xs text-slate-500">Compañía<input aria-label="Buscar reportes por compañía" x-model="reportFilters.company" placeholder="Buscar compañía…" class="block w-full border rounded p-2 mt-1 text-base"></label>
+      <label class="text-xs text-slate-500">Industria<select aria-label="Industria de reportes" x-model="reportFilters.industry" class="block w-full border rounded p-2 mt-1 text-base"><option value="">Todas</option><template x-for="item in reportIndustries" :key="item"><option :value="item" x-text="item"></option></template></select></label>
+      <label class="text-xs text-slate-500">Estado<select aria-label="Estado de reportes" x-model="reportFilters.state" class="block w-full border rounded p-2 mt-1 text-base"><option value="">Todos</option><template x-for="item in reportStates" :key="item"><option :value="item" x-text="item"></option></template></select></label>
+      <label class="text-xs text-slate-500">Indicador<select aria-label="Indicador de reportes" x-model="reportFilters.indicator" class="block w-full border rounded p-2 mt-1 text-base"><option value="">Todos</option><option value="margin">Margen publicado ≥20%</option><option value="multiple">Precio / ganancias ≤3×</option><option value="seller">Vendedor anuncia financiación</option><option value="retirement">Retiro declarado</option><option value="conflict">Cifras contradictorias</option></select></label>
+      <label class="text-xs text-slate-500">Score mínimo<input aria-label="Score mínimo de reportes" type="number" min="0" max="100" x-model.number="reportFilters.minScore" class="block w-full border rounded p-2 mt-1 text-base"></label>
+      <label class="text-xs text-slate-500">Etapa actual<select aria-label="Etapa de reportes" x-model="reportFilters.stage" class="block w-full border rounded p-2 mt-1 text-base"><option value="">Todas</option><template x-for="col in columns" :key="col.key"><option :value="col.key" x-text="col.label"></option></template></select></label>
+    </div>
+    <div class="flex items-center justify-between gap-2 mb-4 text-xs text-slate-500"><span x-text="filteredReports.length+' informes · '+new Set(reports.map(r=>r.deal_id)).size+' compañías'"></span><button @click="reportFilters={company:'',industry:'',state:'',indicator:'',minScore:0,stage:''}" class="underline">Limpiar filtros de reportes</button></div>
+    <div x-show="!reports.length" class="bg-white border rounded-lg p-8 text-center"><h3 class="font-semibold text-lg">El primer informe comienza en una oportunidad</h3><p class="text-sm text-slate-500 mt-2">Abrir una ficha y pulsar Analizar oportunidad. El informe quedará aquí para compartir y comparar.</p></div>
+    <div x-show="reports.length&&!filteredReports.length" class="bg-white border rounded-lg p-6 text-slate-500">Ningún informe coincide con estos filtros.</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <template x-for="r in filteredReports" :key="r.id"><article class="bg-white border border-slate-200 rounded-xl p-5 min-w-0">
+        <p class="text-xs text-emerald-800" x-text="r.industry+' · '+(r.state||'Estado no informado')"></p><h3 class="font-bold text-base mt-2 break-words" x-text="displayTitle(r)"></h3><p class="text-xs text-slate-400 mt-2" x-text="'v'+r.version+' · '+new Date(r.generated_at).toLocaleDateString('es-CO')+' · '+statusLabel(reportStage(r))"></p>
+        <div class="grid grid-cols-2 gap-3 text-sm mt-4"><div><span class="text-xs text-slate-500">Precio</span><p class="font-semibold" x-text="fmtPrice(r.financials.price)"></p></div><div><span class="text-xs text-slate-500">Score</span><p class="font-semibold" x-text="r.score===null?'Sin score':r.score+'/100'"></p></div></div>
+        <div class="flex flex-wrap gap-2 mt-4"><button @click="openReport(r)" class="radar-chip">Abrir informe</button><button @click="openReportDeal(r)" class="radar-chip">Ver oportunidad</button></div>
+      </article></template>
+    </div>
+    <section x-show="selectedReport" x-cloak class="mt-6 bg-white border rounded-xl overflow-hidden" aria-label="Informe de inversión seleccionado">
+      <div class="flex flex-wrap gap-2 p-4 border-b items-center"><strong class="text-sm mr-auto" x-text="selectedReport?.title"></strong><button @click="copyReportLink()" class="radar-chip">Copiar enlace del informe</button><a :href="reportUrl(selectedReport)" target="_blank" rel="noopener" class="radar-chip">Abrir HTML completo ↗</a><a :href="reportUrl(selectedReport)+'&download=1'" class="radar-chip">Descargar HTML</a><button @click="selectedReport=null;history.replaceState(null,'',location.pathname+location.search)" class="radar-chip" aria-label="Cerrar informe">×</button></div>
+      <template x-if="selectedReport"><iframe :src="reportUrl(selectedReport)" title="Memorando de inversión" class="w-full border-0" style="height:80vh;min-height:500px" sandbox="allow-scripts allow-same-origin allow-modals allow-downloads"></iframe></template>
+    </section>
+  </main>
 
   <!-- VIEW: PIPELINE -->
   <main x-show="view === 'pipeline'" x-cloak class="max-w-screen-2xl mx-auto px-4 md:px-6 py-6">
@@ -800,10 +836,11 @@
                   :class="selectedDeal.deep_analysis ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700' : (selectedDeal.deep_analysis_requested ? 'bg-orange-50 text-orange-700' : 'bg-purple-50 hover:bg-purple-100 text-purple-700')"
                   title="Investigar información pública, web y palancas de ingresos y eficiencia con IA">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                  <span x-text="'Analizar oportunidad'"></span>
+                  <span x-text="analyzingOpportunity?'Construyendo informe…':'Analizar oportunidad'"></span>
                 </button>
               </div>
             </div>
+            <button x-show="reports.some(r=>r.deal_id===selectedDeal?.id)" @click="openReport([...reports].reverse().find(r=>r.deal_id===selectedDeal.id))" class="radar-chip text-xs">Ver informe</button>
             <button @click="closeDeal()" class="text-slate-400 hover:text-slate-700 text-2xl leading-none w-8 h-8 flex items-center justify-center">×</button>
           </div>
 
@@ -1827,6 +1864,7 @@
 
       return {
         purchaseScenario:{sellerPct:0,bankPct:0,sellerRate:8,bankRate:10,sellerYears:5,bankYears:10,closingCosts:0,workingCapital:0,managerMonthly:0,reserveMonthly:0},
+        reports:[],selectedReport:null,reportFilters:{company:'',industry:'',state:'',indicator:'',minScore:0,stage:''},
         deals: [], lastUpdate: '—', selectedDeal: null, toastMsg: null, refresh:{}, serverOrders:{}, loadError:'', loading:false, quickFilter:'all', searchText:'', reviewDraft:{rating:0,decision:'pendiente',automation_thesis:'',next_action:''}, savingReview:false,
         draggingId: null, dragOverCol: null, openSortMenu: null,
         view: savedView, glossarySearch: '',
@@ -1922,7 +1960,7 @@
             if(!Array.isArray(data.deals))throw new Error('Inventario inválido');
             this.refresh=data.refresh||{};
             this.serverOrders=data.manual_orders||{};
-            this.deals = data.deals || [];
+            this.deals = data.deals || [];this.reports=data.investment_reports||[];
             this.lastUpdate = data.last_update || '—';
             const serverOrders = data.manual_orders || {};
             // Auto-cleanup: if localStorage matches the server, clear it (no more "cambios locales" banner)
@@ -1943,6 +1981,8 @@
           this.checkWorker(); // detecta si el Cloudflare Worker está vivo
           // Deep link: if URL has #deal=ID, auto-open that deal
           this.$nextTick(() => {
+            const reportId=window.location.hash.match(/report=([^&#]+)/)?.[1];
+            if(reportId){const report=this.reports.find(r=>r.id===reportId);if(report)this.openReport(report);else this.toast('Informe no encontrado en la biblioteca.');return;}
             const m = window.location.hash.match(/deal=([^&#]+)/);
             if (m) {
               const target = this.deals.find(d => d.id === m[1]);
@@ -2021,7 +2061,7 @@
           try {
             const r=await fetch(this.WORKER_URL+'/deals?_='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(15000)});
             if(!r.ok)throw new Error('HTTP '+r.status);const data=await r.json();if(!Array.isArray(data.deals))throw new Error('Inventario inválido');
-            this.deals=data.deals;this.refresh=data.refresh||{};this.lastUpdate=data.last_update||'—';this.serverOrders=data.manual_orders||{};this.manualOrder=JSON.parse(JSON.stringify(this.serverOrders));this.loadError='';if(!silent)this.toast('Radar actualizado con la fuente compartida.');
+            this.deals=data.deals;this.reports=data.investment_reports||[];this.refresh=data.refresh||{};this.lastUpdate=data.last_update||'—';this.serverOrders=data.manual_orders||{};this.manualOrder=JSON.parse(JSON.stringify(this.serverOrders));this.loadError='';if(!silent)this.toast('Radar actualizado con la fuente compartida.');
           }catch(e){this.loadError='No se pudo actualizar el Radar. Se conserva la última lectura.';}finally{this.loading=false;}
         },
         async saveReview() {
@@ -2433,9 +2473,31 @@
 
         async requestDeepAnalysis() {
           const d=this.selectedDeal;if(!d||this.analyzingOpportunity)return;this.analyzingOpportunity=true;
-          this.toast('Investigando anuncio y potencial digital…');
-          try {const r=await fetch(this.WORKER_URL+'/analyze-deal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dealId:d.id})});const result=await r.json();if(!r.ok)throw new Error(result.error||r.status);d.screening=result.screening;d.preliminary_analysis=result.analysis;d.digital_analysis=result.digital_analysis;this.recordTab='resumen';this.toast('✓ Análisis preliminar guardado; abrir Resumen para ver resultados');}catch(e){this.toast('No se guardó el análisis: '+e.message);}finally{this.analyzingOpportunity=false;}
+          this.toast('Construyendo informe de inversión y revisión digital…');
+          try {const r=await fetch(this.WORKER_URL+'/analyze-deal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dealId:d.id})});const result=await r.json();if(!r.ok)throw new Error(result.error||r.status);d.screening=result.screening;d.preliminary_analysis=result.analysis;d.digital_analysis=result.digital_analysis;
+            if(result.report){const i=this.reports.findIndex(x=>x.id===result.report.id);if(i<0)this.reports.push(result.report);else this.reports[i]=result.report;this.openReport(result.report);this.toast('Informe guardado en Reportes.');}else{this.recordTab='resumen';this.toast('Análisis preliminar guardado.');}
+          }catch(e){this.toast('No se guardó el informe: '+e.message);}finally{this.analyzingOpportunity=false;}
         },
+        navigate(view){this.view=view;if(view==='reports'&&this.selectedReport)history.replaceState(null,'','#report='+this.selectedReport.id);else if(location.hash.startsWith('#report='))history.replaceState(null,'',location.pathname+location.search);},
+        reportStage(r){return this.deals.find(d=>d.id===r.deal_id)?.pipeline_status||r.stage_at_generation;},
+        reportUrl(r){return r?this.WORKER_URL+'/investment-report?id='+encodeURIComponent(r.id):'';},
+        get reportIndustries(){return [...new Set(this.reports.map(r=>r.industry))].sort();},
+        get reportStates(){return [...new Set(this.reports.map(r=>r.state).filter(Boolean))].sort();},
+        get filteredReports(){const f=this.reportFilters;return this.reports.filter(r=>{
+          if(f.company&&!r.title.toLowerCase().includes(f.company.toLowerCase()))return false;
+          if(f.industry&&r.industry!==f.industry||f.state&&r.state!==f.state||f.stage&&this.reportStage(r)!==f.stage)return false;
+          if(f.minScore>0&&(r.score===null||r.score<f.minScore))return false;
+          const m=r.financials,p=r.prospecting;
+          if(f.indicator==='margin'&&(m.conflict||m.margin===null||m.margin<20))return false;
+          if(f.indicator==='multiple'&&(m.conflict||m.multiple===null||m.multiple>3))return false;
+          if(f.indicator==='seller'&&p.seller_financing!=='advertised')return false;
+          if(f.indicator==='retirement'&&!p.retirement&&!p.succession_gap)return false;
+          if(f.indicator==='conflict'&&!m.conflict)return false;
+          return true;
+        }).sort((a,b)=>b.generated_at.localeCompare(a.generated_at));},
+        openReport(r){this.closeDeal();this.selectedReport=r;this.view='reports';history.replaceState(null,'','#report='+r.id);this.$nextTick(()=>document.querySelector('[aria-label="Informe de inversión seleccionado"]')?.scrollIntoView({block:'start'}));},
+        openReportDeal(r){const d=this.deals.find(x=>x.id===r.deal_id);if(d)this.openDeal(d);},
+        async copyReportLink(){if(!this.selectedReport)return;const link=location.origin+location.pathname+'#report='+this.selectedReport.id;try{await navigator.clipboard.writeText(link);this.toast('Enlace del informe copiado.');}catch{window.prompt('Enlace del informe',link);}},
 
         resetFilters() { this.filters = { states: [], priority: 'Todas', priceBuckets: [], sdeBuckets: [], marginBuckets: [], multipleBuckets: [], category: 'Todas', sellerFinancing: false, sbaEligible: false, acquisition: 'all', minScore: 0, manualOnly: false }; },
         toggleState(code) {
