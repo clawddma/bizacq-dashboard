@@ -27115,7 +27115,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:05:25.255Z",
+        "calculated_at": "2026-10-16T20:51:55.897Z",
         "score": 86,
         "signals_available": 3,
         "signals_total": 7,
@@ -27251,6 +27251,71 @@
         "questions": [
           "¿Qué funciones y relaciones dependen del dueño y cuántos meses acompañaría la transición?",
           "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "digital_analysis": {
+        "version": "digital-v1",
+        "performed_at": "2026-10-16T20:51:52.552Z",
+        "status": "identity_pending",
+        "website": null,
+        "website_candidates": [],
+        "observations": [
+          {
+            "name": "Recurrencia",
+            "status": "El anuncio menciona suscripciones o compras repetidas; falta medir retención y churn.",
+            "evidence_url": "https://franchiseintermediary.com/listing/established-senior-care-business-retiring-owner"
+          }
+        ],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de retención de suscriptores: detectar riesgo de baja, recuperar pagos fallidos y probar reactivación o venta cruzada con consentimiento.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://www.bing.com/search?format=rss&q=Established%20Senior%20Care%20Business%20%E2%80%93%20Retiring%20Owner%20Knox%20County%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-16T20:51:52.552Z"
+          }
+        ],
+        "limitations": [
+          "No se pudo leer el anuncio desde el motor: HTTP 301",
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "financial_method": {
+          "incremental_profit": "Ventas adicionales × margen de contribución − costo comercial y herramientas.",
+          "net_savings": "Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.",
+          "valuation": "Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base."
+        }
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-10-16T20:51:55.897Z",
+        "model": "screen-v2",
+        "summary": "Afinidad preliminar 86/100. Información pública y escenarios; cifras pendientes de diligencia.",
+        "questions": [
+          "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
+          "Solicitar el detalle que respalda la ganancia publicada y sus ajustes.",
+          "Validar concentración de clientes/canales, recurrencia y horas reales del dueño.",
+          "Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.",
+          "Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos."
         ]
       }
     },
@@ -84950,6 +85015,162 @@
           "title": "Contexto fiscal estatal",
           "url": "https://tax.wv.gov/business/corporateincometax/pages/corporateincometax.aspx",
           "as_of": "2026-10-16"
+        },
+        {
+          "title": "BLS · indicadores por industria",
+          "url": "https://www.bls.gov/iag/",
+          "as_of": null
+        },
+        {
+          "title": "SBA · propiedad, ciudadanía y residencia",
+          "url": "https://legacy.sba.gov/document/procedural-notice-5000-876626-revised-applicant-ownership-citizenship-residency-requirements-7a-504-loans",
+          "as_of": "2026-10-16"
+        },
+        {
+          "title": "IRS · asignación del precio en compras de activos",
+          "url": "https://www.irs.gov/instructions/i8594",
+          "as_of": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "id": "48a75b7e-9c1e-4df6-be0f-dcd79ce7095d",
+      "deal_id": "8016144d-70d4-481c-8b2a-f680559649d9",
+      "version": 1,
+      "generated_at": "2026-10-16T20:51:55.897Z",
+      "title": "Established Senior Care Business – Retiring Owner",
+      "industry": "Automotive",
+      "state": "TN",
+      "city": "Knox County",
+      "stage_at_generation": "RADAR",
+      "source_url": "https://franchiseintermediary.com/listing/established-senior-care-business-retiring-owner",
+      "source_checked_at": "2026-10-16T19:19:49.920062+00:00",
+      "published_at": null,
+      "source_signature": "[\"Established Senior Care Business – Retiring Owner\",\"TN\",\"Knox County\",\"Automotive\",\"https://franchiseintermediary.com/listing/established-senior-care-business-retiring-owner\",{\"price\":900000,\"revenue\":null,\"earnings\":320000,\"basis\":\"Flujo del broker\",\"sde\":null,\"net_profit\":null,\"cash_flow\":320000,\"ebitda\":null,\"years\":19,\"multiple\":2.8125,\"margin\":null,\"conflict\":false},\"Established Senior Care Business – Retiring Owner — Franchise Intermediary Group Skip to content Established Senior Care Business – Retiring Owner ← Back to Listings Print Listing → Established Senior Care Business – Retiring Owner Asking Price $900,000 SDE $320,000 Industry Home Health Care Gross Revenue Location $1,718,834 Knox County, TN Business Description This is a rare opportunity to acquire a long-standing, cash-flowing personal service business in the growing senior care sector. Operating for nearly 20 years, the company has built a strong reputation, loyal client base, and consistent referral network across the Greater Knoxville market. The business operates on a fully recurring, private-pay model with predictable revenue and high client retention. A seasoned team of caregivers and office staff is in place, allowing for stable day-to-day operations and a\",\"published\",null,[[\"Recurrencia\",\"El anuncio menciona suscripciones o compras repetidas; falta medir retención y churn.\"]]]",
+      "description": "Established Senior Care Business – Retiring Owner — Franchise Intermediary Group Skip to content Established Senior Care Business – Retiring Owner ← Back to Listings Print Listing → Established Senior Care Business – Retiring Owner Asking Price $900,000 SDE $320,000 Industry Home Health Care Gross Revenue Location $1,718,834 Knox County, TN Business Description This is a rare opportunity to acquire a long-standing, cash-flowing personal service business in the growing senior care sector. Operating for nearly 20 years, the company has built a strong reputation, loyal client base, and consistent referral network across the Greater Knoxville market. The business operates on a fully recurring, private-pay model with predictable revenue and high client retention. A seasoned team of caregivers and office staff is in place, allowing for stable day-to-day operations and a",
+      "financials": {
+        "price": 900000,
+        "revenue": null,
+        "earnings": 320000,
+        "basis": "Flujo del broker",
+        "sde": null,
+        "net_profit": null,
+        "cash_flow": 320000,
+        "ebitda": null,
+        "years": 19,
+        "multiple": 2.8125,
+        "margin": null,
+        "conflict": false
+      },
+      "score": 86,
+      "flags": [],
+      "availability": "eligible",
+      "prospecting": {
+        "version": "prospect-v1",
+        "retirement": true,
+        "succession_gap": false,
+        "reason_for_sale": null,
+        "retirement_evidence": "Established Senior Care Business – Retiring Owner Established Senior Care Business – Retiring Owner — Franchise Intermediary Group Skip to content Established Senior Care Business – Retiring Ow",
+        "seller_financing": "unknown",
+        "seller_percent": null,
+        "seller_label": "No informada",
+        "seller_evidence": null,
+        "sba_advertised": false,
+        "sba_evidence": null,
+        "financials_usable": true,
+        "financial_conflict": false,
+        "source_url": "https://franchiseintermediary.com/listing/established-senior-care-business-retiring-owner",
+        "questions": [
+          "¿Qué funciones y relaciones dependen del dueño y cuántos meses acompañaría la transición?",
+          "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "sector": {
+        "name": "Automotive",
+        "naics": "Por validar",
+        "attraction": "La tesis depende de demanda repetida, capacidad de transferir la operación y margen después de reemplazar al dueño. Estas condiciones requieren evidencia específica del negocio.",
+        "risks": [
+          "Dependencia del dueño, de clientes clave y de permisos o contratos.",
+          "Diferencias entre utilidad declarada y efectivo disponible después de reinversión."
+        ],
+        "indicators": [
+          "Retención y concentración de clientes",
+          "Margen por producto o servicio",
+          "Horas del dueño, productividad y conversión comercial"
+        ],
+        "pilots": [
+          "Seguimiento comercial y reactivación de clientes con consentimiento y medición de conversión.",
+          "Automatización administrativa y reporting de caja con revisión de excepciones."
+        ]
+      },
+      "tax": {
+        "state": "TN",
+        "summary": "La tasa aplicable aún no está verificada para este estado y tipo de entidad. Revisar la autoridad fiscal estatal antes de presupuestar el cierre o el flujo después de impuestos.",
+        "url": "https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites",
+        "reviewed_at": null
+      },
+      "peers": {
+        "count": 6,
+        "basis": "Flujo del broker",
+        "median_multiple": 3.082526954357022,
+        "margin_count": 2,
+        "median_margin": null
+      },
+      "digital": {
+        "status": "identity_pending",
+        "website": null,
+        "observations": [
+          {
+            "name": "Recurrencia",
+            "status": "El anuncio menciona suscripciones o compras repetidas; falta medir retención y churn.",
+            "evidence_url": "https://franchiseintermediary.com/listing/established-senior-care-business-retiring-owner"
+          }
+        ],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de retención de suscriptores: detectar riesgo de baja, recuperar pagos fallidos y probar reactivación o venta cruzada con consentimiento.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "limitations": [
+          "No se pudo leer el anuncio desde el motor: HTTP 301",
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "sources": [
+          {
+            "url": "https://www.bing.com/search?format=rss&q=Established%20Senior%20Care%20Business%20%E2%80%93%20Retiring%20Owner%20Knox%20County%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-16T20:51:52.552Z"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Anuncio del negocio",
+          "url": "https://franchiseintermediary.com/listing/established-senior-care-business-retiring-owner",
+          "as_of": "2026-10-16T19:19:49.920062+00:00"
+        },
+        {
+          "title": "Contexto fiscal estatal",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites",
+          "as_of": null
         },
         {
           "title": "BLS · indicadores por industria",
