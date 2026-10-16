@@ -316,7 +316,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -620,7 +620,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -913,7 +913,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -1209,7 +1209,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -1499,7 +1499,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -1823,7 +1823,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -2058,7 +2058,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2358,7 +2358,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2651,7 +2651,7 @@
       "discard_reason": "Vendido o negociado — listing ya no disponible (checkpoint)",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -2948,7 +2948,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -3240,7 +3240,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -3534,7 +3534,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -3833,7 +3833,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -4113,7 +4113,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -4399,7 +4399,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -4685,7 +4685,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -4965,7 +4965,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5265,7 +5265,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5433,7 +5433,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5601,7 +5601,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -5884,7 +5884,7 @@
       "category_corrected_from": "Cleaning Services",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -6071,7 +6071,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -6348,7 +6348,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -6636,7 +6636,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -6944,7 +6944,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -7228,7 +7228,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -7401,7 +7401,7 @@
       "category_verified": "2026-09-06",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -7695,7 +7695,7 @@
       "deep_analysis_requested_at": "2026-10-15T16:23:51.216Z",
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -7974,7 +7974,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -8256,7 +8256,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -8543,7 +8543,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -8826,7 +8826,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -9105,7 +9105,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -9381,7 +9381,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -9662,7 +9662,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -9957,7 +9957,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -10253,7 +10253,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -10549,7 +10549,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -10965,7 +10965,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -11272,7 +11272,7 @@
       "availability_misses": 0,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -11441,7 +11441,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -11624,7 +11624,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 3,
         "signals_total": 7,
@@ -11808,7 +11808,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -11978,7 +11978,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -12147,7 +12147,7 @@
       ],
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -12318,7 +12318,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 73,
         "signals_available": 3,
         "signals_total": 7,
@@ -12501,7 +12501,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -12685,7 +12685,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -12869,7 +12869,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 62,
         "signals_available": 2,
         "signals_total": 7,
@@ -13053,7 +13053,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 42,
         "signals_available": 2,
         "signals_total": 7,
@@ -13237,7 +13237,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 76,
         "signals_available": 3,
         "signals_total": 7,
@@ -13420,7 +13420,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 66,
         "signals_available": 3,
         "signals_total": 7,
@@ -13603,7 +13603,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 64,
         "signals_available": 3,
         "signals_total": 7,
@@ -13786,7 +13786,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -13970,7 +13970,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 4,
         "signals_total": 7,
@@ -14152,7 +14152,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -14334,7 +14334,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -14517,7 +14517,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -14701,7 +14701,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -14885,7 +14885,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 1,
         "signals_total": 7,
@@ -15069,7 +15069,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 10,
         "signals_available": 1,
         "signals_total": 7,
@@ -15253,7 +15253,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 34,
         "signals_available": 3,
         "signals_total": 7,
@@ -15436,7 +15436,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -15619,7 +15619,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 62,
         "signals_available": 2,
         "signals_total": 7,
@@ -15803,7 +15803,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -15987,7 +15987,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 77,
         "signals_available": 4,
         "signals_total": 7,
@@ -16169,7 +16169,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 55,
         "signals_available": 1,
         "signals_total": 7,
@@ -16353,7 +16353,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -16536,7 +16536,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -16719,7 +16719,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -16903,7 +16903,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -17087,7 +17087,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -17270,7 +17270,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 67,
         "signals_available": 4,
         "signals_total": 7,
@@ -17452,7 +17452,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 75,
         "signals_available": 3,
         "signals_total": 7,
@@ -17634,7 +17634,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -17818,7 +17818,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -17988,7 +17988,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -18170,7 +18170,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -18340,7 +18340,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -18510,7 +18510,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -18681,7 +18681,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -18851,7 +18851,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -19035,7 +19035,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -19218,7 +19218,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19401,7 +19401,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -19584,7 +19584,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -19768,7 +19768,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -19952,7 +19952,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20135,7 +20135,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -20318,7 +20318,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -20504,7 +20504,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 38,
         "signals_available": 2,
         "signals_total": 7,
@@ -20688,7 +20688,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -20873,7 +20873,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -21059,7 +21059,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21242,7 +21242,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21412,7 +21412,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21594,7 +21594,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21776,7 +21776,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -21958,7 +21958,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22140,7 +22140,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22322,7 +22322,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22504,7 +22504,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22686,7 +22686,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -22868,7 +22868,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -23050,7 +23050,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -23232,7 +23232,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -23403,7 +23403,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -23585,7 +23585,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -23767,7 +23767,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -23949,7 +23949,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -24131,7 +24131,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -24313,7 +24313,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -24495,7 +24495,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -24675,7 +24675,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -24846,7 +24846,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -25016,7 +25016,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -25187,7 +25187,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -25358,7 +25358,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -25528,7 +25528,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -25699,7 +25699,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -25882,7 +25882,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 23,
         "signals_available": 2,
         "signals_total": 7,
@@ -26066,7 +26066,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -26237,7 +26237,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -26421,7 +26421,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -26591,7 +26591,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -26762,7 +26762,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -26932,7 +26932,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 4,
         "signals_total": 7,
@@ -27115,7 +27115,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 3,
         "signals_total": 7,
@@ -27299,7 +27299,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 75,
         "signals_available": 4,
         "signals_total": 7,
@@ -27481,7 +27481,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 3,
         "signals_total": 7,
@@ -27664,7 +27664,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 39,
         "signals_available": 2,
         "signals_total": 7,
@@ -27847,7 +27847,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28031,7 +28031,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -28215,7 +28215,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28397,7 +28397,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -28583,7 +28583,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -28766,7 +28766,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -28951,7 +28951,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -29133,7 +29133,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -29315,7 +29315,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -29496,7 +29496,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -29680,7 +29680,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -29862,7 +29862,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30046,7 +30046,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -30229,7 +30229,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30415,7 +30415,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -30600,7 +30600,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -30771,7 +30771,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -30941,7 +30941,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -31111,7 +31111,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -31281,7 +31281,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -31451,7 +31451,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -31621,7 +31621,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -31792,7 +31792,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -31963,7 +31963,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -32134,7 +32134,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -32305,7 +32305,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -32476,7 +32476,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -32646,7 +32646,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -32828,7 +32828,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -33010,7 +33010,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -33180,7 +33180,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -33351,7 +33351,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -33522,7 +33522,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -33693,7 +33693,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -33864,7 +33864,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -34034,7 +34034,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -34205,7 +34205,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 4,
         "signals_total": 7,
@@ -34388,7 +34388,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -34558,7 +34558,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 6,
         "signals_total": 7,
@@ -34741,7 +34741,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 39,
         "signals_available": 4,
         "signals_total": 7,
@@ -34924,7 +34924,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -35096,7 +35096,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 77,
         "signals_available": 3,
         "signals_total": 7,
@@ -35279,7 +35279,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -35462,7 +35462,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -35645,7 +35645,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 77,
         "signals_available": 3,
         "signals_total": 7,
@@ -35829,7 +35829,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 3,
         "signals_total": 7,
@@ -36013,7 +36013,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -36196,7 +36196,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -36366,7 +36366,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 4,
         "signals_total": 7,
@@ -36551,7 +36551,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -36722,7 +36722,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -36893,7 +36893,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -37077,7 +37077,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -37262,7 +37262,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 4,
         "signals_total": 7,
@@ -37447,7 +37447,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -37631,7 +37631,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -37802,7 +37802,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 90,
         "signals_available": 4,
         "signals_total": 7,
@@ -37986,7 +37986,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -38169,7 +38169,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -38353,7 +38353,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 63,
         "signals_available": 4,
         "signals_total": 7,
@@ -38536,7 +38536,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -38720,7 +38720,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 4,
         "signals_total": 7,
@@ -38903,7 +38903,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -39074,7 +39074,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -39255,7 +39255,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -39428,7 +39428,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -39670,7 +39670,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 5,
         "signals_total": 7,
@@ -39843,7 +39843,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 66,
         "signals_available": 5,
         "signals_total": 7,
@@ -40016,7 +40016,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -40191,7 +40191,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 67,
         "signals_available": 6,
         "signals_total": 7,
@@ -40363,7 +40363,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -40536,7 +40536,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -40709,7 +40709,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 5,
         "signals_total": 7,
@@ -40901,7 +40901,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -41074,7 +41074,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 6,
         "signals_total": 7,
@@ -41246,7 +41246,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 74,
         "signals_available": 6,
         "signals_total": 7,
@@ -41420,7 +41420,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -41595,7 +41595,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -41768,7 +41768,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -41941,7 +41941,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -42190,7 +42190,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 6,
         "signals_total": 7,
@@ -42364,7 +42364,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -42537,7 +42537,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -42710,7 +42710,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -42885,7 +42885,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 71,
         "signals_available": 5,
         "signals_total": 7,
@@ -43058,7 +43058,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -43232,7 +43232,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 74,
         "signals_available": 5,
         "signals_total": 7,
@@ -43405,7 +43405,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -43578,7 +43578,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -43753,7 +43753,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -43926,7 +43926,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -44099,7 +44099,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -44272,7 +44272,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -44444,7 +44444,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -44617,7 +44617,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -44809,7 +44809,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -44982,7 +44982,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -45155,7 +45155,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -45328,7 +45328,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -45501,7 +45501,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -45674,7 +45674,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -45847,7 +45847,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -46093,7 +46093,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -46285,7 +46285,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -46458,7 +46458,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 88,
         "signals_available": 6,
         "signals_total": 7,
@@ -46630,7 +46630,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -46803,7 +46803,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 7,
         "signals_total": 7,
@@ -46974,7 +46974,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -47147,7 +47147,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -47320,7 +47320,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 79,
         "signals_available": 6,
         "signals_total": 7,
@@ -47492,7 +47492,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -47665,7 +47665,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -47840,7 +47840,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -48013,7 +48013,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -48185,7 +48185,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -48377,7 +48377,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -48550,7 +48550,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 6,
         "signals_total": 7,
@@ -48722,7 +48722,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -48895,7 +48895,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -49071,7 +49071,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -49244,7 +49244,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -49417,7 +49417,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -49590,7 +49590,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -49782,7 +49782,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 91,
         "signals_available": 6,
         "signals_total": 7,
@@ -49956,7 +49956,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -50130,7 +50130,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -50305,7 +50305,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -50478,7 +50478,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -50650,7 +50650,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -50823,7 +50823,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -50996,7 +50996,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -51169,7 +51169,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -51343,7 +51343,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -51518,7 +51518,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -51690,7 +51690,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -51874,7 +51874,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -52047,7 +52047,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -52220,7 +52220,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -52395,7 +52395,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 6,
         "signals_total": 7,
@@ -52569,7 +52569,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -52744,7 +52744,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -52919,7 +52919,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -53092,7 +53092,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -53267,7 +53267,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -53440,7 +53440,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -53612,7 +53612,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -53785,7 +53785,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -53958,7 +53958,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -54133,7 +54133,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -54309,7 +54309,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 5,
         "signals_total": 7,
@@ -54485,7 +54485,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -54658,7 +54658,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -54831,7 +54831,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -55007,7 +55007,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -55182,7 +55182,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -55359,7 +55359,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -55545,7 +55545,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 6,
         "signals_total": 7,
@@ -55717,7 +55717,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -55892,7 +55892,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -56067,7 +56067,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 6,
         "signals_total": 7,
@@ -56241,7 +56241,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -56416,7 +56416,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -56591,7 +56591,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -56766,7 +56766,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 75,
         "signals_available": 5,
         "signals_total": 7,
@@ -56939,7 +56939,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -57112,7 +57112,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -57285,7 +57285,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 90,
         "signals_available": 5,
         "signals_total": 7,
@@ -57460,7 +57460,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -57633,7 +57633,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 79,
         "signals_available": 5,
         "signals_total": 7,
@@ -57806,7 +57806,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -57980,7 +57980,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -58155,7 +58155,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -58347,7 +58347,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -58520,7 +58520,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -58693,7 +58693,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -58874,7 +58874,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 77,
         "signals_available": 6,
         "signals_total": 7,
@@ -59120,7 +59120,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -59295,7 +59295,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 89,
         "signals_available": 6,
         "signals_total": 7,
@@ -59469,7 +59469,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -59641,7 +59641,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 88,
         "signals_available": 5,
         "signals_total": 7,
@@ -59816,7 +59816,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 76,
         "signals_available": 5,
         "signals_total": 7,
@@ -59991,7 +59991,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 90,
         "signals_available": 5,
         "signals_total": 7,
@@ -60164,7 +60164,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -60339,7 +60339,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -60512,7 +60512,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -60687,7 +60687,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -60860,7 +60860,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -61036,7 +61036,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -61281,7 +61281,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 77,
         "signals_available": 5,
         "signals_total": 7,
@@ -61454,7 +61454,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 82,
         "signals_available": 5,
         "signals_total": 7,
@@ -61627,7 +61627,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 5,
         "signals_total": 7,
@@ -61792,7 +61792,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 4,
         "signals_total": 7,
@@ -61951,7 +61951,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 3,
         "signals_total": 7,
@@ -62109,7 +62109,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 61,
         "signals_available": 2,
         "signals_total": 7,
@@ -62269,7 +62269,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 26,
         "signals_available": 2,
         "signals_total": 7,
@@ -62446,7 +62446,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 6,
         "signals_total": 7,
@@ -62618,7 +62618,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 5,
         "signals_total": 7,
@@ -62788,7 +62788,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 65,
         "signals_available": 2,
         "signals_total": 7,
@@ -62960,7 +62960,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -63131,7 +63131,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 48,
         "signals_available": 3,
         "signals_total": 7,
@@ -63301,7 +63301,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 68,
         "signals_available": 3,
         "signals_total": 7,
@@ -63471,7 +63471,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -63642,7 +63642,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 56,
         "signals_available": 4,
         "signals_total": 7,
@@ -63811,7 +63811,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 66,
         "signals_available": 3,
         "signals_total": 7,
@@ -63981,7 +63981,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 32,
         "signals_available": 2,
         "signals_total": 7,
@@ -64152,7 +64152,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 52,
         "signals_available": 3,
         "signals_total": 7,
@@ -64323,7 +64323,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 51,
         "signals_available": 3,
         "signals_total": 7,
@@ -64493,7 +64493,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 46,
         "signals_available": 2,
         "signals_total": 7,
@@ -64664,7 +64664,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 33,
         "signals_available": 4,
         "signals_total": 7,
@@ -64834,7 +64834,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 46,
         "signals_available": 2,
         "signals_total": 7,
@@ -65008,7 +65008,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 90,
         "signals_available": 5,
         "signals_total": 7,
@@ -65179,7 +65179,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -65350,7 +65350,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 6,
         "signals_total": 7,
@@ -65446,7 +65446,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement and relocation Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement and relocation",
         "retirement_evidence": "ffered: 2 weeks, 20 hours per week Reason for Selling: Retirement and relocation Company Overview : Franchise Overview : Description : Established specialty contractor serving the Los Angeles residential market with",
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -65522,7 +65522,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 59,
         "signals_available": 5,
         "signals_total": 7,
@@ -65619,7 +65619,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Owner, is retiring Company Overview : Franchise Overview :",
+        "reason_for_sale": "Owner, is retiring",
         "retirement_evidence": "meet your expectations. Reason for Selling: Owner, is retiring Company Overview : Franchise Overview : Description : 43‑Year Legacy Concrete Business in WI With Immediate ROI and Positive Cash Flow! IMMEDIATE ROI",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -65694,7 +65694,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 34,
         "signals_available": 4,
         "signals_total": 7,
@@ -65792,7 +65792,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Moving out of the country Company Overview : Franchise Overview :",
+        "reason_for_sale": "Moving out of the country",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -65864,7 +65864,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -65965,7 +65965,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "urchase Property Details : Terms : Reason for Selling: Retirement Company Overview : Franchise Overview : Description : Full-service steel fabrication and installation company serving the greater Bay Area. Known for",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -66040,7 +66040,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 91,
         "signals_available": 4,
         "signals_total": 7,
@@ -66138,7 +66138,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "ffered: 3 weeks, 20 hours per week Reason for Selling: Retirement Company Overview : Franchise Overview : Description : Lower price business established in 1985, this reputable glass business has built a strong repu",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -66213,7 +66213,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 79,
         "signals_available": 4,
         "signals_total": 7,
@@ -66311,7 +66311,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Other business ventures Company Overview : Franchise Overview :",
+        "reason_for_sale": "Other business ventures",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -66380,7 +66380,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -66556,7 +66556,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 47,
         "signals_available": 6,
         "signals_total": 7,
@@ -66650,7 +66650,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "agreeable payment terms to seller. Reason for Selling: Retirement Company Overview : Franchise Overview : Description : Established Custom Glass Company with2026-30 Property for Sale. Prime I77 Corridor Location. Op",
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -66720,7 +66720,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -66890,7 +66890,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -67059,7 +67059,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -67229,7 +67229,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -67327,7 +67327,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "s within a fifty (50)-mile radius. Reason for Selling: Retirement Company Overview : Franchise Overview : Description : This is a family-owned South Florida flooring company established in 1993, specializing in mari",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -67402,7 +67402,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 72,
         "signals_available": 4,
         "signals_total": 7,
@@ -67573,7 +67573,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 65,
         "signals_available": 5,
         "signals_total": 7,
@@ -67742,7 +67742,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 74,
         "signals_available": 3,
         "signals_total": 7,
@@ -67912,7 +67912,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 91,
         "signals_available": 3,
         "signals_total": 7,
@@ -68080,7 +68080,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -68250,7 +68250,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -68422,7 +68422,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 93,
         "signals_available": 3,
         "signals_total": 7,
@@ -68592,7 +68592,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -68690,7 +68690,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retire Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retire",
         "retirement_evidence": "ffered: 4 weeks, 40 hours per week Reason for Selling: Retire Company Overview : Franchise Overview : Description : This company offers a full range of fulfillment services complemented by real time inventory co",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -68760,7 +68760,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -68933,7 +68933,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 48,
         "signals_available": 3,
         "signals_total": 7,
@@ -69030,7 +69030,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Health reasons Company Overview : Franchise Overview :",
+        "reason_for_sale": "Health reasons",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -69103,7 +69103,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -69271,7 +69271,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -69444,7 +69444,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 4,
         "signals_total": 7,
@@ -69616,7 +69616,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 4,
         "signals_total": 7,
@@ -69788,7 +69788,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 84,
         "signals_available": 4,
         "signals_total": 7,
@@ -69960,7 +69960,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 4,
         "signals_total": 7,
@@ -70132,7 +70132,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 73,
         "signals_available": 4,
         "signals_total": 7,
@@ -70301,7 +70301,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -70398,7 +70398,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "over 6-12 month agreed transition Reason for Selling: Retirement Company Overview : Franchise Overview : Description : TRANSFORM YOUR ENTREPRENEURIAL FUTURE with this premier millwork manufacturing powerhouse that",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -70471,7 +70471,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -70570,7 +70570,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "retirement",
         "retirement_evidence": "No Support & Training Offered: yes Reason for Selling: retirement Company Overview : Franchise Overview : Description : Established CNC Machine shop 31 years 7500 sq foot facility qty 3 CNC milling machines qty 1 CN",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -70641,7 +70641,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -70740,7 +70740,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Retired Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retired",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -70814,7 +70814,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 3,
         "signals_total": 7,
@@ -70984,7 +70984,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -71083,7 +71083,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Family Company Overview : Franchise Overview :",
+        "reason_for_sale": "Family",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -71157,7 +71157,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 3,
         "signals_total": 7,
@@ -71254,7 +71254,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement/Health Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement/Health",
         "retirement_evidence": "ffered: 4 weeks, 20 hours per week Reason for Selling: Retirement/Health Company Overview : Franchise Overview : Description : Established for over four decades, this custom plastics fabrication business is known fo",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -71329,7 +71329,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 4,
         "signals_total": 7,
@@ -71425,7 +71425,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement/Moving Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement/Moving",
         "retirement_evidence": "s for a total of 20 hours per week Reason for Selling: Retirement/Moving Company Overview : Franchise Overview : Description : Custom Apparel & Embroidery Business for Sale. Own a turnkey personalization business wi",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -71499,7 +71499,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 31,
         "signals_available": 2,
         "signals_total": 7,
@@ -71671,7 +71671,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -71843,7 +71843,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 51,
         "signals_available": 3,
         "signals_total": 7,
@@ -71940,7 +71940,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Going back to school Company Overview : Franchise Overview :",
+        "reason_for_sale": "Going back to school",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -72010,7 +72010,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -72109,7 +72109,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Focus on other business Company Overview : Franchise Overview :",
+        "reason_for_sale": "Focus on other business",
         "retirement_evidence": null,
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -72183,7 +72183,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 29,
         "signals_available": 2,
         "signals_total": 7,
@@ -72351,7 +72351,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -72451,7 +72451,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "usiness Property Details : Terms : Reason for Selling: Retirement Company Overview : Franchise Overview : Description : This is a rare opportunity to acquire a fast-growing flooring solutions company that has quickl",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -72525,7 +72525,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 92,
         "signals_available": 3,
         "signals_total": 7,
@@ -72695,7 +72695,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -72866,7 +72866,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -73035,7 +73035,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -73131,7 +73131,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Owner personal commitments Company Overview : Franchise Overview :",
+        "reason_for_sale": "Owner personal commitments",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -73204,7 +73204,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -73376,7 +73376,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 90,
         "signals_available": 4,
         "signals_total": 7,
@@ -73548,7 +73548,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 66,
         "signals_available": 5,
         "signals_total": 7,
@@ -73643,7 +73643,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Seller is looking to pursue other ventures Company Overview : Franchise Overview :",
+        "reason_for_sale": "Seller is looking to pursue other ventures",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -73718,7 +73718,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 6,
         "signals_total": 7,
@@ -73812,7 +73812,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Seller is looking to pursue other ventures Company Overview : Franchise Overview :",
+        "reason_for_sale": "Seller is looking to pursue other ventures",
         "retirement_evidence": null,
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -73887,7 +73887,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 66,
         "signals_available": 5,
         "signals_total": 7,
@@ -73982,7 +73982,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Seller is looking to pursue other opportunities Company Overview : Franchise Overview :",
+        "reason_for_sale": "Seller is looking to pursue other opportunities",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -74055,7 +74055,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -74227,7 +74227,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -74401,7 +74401,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 61,
         "signals_available": 6,
         "signals_total": 7,
@@ -74571,7 +74571,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 86,
         "signals_available": 5,
         "signals_total": 7,
@@ -74740,7 +74740,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -74909,7 +74909,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -75077,7 +75077,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -75247,7 +75247,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 88,
         "signals_available": 4,
         "signals_total": 7,
@@ -75419,7 +75419,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 4,
         "signals_total": 7,
@@ -75517,7 +75517,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Other Interests Company Overview : Franchise Overview :",
+        "reason_for_sale": "Other Interests",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -75591,7 +75591,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 4,
         "signals_total": 7,
@@ -75689,7 +75689,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Pursue Other Interests Company Overview : Franchise Overview :",
+        "reason_for_sale": "Pursue Other Interests",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -75764,7 +75764,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 78,
         "signals_available": 5,
         "signals_total": 7,
@@ -75861,7 +75861,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Pursue Other Interests Company Overview : Franchise Overview :",
+        "reason_for_sale": "Pursue Other Interests",
         "retirement_evidence": null,
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -75937,7 +75937,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 5,
         "signals_total": 7,
@@ -76036,7 +76036,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Ready for the next challenge, the owners have decided to sell the business at this time to focus on other business opportunities Company Overview : Franchise Overview :",
+        "reason_for_sale": "Ready for the next challenge, the owners have decided to sell the business at this time to focus on other business opportunities",
         "retirement_evidence": null,
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -76111,7 +76111,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 3,
         "signals_total": 7,
@@ -76211,7 +76211,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "The owner has decided to sell the business at this juncture to pursue other interests Company Overview : Franchise Overview :",
+        "reason_for_sale": "The owner has decided to sell the business at this juncture to pursue other interests",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -76285,7 +76285,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 71,
         "signals_available": 4,
         "signals_total": 7,
@@ -76457,7 +76457,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 81,
         "signals_available": 5,
         "signals_total": 7,
@@ -76628,7 +76628,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 34,
         "signals_available": 3,
         "signals_total": 7,
@@ -76797,7 +76797,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -76968,7 +76968,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -77067,7 +77067,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retiring Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retiring",
         "retirement_evidence": "Training Offered: 10 business days Reason for Selling: Retiring Company Overview : Franchise Overview : Description : Seller is also offering a option to lease try before you buy. We are a different type of compan",
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -77144,7 +77144,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 32,
         "signals_available": 4,
         "signals_total": 7,
@@ -77318,7 +77318,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 71,
         "signals_available": 6,
         "signals_total": 7,
@@ -77412,7 +77412,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Focus on core business Company Overview : Franchise Overview :",
+        "reason_for_sale": "Focus on core business",
         "retirement_evidence": null,
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -77487,7 +77487,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 4,
         "signals_total": 7,
@@ -77655,7 +77655,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -77755,7 +77755,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Focusing on primary business Company Overview : Franchise Overview :",
+        "reason_for_sale": "Focusing on primary business",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -77827,7 +77827,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -77926,7 +77926,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Seller Retiring Company Overview : Franchise Overview :",
+        "reason_for_sale": "Seller Retiring",
         "retirement_evidence": "2 weeks, 20 hours per week Reason for Selling: Seller Retiring Company Overview : Franchise Overview : Description : This is a storefront lease transfer with sale of inventory and FF&E. Established in 1948, Selle",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -78001,7 +78001,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 3,
         "signals_total": 7,
@@ -78100,7 +78100,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "ffered: 4 weeks, 40 hours per week Reason for Selling: Retirement Company Overview : Franchise Overview : Description : This well established business provides snack food items to independent grocery stores in the C",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -78175,7 +78175,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 89,
         "signals_available": 5,
         "signals_total": 7,
@@ -78272,7 +78272,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Investing in another business Company Overview : Franchise Overview :",
+        "reason_for_sale": "Investing in another business",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -78345,7 +78345,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 56,
         "signals_available": 2,
         "signals_total": 7,
@@ -78445,7 +78445,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "t the Buyer during the transition. Reason for Selling: Retirement Company Overview : Franchise Overview : Description : Serious inquiries only, please. The seller ideally seeks a synergistic purchaser to acquire 100",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -78521,7 +78521,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 4,
         "signals_total": 7,
@@ -78619,7 +78619,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Need to Focus on Primary Company Company Overview : Franchise Overview :",
+        "reason_for_sale": "Need to Focus on Primary Company",
         "retirement_evidence": null,
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -78690,7 +78690,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 1,
         "signals_total": 7,
@@ -78867,7 +78867,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 4,
         "signals_total": 7,
@@ -78965,7 +78965,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "Offered: 4 weeks, 25 hours per day Reason for Selling: Retirement Company Overview : Franchise Overview : Description : Boutique wholesale bakery with a large regional following. Significant growth prospects through",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -79040,7 +79040,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 40,
         "signals_available": 3,
         "signals_total": 7,
@@ -79137,7 +79137,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "ffered: 2 weeks, 20 hours per week Reason for Selling: Retirement Company Overview : Franchise Overview : Description : In the San Francisco Bay Area, one distributor doesn’t just supply brake systems and components",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -79212,7 +79212,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -79385,7 +79385,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 45,
         "signals_available": 4,
         "signals_total": 7,
@@ -79555,7 +79555,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 46,
         "signals_available": 2,
         "signals_total": 7,
@@ -79726,7 +79726,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 64,
         "signals_available": 3,
         "signals_total": 7,
@@ -79897,7 +79897,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 83,
         "signals_available": 4,
         "signals_total": 7,
@@ -79993,7 +79993,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retire Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retire",
         "retirement_evidence": "ffered: 2 weeks, 20 hours per week Reason for Selling: Retire Company Overview : Franchise Overview : Description : An experienced, licensed, and insured concrete cutting contractor serving Southern California s",
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -80066,7 +80066,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -80238,7 +80238,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 50,
         "signals_available": 4,
         "signals_total": 7,
@@ -80334,7 +80334,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Relocating out of state Company Overview : Franchise Overview :",
+        "reason_for_sale": "Relocating out of state",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -80409,7 +80409,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 73,
         "signals_available": 5,
         "signals_total": 7,
@@ -80504,7 +80504,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Looking to pay off existing debt and retire Company Overview : Franchise Overview :",
+        "reason_for_sale": "Looking to pay off existing debt and retire",
         "retirement_evidence": "ason for Selling: Looking to pay off existing debt and retire Company Overview : Franchise Overview : Description : For sale roofing and siding company estimated 7 million in sales across Ohio WV and Kentucky.",
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -80579,7 +80579,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -80751,7 +80751,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 91,
         "signals_available": 3,
         "signals_total": 7,
@@ -80922,7 +80922,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 3,
         "signals_total": 7,
@@ -81019,7 +81019,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Focus on other business opportunities Company Overview : Franchise Overview :",
+        "reason_for_sale": "Focus on other business opportunities",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -81093,7 +81093,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 85,
         "signals_available": 3,
         "signals_total": 7,
@@ -81263,7 +81263,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 2,
         "signals_total": 7,
@@ -81363,7 +81363,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Owner wanting to retire Company Overview : Franchise Overview :",
+        "reason_for_sale": "Owner wanting to retire",
         "retirement_evidence": "14 Business Days Reason for Selling: Owner wanting to retire Company Overview : Franchise Overview : Description : Uniform Company for sale. My company is debt free, during covid employees were still paid with",
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -81440,7 +81440,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 4,
         "signals_total": 7,
@@ -81538,7 +81538,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "ffered: 2 weeks, 20 hours per week Reason for Selling: Retirement Company Overview : Franchise Overview : Description : A well-established vacuum forming business operating as part of a successful machine shop, offe",
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -81615,7 +81615,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 44,
         "signals_available": 4,
         "signals_total": 7,
@@ -81713,7 +81713,7 @@
         "version": "prospect-v1",
         "retirement": true,
         "succession_gap": false,
-        "reason_for_sale": "Retirement Company Overview : Franchise Overview :",
+        "reason_for_sale": "Retirement",
         "retirement_evidence": "sistance are offered at no charge. Reason for Selling: Retirement Company Overview : Franchise Overview : Description : This fishing lure manufacturer is renowned for being the original inventor and sole manufacture",
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -81784,7 +81784,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 0,
         "signals_total": 7,
@@ -81960,7 +81960,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 80,
         "signals_available": 5,
         "signals_total": 7,
@@ -82130,7 +82130,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 87,
         "signals_available": 6,
         "signals_total": 7,
@@ -82224,7 +82224,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Owner lives too far from the location and believes the business needs an owner operator Company Overview : Franchise Overview :",
+        "reason_for_sale": "Owner lives too far from the location and believes the business needs an owner operator",
         "retirement_evidence": null,
         "seller_financing": "advertised",
         "seller_percent": null,
@@ -82298,7 +82298,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": null,
         "signals_available": 3,
         "signals_total": 7,
@@ -82469,7 +82469,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 90,
         "signals_available": 3,
         "signals_total": 7,
@@ -82641,7 +82641,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 92,
         "signals_available": 3,
         "signals_total": 7,
@@ -82813,7 +82813,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 69,
         "signals_available": 2,
         "signals_total": 7,
@@ -82987,7 +82987,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-16T20:02:38.773Z",
+        "calculated_at": "2026-10-16T20:04:25.503Z",
         "score": 41,
         "signals_available": 4,
         "signals_total": 7,
@@ -83085,7 +83085,7 @@
         "version": "prospect-v1",
         "retirement": false,
         "succession_gap": false,
-        "reason_for_sale": "Moving/Personal Reasons Company Overview : Franchise Overview :",
+        "reason_for_sale": "Moving/Personal Reasons",
         "retirement_evidence": null,
         "seller_financing": "unknown",
         "seller_percent": null,
@@ -84549,7 +84549,7 @@
   },
   "screening_model": {
     "version": "screen-v2",
-    "updated_at": "2026-10-16T20:02:38.773Z",
+    "updated_at": "2026-10-16T20:04:25.503Z",
     "description": "Afinidad preliminar con información publicada; sin exigir documentos de debida diligencia."
   },
   "portal_refresh": {
