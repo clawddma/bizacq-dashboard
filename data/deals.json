@@ -87525,7 +87525,7 @@
       },
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-18T05:05:28.278Z",
+        "calculated_at": "2026-10-18T13:00:41.609Z",
         "score": 90,
         "signals_available": 4,
         "signals_total": 7,
@@ -87637,6 +87637,69 @@
         "questions": [
           "Confirmar porcentaje, tasa, plazo, garantías, subordinación y condiciones del pagaré del vendedor.",
           "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "digital_analysis": {
+        "version": "digital-v1",
+        "performed_at": "2026-10-18T13:00:40.896Z",
+        "status": "identity_pending",
+        "website": null,
+        "website_candidates": [],
+        "observations": [],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de respuesta y agenda que dé seguimiento a llamadas, consultas y cotizaciones pendientes.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://www.biztrader.com/listing/window-treatments-and-interior-designers-business-in-naples/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-18T13:00:40.896Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=Window%20Treatments%20and%20Interior%20Designers%20Business%20in%20Naples!%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-18T13:00:40.896Z"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "financial_method": {
+          "incremental_profit": "Ventas adicionales × margen de contribución − costo comercial y herramientas.",
+          "net_savings": "Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.",
+          "valuation": "Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base."
+        }
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-10-18T13:00:41.609Z",
+        "model": "screen-v2",
+        "summary": "Afinidad preliminar 90/100. Información pública y escenarios; cifras pendientes de diligencia.",
+        "questions": [
+          "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
+          "Solicitar el detalle que respalda la ganancia publicada y sus ajustes.",
+          "Validar concentración de clientes/canales, recurrencia y horas reales del dueño.",
+          "Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.",
+          "Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos."
         ]
       }
     },
@@ -95318,6 +95381,162 @@
           "title": "Contexto fiscal estatal",
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites",
           "as_of": null
+        },
+        {
+          "title": "BLS · indicadores por industria",
+          "url": "https://www.bls.gov/iag/",
+          "as_of": null
+        },
+        {
+          "title": "SBA · propiedad, ciudadanía y residencia",
+          "url": "https://legacy.sba.gov/document/procedural-notice-5000-876626-revised-applicant-ownership-citizenship-residency-requirements-7a-504-loans",
+          "as_of": "2026-10-16"
+        },
+        {
+          "title": "IRS · asignación del precio en compras de activos",
+          "url": "https://www.irs.gov/instructions/i8594",
+          "as_of": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "id": "cc18a7d6-ce9b-4fd0-8ab6-6c123d7becf8",
+      "deal_id": "ab4a844c-6f95-4194-b0de-55929c02613c",
+      "version": 1,
+      "generated_at": "2026-10-18T13:00:41.609Z",
+      "title": "Window Treatments and Interior Designers Business in Naples!",
+      "industry": "Manufacturing",
+      "state": "FL",
+      "city": "",
+      "stage_at_generation": "RADAR",
+      "source_url": "https://www.biztrader.com/listing/window-treatments-and-interior-designers-business-in-naples/",
+      "source_checked_at": "2026-10-17T05:03:57.148205+00:00",
+      "published_at": "2025-09-09",
+      "source_signature": "[\"Window Treatments and Interior Designers Business in Naples!\",\"FL\",\"\",\"Manufacturing\",\"https://www.biztrader.com/listing/window-treatments-and-interior-designers-business-in-naples/\",{\"price\":95000,\"revenue\":260000,\"earnings\":61311,\"basis\":\"Flujo del broker\",\"sde\":null,\"net_profit\":null,\"cash_flow\":61311,\"ebitda\":null,\"years\":34,\"multiple\":1.5494772553049208,\"margin\":23.581153846153846,\"conflict\":false},\"Window Treatments and Interior Designers Business in Naples! | BizTrader Naples, FL, USA ADD FREE LISTING Login Sign Up Window Treatments and Interior Designers Business in Naples! Naples, FL, USA GET FINANCING Add to Favorite Add to Favorite Remove from favorites Remove from Favorites Share Facebook X Telegram Whatsapp Email Report Find a Business For Sale Find a Broker Sell a Business INFORMATION − + Listing ID : 2435535 Broker ID : 695408 Listed On September 9, 2025 View Count 116 Listing Updated September 9, 2025 Status : ACTIVE Listing Type : Business For Sale Manufacturing Furniture & Fixture Manufactures Listing Highlights : May Qualify For Visa, High Cash Flow, High Growth Potential, Loyal Customer Base, Seller Financing Price : $95,000 Business Overview : Gross Revenue: $260,000 Cash Flow: $61,311 Year Established: 1992 Number of Employees: 2 Inventory Included: No Accounts Receivable Included: No Furniture, Fixtures & Equipment (FF&E) Included: Yes Estimated Value of FF&E: $21,050 Outstanding Liabilities & Debts: No License Included: Yes License Type: occupational and city permits Business Location Details : Business Location: Leased Rent: $5,000 Type of Lease: Gross Lease or Full Service Lease Lease Expiration: 08/21/2029 Building Size: 1,400 Sq. Ft. Facility & Tenant Improvements: You'll benefit from a loyal customer base that generates repeat business and valuable referrals, creating predictable revenue flows that support sustainable growth. The booming local market conditions mean you're entering at an optimal time to capitalize on increased demand for luxury home services. The transition advantage is significant - the respected current owner offers ongoing support, ensuring you maintain existing relationships while avoiding costly learning curves. Property Details : Terms : Financing: Cash, Seller Financing NDA Required: Yes Broker Co-Op: Yes Support & Training Offered: The sellers will provide a two-week transition period at no additional cost. They are also willing to remain longer if the buyer deems it necessary to ensure a smooth and successful handover of the business. Reason for Selling: MOVING BACK TO THEIR COUNTRY Company Overview : Franchise Overview : Description : Turn your passion for design into ownership of a well-established window treatments and interior design business with 33 years of success in Naples, one of Florida’s most affluent markets. The company specializes in luxury window treatments, custom drapery, wallpaper installation, and full interior design services—delivering a turnkey opportunity with a solid reputation and loyal clientele. Reason for Sale The owners are relocating abroad and have reduced the price to $95,000 for a quick sale. Key Highlights Prime Location: Situated in a sought-after plaza with str\",\"published\",null,[]]",
+      "description": "Window Treatments and Interior Designers Business in Naples! | BizTrader Naples, FL, USA ADD FREE LISTING Login Sign Up Window Treatments and Interior Designers Business in Naples! Naples, FL, USA GET FINANCING Add to Favorite Add to Favorite Remove from favorites Remove from Favorites Share Facebook X Telegram Whatsapp Email Report Find a Business For Sale Find a Broker Sell a Business INFORMATION − + Listing ID : 2435535 Broker ID : 695408 Listed On September 9, 2025 View Count 116 Listing Updated September 9, 2025 Status : ACTIVE Listing Type : Business For Sale Manufacturing Furniture & Fixture Manufactures Listing Highlights : May Qualify For Visa, High Cash Flow, High Growth Potential, Loyal Customer Base, Seller Financing Price : $95,000 Business Overview : Gross Revenue: $260,000 Cash Flow: $61,311 Year Established: 1992 Number of Employees: 2 Inventory Included: No Accounts Receivable Included: No Furniture, Fixtures & Equipment (FF&E) Included: Yes Estimated Value of FF&E: $21,050 Outstanding Liabilities & Debts: No License Included: Yes License Type: occupational and city permits Business Location Details : Business Location: Leased Rent: $5,000 Type of Lease: Gross Lease or Full Service Lease Lease Expiration: 08/21/2029 Building Size: 1,400 Sq. Ft. Facility & Tenant Improvements: You'll benefit from a loyal customer base that generates repeat business and valuable referrals, creating predictable revenue flows that support sustainable growth. The booming local market conditions mean you're entering at an optimal time to capitalize on increased demand for luxury home services. The transition advantage is significant - the respected current owner offers ongoing support, ensuring you maintain existing relationships while avoiding costly learning curves. Property Details : Terms : Financing: Cash, Seller Financing NDA Required: Yes Broker Co-Op: Yes Support & Training Offered: The sellers will provide a two-week transition period at no additional cost. They are also willing to remain longer if the buyer deems it necessary to ensure a smooth and successful handover of the business. Reason for Selling: MOVING BACK TO THEIR COUNTRY Company Overview : Franchise Overview : Description : Turn your passion for design into ownership of a well-established window treatments and interior design business with 33 years of success in Naples, one of Florida’s most affluent markets. The company specializes in luxury window treatments, custom drapery, wallpaper installation, and full interior design services—delivering a turnkey opportunity with a solid reputation and loyal clientele. Reason for Sale The owners are relocating abroad and have reduced the price to $95,000 for a quick sale. Key Highlights Prime Location: Situated in a sought-after plaza with str",
+      "financials": {
+        "price": 95000,
+        "revenue": 260000,
+        "earnings": 61311,
+        "basis": "Flujo del broker",
+        "sde": null,
+        "net_profit": null,
+        "cash_flow": 61311,
+        "ebitda": null,
+        "years": 34,
+        "multiple": 1.5494772553049208,
+        "margin": 23.581153846153846,
+        "conflict": false
+      },
+      "score": 90,
+      "flags": [
+        "Anuncio de más de un año, aún publicado según el portal; confirmar condiciones con el vendedor."
+      ],
+      "availability": "eligible",
+      "prospecting": {
+        "version": "prospect-v1",
+        "retirement": false,
+        "succession_gap": false,
+        "reason_for_sale": "MOVING BACK TO THEIR COUNTRY",
+        "retirement_evidence": null,
+        "seller_financing": "advertised",
+        "seller_percent": null,
+        "seller_label": "Anunciada · porcentaje no publicado",
+        "seller_evidence": "Cash Flow, High Growth Potential, Loyal Customer Base, Seller Financing Price : $95,000 Business Overview : Gross Revenue: $260,000 Cash Flow: $61,311 Year Established: 1992 Number of Employees: 2 Inventory Included: No A",
+        "sba_advertised": false,
+        "sba_evidence": null,
+        "financials_usable": true,
+        "financial_conflict": false,
+        "source_url": "https://www.biztrader.com/listing/window-treatments-and-interior-designers-business-in-naples/",
+        "questions": [
+          "Confirmar porcentaje, tasa, plazo, garantías, subordinación y condiciones del pagaré del vendedor.",
+          "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "sector": {
+        "name": "Manufactura",
+        "naics": "31–33",
+        "attraction": "La especialización técnica y las relaciones B2B pueden favorecer pedidos repetidos. Validar barreras de entrada, certificaciones y costos de cambio.",
+        "risks": [
+          "Concentración por cliente y dependencia de un técnico o programador clave.",
+          "Capex de mantenimiento, estado de máquinas, scrap y capital inmovilizado en inventario."
+        ],
+        "indicators": [
+          "Utilización de máquinas y horas vendibles",
+          "Scrap y retrabajo / ventas",
+          "Entrega a tiempo, cartera y días de inventario"
+        ],
+        "pilots": [
+          "Agente de cotizaciones que prepare costos y plazos desde órdenes históricas, con aprobación del responsable.",
+          "Conciliación de inventario, órdenes y compras; seguimiento de mantenimiento y desviaciones."
+        ]
+      },
+      "tax": {
+        "state": "FL",
+        "summary": "Florida: referencia de impuesto corporativo de 5,5% para ejercicios iniciados desde 2022. La aplicación depende de la entidad, base imponible y ajustes; no es una tasa efectiva del negocio.",
+        "url": "https://floridarevenue.com/taxes/taxesfees/Pages/corporate.aspx",
+        "reviewed_at": "2026-10-16"
+      },
+      "peers": {
+        "count": 16,
+        "basis": "Flujo del broker",
+        "median_multiple": 3.4716414596058964,
+        "margin_count": 16,
+        "median_margin": 23.54562381423426
+      },
+      "digital": {
+        "status": "identity_pending",
+        "website": null,
+        "observations": [],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de respuesta y agenda que dé seguimiento a llamadas, consultas y cotizaciones pendientes.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar agenda, preparación de cotizaciones, recordatorios y coordinación de servicios con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "sources": [
+          {
+            "url": "https://www.biztrader.com/listing/window-treatments-and-interior-designers-business-in-naples/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-18T13:00:40.896Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=Window%20Treatments%20and%20Interior%20Designers%20Business%20in%20Naples!%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-18T13:00:40.896Z"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Anuncio del negocio",
+          "url": "https://www.biztrader.com/listing/window-treatments-and-interior-designers-business-in-naples/",
+          "as_of": "2026-10-17T05:03:57.148205+00:00"
+        },
+        {
+          "title": "Contexto fiscal estatal",
+          "url": "https://floridarevenue.com/taxes/taxesfees/Pages/corporate.aspx",
+          "as_of": "2026-10-16"
         },
         {
           "title": "BLS · indicadores por industria",
