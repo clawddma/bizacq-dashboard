@@ -56764,7 +56764,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-10-23T05:06:44.894Z",
+        "calculated_at": "2026-10-23T17:29:18.813Z",
         "score": 92,
         "signals_available": 5,
         "signals_total": 7,
@@ -56772,7 +56772,7 @@
         "confidence": "amplia",
         "coverage": null,
         "disposition": "eligible",
-        "listing_age_days": 423,
+        "listing_age_days": 424,
         "checked_age_days": 0,
         "earnings_basis": "beneficio neto publicado",
         "multiple": 1.5,
@@ -56881,6 +56881,78 @@
         "source_url": "https://empireflippers.com/listing/87775/",
         "questions": [
           "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "digital_analysis": {
+        "version": "digital-v1",
+        "performed_at": "2026-10-23T17:29:17.471Z",
+        "status": "identity_pending",
+        "website": null,
+        "website_candidates": [
+          {
+            "title": "GitHub - hneemann/Digital: A digital logic designer and circuit ...",
+            "url": "https://github.com/hneemann/Digital"
+          },
+          {
+            "title": "Amazon.com: Digital",
+            "url": "https://www.amazon.com/Digital/s?k=Digital"
+          }
+        ],
+        "observations": [],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de seguimiento de leads, recuperación de carritos o reactivación de clientes, según el canal real.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar clasificación de soporte, reportes y conciliación operativa con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://empireflippers.com/listing/87775/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-23T17:29:17.471Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=%20%20Digital%20Product%20Business%20in%20the%20Design%20Niche%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-23T17:29:17.471Z"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "financial_method": {
+          "incremental_profit": "Ventas adicionales × margen de contribución − costo comercial y herramientas.",
+          "net_savings": "Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.",
+          "valuation": "Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base."
+        }
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-10-23T17:29:18.813Z",
+        "model": "screen-v2",
+        "summary": "Afinidad preliminar 92/100. Información pública y escenarios; cifras pendientes de diligencia.",
+        "questions": [
+          "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
+          "Solicitar el detalle que respalda la ganancia publicada y sus ajustes.",
+          "Validar concentración de clientes/canales, recurrencia y horas reales del dueño.",
+          "Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.",
+          "Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos."
         ]
       }
     },
@@ -98958,6 +99030,161 @@
           "title": "Contexto fiscal estatal",
           "url": "https://floridarevenue.com/taxes/taxesfees/Pages/corporate.aspx",
           "as_of": "2026-10-16"
+        },
+        {
+          "title": "BLS · indicadores por industria",
+          "url": "https://www.bls.gov/iag/",
+          "as_of": null
+        },
+        {
+          "title": "SBA · propiedad, ciudadanía y residencia",
+          "url": "https://legacy.sba.gov/document/procedural-notice-5000-876626-revised-applicant-ownership-citizenship-residency-requirements-7a-504-loans",
+          "as_of": "2026-10-16"
+        },
+        {
+          "title": "IRS · asignación del precio en compras de activos",
+          "url": "https://www.irs.gov/instructions/i8594",
+          "as_of": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "id": "0e62fe9b-2887-484a-b9d7-342855da519d",
+      "deal_id": "d5ee01cb-1b66-48c1-b21e-92b2086b8205",
+      "version": 1,
+      "generated_at": "2026-10-23T17:29:18.813Z",
+      "title": "$25.4K Per Month Digital Product Business in the Design Niche",
+      "industry": "Digital Business",
+      "state": "",
+      "city": "",
+      "stage_at_generation": "RADAR",
+      "source_url": "https://empireflippers.com/listing/87775/",
+      "source_checked_at": "2026-10-23T05:01:01.637818+00:00",
+      "published_at": "2025-08-25T10:00:05.869Z",
+      "source_signature": "[\"$25.4K Per Month Digital Product Business in the Design Niche\",\"\",\"\",\"Digital Business\",\"https://empireflippers.com/listing/87775/\",{\"price\":141345,\"revenue\":305321,\"earnings\":94230,\"basis\":\"Beneficio neto declarado\",\"sde\":null,\"net_profit\":94230,\"cash_flow\":null,\"ebitda\":null,\"years\":null,\"multiple\":1.5,\"margin\":30.86260034521045,\"conflict\":false},\"Launched in 2020, this Digital Product business specializes in high-end video editing assets used by both individual creators and major global brands, including Nike, Amazon, BMW, and Disney. With an average order value of $59 and a 25% return customer rate, the brand demonstrates strong customer loyalty and product-market fit. Other strengths include outsourced product development and a recent conversion rate increase to 2.11% (July 2025) following collaboration with a CRO agency.\\n\\nRevenue is entirely derived from digital product sales. Customer acquisition is well diversified, with traffic split across Paid Social (36.4%), Direct (15.85%), and Organic Search (10.63%). The business leverages Meta Ads and Google Ads for paid marketing and benefits from a solid international customer base, with 46% of sales from the USA, 9% from the UK, and 7% from Germany. \\n\\nOperationally, the business is run by two partners who collectively work around 10 hours per week, overseeing tasks such as email support, newsletters, backend management on Shopify, advertising, and social media visuals. These roles are transferable and can be easily outsourced. The business employs a long-term editor for ad content and uses project-based product developers and sound designers, making the product development process efficient and scalable. It offers a range of products that have been systematically developed based on market trends and customer feedback, with several new packs ready for release included in the sale.\\n\\nProduct creation is handled by freelance project-based product developers and sound designers. A long-term part-time editor creates Ad content. Operations are streamlined, and most tasks, including customer support and backend maintenance, can easily be outsourced. Growth opportunities include expanding the product range vertically with more advanced tools and horizontally with beginner-friendly packs. Additionally, several unreleased product packs are included in the sale. With its\",\"published\",null,[]]",
+      "description": "Launched in 2020, this Digital Product business specializes in high-end video editing assets used by both individual creators and major global brands, including Nike, Amazon, BMW, and Disney. With an average order value of $59 and a 25% return customer rate, the brand demonstrates strong customer loyalty and product-market fit. Other strengths include outsourced product development and a recent conversion rate increase to 2.11% (July 2025) following collaboration with a CRO agency.\n\nRevenue is entirely derived from digital product sales. Customer acquisition is well diversified, with traffic split across Paid Social (36.4%), Direct (15.85%), and Organic Search (10.63%). The business leverages Meta Ads and Google Ads for paid marketing and benefits from a solid international customer base, with 46% of sales from the USA, 9% from the UK, and 7% from Germany. \n\nOperationally, the business is run by two partners who collectively work around 10 hours per week, overseeing tasks such as email support, newsletters, backend management on Shopify, advertising, and social media visuals. These roles are transferable and can be easily outsourced. The business employs a long-term editor for ad content and uses project-based product developers and sound designers, making the product development process efficient and scalable. It offers a range of products that have been systematically developed based on market trends and customer feedback, with several new packs ready for release included in the sale.\n\nProduct creation is handled by freelance project-based product developers and sound designers. A long-term part-time editor creates Ad content. Operations are streamlined, and most tasks, including customer support and backend maintenance, can easily be outsourced. Growth opportunities include expanding the product range vertically with more advanced tools and horizontally with beginner-friendly packs. Additionally, several unreleased product packs are included in the sale. With its",
+      "financials": {
+        "price": 141345,
+        "revenue": 305321,
+        "earnings": 94230,
+        "basis": "Beneficio neto declarado",
+        "sde": null,
+        "net_profit": 94230,
+        "cash_flow": null,
+        "ebitda": null,
+        "years": null,
+        "multiple": 1.5,
+        "margin": 30.86260034521045,
+        "conflict": false
+      },
+      "score": 92,
+      "flags": [
+        "Anuncio de más de un año, aún publicado según el portal; confirmar condiciones con el vendedor."
+      ],
+      "availability": "eligible",
+      "prospecting": {
+        "version": "prospect-v1",
+        "retirement": false,
+        "succession_gap": false,
+        "reason_for_sale": null,
+        "retirement_evidence": null,
+        "seller_financing": "unknown",
+        "seller_percent": null,
+        "seller_label": "No informada",
+        "seller_evidence": null,
+        "sba_advertised": false,
+        "sba_evidence": null,
+        "financials_usable": true,
+        "financial_conflict": false,
+        "source_url": "https://empireflippers.com/listing/87775/",
+        "questions": [
+          "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "sector": {
+        "name": "Tecnología y canales digitales",
+        "naics": "Por validar según actividad",
+        "attraction": "Suscripciones, clientes repetidos y distribución digital pueden facilitar experimentos medibles de adquisición y retención. Confirmar recurrencia y propiedad de los activos.",
+        "risks": [
+          "Dependencia de plataforma, tráfico pagado, clientes o código del fundador.",
+          "Churn, devoluciones, seguridad, propiedad intelectual y concentración de canales."
+        ],
+        "indicators": [
+          "Retención y churn por cohorte",
+          "Margen de contribución tras publicidad y devoluciones",
+          "Costo de adquisición, recuperación del costo y concentración por canal"
+        ],
+        "pilots": [
+          "Agente de seguimiento comercial, recuperación de pagos y retención con grupos de control.",
+          "Clasificación de soporte, conciliación de ventas e inventario y reporting con trazabilidad."
+        ]
+      },
+      "tax": {
+        "state": "No informado",
+        "summary": "La tasa aplicable aún no está verificada para este estado y tipo de entidad. Revisar la autoridad fiscal estatal antes de presupuestar el cierre o el flujo después de impuestos.",
+        "url": "https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites",
+        "reviewed_at": null
+      },
+      "peers": {
+        "count": 32,
+        "basis": "Beneficio neto declarado",
+        "median_multiple": 2.1000002541873264,
+        "margin_count": 32,
+        "median_margin": 80.51755067986562
+      },
+      "digital": {
+        "status": "identity_pending",
+        "website": null,
+        "observations": [],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de seguimiento de leads, recuperación de carritos o reactivación de clientes, según el canal real.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Automatizar clasificación de soporte, reportes y conciliación operativa con revisión humana.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "sources": [
+          {
+            "url": "https://empireflippers.com/listing/87775/",
+            "kind": "anuncio",
+            "checked_at": "2026-10-23T17:29:17.471Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=%20%20Digital%20Product%20Business%20in%20the%20Design%20Niche%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-10-23T17:29:17.471Z"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Anuncio del negocio",
+          "url": "https://empireflippers.com/listing/87775/",
+          "as_of": "2026-10-23T05:01:01.637818+00:00"
+        },
+        {
+          "title": "Contexto fiscal estatal",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites",
+          "as_of": null
         },
         {
           "title": "BLS · indicadores por industria",
