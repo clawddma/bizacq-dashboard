@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-10-29T05:00:52.784599+00:00 · actualización de fuentes",
+  "last_update": "2026-10-29 15:02 UTC (dashboard)",
   "version": "0.16.0-martins-corrected",
   "note": "18 deals. 8 seed originales + 10 nuevos construidos sobre listings REALES de WebSearch (BizBuySell, BusinessBroker, DealStream, BizQuest, Openfair). Datos verificables o estimados con margen típico de industria (marcado en risk_flags cuando aplique). Análisis financiero/estratégico generado por Claude actuando como los subagentes.",
   "checkpoint_log": [
@@ -84996,7 +84996,7 @@
       "business_type": "Cleaning Services",
       "state": "FL",
       "city": "",
-      "pipeline_status": "RADAR",
+      "pipeline_status": "EN_ANALISIS",
       "pending_analysis": true,
       "created_at": "2026-10-17T05:01:55.401371+00:00",
       "source_imported_at": "2026-10-17T05:01:55.401371+00:00",
@@ -85005,6 +85005,10 @@
         {
           "created_at": "2026-10-17T05:01:55.401371+00:00",
           "description": "Nueva oferta pública incorporada al Radar."
+        },
+        {
+          "created_at": "2026-10-29",
+          "description": "Movido RADAR → EN_ANALISIS (dashboard)"
         }
       ],
       "documents": [],
