@@ -114847,7 +114847,7 @@
       "curated_source": false,
       "screening": {
         "version": "screen-v2",
-        "calculated_at": "2026-11-23T05:00:25.221Z",
+        "calculated_at": "2026-11-23T21:51:35.251Z",
         "score": 85,
         "signals_available": 5,
         "signals_total": 7,
@@ -114855,8 +114855,8 @@
         "confidence": "amplia",
         "coverage": null,
         "disposition": "eligible",
-        "listing_age_days": 7,
-        "checked_age_days": 6,
+        "listing_age_days": 8,
+        "checked_age_days": 7,
         "earnings_basis": "beneficio neto publicado",
         "multiple": 2.2,
         "components": [
@@ -114955,6 +114955,75 @@
         "source_url": "https://empireflippers.com/listing/98460/",
         "questions": [
           "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "digital_analysis": {
+        "version": "digital-v1",
+        "performed_at": "2026-11-23T21:51:34.400Z",
+        "status": "identity_pending",
+        "website": null,
+        "website_candidates": [],
+        "observations": [
+          {
+            "name": "Logística",
+            "status": "El anuncio describe logística externalizada; validar inventario, tarifas, stock y dependencia de plataforma.",
+            "evidence_url": "https://empireflippers.com/listing/98460/"
+          }
+        ],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de seguimiento de leads, recuperación de carritos o reactivación de clientes, según el canal real.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Agente de inventario y conciliación entre tienda, 3PL y FBA: alertar quiebres, exceso de stock, devoluciones y diferencias; aprobar compras manualmente.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://empireflippers.com/listing/98460/",
+            "kind": "anuncio",
+            "checked_at": "2026-11-23T21:51:34.400Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=%20%20Amazon%20FBA%20Business%20in%20the%20Equipment%20Niche%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-11-23T21:51:34.400Z"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "financial_method": {
+          "incremental_profit": "Ventas adicionales × margen de contribución − costo comercial y herramientas.",
+          "net_savings": "Horas eliminadas × costo efectivo − implementación, herramientas, supervisión y retrabajo.",
+          "valuation": "Sin proyecciones de crecimiento, ahorro o múltiplo de salida hasta medir una línea base."
+        }
+      },
+      "preliminary_analysis": {
+        "performed_at": "2026-11-23T21:51:35.251Z",
+        "model": "screen-v2",
+        "summary": "Afinidad preliminar 85/100. Información pública y escenarios; cifras pendientes de diligencia.",
+        "questions": [
+          "Confirmar disponibilidad, motivo de venta y condiciones vigentes.",
+          "Solicitar el detalle que respalda la ganancia publicada y sus ajustes.",
+          "Validar concentración de clientes/canales, recurrencia y horas reales del dueño.",
+          "Medir una palanca de ventas y una tarea automatizable antes de proyectar retornos.",
+          "Antes de ofertar: conciliar cifras, deuda, capex, capital de trabajo, contratos y permisos."
         ]
       }
     }
@@ -120631,6 +120700,165 @@
           "title": "Contexto fiscal estatal",
           "url": "https://floridarevenue.com/taxes/taxesfees/Pages/corporate.aspx",
           "as_of": "2026-10-16"
+        },
+        {
+          "title": "BLS · indicadores por industria",
+          "url": "https://www.bls.gov/iag/",
+          "as_of": null
+        },
+        {
+          "title": "SBA · propiedad, ciudadanía y residencia",
+          "url": "https://legacy.sba.gov/document/procedural-notice-5000-876626-revised-applicant-ownership-citizenship-residency-requirements-7a-504-loans",
+          "as_of": "2026-10-16"
+        },
+        {
+          "title": "IRS · asignación del precio en compras de activos",
+          "url": "https://www.irs.gov/instructions/i8594",
+          "as_of": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "id": "9a2f9643-bfaa-4cc1-b19b-64c212e270d1",
+      "deal_id": "359794ac-89a9-4bd9-a7e8-55d50c9ae0e8",
+      "version": 1,
+      "generated_at": "2026-11-23T21:51:35.251Z",
+      "title": "$17.1K Per Month Amazon FBA Business in the Equipment Niche",
+      "industry": "E-commerce",
+      "state": "",
+      "city": "",
+      "stage_at_generation": "RADAR",
+      "source_url": "https://empireflippers.com/listing/98460/",
+      "source_checked_at": "2026-11-16T05:00:52.882740+00:00",
+      "published_at": "2026-11-15T11:00:00.275Z",
+      "source_signature": "[\"$17.1K Per Month Amazon FBA Business in the Equipment Niche\",\"\",\"\",\"E-commerce\",\"https://empireflippers.com/listing/98460/\",{\"price\":121079,\"revenue\":204617,\"earnings\":55036,\"basis\":\"Beneficio neto declarado\",\"sde\":null,\"net_profit\":55036,\"cash_flow\":null,\"ebitda\":null,\"years\":null,\"multiple\":2.199996366014972,\"margin\":26.897080887707276,\"conflict\":false},\"This Amazon FBA business operates in the tools and equipment niche, selling a catalog of 43 SKUs focused on SDS Plus and SDS Max rotary hammer drill bits for concrete, stone, and masonry, alongside two household cleaning products sold under a secondary brand. Key strengths include healthy net profit margins of ~27%, sales driven primarily by organic Amazon traffic with minimal advertising spend, and a highly passive operating model requiring approximately one hour per week.\\n\\nThe business generates 99% of its revenue through Amazon FBA in the US marketplace with the remaining 1% of revenue via a Shopify store. Products are sourced from three suppliers in China without long-term contracts and shipped by sea into Amazon’s fulfillment network, where all inventory is stored and Amazon handles customer fulfillment. Amazon PPC has only been used occasionally and has been paused in recent months, with the majority of sales coming from organic traffic.\\n\\nThere are no employees, and the seller spends approximately one hour per week managing the business. Growth opportunities include expanding the catalog with additional drill bit sizes and types for different applications, identifying underserved drill bit niches for new product launches, and reintroducing Amazon PPC to support further sales growth. With healthy margins, organic-led sales, a 43-SKU catalog, and minimal owner involvement, the business offers an established platform for a buyer seeking a low-maintenance Amazon FBA business in the power tool accessories market.\\n\\nDisclaimers:\\n\\nInventory is not normally included in the list price, further details can be provided to Unlockers.\\n\\nBuyers need an active VAT number in all UK/EU countries where this business has inventory stored before the transfer can finalize. It is highly recommended to begin the VAT registration process as soon as possible.\",\"published\",null,[[\"Logística\",\"El anuncio describe logística externalizada; validar inventario, tarifas, stock y dependencia de plataforma.\"]]]",
+      "description": "This Amazon FBA business operates in the tools and equipment niche, selling a catalog of 43 SKUs focused on SDS Plus and SDS Max rotary hammer drill bits for concrete, stone, and masonry, alongside two household cleaning products sold under a secondary brand. Key strengths include healthy net profit margins of ~27%, sales driven primarily by organic Amazon traffic with minimal advertising spend, and a highly passive operating model requiring approximately one hour per week.\n\nThe business generates 99% of its revenue through Amazon FBA in the US marketplace with the remaining 1% of revenue via a Shopify store. Products are sourced from three suppliers in China without long-term contracts and shipped by sea into Amazon’s fulfillment network, where all inventory is stored and Amazon handles customer fulfillment. Amazon PPC has only been used occasionally and has been paused in recent months, with the majority of sales coming from organic traffic.\n\nThere are no employees, and the seller spends approximately one hour per week managing the business. Growth opportunities include expanding the catalog with additional drill bit sizes and types for different applications, identifying underserved drill bit niches for new product launches, and reintroducing Amazon PPC to support further sales growth. With healthy margins, organic-led sales, a 43-SKU catalog, and minimal owner involvement, the business offers an established platform for a buyer seeking a low-maintenance Amazon FBA business in the power tool accessories market.\n\nDisclaimers:\n\nInventory is not normally included in the list price, further details can be provided to Unlockers.\n\nBuyers need an active VAT number in all UK/EU countries where this business has inventory stored before the transfer can finalize. It is highly recommended to begin the VAT registration process as soon as possible.",
+      "financials": {
+        "price": 121079,
+        "revenue": 204617,
+        "earnings": 55036,
+        "basis": "Beneficio neto declarado",
+        "sde": null,
+        "net_profit": 55036,
+        "cash_flow": null,
+        "ebitda": null,
+        "years": null,
+        "multiple": 2.199996366014972,
+        "margin": 26.897080887707276,
+        "conflict": false
+      },
+      "score": 85,
+      "flags": [],
+      "availability": "eligible",
+      "prospecting": {
+        "version": "prospect-v1",
+        "retirement": false,
+        "succession_gap": false,
+        "reason_for_sale": null,
+        "retirement_evidence": null,
+        "seller_financing": "unknown",
+        "seller_percent": null,
+        "seller_label": "No informada",
+        "seller_evidence": null,
+        "sba_advertised": false,
+        "sba_evidence": null,
+        "financials_usable": true,
+        "financial_conflict": false,
+        "source_url": "https://empireflippers.com/listing/98460/",
+        "questions": [
+          "Validar caja, concentración de clientes, capital de trabajo y capex antes de estructurar la compra."
+        ]
+      },
+      "sector": {
+        "name": "Tecnología y canales digitales",
+        "naics": "Por validar según actividad",
+        "attraction": "Suscripciones, clientes repetidos y distribución digital pueden facilitar experimentos medibles de adquisición y retención. Confirmar recurrencia y propiedad de los activos.",
+        "risks": [
+          "Dependencia de plataforma, tráfico pagado, clientes o código del fundador.",
+          "Churn, devoluciones, seguridad, propiedad intelectual y concentración de canales."
+        ],
+        "indicators": [
+          "Retención y churn por cohorte",
+          "Margen de contribución tras publicidad y devoluciones",
+          "Costo de adquisición, recuperación del costo y concentración por canal"
+        ],
+        "pilots": [
+          "Agente de seguimiento comercial, recuperación de pagos y retención con grupos de control.",
+          "Clasificación de soporte, conciliación de ventas e inventario y reporting con trazabilidad."
+        ]
+      },
+      "tax": {
+        "state": "No informado",
+        "summary": "La tasa aplicable aún no está verificada para este estado y tipo de entidad. Revisar la autoridad fiscal estatal antes de presupuestar el cierre o el flujo después de impuestos.",
+        "url": "https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites",
+        "reviewed_at": null
+      },
+      "peers": {
+        "count": 87,
+        "basis": "Beneficio neto declarado",
+        "median_multiple": 2.5999699300874535,
+        "margin_count": 87,
+        "median_margin": 25.66663665247424
+      },
+      "digital": {
+        "status": "identity_pending",
+        "website": null,
+        "observations": [
+          {
+            "name": "Logística",
+            "status": "El anuncio describe logística externalizada; validar inventario, tarifas, stock y dependencia de plataforma.",
+            "evidence_url": "https://empireflippers.com/listing/98460/"
+          }
+        ],
+        "opportunities": [
+          {
+            "area": "Ingresos",
+            "proposal": "Agente de seguimiento de leads, recuperación de carritos o reactivación de clientes, según el canal real.",
+            "baseline": "Leads/mes, tasa de contacto, conversión y margen por venta.",
+            "pilot": "Comparar conversión y margen incremental frente a una línea base durante 30 días.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Costos y gastos",
+            "proposal": "Agente de inventario y conciliación entre tienda, 3PL y FBA: alertar quiebres, exceso de stock, devoluciones y diferencias; aprobar compras manualmente.",
+            "baseline": "Horas por tarea, costo por hora, errores, retrabajo y costo de herramientas.",
+            "pilot": "Medir horas netas ahorradas y calidad; descontar implementación, supervisión y herramientas.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          },
+          {
+            "area": "Capacidad y control",
+            "proposal": "Agente de reporting de ventas, servicio y caja que detecte incidencias y derive excepciones al responsable.",
+            "baseline": "Volumen atendido, tiempos de respuesta, capacidad, margen y excepciones.",
+            "pilot": "Probar un proceso con registro auditable y límites de actuación antes de ampliarlo.",
+            "status": "hipótesis de mejora; requiere validación con la empresa"
+          }
+        ],
+        "limitations": [
+          "Web del negocio no identificada con evidencia suficiente. Esto no demuestra que no tenga web. La identidad puede ser confidencial."
+        ],
+        "sources": [
+          {
+            "url": "https://empireflippers.com/listing/98460/",
+            "kind": "anuncio",
+            "checked_at": "2026-11-23T21:51:34.400Z"
+          },
+          {
+            "url": "https://www.bing.com/search?format=rss&q=%20%20Amazon%20FBA%20Business%20in%20the%20Equipment%20Niche%20%20official%20business%20website",
+            "kind": "búsqueda de identidad",
+            "checked_at": "2026-11-23T21:51:34.400Z"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "title": "Anuncio del negocio",
+          "url": "https://empireflippers.com/listing/98460/",
+          "as_of": "2026-11-16T05:00:52.882740+00:00"
+        },
+        {
+          "title": "Contexto fiscal estatal",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites",
+          "as_of": null
         },
         {
           "title": "BLS · indicadores por industria",
